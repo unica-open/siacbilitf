@@ -1,0 +1,61 @@
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaEntrata.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaEntrata.java	(revision 8806)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaEntrata.java	(working copy)
+@@ -12,6 +12,7 @@
+ 	
+ 	private Bilancio bilancio;
+ 	private SubdocumentoIvaEntrata subdocumentoIvaEntrata;
++	private boolean senzaProtocollo;
+ 	
+ 	/**
+ 	 * @return the bilancio
+@@ -37,5 +38,17 @@
+ 	public void setSubdocumentoIvaEntrata(SubdocumentoIvaEntrata subdocumentoIvaEntrata) {
+ 		this.subdocumentoIvaEntrata = subdocumentoIvaEntrata;
+ 	}
++	/**
++	 * @return the senzaProtocollo
++	 */
++	public boolean isSenzaProtocollo() {
++		return senzaProtocollo;
++	}
++	/**
++	 * @param senzaProtocollo the senzaProtocollo to set
++	 */
++	public void setSenzaProtocollo(boolean senzaProtocollo) {
++		this.senzaProtocollo = senzaProtocollo;
++	}
+ 	
+ }
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaSpesa.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaSpesa.java	(revision 8806)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/InserisceSubdocumentoIvaSpesa.java	(working copy)
+@@ -12,6 +12,7 @@
+ 	
+ 	private Bilancio bilancio;
+ 	private SubdocumentoIvaSpesa subdocumentoIvaSpesa;
++	private boolean senzaProtocollo;
+ 	
+ 	/**
+ 	 * @return the bilancio
+@@ -37,5 +38,18 @@
+ 	public void setSubdocumentoIvaSpesa(SubdocumentoIvaSpesa subdocumentoIvaSpesa) {
+ 		this.subdocumentoIvaSpesa = subdocumentoIvaSpesa;
+ 	}
++	/**
++	 * @return the senzaProtocollo
++	 */
++	public boolean isSenzaProtocollo() {
++		return senzaProtocollo;
++	}
++	/**
++	 * @param senzaProtocollo the senzaProtocollo to set
++	 */
++	public void setSenzaProtocollo(boolean senzaProtocollo) {
++		this.senzaProtocollo = senzaProtocollo;
++	}
+ 	
++	
+ }

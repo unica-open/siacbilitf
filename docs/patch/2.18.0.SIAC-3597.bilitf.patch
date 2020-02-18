@@ -1,0 +1,281 @@
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancio.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancio.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancio.java	(revision 11409)
+@@ -16,6 +16,8 @@
+ 	private Boolean annullaVariazione;	
+ 	private Boolean evolviProcesso = Boolean.FALSE;
+ 	
++	boolean saltaCheckStanziamentoCassa = false;
++	
+ 	//Variazione da aggiornare
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
+ 
+@@ -79,8 +81,24 @@
+ 	public void setIdAttivita(String idAttivita) {
+ 		this.idAttivita = idAttivita;
+ 	}
++
++	/**
++	 * @return the saltaCheckStanziamentoCassa
++	 */
++	public boolean isSaltaCheckStanziamentoCassa() {
++		return saltaCheckStanziamentoCassa;
++	}
++
++	/**
++	 * @param saltaCheckStanziamentoCassa the saltaCheckStanziamentoCassa to set
++	 */
++	public void setSaltaCheckStanziamentoCassa(boolean saltaCheckStanziamentoCassa) {
++		this.saltaCheckStanziamentoCassa = saltaCheckStanziamentoCassa;
++	}
++
+ 	
+ 	
+ 	
++	
+ 
+ }
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancioResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancioResponse.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/AggiornaVariazioneBilancioResponse.java	(revision 11409)
+@@ -12,7 +12,8 @@
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
+ 	private String idAttivita;
+ 	
+-	private Boolean isQuadraturaCorretta = Boolean.FALSE;
++	private Boolean isQuadraturaCorrettaStanziamento = Boolean.FALSE;
++	private Boolean isQuadraturaCorrettaStanziamentoCassa = Boolean.FALSE;
+ 	private Boolean isProvvedimentoPresenteDefinitivo = Boolean.FALSE;
+ 
+ 	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
+@@ -28,13 +29,38 @@
+ 	 * @return true se il controllo della quadratura degli importi ha dato esito positivo.
+ 	 */
+ 	public Boolean getIsQuadraturaCorretta() {
+-		return isQuadraturaCorretta;
++		return Boolean.TRUE.equals(getIsQuadraturaCorrettaStanziamento()) 
++				&& Boolean.TRUE.equals(getIsQuadraturaCorrettaStanziamentoCassa());
+ 	}
+ 
+-	public void setIsQuadraturaCorretta(Boolean isQuadraturaCorretta) {
+-		this.isQuadraturaCorretta = isQuadraturaCorretta;
++	/**
++	 * @return the isQuadraturaCorrettaStanziamento
++	 */
++	public Boolean getIsQuadraturaCorrettaStanziamento() {
++		return isQuadraturaCorrettaStanziamento;
+ 	}
+ 
++	/**
++	 * @param isQuadraturaCorrettaStanziamento the isQuadraturaCorrettaStanziamento to set
++	 */
++	public void setIsQuadraturaCorrettaStanziamento(Boolean isQuadraturaCorrettaStanziamento) {
++		this.isQuadraturaCorrettaStanziamento = isQuadraturaCorrettaStanziamento;
++	}
++
++	/**
++	 * @return the isQuadraturaCorrettaStanziamentoCassa
++	 */
++	public Boolean getIsQuadraturaCorrettaStanziamentoCassa() {
++		return isQuadraturaCorrettaStanziamentoCassa;
++	}
++
++	/**
++	 * @param isQuadraturaCorrettaStanziamentoCassa the isQuadraturaCorrettaStanziamentoCassa to set
++	 */
++	public void setIsQuadraturaCorrettaStanziamentoCassa(Boolean isQuadraturaCorrettaStanziamentoCassa) {
++		this.isQuadraturaCorrettaStanziamentoCassa = isQuadraturaCorrettaStanziamentoCassa;
++	}
++
+ 	public String getIdAttivita() {
+ 		return idAttivita;
+ 	}
+@@ -52,7 +78,7 @@
+ 	}
+ 	
+ 	public Boolean isQuadraturaCorrettaAndProvvedimentoPresenteDefinitivo() {
+-		return Boolean.valueOf(Boolean.TRUE.equals(isQuadraturaCorretta) && Boolean.TRUE.equals(isProvvedimentoPresenteDefinitivo));
++		return Boolean.valueOf(Boolean.TRUE.equals(getIsQuadraturaCorretta()) && Boolean.TRUE.equals(isProvvedimentoPresenteDefinitivo));
+ 	}
+ 
+ }
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancioResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancioResponse.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancioResponse.java	(revision 11409)
+@@ -11,7 +11,8 @@
+ 	
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
+ 	
+-	private Boolean isQuadraturaCorretta = Boolean.FALSE;
++	private Boolean isQuadraturaCorrettaStanziamento = Boolean.FALSE;
++	private Boolean isQuadraturaCorrettaStanziamentoCassa = Boolean.FALSE;
+ 	private Boolean isProvvedimentoPresenteDefinitivo = Boolean.FALSE;
+ 
+ 	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
+@@ -22,14 +23,43 @@
+ 		this.variazioneImportoCapitolo = variazioneImportoCapitolo;
+ 	}
+ 
++	/**
++	 * 
++	 * @return true se il controllo della quadratura degli importi ha dato esito positivo.
++	 */
+ 	public Boolean getIsQuadraturaCorretta() {
+-		return isQuadraturaCorretta;
++		return Boolean.TRUE.equals(getIsQuadraturaCorrettaStanziamento()) 
++				&& Boolean.TRUE.equals(getIsQuadraturaCorrettaStanziamentoCassa());
+ 	}
+ 
+-	public void setIsQuadraturaCorretta(Boolean isQuadraturaCorretta) {
+-		this.isQuadraturaCorretta = isQuadraturaCorretta;
++	/**
++	 * @return the isQuadraturaCorrettaStanziamento
++	 */
++	public Boolean getIsQuadraturaCorrettaStanziamento() {
++		return isQuadraturaCorrettaStanziamento;
+ 	}
+ 
++	/**
++	 * @param isQuadraturaCorrettaStanziamento the isQuadraturaCorrettaStanziamento to set
++	 */
++	public void setIsQuadraturaCorrettaStanziamento(Boolean isQuadraturaCorrettaStanziamento) {
++		this.isQuadraturaCorrettaStanziamento = isQuadraturaCorrettaStanziamento;
++	}
++
++	/**
++	 * @return the isQuadraturaCorrettaStanziamentoCassa
++	 */
++	public Boolean getIsQuadraturaCorrettaStanziamentoCassa() {
++		return isQuadraturaCorrettaStanziamentoCassa;
++	}
++
++	/**
++	 * @param isQuadraturaCorrettaStanziamentoCassa the isQuadraturaCorrettaStanziamentoCassa to set
++	 */
++	public void setIsQuadraturaCorrettaStanziamentoCassa(Boolean isQuadraturaCorrettaStanziamentoCassa) {
++		this.isQuadraturaCorrettaStanziamentoCassa = isQuadraturaCorrettaStanziamentoCassa;
++	}
++
+ 	public Boolean getIsProvvedimentoPresenteDefinitivo() {
+ 		return isProvvedimentoPresenteDefinitivo;
+ 	}
+@@ -39,6 +69,6 @@
+ 	}
+ 
+ 	public Boolean isQuadraturaCorrettaAndProvvedimentoPresenteDefinitivo() {
+-		return Boolean.valueOf(Boolean.TRUE.equals(isQuadraturaCorretta) && Boolean.TRUE.equals(isProvvedimentoPresenteDefinitivo));
++		return Boolean.valueOf(Boolean.TRUE.equals(getIsQuadraturaCorretta()) && Boolean.TRUE.equals(isProvvedimentoPresenteDefinitivo));
+ 	}
+ }
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancio.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancio.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/InserisceVariazioneBilancio.java	(revision 11409)
+@@ -12,8 +12,9 @@
+ 	private Boolean invioOrganoAmministrativo;
+ 	private Boolean invioOrganoLegislativo;
+ //	private Boolean annullaVariazione;
++
++	boolean saltaCheckStanziamentoCassa = false;
+ 	
+-	
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
+ 
+ 	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
+@@ -39,7 +40,22 @@
+ 	public void setInvioOrganoLegislativo(Boolean invioOrganoLegislativo) {
+ 		this.invioOrganoLegislativo = invioOrganoLegislativo;
+ 	}
++
++	/**
++	 * @return the saltaCheckStanziamentoCassa
++	 */
++	public boolean isSaltaCheckStanziamentoCassa() {
++		return saltaCheckStanziamentoCassa;
++	}
++
++	/**
++	 * @param saltaCheckStanziamentoCassa the saltaCheckStanziamentoCassa to set
++	 */
++	public void setSaltaCheckStanziamentoCassa(boolean saltaCheckStanziamentoCassa) {
++		this.saltaCheckStanziamentoCassa = saltaCheckStanziamentoCassa;
++	}
+ 	
+ 	
++	
+ 
+ }
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancio.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancio.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancio.java	(revision 11409)
+@@ -21,6 +21,8 @@
+ 	
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
+ 	
++	boolean saltaCheckStanziamentoCassa = false;
++	
+ 	@XmlElementWrapper(name="variabiliProcesso")
+ 	@XmlElement(name="variabileProcesso")
+ 	private List<VariabileProcesso> listaVariabiliProcesso = new ArrayList<VariabileProcesso>();
+@@ -49,6 +51,20 @@
+ 	public void setListaVariabiliProcesso(List<VariabileProcesso> listaVariabiliProcesso) {
+ 		this.listaVariabiliProcesso = listaVariabiliProcesso;
+ 	}
++
++	/**
++	 * @return the saltaCheckStanziamentoCassa
++	 */
++	public boolean isSaltaCheckStanziamentoCassa() {
++		return saltaCheckStanziamentoCassa;
++	}
++
++	/**
++	 * @param saltaCheckStanziamentoCassa the saltaCheckStanziamentoCassa to set
++	 */
++	public void setSaltaCheckStanziamentoCassa(boolean saltaCheckStanziamentoCassa) {
++		this.saltaCheckStanziamentoCassa = saltaCheckStanziamentoCassa;
++	}
+ 	
+ 	
+ 	
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancioResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancioResponse.java	(revision 11399)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/DefinisceVariazioneBilancioResponse.java	(revision 11409)
+@@ -10,7 +10,10 @@
+ public class DefinisceVariazioneBilancioResponse extends ServiceResponse {
+ 	
+ 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
++	private Boolean isQuadraturaCorrettaStanziamento = Boolean.FALSE;
++	private Boolean isQuadraturaCorrettaStanziamentoCassa = Boolean.FALSE;
+ 
++
+ 	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
+ 		return variazioneImportoCapitolo;
+ 	}
+@@ -19,4 +22,21 @@
+ 		this.variazioneImportoCapitolo = variazioneImportoCapitolo;
+ 	}
+ 
++	public Boolean getIsQuadraturaCorrettaStanziamentoCassa() {
++		return isQuadraturaCorrettaStanziamentoCassa;
++	}
++
++	public void setIsQuadraturaCorrettaStanziamentoCassa(Boolean isQuadraturaCorrettaStanziamentoCassa) {
++		this.isQuadraturaCorrettaStanziamentoCassa = isQuadraturaCorrettaStanziamentoCassa;
++	}
++
++	public Boolean getIsQuadraturaCorrettaStanziamento() {
++		return isQuadraturaCorrettaStanziamento;
++	}
++
++	public void setIsQuadraturaCorrettaStanziamento(Boolean isQuadraturaCorrettaStanziamento) {
++		this.isQuadraturaCorrettaStanziamento = isQuadraturaCorrettaStanziamento;
++	}
++
++
+ }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/att/data/1.0" xmlns:ns1="http://siac.csi.it/cor/data/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://siac.csi.it/cor/data/1.0" schemaLocation="CapitoloEntrataPrevisioneService_schema2.xsd"/>
+
+  <xs:complexType name="attoAmministrativo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="anno" type="xs:int"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+          <xs:element name="note" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+          <xs:element name="oggetto" type="xs:string" minOccurs="0"/>
+          <xs:element name="statoOperativo" type="xs:string" minOccurs="0"/>
+          <xs:element name="strutturaAmmContabile" type="ns1:strutturaAmministrativoContabile" minOccurs="0"/>
+          <xs:element name="tipoAtto" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

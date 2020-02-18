@@ -1,0 +1,306 @@
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesa.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesa.java	(revision 13088)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesa.java	(revision 13101)
+@@ -1,7 +1,11 @@
+ package it.csi.siac.siacfin2ser.frontend.webservice.msg;
+ 
+-import it.csi.siac.siaccorser.model.ServiceRequest;
+-import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
++import java.util.Date;
++
++import javax.xml.bind.annotation.XmlTransient;
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaBaseRequest;
+ import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
+ import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
+ import it.csi.siac.siacfin2ser.model.PreDocumentoSpesa;
+@@ -8,13 +12,12 @@
+ import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
+ import it.csi.siac.siacfin2ser.model.TipoCausale;
+ 
+-import java.util.Date;
+-
+-import javax.xml.bind.annotation.XmlTransient;
+-import javax.xml.bind.annotation.XmlType;
+-
++/**
++ * @author Marchino Alessandro
++ *
++ */
+ @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
+-public class RicercaSinteticaPreDocumentoSpesa extends ServiceRequest {
++public class RicercaSinteticaPreDocumentoSpesa extends RicercaSinteticaBaseRequest {
+ 	
+ 	private PreDocumentoSpesa preDocumentoSpesa;
+ 	private TipoCausale tipoCausale;
+@@ -30,8 +33,9 @@
+ 	
+ 	private Boolean estraiNonPagato = Boolean.FALSE;
+ 	
+-	
+-	private ParametriPaginazione parametriPaginazione;
++	// SIAC-4384
++	private Boolean soloImporto;
++
+ 	/**
+ 	 * @return the preDocumentoSpesa
+ 	 */
+@@ -91,10 +95,7 @@
+ 	 * @param causaleSpesaMancante the causaleSpesaMancante to set
+ 	 */
+ 	public void setCausaleSpesaMancante(Boolean causaleSpesaMancante) {
+-		if(causaleSpesaMancante==null){
+-			causaleSpesaMancante = Boolean.FALSE;
+-		}
+-		this.causaleSpesaMancante = causaleSpesaMancante;
++		this.causaleSpesaMancante = causaleSpesaMancante != null ? causaleSpesaMancante : Boolean.FALSE;
+ 	}
+ 	/**
+ 	 * @return the contoTesoreriaMancante
+@@ -106,10 +107,7 @@
+ 	 * @param contoTesoreriaMancante the contoTesoreriaMancante to set
+ 	 */
+ 	public void setContoTesoreriaMancante(Boolean contoTesoreriaMancante) {
+-		if(contoTesoreriaMancante==null){
+-			contoTesoreriaMancante = Boolean.FALSE;
+-		}
+-		this.contoTesoreriaMancante = contoTesoreriaMancante;
++		this.contoTesoreriaMancante = contoTesoreriaMancante != null ? contoTesoreriaMancante : Boolean.FALSE;
+ 	}
+ 	/**
+ 	 * @return the soggettoMancante
+@@ -121,10 +119,7 @@
+ 	 * @param soggettoMancante the soggettoMancante to set
+ 	 */
+ 	public void setSoggettoMancante(Boolean soggettoMancante) {
+-		if(soggettoMancante==null){
+-			soggettoMancante = Boolean.FALSE;
+-		}
+-		this.soggettoMancante = soggettoMancante;
++		this.soggettoMancante = soggettoMancante != null ? soggettoMancante : Boolean.FALSE;
+ 	}
+ 	/**
+ 	 * @return the provvedimentoMancante
+@@ -136,10 +131,7 @@
+ 	 * @param provvedimentoMancante the provvedimentoMancante to set
+ 	 */
+ 	public void setProvvedimentoMancante(Boolean provvedimentoMancante) {
+-		if(provvedimentoMancante==null){
+-			provvedimentoMancante = Boolean.FALSE;
+-		}
+-		this.provvedimentoMancante = provvedimentoMancante;
++		this.provvedimentoMancante = provvedimentoMancante != null ? provvedimentoMancante : Boolean.FALSE;
+ 	}
+ 	/**
+ 	 * @return the estraiNonPagato
+@@ -151,25 +143,12 @@
+ 	 * @param estraiNonPagato the estraiNonPagato to set
+ 	 */
+ 	public void setEstraiNonPagato(Boolean estraiNonPagato) {
+-		if(estraiNonPagato==null){
+-			estraiNonPagato = Boolean.FALSE;
+-		}
+-		this.estraiNonPagato = estraiNonPagato;
++		this.estraiNonPagato = estraiNonPagato != null ? estraiNonPagato : Boolean.FALSE;
+ 	}
++	
+ 	/**
+-	 * @return the parametriPaginazione
++	 * @return the documento
+ 	 */
+-	public ParametriPaginazione getParametriPaginazione() {
+-		return parametriPaginazione;
+-	}
+-	/**
+-	 * @param parametriPaginazione the parametriPaginazione to set
+-	 */
+-	public void setParametriPaginazione(ParametriPaginazione parametriPaginazione) {
+-		this.parametriPaginazione = parametriPaginazione;
+-	}
+-	
+-	
+ 	@XmlTransient
+ 	public DocumentoSpesa getDocumento() {
+ 		try {
+@@ -179,6 +158,9 @@
+ 		}
+ 	}
+ 	
++	/**
++	 * @param documento the documento to set
++	 */
+ 	public void setDocumento(DocumentoSpesa documento) {
+ 		if(preDocumentoSpesa==null){
+ 			preDocumentoSpesa = new PreDocumentoSpesa();
+@@ -188,6 +170,18 @@
+ 		}
+ 		preDocumentoSpesa.getSubDocumento().setDocumento(documento);
+ 	}
++	/**
++	 * @return the soloImporto
++	 */
++	public Boolean getSoloImporto() {
++		return soloImporto;
++	}
++	/**
++	 * @param soloImporto the soloImporto to set
++	 */
++	public void setSoloImporto(Boolean soloImporto) {
++		this.soloImporto = soloImporto;
++	}
+ 	
+ 	
+ 	
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesaResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesaResponse.java	(revision 13088)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoSpesaResponse.java	(revision 13101)
+@@ -2,61 +2,42 @@
+ 
+ import java.math.BigDecimal;
+ 
+-import it.csi.siac.siaccorser.model.ServiceResponse;
++import javax.xml.bind.annotation.XmlElement;
++import javax.xml.bind.annotation.XmlElementWrapper;
++import javax.xml.bind.annotation.XmlTransient;
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaBaseResponse;
+ import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
+ import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
+ import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
+ import it.csi.siac.siacfin2ser.model.PreDocumentoSpesa;
+ 
+-import javax.xml.bind.annotation.XmlElement;
+-import javax.xml.bind.annotation.XmlElementWrapper;
+-import javax.xml.bind.annotation.XmlTransient;
+-import javax.xml.bind.annotation.XmlType;
+-
+ @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
+-public class RicercaSinteticaPreDocumentoSpesaResponse extends ServiceResponse {
++public class RicercaSinteticaPreDocumentoSpesaResponse extends RicercaSinteticaBaseResponse<PreDocumentoSpesa> {
+ 	
+ 	
+-	@XmlElementWrapper(name = "listaPreDocumentiSpesa")	    
++	@XmlElementWrapper(name = "listaPreDocumentiSpesa")
+ 	@XmlElement(name = "preDocumentoSpesa")
+ 	private ListaPaginata<PreDocumentoSpesa> preDocumenti = new ListaPaginataImpl<PreDocumentoSpesa>();
+ 	
+ 	private BigDecimal importoTotale;
+ 
++	/**
++	 * @return the pre documenti
++	 */
+ 	@XmlTransient
+ 	public ListaPaginata<PreDocumentoSpesa> getPreDocumenti() {
+ 		return preDocumenti;
+ 	}
+ 
++	/**
++	 * @param listaPreDocumentoSpesa the pre documenti to set
++	 */
+ 	public void setPreDocumenti( ListaPaginata<PreDocumentoSpesa> listaPreDocumentoSpesa) {
+ 		this.preDocumenti = listaPreDocumentoSpesa;
+ 	}
+ 	
+-	
+-	public void setTotaleElementi(int totaleElementi){
+-		((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).setTotaleElementi(totaleElementi);
+-	}	
+-
+-	public void setTotalePagine(int totaleElementi){
+-		((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).setTotalePagine(totaleElementi);
+-	}	
+-
+-	public void setPaginaCorrente(int totaleElementi){
+-		((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).setPaginaCorrente(totaleElementi);
+-	}
+-	
+-	public int getTotaleElementi(){
+-		return ((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).getTotaleElementi();
+-	}
+-	
+-	public int getTotalePagine(){
+-		return ((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).getTotalePagine();
+-	}
+-	
+-	public int getPaginaCorrente(){
+-		return ((ListaPaginataImpl<PreDocumentoSpesa>)preDocumenti).getPaginaCorrente();
+-	}
+-
+ 	/**
+ 	 * @return the importoTotale
+ 	 */
+@@ -71,7 +52,12 @@
+ 		this.importoTotale = importoTotale;
+ 	}
+ 
++	@Override
++	protected ListaPaginataImpl<PreDocumentoSpesa> getAsListaPaginata() {
++		return (ListaPaginataImpl<PreDocumentoSpesa>) getPreDocumenti();
++	}
+ 
++
+ 	
+ 	
+ 
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrataResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrataResponse.java	(revision 13088)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrataResponse.java	(revision 13101)
+@@ -23,13 +23,19 @@
+ 	
+ 	private BigDecimal importoTotale;
+ 
++	/**
++	 * @return the pre documenti
++	 */
+ 	@XmlTransient
+ 	public ListaPaginata<PreDocumentoEntrata> getPreDocumenti() {
+ 		return preDocumenti;
+ 	}
+ 
+-	public void setPreDocumenti(ListaPaginata<PreDocumentoEntrata> listaPreDocumentoEntrata) {
+-		this.preDocumenti = listaPreDocumentoEntrata;
++	/**
++	 * @param preDocumenti the pre documenti to set
++	 */
++	public void setPreDocumenti(ListaPaginata<PreDocumentoEntrata> preDocumenti) {
++		this.preDocumenti = preDocumenti;
+ 	}
+ 
+ 	/**
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrata.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrata.java	(revision 13088)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/RicercaSinteticaPreDocumentoEntrata.java	(revision 13101)
+@@ -31,6 +31,8 @@
+ 	// SIAC-4383
+ 	private Date dataTrasmissioneDa;
+ 	private Date dataTrasmissioneA;
++	// SIAC-4384
++	private Boolean soloImporto;
+ 	
+ 	/**
+ 	 * @return the preDocumentoEntrata
+@@ -199,6 +201,18 @@
+ 		}
+ 		preDocumentoEntrata.getSubDocumento().setDocumento(documento);
+ 	}
++	/**
++	 * @return the soloImporto
++	 */
++	public Boolean getSoloImporto() {
++		return soloImporto;
++	}
++	/**
++	 * @param soloImporto the soloImporto to set
++	 */
++	public void setSoloImporto(Boolean soloImporto) {
++		this.soloImporto = soloImporto;
++	}
+ 
+ 	
+ }

@@ -1,0 +1,20 @@
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaSinteticaClassificatoreResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaSinteticaClassificatoreResponse.java	(revision 10869)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaSinteticaClassificatoreResponse.java	(working copy)
+@@ -4,6 +4,7 @@
+ import it.csi.siac.siacbilser.model.Missione;
+ import it.csi.siac.siacbilser.model.SiopeEntrata;
+ import it.csi.siac.siacbilser.model.SiopeSpesa;
++import it.csi.siac.siacbilser.model.TipoFinanziamento;
+ import it.csi.siac.siacbilser.model.TitoloEntrata;
+ import it.csi.siac.siacbilser.model.TitoloSpesa;
+ import it.csi.siac.siaccorser.model.Codifica;
+@@ -32,6 +33,7 @@
+ 		@XmlElement(name = "missione", type = Missione.class),
+ 		@XmlElement(name = "titoloSpesa", type = TitoloSpesa.class),
+ 		@XmlElement(name = "titoloEntrata", type = TitoloEntrata.class),
++		@XmlElement(name = "tipoFinanziamento", type = TipoFinanziamento.class),
+ 	})
+ 	private ListaPaginata<Codifica> codifiche = new ListaPaginataImpl<Codifica>();
+ 

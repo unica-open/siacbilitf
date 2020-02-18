@@ -1,0 +1,31 @@
+Index: src/main/java/it/csi/siac/siacbilser/model/AccantonamentoFondiDubbiaEsigibilita.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/model/AccantonamentoFondiDubbiaEsigibilita.java	(revision 12614)
++++ src/main/java/it/csi/siac/siacbilser/model/AccantonamentoFondiDubbiaEsigibilita.java	(working copy)
+@@ -24,6 +24,8 @@
+ 	private BigDecimal percentualeMediaAccantonamento;
+ 	private BigDecimal percentualeDelta;
+ 	
++	private Boolean accertatoCassa;
++	
+ 	// Per rimarcare la mappatura 1-1
+ 	private CapitoloEntrataPrevisione capitoloEntrataPrevisione;
+ 	/**
+@@ -122,5 +124,17 @@
+ 	public void setCapitoloEntrataPrevisione(CapitoloEntrataPrevisione capitoloEntrataPrevisione) {
+ 		this.capitoloEntrataPrevisione = capitoloEntrataPrevisione;
+ 	}
++	/**
++	 * @return the accertatoPerCassa
++	 */
++	public Boolean getAccertatoCassa() {
++		return accertatoCassa;
++	}
++	/**
++	 * @param accertatoPerCassa the accertatoPerCassaToSet
++	 */
++	public void setAccertatoCassa(Boolean accertatoPerCassa) {
++		this.accertatoCassa = accertatoPerCassa;
++	}
+ 
+ }

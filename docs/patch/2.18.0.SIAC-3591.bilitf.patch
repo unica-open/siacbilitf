@@ -1,0 +1,68 @@
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaClassificatoriModificabiliCapitoloResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaClassificatoriModificabiliCapitoloResponse.java	(revision 11409)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaClassificatoriModificabiliCapitoloResponse.java	(working copy)
+@@ -17,6 +17,9 @@
+ 		
+ 	private Map<TipologiaClassificatore, Integer> classificatoriNonModificabili = new HashMap<TipologiaClassificatore, Integer>();
+ 	
++	private Map<TipologiaClassificatore, Integer> classificatoriNonModificabiliPerMovimentoGestione = new HashMap<TipologiaClassificatore, Integer>();
++	
++	private boolean presenteMovimentoGestione = false;
+ 
+ 	public ControllaClassificatoriModificabiliCapitoloResponse() {
+ 
+@@ -82,5 +85,53 @@
+ 		getClassificatoriNonModificabili().putAll(classificatori);
+ 	}
+ 
++	
++	
++	/**
++	 * @return the classificatoriNonModificabiliPerMovimentoGestione
++	 */
++	public Map<TipologiaClassificatore, Integer> getClassificatoriNonModificabiliPerMovimentoGestione() {
++		return classificatoriNonModificabiliPerMovimentoGestione;
++	}
+ 
++	/**
++	 * @param classificatoriNonModificabiliPerMovimentoGestione the classificatoriNonModificabiliPerMovimentoGestione to set
++	 */
++	public void setClassificatoriNonModificabiliPerMovimentoGestione(
++			Map<TipologiaClassificatore, Integer> classificatoriNonModificabiliPerMovimentoGestione) {
++		this.classificatoriNonModificabiliPerMovimentoGestione = classificatoriNonModificabiliPerMovimentoGestione;
++	}
++	
++	public void addClassificatoriNonModificabiliPerMovimentoGestione(
++			Map<TipologiaClassificatore, Integer> classificatoriNonModificabiliPerMovimentoGestione) {
++		getClassificatoriNonModificabiliPerMovimentoGestione().putAll(classificatoriNonModificabiliPerMovimentoGestione);
++	}
++	
++	/**
++	 * 
++	 * @param tipo
++	 * @return true se il tipo di classificatore &eacute; modificabile.
++	 */
++	public boolean isModificabilePerMovimentoGestione(TipologiaClassificatore tipo){
++		//se non è presente nella mappa o è presente con valore nullo è modificabile
++		//return classificatoriNonModificabili.get(tipo)==null;
++		return !classificatoriNonModificabiliPerMovimentoGestione.containsKey(tipo);
++		
++		
++	}
++
++	/**
++	 * @return the presenteMovimentoGestione
++	 */
++	public boolean isPresenteMovimentoGestione() {
++		return presenteMovimentoGestione;
++	}
++
++	/**
++	 * @param presenteMovimentoGestione the presenteMovimentoGestione to set
++	 */
++	public void setPresenteMovimentoGestione(boolean presenteMovimentoGestione) {
++		this.presenteMovimentoGestione = presenteMovimentoGestione;
++	}
++
+ }

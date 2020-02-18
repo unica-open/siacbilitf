@@ -1,0 +1,5 @@
+name*,version*,license*,vendor/community,end-of-support,dependencies,language
+commons-lang3,3.1,Apache 2.0,,,,java
+junit,4.11,EPL 1.0,,,,java
+spring-core,3.1.1.RELEASE,Apache 2.0,,,,java
+spring-web,3.1.1.RELEASE,Apache 2.0,,,,java

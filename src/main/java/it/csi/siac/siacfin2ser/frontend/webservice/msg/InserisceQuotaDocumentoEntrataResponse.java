@@ -1,0 +1,33 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
+package it.csi.siac.siacfin2ser.frontend.webservice.msg;
+
+import it.csi.siac.siaccorser.model.ServiceResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
+import it.csi.siac.siacfin2ser.model.SubdocumentoEntrata;
+
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
+public class InserisceQuotaDocumentoEntrataResponse extends ServiceResponse {
+
+	private SubdocumentoEntrata subdocumentoEntrata;
+
+	/**
+	 * @return the subdocumentoEntrata
+	 */
+	public SubdocumentoEntrata getSubdocumentoEntrata() {
+		return subdocumentoEntrata;
+	}
+
+	/**
+	 * @param subdocumentoEntrata the subdocumentoEntrata to set
+	 */
+	public void setSubdocumentoEntrata(SubdocumentoEntrata subdocumentoEntrata) {
+		this.subdocumentoEntrata = subdocumentoEntrata;
+	}	
+	
+	
+}

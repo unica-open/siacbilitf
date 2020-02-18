@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/cor/data/1.0" xmlns:tns="http://siac.csi.it/cor/data/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="serviceRequest" abstract="true">
+    <xs:sequence>
+      <xs:element name="dataOra" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="richiedente" type="tns:richiedente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="richiedente">
+    <xs:sequence>
+      <xs:element name="operatore" type="tns:operatore" minOccurs="0"/>
+      <xs:element name="tokenOperazione" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="operatore">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="account" type="tns:account" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="codiceFiscale" type="xs:string" minOccurs="0"/>
+          <xs:element name="cognome" type="xs:string" minOccurs="0"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entita" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="tns:valueObject">
+        <xs:sequence>
+          <xs:element name="dataCreazione" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataModifica" type="xs:date" minOccurs="0"/>
+          <xs:element name="stato" type="tns:statoEntita" minOccurs="0"/>
+          <xs:element name="vista" type="tns:vista" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="valueObject" abstract="true">
+    <xs:sequence>
+      <xs:element name="uuid" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="account">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="ente" type="tns:ente" minOccurs="0"/>
+          <xs:element name="gruppi" type="tns:gruppo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="indirizzoMail" type="xs:string" minOccurs="0"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ente">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+          <xs:element name="strutture" type="tns:strutturaAmministrativoContabile" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="strutturaAmministrativoContabile">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="ente" type="tns:ente" minOccurs="0"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+          <xs:element name="sottoStrutture" type="tns:strutturaAmministrativoContabile" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="vista">
+    <xs:sequence>
+      <xs:element name="attributiVisibili">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="key" minOccurs="0" type="xs:string"/>
+                  <xs:element name="value" minOccurs="0" type="xs:anyType"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="className" type="xs:string" minOccurs="0"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="gruppo">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="account" type="tns:account" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+          <xs:element name="ruoli" type="tns:ruoloGruppo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruoloGruppo">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="gruppo" type="tns:gruppo" minOccurs="0"/>
+          <xs:element name="ruolo" type="tns:ruolo" minOccurs="0"/>
+          <xs:element name="struttura" type="tns:strutturaAmministrativoContabile" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruolo">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="account" type="tns:ruoloAccount" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="gruppi" type="tns:ruoloGruppo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ruoloAccount">
+    <xs:complexContent>
+      <xs:extension base="tns:entita">
+        <xs:sequence>
+          <xs:element name="account" type="tns:account" minOccurs="0"/>
+          <xs:element name="ruolo" type="tns:ruolo" minOccurs="0"/>
+          <xs:element name="struttura" type="tns:strutturaAmministrativoContabile" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="serviceResponse" abstract="true">
+    <xs:sequence>
+      <xs:element name="cardinalitaComplessiva" type="xs:int"/>
+      <xs:element name="dataOra" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="errori" type="tns:errore" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="esito" type="tns:esito" minOccurs="0"/>
+      <xs:element name="richiedente" type="tns:richiedente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="errore">
+    <xs:complexContent>
+      <xs:extension base="tns:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="codifica" abstract="true">
+    <xs:sequence>
+      <xs:element name="codice" type="xs:string" minOccurs="0"/>
+      <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="statoEntita">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN_LAVORAZIONE"/>
+      <xs:enumeration value="VALIDO"/>
+      <xs:enumeration value="CANCELLATO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="esito">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SUCCESSO"/>
+      <xs:enumeration value="FALLIMENTO"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

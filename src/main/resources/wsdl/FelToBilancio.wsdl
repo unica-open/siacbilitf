@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://www.csi.it/fel/eis/FelToBilancio" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	name="FelToBilancio" 
+	targetNamespace="http://www.csi.it/fel/eis/FelToBilancio">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.csi.it/fel/eis/FelToBilancio" schemaLocation="FelToBilancioType.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+   
+  <wsdl:message name="EsitoFatturaAttivaRequest">
+    <wsdl:part element="tns:EsitoFatturaAttivaRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="EsitoFatturaAttivaResponse">
+    <wsdl:part element="tns:EsitoFatturaAttivaResponse" name="parameters"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="FelToBilancio">
+    <wsdl:operation name="EsitoFatturaAttiva">
+      <wsdl:input message="tns:EsitoFatturaAttivaRequest"/>
+      <wsdl:output message="tns:EsitoFatturaAttivaResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="FelToBilancioSOAP" type="tns:FelToBilancio">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="EsitoFatturaAttiva">
+      <soap:operation soapAction="http://www.csi.it/fel/eis/FelToBilancio/EsitoFatturaAttiva"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="FelToBilancio">
+    <wsdl:port binding="tns:FelToBilancioSOAP" name="FelToBilancioSOAP">
+      <soap:address location="http://localhost/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

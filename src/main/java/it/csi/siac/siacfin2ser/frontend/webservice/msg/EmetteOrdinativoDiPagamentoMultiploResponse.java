@@ -1,0 +1,113 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
+package it.csi.siac.siacfin2ser.frontend.webservice.msg;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccorser.model.Messaggio;
+import it.csi.siac.siaccorser.model.ServiceResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
+import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
+import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
+import it.csi.siac.siacfinser.model.liquidazione.Liquidazione;
+import it.csi.siac.siacfinser.model.ordinativo.OrdinativoPagamento;
+import it.csi.siac.siacfinser.model.soggetto.Soggetto;
+
+@XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
+public class EmetteOrdinativoDiPagamentoMultiploResponse extends ServiceResponse {
+
+	private List<SubdocumentoSpesa> subdocumentiScartati = new ArrayList<SubdocumentoSpesa>();
+	private List<Messaggio> messaggi  = new ArrayList<Messaggio>();
+	private OrdinativoPagamento ordinativo;
+	
+	private Map<Integer,Liquidazione> liquidazioniCache = new HashMap<Integer,Liquidazione>();
+	private Map<Integer,DocumentoSpesa> documentiCache = new HashMap<Integer,DocumentoSpesa>();
+	private Map<Integer,Soggetto> soggettiCache = new HashMap<Integer,Soggetto>();
+
+	
+	
+	/**
+	 * @return the subdocumentiScartato
+	 */
+	public List<SubdocumentoSpesa> getSubdocumentiScartati() {
+		return subdocumentiScartati;
+	}
+	/**
+	 * @param subdocumentiScartato the subdocumentiScartato to set
+	 */
+	public void setSubdocumentiScartato(List<SubdocumentoSpesa> subdocumentiScartati) {
+		this.subdocumentiScartati = subdocumentiScartati;
+	}
+	/**
+	 * @return the messaggi
+	 */
+	public List<Messaggio> getMessaggi() {
+		return messaggi;
+	}
+	/**
+	 * @param messaggi the messaggi to set
+	 */
+	public void setMessaggi(List<Messaggio> messaggi) {
+		this.messaggi = messaggi;
+	}
+	public void addMessaggio(Messaggio messaggio) {
+		messaggi.add(messaggio);
+	}
+	/**
+	 * @return the ordinativo
+	 */
+	public OrdinativoPagamento getOrdinativo() {
+		return ordinativo;
+	}
+	/**
+	 * @param ordinativo the ordinativo to set
+	 */
+	public void setOrdinativo(OrdinativoPagamento ordinativo) {
+		this.ordinativo = ordinativo;
+	}
+	/**
+	 * @return the liquidazioniCache
+	 */
+	public Map<Integer, Liquidazione> getLiquidazioniCache() {
+		return liquidazioniCache;
+	}
+	/**
+	 * @param liquidazioniCache the liquidazioniCache to set
+	 */
+	public void setLiquidazioniCache(Map<Integer, Liquidazione> liquidazioniCache) {
+		this.liquidazioniCache = liquidazioniCache;
+	}
+	/**
+	 * @return the documentiCache
+	 */
+	public Map<Integer, DocumentoSpesa> getDocumentiCache() {
+		return documentiCache;
+	}
+	/**
+	 * @param documentiCache the documentiCache to set
+	 */
+	public void setDocumentiCache(Map<Integer, DocumentoSpesa> documentiCache) {
+		this.documentiCache = documentiCache;
+	}
+	/**
+	 * @return the soggettiCache
+	 */
+	public Map<Integer, Soggetto> getSoggettiCache() {
+		return soggettiCache;
+	}
+	/**
+	 * @param soggettiCache the soggettiCache to set
+	 */
+	public void setSoggettiCache(Map<Integer, Soggetto> soggettiCache) {
+		this.soggettiCache = soggettiCache;
+	}
+	
+	
+}

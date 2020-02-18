@@ -1,0 +1,65 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
+package it.csi.siac.siacbilser.frontend.webservice.client;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.Service;
+
+import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+import it.csi.siac.siacbilser.frontend.webservice.CapitoloEntrataPrevisioneService;
+import it.csi.siac.siaccorser.frontend.webservice.client.BaseServiceClient;
+import it.csi.siac.siaccorser.frontend.webservice.exception.SystemException;
+import it.csi.siac.siaccorser.model.Errore;
+import it.csi.siac.siaccorser.model.errore.ErroreCore;
+
+/**
+ * Client del servizio Bilancio CapitoloEntrataPrevisioneService
+ * 
+ * @author rmontuori
+ * @deprecated utilizzare l'instanaziazione via Spring
+ */
+@Deprecated
+public class CapitoloEntrataPrevisioneServiceClient extends BaseServiceClient{
+
+	private CapitoloEntrataPrevisioneService port;
+	
+	public CapitoloEntrataPrevisioneServiceClient(){
+		super();
+	}
+
+	/**
+	 * Costruttore cui occorre passare l'endpoint
+	 * 
+	 * @param endpoint
+	 * @throws SystemException
+	 */
+	private void createService() {
+		try {
+			wsdlURL = new URL(endpoint + "?wsdl");
+			serviceName = new QName(BILSvcDictionary.NAMESPACE,
+					"CapitoloEntrataPrevisioneService");
+			service = Service.create(wsdlURL, serviceName);
+			port = service.getPort(CapitoloEntrataPrevisioneService.class);
+			
+			((BindingProvider)port).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint);
+
+		} catch (MalformedURLException e) {
+			throw new SystemException(
+					new Errore(ErroreCore.ERRORE_DI_SISTEMA.toString(),
+							wsdlURL.toString()));
+		}
+	}
+
+	public CapitoloEntrataPrevisioneService getPort() {
+		if (service==null)
+			createService();
+		return port;
+	}
+	
+}

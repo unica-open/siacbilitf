@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/bil/data/1.0" xmlns:ns1="http://siac.csi.it/cor/data/1.0" xmlns:tns="http://siac.csi.it/bil/data/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://siac.csi.it/cor/data/1.0" schemaLocation="CapitoloEntrataPrevisioneService_schema2.xsd"/>
+
+  <xs:complexType name="bilancio">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="anno" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="capitoloEntrataPrevisione">
+    <xs:complexContent>
+      <xs:extension base="tns:capitolo">
+        <xs:sequence>
+          <xs:element name="flagEntrataRicorrente" type="xs:boolean"/>
+          <xs:element name="flagPerMemoria" type="xs:boolean"/>
+          <xs:element name="percEntrataRicorrente" type="xs:double"/>
+          <xs:element name="stanziamentoRicorrente" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="capitolo" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="annoCapitolo" type="xs:int"/>
+          <xs:element name="annoCreazioneCapitolo" type="xs:int"/>
+          <xs:element name="dataAnnullamento" type="xs:date" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="disponibilitaVariare" type="xs:double"/>
+          <xs:element name="exAnnoCapitolo" type="xs:int"/>
+          <xs:element name="exArticolo" type="xs:int"/>
+          <xs:element name="exCapitolo" type="xs:int"/>
+          <xs:element name="flagRilevanteIva" type="xs:boolean"/>
+          <xs:element name="fondoPluriennaleVinc" type="xs:double"/>
+          <xs:element name="fondoPluriennaleVincPrec" type="xs:double"/>
+          <xs:element name="note" type="xs:string" minOccurs="0"/>
+          <xs:element name="numeroArticolo" type="xs:int"/>
+          <xs:element name="numeroCapitolo" type="xs:int"/>
+          <xs:element name="stanziamento" type="xs:double"/>
+          <xs:element name="stanziamentoAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoCassa" type="xs:double"/>
+          <xs:element name="stanziamentoCassaAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoCassaIniziale" type="xs:double"/>
+          <xs:element name="stanziamentoIniziale" type="xs:double"/>
+          <xs:element name="stanziamentoProposto" type="xs:double"/>
+          <xs:element name="stanziamentoResAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoResiduo" type="xs:double"/>
+          <xs:element name="stanziamentoResiduoIniziale" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="upbEntrataPrevisione">
+    <xs:complexContent>
+      <xs:extension base="tns:unitaPrevisionaleBilancio">
+        <xs:sequence>
+          <xs:element name="flagPerMemoria" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="unitaPrevisionaleBilancio">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dataAnnullamento" type="xs:date" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="disponibilitaVariare" type="xs:double"/>
+          <xs:element name="fondoPluriennaleVinc" type="xs:double"/>
+          <xs:element name="fondoPluriennaleVincPrec" type="xs:double"/>
+          <xs:element name="numero" type="xs:int"/>
+          <xs:element name="stanziamento" type="xs:double"/>
+          <xs:element name="stanziamentoAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoCassa" type="xs:double"/>
+          <xs:element name="stanziamentoCassaAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoCassaIniziale" type="xs:double"/>
+          <xs:element name="stanziamentoIniziale" type="xs:double"/>
+          <xs:element name="stanziamentoProposto" type="xs:double"/>
+          <xs:element name="stanziamentoResAnnoPrec" type="xs:double"/>
+          <xs:element name="stanziamentoResIniziale" type="xs:double"/>
+          <xs:element name="stanziamentoResiduo" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaDettaglioCapitoloEPrev">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="chiaveCapitolo" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="attiDiLegge">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="anno" type="xs:int"/>
+          <xs:element name="articolo" type="xs:string" minOccurs="0"/>
+          <xs:element name="comma" type="xs:string" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="gerarchia" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+          <xs:element name="punto" type="xs:string" minOccurs="0"/>
+          <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="attoDiLeggeCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dataFineFinanz" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataInizioFinanz" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="capitoloUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="tns:capitolo">
+        <xs:sequence>
+          <xs:element name="flagAssegnabile" type="xs:boolean"/>
+          <xs:element name="flagFondoSvalutazioneCred" type="xs:boolean"/>
+          <xs:element name="flagPerMemoria" type="xs:boolean"/>
+          <xs:element name="flagTrasferimentiOrgComunitari" type="xs:boolean"/>
+          <xs:element name="funzDelegateRegione" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="categoriaTipologiaTitolo">
+    <xs:sequence>
+      <xs:element name="codice" type="xs:string" minOccurs="0"/>
+      <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="elementoPianoDeiConti">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="livello" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="faseEStatoAttualeBilancio">
+    <xs:complexContent>
+      <xs:extension base="tns:entitaStoricizzata">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="entitaStoricizzata" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dataFine" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataInizio" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoVincolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipologiaTitoloIILivello">
+    <xs:sequence>
+      <xs:element name="catTipologiaTitolo" type="tns:categoriaTipologiaTitolo" minOccurs="0"/>
+      <xs:element name="codice" type="xs:string" minOccurs="0"/>
+      <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipologiaFoglia" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipologiaTitoloILivello">
+    <xs:sequence>
+      <xs:element name="catTipologiaTitolo" type="tns:categoriaTipologiaTitolo" minOccurs="0"/>
+      <xs:element name="codice" type="xs:string" minOccurs="0"/>
+      <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+      <xs:element name="tipologiaFoglia" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="titoloEntrata">
+    <xs:complexContent>
+      <xs:extension base="tns:titolo">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="titolo" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="codiceTitolo" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="titoloSpesa">
+    <xs:complexContent>
+      <xs:extension base="tns:titolo">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="macroaggregato">
+    <xs:sequence>
+      <xs:element name="codice" type="xs:string" minOccurs="0"/>
+      <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="vincoliCapitoloUEPrev">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="importo" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="variazioneCodificaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dettaglioVariazioneCodifica" type="tns:dettaglioVariazioneCodificaCapitolo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dettaglioVariazioneCodificaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="descrizioneVariata" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="variazioneImportoCapitolo">
+    <xs:complexContent>
+      <xs:extension base="tns:variazioneDiBilancio">
+        <xs:sequence>
+          <xs:element name="dettaglioVariazioneImporto" type="tns:dettaglioVariazioneImportoCapitolo" minOccurs="0"/>
+          <xs:element name="flagPluriennale" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="variazioneDiBilancio" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="note" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="dettaglioVariazioneImportoCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="flagAnnullaCapitolo" type="xs:boolean"/>
+          <xs:element name="importo" type="xs:double"/>
+          <xs:element name="importoCassa" type="xs:double"/>
+          <xs:element name="importoResiduo" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaPuntualeCapitoloEPrev">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="annoCapitolo" type="xs:int"/>
+          <xs:element name="annoEsercizio" type="xs:int"/>
+          <xs:element name="numeroArticolo" type="xs:int"/>
+          <xs:element name="numeroCapitolo" type="xs:int"/>
+          <xs:element name="statoCapEntrata" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

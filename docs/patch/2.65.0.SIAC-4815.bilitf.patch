@@ -1,0 +1,497 @@
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBaseResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBaseResponse.java	(nonexistent)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBaseResponse.java	(working copy)
+@@ -0,0 +1,28 @@
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
++import it.csi.siac.siacbilser.model.VariazioneDiBilancio;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
++
++@XmlType(namespace = BILSvcDictionary.NAMESPACE)
++public abstract class RicercaVariazioneBaseResponse<V extends VariazioneDiBilancio> extends RicercaSinteticaBaseResponse<V> {
++
++	/**
++	 * @return the variazioniDiBilancio
++	 */
++	public abstract ListaPaginata<V> getVariazioniDiBilancio();
++
++	/**
++	 * @param variazioniDiBilancio the variazioniDiBilancio to set
++	 */
++	public abstract void setVariazioniDiBilancio(ListaPaginata<V> variazioneCodifica);
++
++	@Override
++	protected ListaPaginataImpl<V> getAsListaPaginata() {
++		return (ListaPaginataImpl<V>) getVariazioniDiBilancio();
++	}
++
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancio.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancio.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancio.java	(working copy)
+@@ -1,50 +1,59 @@
+-package it.csi.siac.siacbilser.frontend.webservice.msg;
+-
+-import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+-import it.csi.siac.siacbilser.model.TipoCapitolo;
+-import it.csi.siac.siacbilser.model.VariazioneImportoCapitolo;
+-import it.csi.siac.siaccorser.model.ServiceRequest;
+-import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
+-
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import javax.xml.bind.annotation.XmlType;
+-
+-@XmlType(namespace = BILSvcDictionary.NAMESPACE)
+-public class RicercaVariazioneBilancio extends ServiceRequest {
+-		
+-	private VariazioneImportoCapitolo variazioneImportoCapitolo;
+-	List<TipoCapitolo> tipiCapitolo = new ArrayList<TipoCapitolo>(); 
+-	
+-	private ParametriPaginazione parametriPaginazione;
+-
+-	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
+-		return variazioneImportoCapitolo;
+-	}
+-
+-	public void setVariazioneImportoCapitolo(VariazioneImportoCapitolo variazioneImportoCapitolo) {
+-		this.variazioneImportoCapitolo = variazioneImportoCapitolo;
+-	}
+-
+-	public ParametriPaginazione getParametriPaginazione() {
+-		return parametriPaginazione;
+-	}
+-
+-	public void setParametriPaginazione(ParametriPaginazione parametriPaginazione) {
+-		this.parametriPaginazione = parametriPaginazione;
+-	}
+-
+-	public List<TipoCapitolo> getTipiCapitolo() {
+-		return tipiCapitolo;
+-	}
+-
+-	public void setTipiCapitolo(List<TipoCapitolo> tipiCapitolo) {
+-		this.tipiCapitolo = tipiCapitolo;
+-	}
+-	
+-	
+-	
+-	
+-
+-}
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacattser.model.AttoAmministrativo;
++import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
++import it.csi.siac.siacbilser.model.TipoCapitolo;
++import it.csi.siac.siacbilser.model.VariazioneImportoCapitolo;
++
++@XmlType(namespace = BILSvcDictionary.NAMESPACE)
++public class RicercaVariazioneBilancio extends RicercaSinteticaBaseRequest {
++	
++	private VariazioneImportoCapitolo variazioneImportoCapitolo;
++	private List<TipoCapitolo> tipiCapitolo = new ArrayList<TipoCapitolo>();
++	// SIAC-4815
++	// Atto amministrativo per effettuare la ricerca SIA come PEG SIA come atto della variazione
++	private AttoAmministrativo attoAmministrativo;
++	/**
++	 * @return the variazioneImportoCapitolo
++	 */
++	public VariazioneImportoCapitolo getVariazioneImportoCapitolo() {
++		return variazioneImportoCapitolo;
++	}
++	/**
++	 * @param variazioneImportoCapitolo the variazioneImportoCapitolo to set
++	 */
++	public void setVariazioneImportoCapitolo(VariazioneImportoCapitolo variazioneImportoCapitolo) {
++		this.variazioneImportoCapitolo = variazioneImportoCapitolo;
++	}
++	/**
++	 * @return the tipiCapitolo
++	 */
++	public List<TipoCapitolo> getTipiCapitolo() {
++		return tipiCapitolo;
++	}
++	/**
++	 * @param tipiCapitolo the tipiCapitolo to set
++	 */
++	public void setTipiCapitolo(List<TipoCapitolo> tipiCapitolo) {
++		this.tipiCapitolo = tipiCapitolo;
++	}
++	/**
++	 * @return the attoAmministrativo
++	 */
++	public AttoAmministrativo getAttoAmministrativo() {
++		return attoAmministrativo;
++	}
++	/**
++	 * @param attoAmministrativo the attoAmministrativo to set
++	 */
++	public void setAttoAmministrativo(AttoAmministrativo attoAmministrativo) {
++		this.attoAmministrativo = attoAmministrativo;
++	}
++	
++
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancioResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancioResponse.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneBilancioResponse.java	(working copy)
+@@ -1,59 +1,35 @@
+-package it.csi.siac.siacbilser.frontend.webservice.msg;
+-
+-import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+-import it.csi.siac.siacbilser.model.VariazioneImportoCapitolo;
+-import it.csi.siac.siaccorser.model.ServiceResponse;
+-import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
+-import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
+-
+-import javax.xml.bind.annotation.XmlElement;
+-import javax.xml.bind.annotation.XmlElementWrapper;
+-import javax.xml.bind.annotation.XmlType;
+-
+-@XmlType(namespace = BILSvcDictionary.NAMESPACE)
+-public class RicercaVariazioneBilancioResponse extends ServiceResponse {
+-
+-	private ListaPaginata<VariazioneImportoCapitolo> variazioniDiBilancio = new ListaPaginataImpl<VariazioneImportoCapitolo>();
+-
+-	/**
+-	 * @return the VariazioneImportoCapitolo
+-	 */
+-	@XmlElementWrapper(name = "listaVariazioni")
+-	@XmlElement(name = "variazione")
+-	public ListaPaginata<VariazioneImportoCapitolo> getVariazioniDiBilancio() {
+-		return variazioniDiBilancio;
+-	}
+-
+-	/**
+-	 * @param VariazioneImportoCapitolo
+-	 *            the VariazioneImportoCapitolo to set
+-	 */
+-	public void setVariazioniDiBilancio(ListaPaginata<VariazioneImportoCapitolo> variazioneDiBilancio) {
+-		this.variazioniDiBilancio = variazioneDiBilancio;
+-	}
+-
+-	public void setTotaleElementi(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).setTotaleElementi(totaleElementi);
+-	}
+-
+-	public void setTotalePagine(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).setTotalePagine(totaleElementi);
+-	}
+-
+-	public void setPaginaCorrente(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).setPaginaCorrente(totaleElementi);
+-	}
+-
+-	public int getTotaleElementi() {
+-		return ((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).getTotaleElementi();
+-	}
+-
+-	public int getTotalePagine() {
+-		return ((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).getTotalePagine();
+-	}
+-
+-	public int getPaginaCorrente() {
+-		return ((ListaPaginataImpl<VariazioneImportoCapitolo>) variazioniDiBilancio).getPaginaCorrente();
+-	}
+-
+-}
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import javax.xml.bind.annotation.XmlElement;
++import javax.xml.bind.annotation.XmlElementWrapper;
++import javax.xml.bind.annotation.XmlTransient;
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
++import it.csi.siac.siacbilser.model.VariazioneImportoCapitolo;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
++
++@XmlType(namespace = BILSvcDictionary.NAMESPACE)
++public class RicercaVariazioneBilancioResponse extends RicercaVariazioneBaseResponse<VariazioneImportoCapitolo> {
++
++	@XmlElementWrapper(name = "listaVariazioni")
++	@XmlElement(name = "variazione")
++	private ListaPaginata<VariazioneImportoCapitolo> variazioniDiBilancio = new ListaPaginataImpl<VariazioneImportoCapitolo>();
++
++	/**
++	 * @return the VariazioneImportoCapitolo
++	 */
++	@XmlTransient
++	public ListaPaginata<VariazioneImportoCapitolo> getVariazioniDiBilancio() {
++		return variazioniDiBilancio;
++	}
++
++	/**
++	 * @param VariazioneImportoCapitolo the VariazioneImportoCapitolo to set
++	 */
++	public void setVariazioniDiBilancio(ListaPaginata<VariazioneImportoCapitolo> variazioneDiBilancio) {
++		this.variazioniDiBilancio = variazioneDiBilancio;
++	}
++
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodifiche.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodifiche.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodifiche.java	(working copy)
+@@ -1,48 +1,42 @@
+ package it.csi.siac.siacbilser.frontend.webservice.msg;
+ 
+-import java.util.ArrayList;
+-import java.util.List;
+-
+-import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+-import it.csi.siac.siacbilser.model.TipoCapitolo;
+-import it.csi.siac.siacbilser.model.VariazioneCodificaCapitolo;
+-import it.csi.siac.siaccorser.model.ServiceRequest;
+-import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
+-
+-import javax.xml.bind.annotation.XmlType;
+-
+-@XmlType(namespace = BILSvcDictionary.NAMESPACE)
+-public class RicercaVariazioneCodifiche extends ServiceRequest {
+-	
+-	private VariazioneCodificaCapitolo viariazioneCodificaCapitolo;
+-	private List<TipoCapitolo> tipiCapitolo = new ArrayList<TipoCapitolo>(); 
+-	
+-	private ParametriPaginazione parametriPaginazione;
+-
+-	public VariazioneCodificaCapitolo getVariazioneCodificaCapitolo() {
+-		return viariazioneCodificaCapitolo;
+-	}
+-
+-	public void setVariazioneCodificaCapitolo(VariazioneCodificaCapitolo variazione) {
+-		this.viariazioneCodificaCapitolo = variazione;
+-	}
+-
+-	public ParametriPaginazione getParametriPaginazione() {
+-		return parametriPaginazione;
+-	}
+-
+-	public void setParametriPaginazione(ParametriPaginazione parametriPaginazione) {
+-		this.parametriPaginazione = parametriPaginazione;
+-	}
+-
+-	public List<TipoCapitolo> getTipiCapitolo() {
+-		return tipiCapitolo;
+-	}
+-
+-	public void setTipiCapitolo(List<TipoCapitolo> tipiCapitolo) {
+-		this.tipiCapitolo = tipiCapitolo;
+-	}
+-	
+-	
+-
+-}
++import java.util.ArrayList;
++import java.util.List;
++
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
++import it.csi.siac.siacbilser.model.TipoCapitolo;
++import it.csi.siac.siacbilser.model.VariazioneCodificaCapitolo;
++
++@XmlType(namespace = BILSvcDictionary.NAMESPACE)
++public class RicercaVariazioneCodifiche extends RicercaSinteticaBaseRequest {
++	
++	private VariazioneCodificaCapitolo variazioneCodificaCapitolo;
++	private List<TipoCapitolo> tipiCapitolo = new ArrayList<TipoCapitolo>();
++	/**
++	 * @return the variazioneCodificaCapitolo
++	 */
++	public VariazioneCodificaCapitolo getVariazioneCodificaCapitolo() {
++		return variazioneCodificaCapitolo;
++	}
++	/**
++	 * @param variazioneCodificaCapitolo the variazioneCodificaCapitolo to set
++	 */
++	public void setVariazioneCodificaCapitolo(VariazioneCodificaCapitolo variazioneCodificaCapitolo) {
++		this.variazioneCodificaCapitolo = variazioneCodificaCapitolo;
++	}
++	/**
++	 * @return the tipiCapitolo
++	 */
++	public List<TipoCapitolo> getTipiCapitolo() {
++		return tipiCapitolo;
++	}
++	/**
++	 * @param tipiCapitolo the tipiCapitolo to set
++	 */
++	public void setTipiCapitolo(List<TipoCapitolo> tipiCapitolo) {
++		this.tipiCapitolo = tipiCapitolo;
++	} 
++	
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodificheResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodificheResponse.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/RicercaVariazioneCodificheResponse.java	(working copy)
+@@ -1,59 +1,36 @@
+-package it.csi.siac.siacbilser.frontend.webservice.msg;
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import javax.xml.bind.annotation.XmlElement;
++import javax.xml.bind.annotation.XmlElementWrapper;
++import javax.xml.bind.annotation.XmlTransient;
++import javax.xml.bind.annotation.XmlType;
++
++import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
++import it.csi.siac.siacbilser.model.VariazioneCodificaCapitolo;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
++import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
++
++@XmlType(namespace = BILSvcDictionary.NAMESPACE)
++public class RicercaVariazioneCodificheResponse extends RicercaVariazioneBaseResponse<VariazioneCodificaCapitolo> {
++
++	@XmlElementWrapper(name = "listaVariazioni")
++	@XmlElement(name = "variazione")
++	private ListaPaginata<VariazioneCodificaCapitolo> variazioniDiBilancio = new ListaPaginataImpl<VariazioneCodificaCapitolo>();
++
++	/**
++	 * @return the VariazioneCodificaCapitolo
++	 */
++	@XmlTransient
++	public ListaPaginata<VariazioneCodificaCapitolo> getVariazioniDiBilancio() {
++		return variazioniDiBilancio;
++	}
+ 
+-import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+-import it.csi.siac.siacbilser.model.VariazioneCodificaCapitolo;
+-import it.csi.siac.siaccorser.model.ServiceResponse;
+-import it.csi.siac.siaccorser.model.paginazione.ListaPaginata;
+-import it.csi.siac.siaccorser.model.paginazione.ListaPaginataImpl;
+-
+-import javax.xml.bind.annotation.XmlElement;
+-import javax.xml.bind.annotation.XmlElementWrapper;
+-import javax.xml.bind.annotation.XmlType;
+-
+-@XmlType(namespace = BILSvcDictionary.NAMESPACE)
+-public class RicercaVariazioneCodificheResponse extends ServiceResponse {
+-
+-	private ListaPaginata<VariazioneCodificaCapitolo> variazioniDiBilancio = new ListaPaginataImpl<VariazioneCodificaCapitolo>();
+-
+ 	/**
+-	 * @return the VariazioneCodificaCapitolo
+-	 */
+-	@XmlElementWrapper(name = "listaVariazioni")
+-	@XmlElement(name = "variazione")
+-	public ListaPaginata<VariazioneCodificaCapitolo> getVariazioniDiBilancio() {
+-		return variazioniDiBilancio;
+-	}
+-
+-	/**
+ 	 * @param VariazioneCodificaCapitolo
+ 	 *            the VariazioneCodificaCapitolo to set
+ 	 */
+ 	public void setVariazioniDiBilancio(ListaPaginata<VariazioneCodificaCapitolo> variazioneCodifica) {
+-		this.variazioniDiBilancio = variazioneCodifica;
+-	}
+-
+-	public void setTotaleElementi(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).setTotaleElementi(totaleElementi);
+-	}
+-
+-	public void setTotalePagine(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).setTotalePagine(totaleElementi);
+-	}
+-
+-	public void setPaginaCorrente(int totaleElementi) {
+-		((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).setPaginaCorrente(totaleElementi);
+-	}
+-
+-	public int getTotaleElementi() {
+-		return ((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).getTotaleElementi();
+-	}
+-
+-	public int getTotalePagine() {
+-		return ((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).getTotalePagine();
+-	}
+-
+-	public int getPaginaCorrente() {
+-		return ((ListaPaginataImpl<VariazioneCodificaCapitolo>) variazioniDiBilancio).getPaginaCorrente();
+-	}
+-
+-}
++		this.variazioniDiBilancio = variazioneCodifica;
++	}
++
++}
+Index: src/main/java/it/csi/siac/siacbilser/model/VariazioneCodificaCapitolo.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/model/VariazioneCodificaCapitolo.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/model/VariazioneCodificaCapitolo.java	(working copy)
+@@ -1,7 +1,5 @@
+ package it.csi.siac.siacbilser.model;
+ 
+-import it.csi.siac.siacattser.model.AttoAmministrativo;
+-
+ import java.util.ArrayList;
+ import java.util.Arrays;
+ import java.util.List;
+@@ -8,6 +6,8 @@
+ 
+ import javax.xml.bind.annotation.XmlType;
+ 
++import it.csi.siac.siacattser.model.AttoAmministrativo;
++
+ /**
+  * VariazioneCodificaCapitolo
+  * 
+@@ -45,8 +45,8 @@
+ 	 * Ottiene la lista dei capitoli presenti nella variazione 
+ 	 * @return
+ 	 */
+-	public List<Capitolo> getCapitoli() {
+-		List<Capitolo> capitoli = new ArrayList<Capitolo>();
++	public List<Capitolo<?, ?>> getCapitoli() {
++		List<Capitolo<?, ?>> capitoli = new ArrayList<Capitolo<?, ?>>();
+ 		
+ 		for(DettaglioVariazioneCodificaCapitolo dvic : getListaDettaglioVariazioneCodifica()){
+ 			capitoli.add(dvic.getCapitolo());
+Index: src/main/java/it/csi/siac/siacbilser/model/VariazioneImportoCapitolo.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/model/VariazioneImportoCapitolo.java	(revision 14758)
++++ src/main/java/it/csi/siac/siacbilser/model/VariazioneImportoCapitolo.java	(working copy)
+@@ -1,7 +1,5 @@
+ package it.csi.siac.siacbilser.model;
+ 
+-import it.csi.siac.siacattser.model.AttoAmministrativo;
+-
+ import java.math.BigDecimal;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+@@ -11,6 +9,8 @@
+ 
+ import org.apache.commons.lang.StringUtils;
+ 
++import it.csi.siac.siacattser.model.AttoAmministrativo;
++
+ /**
+  * VariazioneImportoCapitolo.
+  *
+@@ -38,8 +38,8 @@
+ 	 * Ottiene la lista dei capitoli presenti nella variazione 
+ 	 * @return
+ 	 */
+-	public List<Capitolo> getCapitoli() {
+-		List<Capitolo> capitoli = new ArrayList<Capitolo>();
++	public List<Capitolo<?, ?>> getCapitoli() {
++		List<Capitolo<?, ?>> capitoli = new ArrayList<Capitolo<?, ?>>();
+ 		
+ 		for(DettaglioVariazioneImportoCapitolo dvic : getListaDettaglioVariazioneImporto()){
+ 			capitoli.add(dvic.getCapitolo());

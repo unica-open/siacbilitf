@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/fin/data/1.0" xmlns:ns2="http://siac.csi.it/att/data/1.0" xmlns:ns1="http://siac.csi.it/cor/data/1.0" xmlns:tns="http://siac.csi.it/fin/data/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://siac.csi.it/cor/data/1.0" schemaLocation="CapitoloEntrataGestioneService_schema2.xsd"/>
+
+  <xs:import namespace="http://siac.csi.it/att/data/1.0" schemaLocation="CapitoloEntrataGestioneService_schema5.xsd"/>
+
+  <xs:complexType name="classificatoreGenerico">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elencoCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoClassificatoreGenerico">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoContributo">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoFinanziamento">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoFondo">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoMutuo">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="documentoDiEntrata">
+    <xs:complexContent>
+      <xs:extension base="tns:documento">
+        <xs:sequence>
+          <xs:element name="importo" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="documento" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="anno" type="xs:date"/>
+          <xs:element name="atto" type="ns2:attoAmministrativo" minOccurs="0"/>
+          <xs:element name="dataEmissione" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataScadenza" type="xs:date" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="fonte" type="xs:string" minOccurs="0"/>
+          <xs:element name="note" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+          <xs:element name="protocollo" type="tns:protocollo" minOccurs="0"/>
+          <xs:element name="riferimentoEsterno" type="xs:string" minOccurs="0"/>
+          <xs:element name="soggetto" type="tns:soggetto" minOccurs="0"/>
+          <xs:element name="tipoDocumento" type="tns:tipoDocumento" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="protocollo">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dataProtocollo" type="xs:date" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="soggetto">
+    <xs:complexContent>
+      <xs:extension base="tns:anagraficaBase">
+        <xs:sequence>
+          <xs:element name="codiceFiscale" type="xs:string" minOccurs="0"/>
+          <xs:element name="codiceFiscaleEstero" type="xs:string" minOccurs="0"/>
+          <xs:element name="cognome" type="xs:string" minOccurs="0"/>
+          <xs:element name="contattoRiferimento" type="xs:string" minOccurs="0"/>
+          <xs:element name="daFonteEsterna" type="xs:boolean"/>
+          <xs:element name="dataNascita" type="xs:date" minOccurs="0"/>
+          <xs:element name="flagSospeso" type="xs:boolean"/>
+          <xs:element name="nome" type="xs:string" minOccurs="0"/>
+          <xs:element name="note" type="xs:string" minOccurs="0"/>
+          <xs:element name="partitaIva" type="xs:string" minOccurs="0"/>
+          <xs:element name="residenteEstero" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="anagraficaBase" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="codice" type="xs:long"/>
+          <xs:element name="indirizzoEmail" type="xs:string" minOccurs="0"/>
+          <xs:element name="indirizzoPECertificata" type="xs:string" minOccurs="0"/>
+          <xs:element name="numeroFax" type="xs:string" minOccurs="0"/>
+          <xs:element name="numeroTelefonoAlternativo" type="xs:string" minOccurs="0"/>
+          <xs:element name="numeroTelefonoPrincipale" type="xs:string" minOccurs="0"/>
+          <xs:element name="ragioneSociale" type="xs:string" minOccurs="0"/>
+          <xs:element name="sitoWeb" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumento">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="accertamento">
+    <xs:complexContent>
+      <xs:extension base="tns:movimentoGestione">
+        <xs:sequence>
+          <xs:element name="annoDiRiferimento" type="xs:date" minOccurs="0"/>
+          <xs:element name="clSoggetto" type="tns:classificatoreSoggetto" minOccurs="0"/>
+          <xs:element name="data" type="xs:date" minOccurs="0"/>
+          <xs:element name="soggetto" type="tns:soggetto" minOccurs="0"/>
+          <xs:element name="subAccertamenti" type="tns:subAccertamenti" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="movimentoGestione" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="annoCompetenza" type="xs:int"/>
+          <xs:element name="dataAnnullamento" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataEmissione" type="xs:date" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="importoAttuale" type="xs:double"/>
+          <xs:element name="importoIniziale" type="xs:double"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="classificatoreSoggetto">
+    <xs:complexContent>
+      <xs:extension base="ns1:codifica">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subAccertamenti">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="dataAnnullamento" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataEmissione" type="xs:date" minOccurs="0"/>
+          <xs:element name="dataScadenza" type="xs:date" minOccurs="0"/>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="disponibilitaIncassare" type="xs:double"/>
+          <xs:element name="importoAttuale" type="xs:double"/>
+          <xs:element name="importoIniziale" type="xs:double"/>
+          <xs:element name="numero" type="xs:int"/>
+          <xs:element name="reversale" type="tns:reversale" minOccurs="0"/>
+          <xs:element name="soggetto" type="tns:soggetto" minOccurs="0"/>
+          <xs:element name="subReversale" type="tns:subReversale" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="reversale">
+    <xs:complexContent>
+      <xs:extension base="tns:ordinativo">
+        <xs:sequence>
+          <xs:element name="sedeSecondariaSoggetto" type="tns:sedeSecondariaSoggetto" minOccurs="0"/>
+          <xs:element name="storno" type="tns:storno" minOccurs="0"/>
+          <xs:element name="subReversale" type="tns:subReversale" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ordinativo" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="sedeSecondariaSoggetto">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="storno">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="data" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="importo" type="xs:double"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subReversale">
+    <xs:complexContent>
+      <xs:extension base="tns:subOrdinativo">
+        <xs:sequence>
+          <xs:element name="sedeSecondariaSoggetto" type="tns:sedeSecondariaSoggetto" minOccurs="0"/>
+          <xs:element name="soggetto" type="tns:soggetto" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="subOrdinativo" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="descrizione" type="xs:string" minOccurs="0"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

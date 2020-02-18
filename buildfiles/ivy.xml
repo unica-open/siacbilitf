@@ -1,0 +1,94 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<ivy-module version="2.0">
+  <info organisation="csipiemonte" module="archtest" />
+  <configurations>
+    	<conf name="runtime"  description="required for execution" />
+    	<conf name="provided" description="the JDK or a container are expected to provide the dependency at runtime" />
+    	<conf name="compile"  description="required for compilation of the application classes" extends="runtime, provided" />
+    	<conf name="test"     description="required for junit testing" />
+    	<conf name="src"      description="dependencies sources" />
+    	<conf name="dev"      description="required for source generation" />
+  </configurations>
+    
+  <!-- ############################################################## -->
+  <!-- # RUNTIME                                                     # -->
+  <!-- ############################################################## -->
+  <!--  -->
+  <dependencies>
+    <dependency org="others" name="aopalliance" rev="1.0.0" transitive="false" conf="runtime->default"/>
+
+    <dependency org="others" name="asm" rev="3.3.1"  transitive="false" conf="runtime->default"/>
+    <dependency org="others" name="cglib" rev="2.2.2"  transitive="false" conf="runtime->default"/>
+    <dependency org="apache" name="commons-beanutils" rev="1.8.3" transitive="false" conf="runtime->default">
+     	<artifact name="commons-beanutils-1.8.3" type="jar" />
+    </dependency>
+    <dependency org="apache" name="commons-collections" rev="3.2.1"  transitive="false" conf="runtime->default"/>
+    <dependency org="apache" name="commons-lang" rev="2.6"  transitive="false" conf="runtime->default"/>
+    <dependency org="apache" name="commons-lang3" rev="3.1"    transitive="false" conf="provided->default"/>
+    <dependency org="apache" name="commons-logging" rev="1.1.1"  transitive="false" conf="runtime->default"/>
+    <dependency org="others" name="javassist" rev="3.16.1-GA"  transitive="false" conf="runtime->default"/>
+    <dependency org="others" name="dozer" rev="5.3.2"  transitive="false" conf="runtime->default"/>
+ 
+
+	<!--   REPART --> 
+  	<dependency org="csipiemonte" name="siac-coritf"   rev="4.8.0"  changing="true" transitive="false" conf="runtime->default"/>
+  	<dependency org="csipiemonte" name="siac-integitf" rev="4.3.0"  changing="true" transitive="false" conf="runtime->default"/>
+  	<dependency org="csipiemonte" name="siac-common"   rev="4.10.0"  changing="true" transitive="false" conf="runtime->default" />
+     
+ 
+    <!-- ############################################################## -->
+    <!-- # SPRING                                                     # -->
+    <!-- ############################################################## -->
+    <!--  -->
+    <dependency org="others" name="spring" rev="3.1.1.RELEASE" transitive="false" conf="runtime->default">
+      <artifact name="spring-aop-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-asm-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-beans-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-context-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-core-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-expression-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-jdbc-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-orm-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-tx-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-web-3.1.1.RELEASE" type="jar" />
+      <artifact name="spring-webmvc-3.1.1.RELEASE" type="jar" />
+    </dependency>
+    
+    <dependency org="others" name="spring-data-commons-core" rev="1.4.0.RELEASE" transitive="false" conf="runtime->default"/>
+    
+    <!-- ############################################################## -->
+    <!-- # JBOSS EAP 6.0                                              # -->
+    <!-- ############################################################## -->
+    <!--  -->
+
+   	<dependency org="apache" name="log4j" rev="1.2.15" transitive="false" conf="provided->default"/>
+    
+
+    
+    <!-- ############################################################## -->
+    <!-- # TEST JUNIT                                                 # -->
+    <!-- ############################################################## -->
+    <!--  -->
+    <dependency org="others" name="spring" rev="3.1.1.RELEASE" transitive="false" conf="test">
+      <artifact name="spring-test-3.1.1.RELEASE" type="jar" />
+    </dependency>
+    
+    <!-- ############################################################## -->
+    <!-- # SOURCES                                                    # -->
+    <!-- ############################################################## -->
+    <!--  -->
+    <dependency org="others" name="aopalliance" rev="1.0.0" transitive="false" conf="src">
+    	<artifact name="aopalliance-1.0.0-sources" type="source" ext="jar" conf="src"/>
+    </dependency>
+
+    <!-- ############################################################## -->
+    <!-- # DEVELOPMENT                                                # -->
+    <!-- ############################################################## -->
+    <!--  -->
+    <!--dependency org="others" name="hibernate-jpamodelgen" rev="1.2.0.Final" transitive="false" conf="dev"/-->
+
+  </dependencies>
+</ivy-module>

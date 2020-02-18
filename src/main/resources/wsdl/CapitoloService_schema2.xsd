@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/bil/svc/1.0" xmlns:ns2="http://siac.csi.it/bil/data/1.0" xmlns:ns1="http://siac.csi.it/cor/data/1.0" xmlns:tns="http://siac.csi.it/bil/svc/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://siac.csi.it/cor/data/1.0" schemaLocation="CapitoloService_schema1.xsd"/>
+
+  <xs:import namespace="http://siac.csi.it/bil/data/1.0" schemaLocation="CapitoloService_schema3.xsd"/>
+
+  <xs:element name="aggiornaStanziamentiCapitoliVariati" nillable="true" type="tns:aggiornaStanziamentiCapitoliVariati"/>
+
+  <xs:element name="aggiornaStanziamentiCapitoliVariatiResponse" nillable="true" type="tns:aggiornaStanziamentiCapitoliVariatiResponse"/>
+
+  <xs:element name="annullaCapitolo" nillable="true" type="tns:annullaCapitolo"/>
+
+  <xs:element name="annullaCapitoloResponse" nillable="true" type="tns:annullaCapitoloResponse"/>
+
+  <xs:element name="calcolaTotaliStanziamentiDiPrevisione" nillable="true" type="tns:calcolaTotaliStanziamentiDiPrevisione"/>
+
+  <xs:element name="calcolaTotaliStanziamentiDiPrevisioneResponse" nillable="true" type="tns:calcolaTotaliStanziamentiDiPrevisioneResponse"/>
+
+  <xs:element name="calcoloDisponibilitaDiUnCapitolo" nillable="true" type="tns:calcoloDisponibilitaDiUnCapitolo"/>
+
+  <xs:element name="calcoloDisponibilitaDiUnCapitoloResponse" nillable="true" type="tns:calcoloDisponibilitaDiUnCapitoloResponse"/>
+
+  <xs:element name="eliminaCapitolo" nillable="true" type="tns:eliminaCapitolo"/>
+
+  <xs:element name="eliminaCapitoloResponse" nillable="true" type="tns:eliminaCapitoloResponse"/>
+
+  <xs:element name="ricercaVariazioniCapitolo" nillable="true" type="tns:ricercaVariazioniCapitolo"/>
+
+  <xs:element name="ricercaVariazioniCapitoloResponse" nillable="true" type="tns:ricercaVariazioniCapitoloResponse"/>
+
+  <xs:element name="verificaAnnullabilitaCapitolo" nillable="true" type="tns:verificaAnnullabilitaCapitolo"/>
+
+  <xs:element name="verificaAnnullabilitaCapitoloResponse" nillable="true" type="tns:verificaAnnullabilitaCapitoloResponse"/>
+
+  <xs:element name="verificaEliminabilitaCapitolo" nillable="true" type="tns:verificaEliminabilitaCapitolo"/>
+
+  <xs:element name="verificaEliminabilitaCapitoloResponse" nillable="true" type="tns:verificaEliminabilitaCapitoloResponse"/>
+
+  <xs:complexType name="calcoloDisponibilitaDiUnCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="annoCapitolo" type="xs:int"/>
+          <xs:element name="annoEsercizio" type="xs:int"/>
+          <xs:element name="faseDiBilancio" type="xs:string" minOccurs="0"/>
+          <xs:element name="numroCapitolo" type="xs:int"/>
+          <xs:element name="tipoDisponibilitaRichiesta" type="xs:string" minOccurs="0"/>
+          <xs:element name="tipoEsercizio" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="calcoloDisponibilitaDiUnCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence>
+          <xs:element name="disponibilitaRichiesta" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="calcolaTotaliStanziamentiDiPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="annoEsercizio" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="calcolaTotaliStanziamentiDiPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence>
+          <xs:element name="totaliAnnoEsercizioAttuale" type="tns:totaliAnnoDiEsercizio" minOccurs="0"/>
+          <xs:element name="totaliAnnoEsercizioPassato" type="tns:totaliAnnoDiEsercizio" minOccurs="0"/>
+          <xs:element name="totaliAnnoEsercizioSuccessivo" type="tns:totaliAnnoDiEsercizio" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="totaliAnnoDiEsercizio">
+    <xs:complexContent>
+      <xs:extension base="ns1:entita">
+        <xs:sequence>
+          <xs:element name="totStanziamentiCompetenzaEntrata" type="xs:double"/>
+          <xs:element name="totStanziamentiDiCassaEntrata" type="xs:double"/>
+          <xs:element name="totStanziamentiDiCompetenzaSpesa" type="xs:double"/>
+          <xs:element name="totStanziamentiResiduiEntrata" type="xs:double"/>
+          <xs:element name="totaleStanziamentiDiCassaSpesa" type="xs:double"/>
+          <xs:element name="totaleStanziamentiResiduiSpesa" type="xs:double"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggiornaStanziamentiCapitoliVariati">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="identificativoVariazione" type="xs:string" minOccurs="0"/>
+          <xs:element name="statoVariazionePrecedente" type="xs:string" minOccurs="0"/>
+          <xs:element name="statoVariazioneSuccessivo" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggiornaStanziamentiCapitoliVariatiResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="eliminaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns2:bilancio" minOccurs="0"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="eliminaCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaVariazioniCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns2:bilancio" minOccurs="0"/>
+          <xs:element name="capitolo" type="ns2:capitolo" minOccurs="0"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaVariazioniCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence>
+          <xs:element name="listaVariazioniCodifiche" type="ns2:variazioneCodificaCapitolo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listaVariazioniImporti" type="ns2:variazioneImportoCapitolo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="annullaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns2:bilancio" minOccurs="0"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="annullaCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="verificaAnnullabilitaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns2:bilancio" minOccurs="0"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="verificaAnnullabilitaCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence>
+          <xs:element name="capitoloAnnullabile" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="verificaEliminabilitaCapitolo">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns2:bilancio" minOccurs="0"/>
+          <xs:element name="ente" type="ns1:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="verificaEliminabilitaCapitoloResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:serviceResponse">
+        <xs:sequence>
+          <xs:element name="capitoloEliminabile" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

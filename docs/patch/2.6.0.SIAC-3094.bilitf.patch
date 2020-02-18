@@ -1,0 +1,137 @@
+Index: src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaEntrata.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaEntrata.java	(revision 8991)
++++ src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaEntrata.java	(working copy)
+@@ -1,5 +1,7 @@
+ package it.csi.siac.siacfin2ser.model;
+ 
++import java.util.Date;
++
+ import javax.xml.bind.annotation.XmlType;
+ 
+ @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
+@@ -6,5 +8,56 @@
+ public class SubdocumentoIvaEntrata extends SubdocumentoIva<DocumentoEntrata, SubdocumentoEntrata, SubdocumentoIvaEntrata> {
+ 	
+ 	private static final long serialVersionUID = -175255852075906685L;
+-		
++	
++	
++	@Override
++	public void setDataProtocolloDefinitivo(Date dataProtocolloDefinitivo) {
++		super.setDataProtocolloDefinitivo(dataProtocolloDefinitivo);
++	}	
++	
++	@Override
++	public Date getDataProtocolloDefinitivo() {
++		return super.getDataProtocolloDefinitivo();
++	}
++	
++	@Override
++	public void setDataProtocolloProvvisorio(Date dataProtocolloProvvisorio) {
++		super.setDataProtocolloProvvisorio(dataProtocolloProvvisorio);
++	}
++	
++	@Override
++	public Date getDataProtocolloProvvisorio() {
++		return super.getDataProtocolloProvvisorio();
++	}
++	
++	@Override
++	public void setDataOrdinativoDocumento(Date dataOrdinativoDocumento) {
++		super.setDataOrdinativoDocumento(dataOrdinativoDocumento);
++	}
++	
++	@Override
++	public Date getDataOrdinativoDocumento() {
++		return super.getDataOrdinativoDocumento();
++	}
++	
++	@Override
++	public void setDataRegistrazione(Date dataRegistrazione) {
++		super.setDataRegistrazione(dataRegistrazione);
++	}
++	
++	@Override
++	public Date getDataRegistrazione() {
++		return super.getDataRegistrazione();
++	}
++	
++	@Override
++	public void setDataCassaDocumento(Date dataCassaDocumento) {
++		super.setDataCassaDocumento(dataCassaDocumento);
++	}
++	
++	@Override
++	public Date getDataCassaDocumento() {
++		return super.getDataCassaDocumento();
++	}
++	
+ }
+Index: src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaSpesa.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaSpesa.java	(revision 8991)
++++ src/main/java/it/csi/siac/siacfin2ser/model/SubdocumentoIvaSpesa.java	(working copy)
+@@ -1,5 +1,7 @@
+ package it.csi.siac.siacfin2ser.model;
+ 
++import java.util.Date;
++
+ import javax.xml.bind.annotation.XmlTransient;
+ import javax.xml.bind.annotation.XmlType;
+ 
+@@ -41,4 +43,54 @@
+ 		this.subdocumentoIvaEntrata = subdocumentoIvaEntrata;
+ 	}
+ 	
++	@Override
++	public void setDataProtocolloDefinitivo(Date dataProtocolloDefinitivo) {
++		super.setDataProtocolloDefinitivo(dataProtocolloDefinitivo);
++	}	
++	
++	
++	@Override
++	public Date getDataProtocolloDefinitivo() {
++		return super.getDataProtocolloDefinitivo();
++	}
++	
++	@Override
++	public void setDataProtocolloProvvisorio(Date dataProtocolloProvvisorio) {
++		super.setDataProtocolloProvvisorio(dataProtocolloProvvisorio);
++	}
++	
++	@Override
++	public Date getDataProtocolloProvvisorio() {
++		return super.getDataProtocolloProvvisorio();
++	}
++	
++	@Override
++	public void setDataOrdinativoDocumento(Date dataOrdinativoDocumento) {
++		super.setDataOrdinativoDocumento(dataOrdinativoDocumento);
++	}
++	
++	@Override
++	public Date getDataOrdinativoDocumento() {
++		return super.getDataOrdinativoDocumento();
++	}
++	
++	@Override
++	public void setDataRegistrazione(Date dataRegistrazione) {
++		super.setDataRegistrazione(dataRegistrazione);
++	}
++	
++	@Override
++	public Date getDataRegistrazione() {
++		return super.getDataRegistrazione();
++	}
++	
++	@Override
++	public void setDataCassaDocumento(Date dataCassaDocumento) {
++		super.setDataCassaDocumento(dataCassaDocumento);
++	}
++	
++	@Override
++	public Date getDataCassaDocumento() {
++		return super.getDataCassaDocumento();
++	}
+ }

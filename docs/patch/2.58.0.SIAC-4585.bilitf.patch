@@ -1,0 +1,13 @@
+Index: src/main/java/it/csi/siac/siacbilser/model/ImportiCapitoloUG.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/model/ImportiCapitoloUG.java	(revision 14051)
++++ src/main/java/it/csi/siac/siacbilser/model/ImportiCapitoloUG.java	(working copy)
+@@ -29,7 +29,7 @@
+ 	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno3) private BigDecimal disponibilitaImpegnareAnno3 = BigDecimal.ZERO; //new 1.7
+ 	
+ 	// SIAC-4585
+-	@ImportoPersistente private BigDecimal massimoImpegnabile = BigDecimal.ZERO;
++	@ImportoPersistente private BigDecimal massimoImpegnabile;
+ 
+ 	public BigDecimal getStanziamentoAsset() {
+ 		return stanziamentoAsset;

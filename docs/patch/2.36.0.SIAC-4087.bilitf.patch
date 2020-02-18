@@ -1,0 +1,18 @@
+Index: src/main/java/it/csi/siac/siacfin2ser/model/TipoOnereModelDetail.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/model/TipoOnereModelDetail.java	(revision 12331)
++++ src/main/java/it/csi/siac/siacfin2ser/model/TipoOnereModelDetail.java	(working copy)
+@@ -11,9 +11,9 @@
+ public enum TipoOnereModelDetail implements ModelDetail {	
+ 	
+ 	Attr,
+-    Causali,
+-    CausaliImpegno,
+-    CausaliAccertamento,
++    Causali, //Con questo converter si ottengono anche Impegno/Accertamento della Casusale.
++//    CausaliImpegno,
++//    CausaliAccertamento,
+     Attivita;
+ 
+ }
+\ No newline at end of file

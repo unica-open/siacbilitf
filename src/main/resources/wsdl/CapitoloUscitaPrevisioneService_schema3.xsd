@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://siac.csi.it/bil/svc/1.0" xmlns:ns2="http://siac.csi.it/cor/data/1.0" xmlns:ns1="http://siac.csi.it/bil/data/1.0" xmlns:ns4="http://siac.csi.it/att/data/1.0" xmlns:ns3="http://siac.csi.it/fin/data/1.0" xmlns:tns="http://siac.csi.it/bil/svc/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://siac.csi.it/bil/data/1.0" schemaLocation="CapitoloUscitaPrevisioneService_schema4.xsd"/>
+
+  <xs:import namespace="http://siac.csi.it/cor/data/1.0" schemaLocation="CapitoloUscitaPrevisioneService_schema2.xsd"/>
+
+  <xs:import namespace="http://siac.csi.it/fin/data/1.0" schemaLocation="CapitoloUscitaPrevisioneService_schema1.xsd"/>
+
+  <xs:import namespace="http://siac.csi.it/att/data/1.0" schemaLocation="CapitoloUscitaPrevisioneService_schema5.xsd"/>
+
+  <xs:element name="aggiornaCapitoloDiUscitaPrevisione" nillable="true" type="tns:aggiornaCapitoloDiUscitaPrevisione"/>
+
+  <xs:element name="aggiornaCapitoloDiUscitaPrevisioneResponse" nillable="true" type="tns:aggiornaCapitoloDiUscitaPrevisioneResponse"/>
+
+  <xs:element name="inserisceCapitoloDiUscitaPrevisione" nillable="true" type="tns:inserisceCapitoloDiUscitaPrevisione"/>
+
+  <xs:element name="inserisceCapitoloDiUscitaPrevisioneResponse" nillable="true" type="tns:inserisceCapitoloDiUscitaPrevisioneResponse"/>
+
+  <xs:element name="ricercaDettaglioCapitoloUscitaPrevisione" nillable="true" type="tns:ricercaDettaglioCapitoloUscitaPrevisione"/>
+
+  <xs:element name="ricercaDettaglioCapitoloUscitaPrevisioneResponse" nillable="true" type="tns:ricercaDettaglioCapitoloUscitaPrevisioneResponse"/>
+
+  <xs:element name="ricercaMovimentiCapitoloUscitaPrevisione" nillable="true" type="tns:ricercaMovimentiCapitoloUscitaPrevisione"/>
+
+  <xs:element name="ricercaMovimentiCapitoloUscitaPrevisioneResponse" nillable="true" type="tns:ricercaMovimentiCapitoloUscitaPrevisioneResponse"/>
+
+  <xs:element name="ricercaPuntualeCapitoloUscitaPrevisione" nillable="true" type="tns:ricercaPuntualeCapitoloUscitaPrevisione"/>
+
+  <xs:element name="ricercaPuntualeCapitoloUscitaPrevisioneResponse" nillable="true" type="tns:ricercaPuntualeCapitoloUscitaPrevisioneResponse"/>
+
+  <xs:element name="ricercaSinteticaCapitoloUscitaPrevisione" nillable="true" type="tns:ricercaSinteticaCapitoloUscitaPrevisione"/>
+
+  <xs:element name="ricercaSinteticaCapitoloUscitaPrevisioneResponse" nillable="true" type="tns:ricercaSinteticaCapitoloUscitaPrevisioneResponse"/>
+
+  <xs:complexType name="ricercaMovimentiCapitoloUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloUPrev" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="ente" type="ns2:ente" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaMovimentiCapitoloUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="listaDocumentoSpesa" type="ns3:documentoDiSpesa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listaImpegni" type="ns3:impegno" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listaVariazioneCodifiche" type="ns1:variazioneCodificaCapitolo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listaVariazioneImporti" type="ns1:variazioneImportoCapitolo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="listaVincoli" type="ns1:vincoliCapitoloUEPrev" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggiornaCapitoloDiUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="ente" type="ns2:ente" minOccurs="0"/>
+          <xs:element name="flagAggiornaUPB" type="xs:boolean"/>
+          <xs:element name="upbUscitaPrevisione" type="ns1:upbUscitaPrevisione" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="aggiornaCapitoloDiUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaSinteticaCapitoloUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="ente" type="ns2:ente" minOccurs="0"/>
+          <xs:element name="ricercaSinteticaCapitoloUPrev" type="ns1:ricercaSinteticaCapitoloUPrev" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaSinteticaCapitoloUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="elementoPianoDeiConti" type="ns1:elementoPianoDeiConti" minOccurs="0"/>
+          <xs:element name="strutturaAmministrativoContabile" type="ns2:strutturaAmministrativoContabile" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="inserisceCapitoloDiUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="ente" type="ns2:ente" minOccurs="0"/>
+          <xs:element name="upbUscitaPrevisione" type="ns1:upbUscitaPrevisione" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="inserisceCapitoloDiUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="capitoloInserito" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaPuntualeCapitoloUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="ricercaPuntualeCapitoloUPrev" type="ns1:ricercaPuntualeCapitoloUPrev" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaPuntualeCapitoloUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="elementoPianoDeiConti" type="ns1:elementoPianoDeiConti" minOccurs="0"/>
+          <xs:element name="strutturaAmministrativoContabile" type="ns2:strutturaAmministrativoContabile" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaDettaglioCapitoloUscitaPrevisione">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceRequest">
+        <xs:sequence>
+          <xs:element name="ente" type="ns2:ente" minOccurs="0"/>
+          <xs:element name="ricercaDettaglioCapitoloUPrev" type="ns1:ricercaDettaglioCapitoloUPrev" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ricercaDettaglioCapitoloUscitaPrevisioneResponse">
+    <xs:complexContent>
+      <xs:extension base="ns2:serviceResponse">
+        <xs:sequence>
+          <xs:element name="attoDiLegge" type="ns1:attiDiLegge" minOccurs="0"/>
+          <xs:element name="attoDiLeggeCapitolo" type="ns1:attoDiLeggeCapitolo" minOccurs="0"/>
+          <xs:element name="bilancio" type="ns1:bilancio" minOccurs="0"/>
+          <xs:element name="capitoloEntrataPrev" type="ns1:capitoloEntrataPrevisione" minOccurs="0"/>
+          <xs:element name="capitoloUscitaPrevisione" type="ns1:capitoloUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="classificatoreGenerico" type="ns3:classificatoreGenerico" minOccurs="0"/>
+          <xs:element name="cofogProgramma" type="ns3:cofog" minOccurs="0"/>
+          <xs:element name="elementoPianoDeiConti" type="ns1:elementoPianoDeiConti" minOccurs="0"/>
+          <xs:element name="faseEStatoAttualeBilancio" type="ns1:faseEStatoAttualeBilancio" minOccurs="0"/>
+          <xs:element name="macroaggregatoTitolo" type="ns1:macroaggregato" minOccurs="0"/>
+          <xs:element name="missione" type="ns1:missione" minOccurs="0"/>
+          <xs:element name="programma" type="ns1:programma" minOccurs="0"/>
+          <xs:element name="struttAmmContabile" type="ns2:strutturaAmministrativoContabile" minOccurs="0"/>
+          <xs:element name="tipoClassificatoreGenerico" type="ns3:tipoClassificatoreGenerico" minOccurs="0"/>
+          <xs:element name="tipoContributo" type="ns3:tipoContributo" minOccurs="0"/>
+          <xs:element name="tipoFinanziamento" type="ns3:tipoFinanziamento" minOccurs="0"/>
+          <xs:element name="tipoFondo" type="ns3:tipoFondo" minOccurs="0"/>
+          <xs:element name="tipoMutuo" type="ns3:tipoMutuo" minOccurs="0"/>
+          <xs:element name="tipoVincolo" type="ns1:tipoVincolo" minOccurs="0"/>
+          <xs:element name="titoloSpesaProgramma" type="ns1:titoloSpesa" minOccurs="0"/>
+          <xs:element name="upbAttoAmm" type="ns4:attoAmministrativo" minOccurs="0"/>
+          <xs:element name="upbElementoPdC" type="ns1:elementoPianoDeiConti" minOccurs="0"/>
+          <xs:element name="upbStruttAmmContabile" type="ns2:strutturaAmministrativoContabile" minOccurs="0"/>
+          <xs:element name="upbUscitaPrevisione" type="ns1:upbUscitaPrevisione" minOccurs="0"/>
+          <xs:element name="vincoliCUEPrev" type="ns1:vincoliCapitoloUEPrev" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

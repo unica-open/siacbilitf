@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.csi.it/fel/eis/FelToBilancio"
+	xmlns:tns="http://www.csi.it/fel/eis/FelToBilancio" 
+	xmlns:types="http://www.csi.it/fel/eis/types"
+	elementFormDefault="qualified"> 
+
+	<import namespace="http://www.csi.it/fel/eis/types" schemaLocation="FelCommonTypes.xsd" />
+	
+	<element name="EsitoFatturaAttivaRequest">
+		<complexType>
+			<sequence>
+				<element name="TestataInvioFatturaAttiva" type="tns:TestataEsitoFatturaAttivaType"/>
+				<!-- esiste già uno stato del "trattamento" - questo va inteso come uno stato di ritorno per il 
+					 solo sistema contabile che riceve 
+					 se non serve un nuovo stato e si utilizza quello del "trattamento" togliere StatoFatturaType e lasciare una String35
+				-->
+				<element name="StatoElaborazioneFattura" type="tns:StatoFatturaType"/>
+				<!-- il sistema chiamante deve memorizzare i dati di archiviazione? Fel di ritorno dall'archiviazione o
+					 protocollazione riceve i dati di indiceClassificazioneEsteso (posizione su Acta) o il numero di protocollo 
+					verrà verificato se questi dati servono al chiamante -->
+				<element name="DettaglioEsitoElaborazione" type="types:String250Type" minOccurs="0"/>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="EsitoFatturaAttivaResponse" type="types:ResponseType"/>
+	
+	<complexType name="TestataEsitoFatturaAttivaType">
+		<sequence>
+			<element name="IdMessaggio" type="types:String35Type" />
+			<element name="DataOraInvio" type="dateTime" />
+			<!-- il Contabilia chiamante (Comune...) o CodIvi -->
+			<element name="CodiceApplicativoChiamante" type="types:String35Type" />			
+			<element name="CFEnte" type="types:idFiscaleIvaTipo" />
+			<element name="DatiFattura" type="types:FatturaType" />			
+		</sequence>
+	</complexType>
+		
+	<simpleType name="StatoFatturaType">
+		<restriction base="string">
+			<enumeration value="DA_CONSEGNARE"/>
+			<enumeration value="CONSEGNATO"/>
+			<enumeration value="IN_ERRORE"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

@@ -1,0 +1,166 @@
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/FondiDubbiaEsigibilitaService.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/FondiDubbiaEsigibilitaService.java	(revision 13699)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/FondiDubbiaEsigibilitaService.java	(working copy)
+@@ -11,6 +11,10 @@
+ import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaRendiconto;
+ import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaRendicontoResponse;
+ import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaResponse;
++import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaAnnoPrecedente;
++import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse;
++import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente;
++import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse;
+ import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilita;
+ import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilitaRendiconto;
+ import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilitaRendicontoResponse;
+@@ -150,4 +154,22 @@
+ 	@WebMethod
+ 	public @WebResult
+ 	AsyncServiceResponse popolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedenteAsync(@WebParam AsyncServiceRequestWrapper<PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente> parameters);
++	
++	// SIAC-4469
++	
++	/**
++	 * Controlla se vi siano fondi a dusbbia e difficile esazione nell'anno precedente a quello di bilancio
++	 * @param parameters la request per il servizio
++	 * @return la response 
++	 */
++	@WebMethod
++	public @WebResult ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse controllaFondiDubbiaEsigibilitaAnnoPrecedente(@WebParam ControllaFondiDubbiaEsigibilitaAnnoPrecedente parameters);
++	
++	/**
++	 * Controlla se vi siano fondi a dusbbia e difficile esazione nell'anno precedente a quello di bilancio
++	 * @param parameters la request per il servizio
++	 * @return la response 
++	 */
++	@WebMethod
++	public @WebResult ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse controllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente(@WebParam ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente parameters);
+ }
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedente.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedente.java	(nonexistent)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedente.java	(working copy)
+@@ -0,0 +1,27 @@
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import it.csi.siac.siaccorser.model.Bilancio;
++import it.csi.siac.siaccorser.model.ServiceRequest;
++
++/**
++ * Controllo sui fondi a dubbia e difficile esazione dell'anno precedente a quello di bilancio
++ * @author Marchino Alessandro
++ */
++public class ControllaFondiDubbiaEsigibilitaAnnoPrecedente extends ServiceRequest {
++
++	private Bilancio bilancio;
++
++	/**
++	 * @return the bilancio
++	 */
++	public Bilancio getBilancio() {
++		return bilancio;
++	}
++
++	/**
++	 * @param bilancio the bilancio to set
++	 */
++	public void setBilancio(Bilancio bilancio) {
++		this.bilancio = bilancio;
++	}
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse.java	(nonexistent)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse.java	(working copy)
+@@ -0,0 +1,27 @@
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import it.csi.siac.siaccorser.model.ServiceResponse;
++
++/**
++ * Risposta al controllo sui fondi a dubbia e difficile esazione dell'anno precedente a quello di bilancio
++ * @author Marchino Alessandro
++ */
++public class ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse extends ServiceResponse {
++
++	private Long numeroFondiAnnoPrecedente;
++
++	/**
++	 * @return the numeroFondiAnnoPrecedente
++	 */
++	public Long getNumeroFondiAnnoPrecedente() {
++		return numeroFondiAnnoPrecedente;
++	}
++
++	/**
++	 * @param numeroFondiAnnoPrecedente the numeroFondiAnnoPrecedente to set
++	 */
++	public void setNumeroFondiAnnoPrecedente(Long numeroFondiAnnoPrecedente) {
++		this.numeroFondiAnnoPrecedente = numeroFondiAnnoPrecedente;
++	}
++	
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente.java	(nonexistent)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente.java	(working copy)
+@@ -0,0 +1,27 @@
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import it.csi.siac.siaccorser.model.Bilancio;
++import it.csi.siac.siaccorser.model.ServiceRequest;
++
++/**
++ * Controllo sui fondi a dubbia e difficile esazione dell'anno precedente a quello di bilancio per il rendiconto
++ * @author Marchino Alessandro
++ */
++public class ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente extends ServiceRequest {
++
++	private Bilancio bilancio;
++
++	/**
++	 * @return the bilancio
++	 */
++	public Bilancio getBilancio() {
++		return bilancio;
++	}
++
++	/**
++	 * @param bilancio the bilancio to set
++	 */
++	public void setBilancio(Bilancio bilancio) {
++		this.bilancio = bilancio;
++	}
++}
+Index: src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse.java
+===================================================================
+--- src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse.java	(nonexistent)
++++ src/main/java/it/csi/siac/siacbilser/frontend/webservice/msg/ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse.java	(working copy)
+@@ -0,0 +1,27 @@
++package it.csi.siac.siacbilser.frontend.webservice.msg;
++
++import it.csi.siac.siaccorser.model.ServiceResponse;
++
++/**
++ * Risposta al controllo sui fondi a dubbia e difficile esazione dell'anno precedente a quello di bilancio
++ * @author Marchino Alessandro
++ */
++public class ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse extends ServiceResponse {
++
++	private Long numeroFondiAnnoPrecedente;
++
++	/**
++	 * @return the numeroFondiAnnoPrecedente
++	 */
++	public Long getNumeroFondiAnnoPrecedente() {
++		return numeroFondiAnnoPrecedente;
++	}
++
++	/**
++	 * @param numeroFondiAnnoPrecedente the numeroFondiAnnoPrecedente to set
++	 */
++	public void setNumeroFondiAnnoPrecedente(Long numeroFondiAnnoPrecedente) {
++		this.numeroFondiAnnoPrecedente = numeroFondiAnnoPrecedente;
++	}
++	
++}

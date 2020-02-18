@@ -1,0 +1,309 @@
+------------------------
+SIAC BIL Server Itf
+------------------------
+
+TODO
+-------
+
+Funzionalità rilasciate
+--------------------------
+build 27/11/2019 versione 4.18.0
+ SIAC-6840
+ SIAC-6881
+ SIAC-7058
+ SIAC-7060
+ SIAC-7065
+ SIAC-7066
+ SIAC-7209
+ SIAC-7210
+ SIAC-7118
+ SIAC-7125
+ SIAC-7216
+
+build 15/11/2019 versione 4.17.1
+ SIAC-7118
+ SIAC-7125
+
+build 22/10/2019 versione 4.17.0
+ SIAC-7092
+
+build 07/10/2019 versione 4.16.0
+ SIAC-6702
+ SIAC-6732
+ SIAC-6847
+ SIAC-6899
+ SIAC-7008
+
+build 28/08/2019 versione 4.15.0
+ SIAC-6874 
+ SIAC-6949
+
+build 24/07/2019 versione 4.14.0
+ SIAC-6793
+ SIAC-6981 (patch) 
+
+build 26/06/2019 versione 4.13.0
+ SIAC-6706 
+ SIAC-6720
+ SIAC-6909
+ SIAC-6911
+
+build 29/05/2019 versione 4.12.0
+ SIAC-6255
+ SIAC-6808
+ SIAC-6817
+
+build 29/04/2019 versione 4.11.0
+ SIAC-6688
+ SIAC-6775
+
+build 27/03/2019 versione 4.10.0
+ SIAC-6565
+ 
+build 06/03/2019 versione 4.9.0
+ SIAC-6468
+ SIAC-6567
+ SIAC-6585
+ SIAC-6587
+ SIAC-6657
+ SIAC-6695
+ SIAC-6678
+
+build 13/02/2019 versione 4.8.0
+ SIAC-6357
+ SIAC-6586
+ SIAC-6645
+ SIAC-6652
+ SIAC-6674
+
+build 23/01/2019 versione 4.7.0
+ SIAC-6581
+ SIAC-6588
+ SIAC-6617
+
+build 09/01/2019 versione 4.6.0
+ SIAC-6348
+ SIAC-6365
+ SIAC-6467
+ SIAC-6564
+ SIAC-6584
+ SIAC-6590
+ SIAC-6618
+
+build 13/12/2018 versione 4.5.0
+ Cespiti- modifica importo su prima nota
+ Integrazione di finitf e attitf
+ SIAC-6261
+ SIAC-6465
+ SIAC-6552
+
+build 22/11/2018 versione 4.4.0
+ Cespiti- aggiorna prima nota registro A
+ SIAC-6523
+ SIAC-6531
+ SIAC-6539
+
+build 15/11/2018 versione 4.3.0
+ SIAC-6503
+ SIAC-6504
+ SIAC-6508
+ SIAC-6521
+
+build 08/11/2018 versione 4.2.0
+ Cespiti-consulta registroA
+
+build 31/10/2018 versione 4.1.0
+ SIAC-6347
+ Cespiti-V4
+
+build 25/10/2018 versione 4.0.0
+ SIAC-6483
+ Cespiti-V3
+ incremento versione per modifiche architettura
+
+build 11/10/2018 versione 3.40.0
+ SIAC-6450
+
+build 27/09/2018 versione 3.39.0
+  SIAC-6346
+  SIAC-6433
+ 
+build 06/09/2018 versione 3.38.0
+  SIAC-6311
+  SIAC-6367
+  SIAC-6374
+  SIAC-6376
+  SIAC-6377
+  SIAC-6382
+  SIAC-6385
+
+build 26/07/2018 versione 3.37.0
+ SIAC-6175
+ SIAC-6206
+
+build 05/07/2018 versione 3.36.0
+ SIAC-6193
+ SIAC-6276
+
+build 28/06/2018 versione 3.34.0
+ SIAC-6248
+
+build 14/06/2018 versione 3.33.0
+ SIAC-6164
+ SIAC-6190
+
+build 31/05/2018 versione 3.32.0
+ SIAC-6166
+ SIAC-6195
+
+build 17/05/2018 versione 3.31.0
+ SIAC-6160
+
+build 10/05/2018 versione 3.30.0
+ SIAC-6090
+ SIAC-6095
+
+build 26/04/2018 versione 3.29.0
+ SIAC-5937
+
+build 12/04/2018 versione 3.28.0
+ SIAC-6040
+ SIAC-6048
+ SIAC-6077
+
+build 05/04/2018 versione 3.27.0
+ SIAC-6060
+
+build 29/03/2018 versione 3.26.0
+ SIAC-5853
+ SIAC-5944
+
+build 22/03/2018 versione 3.25.0
+ SIAC-5802
+ SIAC-5895
+
+build 15/03/2018 versione 3.24.0
+ SIAC-5799
+ SIAC-6013
+
+build 08/03/2018 versione 3.23.0
+ SIAC-5584
+ SIAC-5991
+
+build 22/02/2018 versione 3.22.0
+ SIAC-5890
+ SIAC-5920
+ SIAC-5954 (consegnata come patch)
+
+build 15/02/2018 versione 3.21.0
+ SIAC-5589
+ SIAC-5623
+
+build 08/02/2018 versione 3.20.0
+ SIAC-5660
+
+build 25/01/2018 versione 3.19.0
+ SIAC-5333
+ SIAC-5582
+ SIAC-5783
+
+build 11/01/2018 versione 3.18.0
+ SIAC-5761
+
+build 28/12/2017 versione 3.17.0
+ SIAC-5336
+
+build 21/12/2017 versione 3.16.0
+ SIAC-5334
+
+build 14/12/2017 versione 3.15.0
+ SIAC-5279
+ SIAC-5290
+
+build 23/11/2017 versione 3.14.0
+ SIAC-5291
+ SIAC-5292
+ SIAC-5346
+ SIAC-5546
+
+build 16/11/2017 versione 3.13.0
+ SIAC-5481
+
+build 09/11/2017 versione 3.12.0
+ SIAC-5393
+ SIAC-5484
+
+build 26/10/2017 versione 3.11.0
+ SIAC-5365
+ SIAC-5388
+#### SIOPE+ INIZIO ####
+ SIAC-5115
+ SIAC-5311
+ SIAC-5410
+ SIAC-5416
+####  SIOPE+ FINE  ####
+
+build 12/10/2017 versione 3.10.0
+ SIAC-5176
+ SIAC-5252
+
+build 05/10/2017 versione 3.9.0
+ SIAC-5274
+ SIAC-5281
+ SIAC-5255
+ SIAC-5320
+
+build 21/09/2017 versione 3.8.0
+ SIAC-5250
+
+build 14/09/2017 versione 3.7.0
+ SIAC-5224
+
+build 07/09/2017 versione 3.6.0
+ SIAC-5204
+ SIAC-5212
+
+build 31/08/2017 versione 3.5.0
+ SIAC-5043
+ SIAC-5152
+ SIAC-5169
+ SIAC-5170
+ SIAC-5172
+
+build 27/07/2017 versione 3.4.0
+ SIAC-5043
+ SIAC-5056
+ SIAC-5076
+ SIAC-5134
+
+build 20/07/2017 versione 3.3.0
+ SIAC-5016
+ SIAC-5021
+ SIAC-5048
+ SIAC-5101
+ SIAC-5127
+
+build 13/07/2017 versione 3.2.0
+ SIAC-5072
+ SIAC-5079
+
+build 06/07/2017 versione 3.1.0
+ SIAC-4996
+
+build 29/06/2017 versione 3.0.0
+ SIAC-4961
+ SIAC-4970
+ SIAC-5001
+ SIAC-5041
+
+build 2013.06.10 SVILUPPO-1.0.0-003
+- ultima versione bonita 5.9 su jboss
+Necessitiamo il passaggio a bonita 6.0 su tomcat per superare i problemi di integrazione
+del connector ws che si sono presentati su jboss
+- deployato un webservice cxf con spring su JBOSS 6 EAP USANDO 
+il supporto a ws che fornisce JBOSS, iniettando servizi con spring
+- evitato il problema del non-repeatable read 
+(http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html).
+- modificato il build che cancelli e riscriva la dir build/temp, altrimenti in 
+fase di costruzione dei pacchetti si ottenevano cose non sempre aggiornate al 100%
+

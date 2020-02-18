@@ -1,0 +1,40 @@
+Index: src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/AnnullaDocumentoSpesa.java
+===================================================================
+--- src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/AnnullaDocumentoSpesa.java	(revision 8689)
++++ src/main/java/it/csi/siac/siacfin2ser/frontend/webservice/msg/AnnullaDocumentoSpesa.java	(working copy)
+@@ -1,5 +1,6 @@
+ package it.csi.siac.siacfin2ser.frontend.webservice.msg;
+ 
++import it.csi.siac.siaccorser.model.Bilancio;
+ import it.csi.siac.siaccorser.model.ServiceRequest;
+ import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
+ import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
+@@ -10,6 +11,7 @@
+ public class AnnullaDocumentoSpesa extends ServiceRequest {
+ 	
+ 	private DocumentoSpesa documentoSpesa;
++	private Bilancio bilancio;
+ 
+ 	/**
+ 	 * @return the documentoSpesa
+@@ -24,6 +26,20 @@
+ 	public void setDocumentoSpesa(DocumentoSpesa documentoSpesa) {
+ 		this.documentoSpesa = documentoSpesa;
+ 	}
++
++	/**
++	 * @return the bilancio
++	 */
++	public Bilancio getBilancio() {
++		return bilancio;
++	}
++
++	/**
++	 * @param bilancio the bilancio to set
++	 */
++	public void setBilancio(Bilancio bilancio) {
++		this.bilancio = bilancio;
++	}
+ 	
+ 	
+ 

@@ -1,0 +1,47 @@
+Index: ErroreFin.java
+===================================================================
+--- ErroreFin.java	(revision 10185)
++++ ErroreFin.java	(revision 12186)
+@@ -51,7 +51,7 @@
+ 	CANCELAZIONE_REGISTRO_IVA_IMPOSSIBILE("FIN_ERR_0186", "Cancellazione registro  iva impossibile: esistono entita'' collegate"),
+ 	NON_CI_SONO_MOVIMENTI_IVA_ASSOCIATI("FIN_ERR_0189", "Non ci sono movimenti iva associati"),
+ 	TOTALE_MOVIMENTI_IVA_NON_MAGGIORE_IMPORTO_QUOTA("FIN_ERR_0190", "Il totale dei movimenti iva {0} non può essere maggiore dell''importo della quota {1}"),
+-	IL_TOTALE_DEI_MOVIMENTI_IVA_NON_E_UGUALE_ALL_IMPORTO_DELLA_QUOTA("FIN_INF_0191", "Il totale dei movimenti iva non e'' uguale all’importo della quota"),
++	IL_TOTALE_DEI_MOVIMENTI_IVA_NON_E_UGUALE_ALL_IMPORTO_DELLA_QUOTA("FIN_INF_0191", "Il totale dei movimenti iva non e'' uguale all''importo della quota"),
+ 	DATA_REGIST_ANTECEDENTE_DATA_EMISSIONE_DOC("FIN_ERR_0192","Data di registrazione antecedente alla data emissione del documento"),
+ 	PROVVISORIO_NON_REGOLARIZZABILE("FIN_ERR_0195", "{0} di un {1} con indicazione del provvisorio di cassa {2}. Impossibile procedere con la sua regolarizzazione. {3}"),
+ 	DATI_INCONSISTENTI_IMPOSSIBILE_AGGIORNARE_LA_TABELLA_DEI_MOVIMENTI_IVA("FIN_ERR_0196", "Dati inconsistenti: impossibile aggiornare la tabella dei movimenti iva"),
+@@ -59,8 +59,8 @@
+ 	STRUTTURA_CONTABILE_NON_COMPATIBILE("FIN_ERR_0198", "{0} e'' associato ad altra struttura contabile"),
+ 	IL_TOTALE_DEI_MOVIMENTI_IVA_NON_E_UGUALE_ALL_IMPORTO_RILEVANTE_IVA("FIN_INF_207", "Il totale dei movimenti iva non e'' uguale all''importo rilevante iva"),
+ 	TOTALE_MOVIMENTI_IVA_NON_MAGGIORE_TOTALE_IMPORTO_RILEVANTE_IVA("FIN_ERR_0208", "Il totale dei movimenti iva {0} non puo'' essere maggiore dell''importo rilevante iva {1}"),
+-	DATA_DI_REGISTRAZIONE_ANTECEDENTE_ALLA_DATA_DI_REGISTRAZIONE_DELL_ULTIMO_DOCUMENTO_REGISTRATO_NEL_SISTEMA_IN_QUELLO_STESSO_REGISTRO("FIN_ERR_0209", "Data di registrazione antecedente  alla data di registrazione dell’ultimo documento registrato nel sistema in quello stesso registro"),
+-	LA_DATA_DI_REGISTRAZIONE_DEVE_SEMPRE_ESSERE_SUCCESSIVA_ALL_ULTIM0_PERIODO_STAMPATO_IN_DEFINITIVO_PER_QUELLO_STESSO_REGISTRO("FIN_ERR_010","La data di registrazione  deve sempre essere successiva all' ultimo periodo stampato in definitivo per quello stesso registro"),
++	DATA_DI_REGISTRAZIONE_ANTECEDENTE_ALLA_DATA_DI_REGISTRAZIONE_DELL_ULTIMO_DOCUMENTO_REGISTRATO_NEL_SISTEMA_IN_QUELLO_STESSO_REGISTRO("FIN_ERR_0209", "Data di registrazione antecedente  alla data di registrazione dell'’ultimo documento registrato nel sistema in quello stesso registro"),
++	LA_DATA_DI_REGISTRAZIONE_DEVE_SEMPRE_ESSERE_SUCCESSIVA_ALL_ULTIM0_PERIODO_STAMPATO_IN_DEFINITIVO_PER_QUELLO_STESSO_REGISTRO("FIN_ERR_010","La data di registrazione  deve sempre essere successiva all'' ultimo periodo stampato in definitivo per quello stesso registro"),
+ 	SUBDOCUMENTO_IVA_NON_AGGIORNABILE("FIN_ERR_0213", "Documento Iva non aggiornabile"),
+ 	ATTO_GIA_ABBINATO("FIN_ERR_0214", "Provvedimento gia'' associato ad altri elenchi di documenti, operazione non possibile. {0}"),
+ 	ELENCO_NON_SELEZIONABILE("FIN_ERR_0215", "Operazione non possibile. {0}"),
+@@ -102,7 +102,7 @@
+ 	SOGGETTO_MOVIMENTO_GESTIONE_NON_VALIDO_PER_INCONGRUENZA("FIN_ERR_0282", "Il {0} cui riferisce {1} e'' incongruente  rispetto a quello indicato {2} - {3}"),
+ 	DIVISA_FEL_NON_EURO("FIN_INF_0283", "Divisa FEL non euro"),
+ 	DATI_INCOSTISTENTI_DA_DOCUMENTO_FEL("FIN_INF_0284", "Impossibile completare la tabella {0} da documento FEL"),
+-	CONFERMA_INVIO_PER_FIRMA("FIN_CON_0286", "Si sta per inviare l'ATTO {0} per la firma vuoi proseguire?"),
++	CONFERMA_INVIO_PER_FIRMA("FIN_CON_0286", "Si sta per inviare l''ATTO {0} per la firma, vuoi proseguire?"),
+ 	TOTALI_SPLIT_REVERSE_ESENTE_INCONGRUENTI("FIN_INF_0287", "Totali Iva split-reverse-esente non congruenti"),
+ 	CONDIZIONI_GEN_PCC_NON_SODDISFATTE("FIN_INF_0288", "Condizioni per la contabilizzazione non soddisfatte, operazione non possibile."),
+ 	IMPORTO_QUOTA__SPLIT_REVERSE_INCONGRUENTE("FIN_INF_0289", "Importo split-reverse quota non corretto"),
+
+Index: src/main/java/it/csi/siac/siacgenser/model/errore/ErroreGEN.java
+===================================================================
+--- src/main/java/it/csi/siac/siacgenser/model/errore/ErroreGEN.java	(revision 12176)
++++ src/main/java/it/csi/siac/siacgenser/model/errore/ErroreGEN.java	(working copy)
+@@ -19,7 +19,7 @@
+ 	MOVIMENTO_CONTABILE_NON_ELIMINABILE("GEN_ERR_0004", "Movimento non eliminabile: {0}"),
+ 	CAUSALE_CON_SCRITTURE_CONTABILI_ASSOCIATE("GEN_INF_0005", "Causale non annullabile: e'' gia'' stata associata a scritture contabili, verra'' comunque valorizzata la sua data fine validita''"),
+ 	CONTI_INCONGRUENTI("GEN_ERR_0006", "Conto non selezionabile: {0}"),
+-	ASSENZA_CONTI_OBBLIGATORI_CAUSALI_DI_RACCORDO("GEN_ERR_0007", "E' obbligatorio associare alla causale almeno due conti, uno con segno DARE ed uno con segno AVERE"),
++	ASSENZA_CONTI_OBBLIGATORI_CAUSALI_DI_RACCORDO("GEN_ERR_0007", "E'' obbligatorio associare alla causale almeno due conti, uno con segno DARE ed uno con segno AVERE"),
+ 	OPERAZIONE_NON_CONSENTITA("GEN_ERR_0009", "Operazione non consentita: {0}"),
+ 	OPERAZIONE_NON_CONSENTITA_0011("GEN_ERR_0011", "Occorre selezionare un codice della categoria cespiti"),
+ 	NESSUN_CONTO_COLLEGATO("GEN_WAR_0012", "Non è stato collegato nessun conto anche se il tipo è Cespite"),

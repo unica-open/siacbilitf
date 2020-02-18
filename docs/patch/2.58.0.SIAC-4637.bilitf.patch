@@ -1,0 +1,18 @@
+### Eclipse Workspace Patch 1.0
+#P bilserveritf
+diff --git src/main/java/it/csi/siac/siacbilser/model/TipoVariazione.java src/main/java/it/csi/siac/siacbilser/model/TipoVariazione.java
+index a5eaae6..62ae7f8 100644
+--- src/main/java/it/csi/siac/siacbilser/model/TipoVariazione.java
++++ src/main/java/it/csi/siac/siacbilser/model/TipoVariazione.java
+@@ -45,7 +45,10 @@
+ 	/**
+ 	 * The variazione per assestamento 
+ 	 */
+-	VARIAZIONE_PER_ASSESTAMENTO("AS","Variazione per assestamento"),
++	VARIAZIONE_PER_ASSESTAMENTO("AS","Variazione per assestamento"), 
++	
++	//SIAC-4637
++	COSTITUZIONE_INCREMENTO_FPV_SPESA("FP","Costituzione/Incremento FPV di spesa"),
+ 	;
+ 	
+ 	private String codice;
