@@ -59,6 +59,9 @@ public enum TipoVariazione implements DecodificaEnum {
 	
 	//SIAC-4637
 	COSTITUZIONE_INCREMENTO_FPV_SPESA("FP","Costituzione/Incremento FPV di spesa"),
+	
+	//SIAC-7629
+	VARIAZIONE_DECENTRATA_LEGGE("VL", "Variazione di bilancio decentrata con legge"),
 	;
 	
 	private String codice;

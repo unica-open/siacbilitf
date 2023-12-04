@@ -18,7 +18,9 @@ import java.math.RoundingMode;
 public final class BilUtilities {
 	
 	/** Il BigDecimal corrispondente al numero 100, da utilizzare nei calcoli sulle percentuali */
-	public static final BigDecimal BIG_DECIMAL_ONE_HUNDRED = new BigDecimal("100");
+	public static final BigDecimal BIG_DECIMAL_ONE_HUNDRED = new BigDecimal(100);
+	/** Il BigDecimal corrispondente al numero 10000, da utilizzare nei calcoli sulle percentuali */
+	public static final BigDecimal BIG_DECIMAL_TEN_THOUSAND = new BigDecimal(10000);
 	/** Il contesto da utilizzare nei calcoli con i BigDecimal: imposta due sole cifre decimali */
 	public static final MathContext MATH_CONTEXT_TWO_HALF_DOWN = new MathContext(2, RoundingMode.HALF_DOWN);
 	

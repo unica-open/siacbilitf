@@ -4,7 +4,13 @@
 */
 package it.csi.siac.siacgenser.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.DocumentoEntrata;
 import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
 import it.csi.siac.siacfinser.model.Accertamento;
@@ -13,18 +19,13 @@ import it.csi.siac.siacfinser.model.liquidazione.Liquidazione;
 import it.csi.siac.siacfinser.model.ordinativo.OrdinativoIncasso;
 import it.csi.siac.siacfinser.model.ordinativo.OrdinativoPagamento;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
-
 /**
 
  * @version 1.0
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class EntitaRegistrazioneMovFin extends Entita{
+public class EntitaRegistrazioneMovFin extends EntitaEnte{
 
 	
 	private static final long serialVersionUID = 3717172309803270659L;

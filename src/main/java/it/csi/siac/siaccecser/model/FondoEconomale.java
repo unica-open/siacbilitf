@@ -7,7 +7,7 @@ package it.csi.siac.siaccecser.model;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.Capitolo;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
@@ -19,7 +19,7 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class FondoEconomale extends Entita {
+public class FondoEconomale extends EntitaEnte {
 
 	private static final long serialVersionUID = -8270971379940405782L;
 	

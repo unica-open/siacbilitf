@@ -17,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
+import it.csi.siac.siaccorser.model.OperazioneAsincrona;
 import it.csi.siac.siaccorser.model.TipologiaClassificatore;
 
 /**
@@ -45,6 +46,10 @@ public class VariazioneImportoCapitolo extends VariazioneDiBilancio {
 	//Nuovo SIAC-4999
 	private Date dataInizioValiditaStato;
 	//private Date dataAperturaProposta;
+	//SIAC-8264
+	private OperazioneAsincrona ultimaAsincronaAggiornamento;
+	private OperazioneAsincrona ultimaAsincronaDefinizione;
+		
 	
 	/**
 	 * Gets the lista dettaglio variazione importo.
@@ -130,6 +135,42 @@ public class VariazioneImportoCapitolo extends VariazioneDiBilancio {
 	 */
 	public void setDataInizioValiditaStato(Date dataInizioValiditaStato) {
 		this.dataInizioValiditaStato = dataInizioValiditaStato;
+	}
+	
+	/**
+	 * Gets the ultima operazione aggiornamento lanciata.
+	 *
+	 * @return the ultima operazione aggiornamento lanciata
+	 */
+	public OperazioneAsincrona getUltimaAsincronaAggiornamento() {
+		return ultimaAsincronaAggiornamento;
+	}
+	
+	/**
+	 * Sets the ultima operazione aggiornamento lanciata.
+	 *
+	 * @param ultimaOperazioneAggiornamentoLanciata the new ultima operazione aggiornamento lanciata
+	 */
+	public void setUltimaAsincronaAggiornamento(OperazioneAsincrona ultimaOperazioneAggiornamentoLanciata) {
+		this.ultimaAsincronaAggiornamento = ultimaOperazioneAggiornamentoLanciata;
+	}
+	
+	/**
+	 * Gets the ultima operazione definizione lanciata.
+	 *
+	 * @return the ultima operazione definizione lanciata
+	 */
+	public OperazioneAsincrona getUltimaAsincronaDefinizione() {
+		return ultimaAsincronaDefinizione;
+	}
+	
+	/**
+	 * Sets the ultima operazione definizione lanciata.
+	 *
+	 * @param ultimaOperazioneDefinizioneLanciata the new ultima operazione definizione lanciata
+	 */
+	public void setUltimaAsincronaDefinizione(OperazioneAsincrona ultimaOperazioneDefinizioneLanciata) {
+		this.ultimaAsincronaDefinizione = ultimaOperazioneDefinizioneLanciata;
 	}
 	
 	/**

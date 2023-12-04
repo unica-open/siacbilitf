@@ -4,17 +4,18 @@
 */
 package it.csi.siac.siacbilser.business.utility;
 
-import java.text.MessageFormat;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import it.csi.siac.siaccommon.util.CoreUtil;
 
 /**
  * The Class StringUtilities.
  */
 public final class StringUtilities {
 	
-	private static final Pattern MESSAGE_FORMAT_PLACEHOLDER_PATTERN = Pattern.compile("\\{(\\d+)\\}");
+	//private static final Pattern MESSAGE_FORMAT_PLACEHOLDER_PATTERN = Pattern.compile("\\{(\\d+)\\}");
 	
 	/** Costruttore privato per non instanziabilit&agrave; */
 	private StringUtilities() {
@@ -29,9 +30,7 @@ public final class StringUtilities {
 	 * @return la stringa formattata
 	 */
 	public static String formatStringWithDefaultReplacements(String format, String defaultSubstitution, Object... replacements) {
-		final String msg = MessageFormat.format(format, replacements);
-		final Matcher matcher = MESSAGE_FORMAT_PLACEHOLDER_PATTERN.matcher(msg);
-		return matcher.replaceAll(defaultSubstitution);
+		return CoreUtil.formatStringWithDefaultReplacements(format, defaultSubstitution, replacements);
 	}
 	
 	/**

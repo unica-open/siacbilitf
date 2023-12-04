@@ -9,8 +9,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.Ambito;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 
 /**
  * Classificatore per GSA
@@ -20,12 +19,11 @@ import it.csi.siac.siaccorser.model.EntitaExt;
  * @created 15/12/2017
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class ClassificatoreGSA extends EntitaExt {
+public class ClassificatoreGSA extends EntitaEnteExt  {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 6781618291098040089L;
 
-	private Ente ente;
 	
 	private Integer livello;
 	private String codice;
@@ -46,18 +44,14 @@ public class ClassificatoreGSA extends EntitaExt {
 	 *
 	 * @return the ente
 	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
 	
 	/**
 	 * Sets the ente.
 	 *
 	 * @param ente the ente to set
 	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 	
 	/**
 	 * Gets the livello.

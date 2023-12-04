@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceResponse;
 import it.csi.siac.siaccorser.model.Errore;
 import it.csi.siac.siaccorser.model.Messaggio;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;

@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siacbilser.model.fcde.AccantonamentoFondiDubbiaEsigibilita;
+
 /**
  * CapitoloEntrataPrevisione
  * 
@@ -40,6 +42,8 @@ public class CapitoloEntrataPrevisione extends Capitolo<ImportiCapitoloEP,Import
 	private AccantonamentoFondiDubbiaEsigibilita accantonamentoFondiDubbiaEsigibilita;
 	// SIAC-5582
 	private Boolean flagAccertatoPerCassa;
+	// SIAC-7858
+	private Boolean flagEntrataDubbiaEsigFCDE;
 	
 	
 	public CapitoloEntrataPrevisione(){
@@ -202,6 +206,20 @@ public class CapitoloEntrataPrevisione extends Capitolo<ImportiCapitoloEP,Import
 	 */
 	public void setFlagAccertatoPerCassa(Boolean flagAccertatoPerCassa) {
 		this.flagAccertatoPerCassa = flagAccertatoPerCassa;
+	}
+
+	/**
+	 * @return the flagEntrataDubbiaEsigFCDE
+	 */
+	public Boolean getFlagEntrataDubbiaEsigFCDE() {
+		return this.flagEntrataDubbiaEsigFCDE;
+	}
+
+	/**
+	 * @param flagEntrataDubbiaEsigFCDE the flagEntrataDubbiaEsigFCDE to set
+	 */
+	public void setFlagEntrataDubbiaEsigFCDE(Boolean flagEntrataDubbiaEsigFCDE) {
+		this.flagEntrataDubbiaEsigFCDE = flagEntrataDubbiaEsigFCDE;
 	}
 	
 }

@@ -8,11 +8,11 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class DatiOrdinativoTrasmesso extends Entita {
+public class DatiOrdinativoTrasmesso extends EntitaEnte {
 
 	 
 	private static final long serialVersionUID = 1L;
@@ -22,7 +22,8 @@ public class DatiOrdinativoTrasmesso extends Entita {
 	private String cro;
 	private Date dataFirma;
 	private String firma;
-	
+	//SIAC-7726
+	private Integer numeroQuietanza;
 	
 	
 	/**
@@ -88,5 +89,20 @@ public class DatiOrdinativoTrasmesso extends Entita {
 	public void setDataTrasmissione(Date dataTrasmissione) {
 		this.dataTrasmissione = dataTrasmissione;
 	}
+
+	/**
+	 * @return the numeroQuietanza
+	 */
+	public Integer getNumeroQuietanza() {
+		return numeroQuietanza;
+	}
+
+	/**
+	 * @param numeroQuietanza the numeroQuietanza to set
+	 */
+	public void setNumeroQuietanza(Integer numeroQuietanza) {
+		this.numeroQuietanza = numeroQuietanza;
+	}
+	
 
 }

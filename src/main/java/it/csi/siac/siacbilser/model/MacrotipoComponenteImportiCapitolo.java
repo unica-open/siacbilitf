@@ -44,4 +44,13 @@ public enum MacrotipoComponenteImportiCapitolo implements DecodificaTipoComponen
 		return null;
 	}
 	
+	public static MacrotipoComponenteImportiCapitolo getByDesc(String desc) {
+		for (MacrotipoComponenteImportiCapitolo mt : MacrotipoComponenteImportiCapitolo.values()){
+			if(mt.getDescrizione().equalsIgnoreCase(desc)){
+				return mt;
+			}
+		}
+		return null;
+	}
+	
 }

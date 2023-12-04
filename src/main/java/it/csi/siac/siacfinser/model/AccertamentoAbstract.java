@@ -8,28 +8,34 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.CapitoloEntrataGestione;
+import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
 import it.csi.siac.siacfinser.model.movgest.ModificaMovimentoGestioneEntrata;
+import it.csi.siac.siacfinser.model.movgest.ModificaMovimentoGestioneSpesaCollegata;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
 public abstract class AccertamentoAbstract extends MovimentoGestione {
 
 	private static final long serialVersionUID = -9184089589875390594L;
 	
-	private CapitoloEntrataGestione capitoloEntrataGestione;
+//	private CapitoloEntrataGestione capitoloEntrataGestione;
 	private int chiaveCapitoloEntrataGestione;
 	
 	private List<SubAccertamento> subAccertamenti;
 
 	private BigDecimal disponibilitaIncassare;
 	private BigDecimal disponibilitaSubAccertare;
-	private BigDecimal totaleSubAccertamenti;
+	@Deprecated
+	@XmlElement(name = "totaleSubAccertamenti")
+	private BigDecimal totaleSubAccertamentiBigDecimal;
 	
-	private String statoOperativoMovimentoGestioneEntrata;
-	private String descrizioneStatoOperativoMovimentoGestioneEntrata;
+	@Deprecated private String statoOperativoMovimentoGestioneEntrata;
+	@Deprecated private String descrizioneStatoOperativoMovimentoGestioneEntrata;
 	private Date dataStatoOperativoMovimentoGestioneEntrata;
 	
 	private boolean automatico;
@@ -54,6 +60,11 @@ public abstract class AccertamentoAbstract extends MovimentoGestione {
 	
 	List<ModificaMovimentoGestioneEntrata> listaModificheMovimentoGestioneEntrata;
 	
+	//SIAC-7349
+	List<ModificaMovimentoGestioneSpesaCollegata> listaModificheMovimentoGestioneSpesaCollegata;
+	
+	
+	
 	private boolean flagFattura;
 	private boolean flagCorrispettivo;
 	
@@ -62,6 +73,17 @@ public abstract class AccertamentoAbstract extends MovimentoGestione {
 	private String motivazioneDisponibilitaSubAccertare;
 	private String motivazioneDisponibilitaUtilizzare;
 	
+	//SIAC-8178
+	private String codiceVerbale;
+		
+	public AccertamentoAbstract(MovimentoGestione movimentoGestione) {
+		super(movimentoGestione);
+	}
+
+	public AccertamentoAbstract() {
+		super();
+	}
+
 	public ClassificatoreGenerico getTipoImpegno() {
 		return tipoImpegno;
 	}
@@ -71,12 +93,12 @@ public abstract class AccertamentoAbstract extends MovimentoGestione {
 	}
 
 	public CapitoloEntrataGestione getCapitoloEntrataGestione() {
-		return capitoloEntrataGestione;
+		return (CapitoloEntrataGestione)super.capitolo;
 	}
 
 	public void setCapitoloEntrataGestione(
 			CapitoloEntrataGestione capitoloEntrataGestione) {
-		this.capitoloEntrataGestione = capitoloEntrataGestione;
+		super.capitolo = capitoloEntrataGestione;
 	}
 
 	public List<SubAccertamento> getElencoSubAccertamenti() {
@@ -101,13 +123,19 @@ public abstract class AccertamentoAbstract extends MovimentoGestione {
 	public void setDisponibilitaSubAccertare(BigDecimal disponibilitaSubAccertare) {
 		this.disponibilitaSubAccertare = disponibilitaSubAccertare;
 	}
-
-	public BigDecimal getTotaleSubAccertamenti() {
-		return totaleSubAccertamenti;
+	
+	public Integer getTotaleSubAccertamenti() {
+		return totaleSubAccertamentiBigDecimal == null ? null : totaleSubAccertamentiBigDecimal.intValue();
+	}
+	
+	@Deprecated
+	@XmlTransient
+	public BigDecimal getTotaleSubAccertamentiBigDecimal() {
+		return totaleSubAccertamentiBigDecimal;
 	}
 
-	public void setTotaleSubAccertamenti(BigDecimal totaleSubAccertamenti) {
-		this.totaleSubAccertamenti = totaleSubAccertamenti;
+	@Deprecated public void setTotaleSubAccertamentiBigDecimal(BigDecimal totaleSubAccertamenti) {
+		this.totaleSubAccertamentiBigDecimal = totaleSubAccertamenti;
 	}
 
 	public String getStatoOperativoMovimentoGestioneEntrata() {
@@ -259,5 +287,30 @@ public abstract class AccertamentoAbstract extends MovimentoGestione {
 	public void setFlagCorrispettivo(boolean flagCorrispettivo) {
 		this.flagCorrispettivo = flagCorrispettivo;
 	}
+
+	/**
+	 * @return the listaModificheMovimentoGestioneSpesaCollegata
+	 */
+	public List<ModificaMovimentoGestioneSpesaCollegata> getListaModificheMovimentoGestioneSpesaCollegata() {
+		return listaModificheMovimentoGestioneSpesaCollegata;
+	}
+
+	/**
+	 * @param listaModificheMovimentoGestioneSpesaCollegata the listaModificheMovimentoGestioneSpesaCollegata to set
+	 */
+	public void setListaModificheMovimentoGestioneSpesaCollegata(
+			List<ModificaMovimentoGestioneSpesaCollegata> listaModificheMovimentoGestioneSpesaCollegata) {
+		this.listaModificheMovimentoGestioneSpesaCollegata = listaModificheMovimentoGestioneSpesaCollegata;
+	}
+	
+	public String getCodiceVerbale() {
+		return codiceVerbale;
+	}
+
+	public void setCodiceVerbale(String codiceVerbale) {
+		this.codiceVerbale = codiceVerbale;
+	}
+
+	
 	
 }

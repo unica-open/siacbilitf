@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.Date;
 
@@ -18,12 +17,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class PrestatoreFEL extends Entita{
+public class PrestatoreFEL extends EntitaEnte{
 	
 	private static final long serialVersionUID = 9018172246003890471L;
 
 	private RegimeFiscaleFEL regimeFiscale;
-	private Ente ente;
 	
 	private Integer idPrestatore;
 	private String codicePaese;
@@ -57,18 +55,10 @@ public class PrestatoreFEL extends Entita{
 		this.regimeFiscale = regimeFiscale;
 	}
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the idPrestatore
 	 */

@@ -6,6 +6,8 @@ package it.csi.siac.siacbilser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
+
 
 /**
 * The Enum DettaglioVariazioneComponenteImportoCapitoloModelDetail.
@@ -13,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 * @author Alessandro Marchino
 */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public enum DettaglioVariazioneComponenteImportoCapitoloModelDetail implements ModelDetail {
+public enum DettaglioVariazioneComponenteImportoCapitoloModelDetail implements ModelDetailEnum {
 	
 	Flag,
 	ComponenteImportiCapitolo,

@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.ordinativo.SubOrdinativoIncasso;
 import it.csi.siac.siacfinser.model.ordinativo.SubOrdinativoPagamento;
 
@@ -20,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * Dettaglio Onere.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class DettaglioOnere extends Entita {
+public class DettaglioOnere extends EntitaEnte {
 	
 	private static final long serialVersionUID = 3641801039695278905L;
 	
@@ -51,7 +50,6 @@ public class DettaglioOnere extends Entita {
 	private List<SubOrdinativoIncasso> subordinativiIncasso = new ArrayList<SubOrdinativoIncasso>();
 	private List<SubOrdinativoPagamento> subordinativiPagamento = new ArrayList<SubOrdinativoPagamento>();
 	
-	private Ente ente;
 
 	/**
 	 * @return the importoImponibile
@@ -240,19 +238,11 @@ public class DettaglioOnere extends Entita {
 		this.subordinativiPagamento = subordinativiPagamento;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 	
 	
 	

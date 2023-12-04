@@ -20,6 +20,8 @@ public class RicercaAccertamentoPerChiaveOttimizzato extends RicercaAttributiMov
 
 	private Ente ente;
 	private RicercaAccertamentoK pRicercaAccertamentoK;
+	//SIAC-8142
+	private boolean caricaAnnoAccertamentiConStessoNumeroNelBilancio;
 
 	public Ente getEnte() {
 		return ente;
@@ -36,4 +38,13 @@ public class RicercaAccertamentoPerChiaveOttimizzato extends RicercaAttributiMov
 	public void setpRicercaAccertamentoK(RicercaAccertamentoK pRicercaAccertamentoK) {
 		this.pRicercaAccertamentoK = pRicercaAccertamentoK;
 	}
+
+	public boolean isCaricaAnnoAccertamentiConStessoNumeroNelBilancio() {
+		return caricaAnnoAccertamentiConStessoNumeroNelBilancio;
+	}
+
+	public void setCaricaAnnoAccertamentiConStessoNumeroNelBilancio(boolean caricaAnnoAccertamentiConStessoNumeroNelBilancio) {
+		this.caricaAnnoAccertamentiConStessoNumeroNelBilancio = caricaAnnoAccertamentiConStessoNumeroNelBilancio;
+	}
+	
 }

@@ -9,8 +9,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacgenser.model.PrimaNota;
 
 /**
@@ -21,7 +20,7 @@ import it.csi.siac.siacgenser.model.PrimaNota;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class DettaglioAmmortamentoAnnuoCespite extends Entita {
+public class DettaglioAmmortamentoAnnuoCespite extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 2066722439497422553L;
@@ -38,7 +37,6 @@ public class DettaglioAmmortamentoAnnuoCespite extends Entita {
 	private Integer annoDettaglioAmmortamentoFiltro;
 	
 	
-	private Ente ente;
 
 	/**
 	 * @return the anno
@@ -96,19 +94,11 @@ public class DettaglioAmmortamentoAnnuoCespite extends Entita {
 		this.primaNota = primaNota;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the ammortamentoAnnuoCespite

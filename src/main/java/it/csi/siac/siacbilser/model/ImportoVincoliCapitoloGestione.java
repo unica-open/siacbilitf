@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * ImportoVincoliCapitoloGestione
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class ImportoVincoliCapitoloGestione extends Entita {
+public class ImportoVincoliCapitoloGestione extends EntitaEnte {
 
 	private static final long serialVersionUID = 7443561854120683751L;
 

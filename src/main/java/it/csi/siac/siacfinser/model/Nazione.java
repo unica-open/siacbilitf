@@ -6,11 +6,11 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Nazione extends Entita {
+public class Nazione extends EntitaEnte {
 
 	
 	/**

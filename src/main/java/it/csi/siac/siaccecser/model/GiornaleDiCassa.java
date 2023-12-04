@@ -9,7 +9,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -19,7 +19,7 @@ import it.csi.siac.siaccorser.model.Entita;
 
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class GiornaleDiCassa extends Entita {
+public class GiornaleDiCassa extends EntitaEnte {
 
 	private static final long serialVersionUID = -4609899636548972553L;
 	

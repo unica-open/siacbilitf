@@ -14,6 +14,9 @@ import it.csi.siac.siaccorser.model.ServiceRequest;
 public class AggiornaAnagraficaProgetto extends ServiceRequest {
 	
 	private Progetto progetto;
+	private Boolean retrieveAggregateData = Boolean.FALSE;
+	//SIAC-8900
+	private Boolean byPassFaseBilancioProgetto= Boolean.FALSE;
 
 	public Progetto getProgetto() {
 		return progetto;
@@ -21,6 +24,23 @@ public class AggiornaAnagraficaProgetto extends ServiceRequest {
 
 	public void setProgetto(Progetto progetto) {
 		this.progetto = progetto;
+	}
+
+	public Boolean getRetrieveAggregateData() {
+		return retrieveAggregateData;
+	}
+
+	public void setRetrieveAggregateData(Boolean retrieveAggregateData) {
+		this.retrieveAggregateData = retrieveAggregateData;
 	} 
+	
+	//SIAC-8900
+	public Boolean getByPassFaseBilancioProgetto() {
+		return byPassFaseBilancioProgetto;
+	}
+
+	public void setByPassFaseBilancioProgetto(Boolean byPassFaseBilancioProgetto) {
+		this.byPassFaseBilancioProgetto = byPassFaseBilancioProgetto;
+	}
 
 }

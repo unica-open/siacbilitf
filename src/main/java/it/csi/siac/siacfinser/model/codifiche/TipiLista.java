@@ -27,7 +27,7 @@ public enum TipiLista {
 	TIPO_IMPEGNO("tipoImpegno"),
 	TIPO_MOTIVO("tipoMotivo"),
 	TIPO_MOTIVO_ROR("tipoMotivoROR"),
-	TIPO_MUTUO("tipoMutuo"),
+	TIPO_MOTIVO_AGG("tipoMotivoAGG"),
 	DISTINTA("distinta"),
 	CONTO_TESORERIA("contoTesoreria"),
 	CODICE_BOLLO("codiceBollo"),

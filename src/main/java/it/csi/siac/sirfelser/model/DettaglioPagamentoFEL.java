@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -19,11 +18,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class DettaglioPagamentoFEL extends Entita{
+public class DettaglioPagamentoFEL extends EntitaEnte{
 	
 	private static final long serialVersionUID = 3424165084906212572L;
 	
-	private Ente ente;
 	
 	private Integer progressivoDettaglio;
 	private String beneficiario;
@@ -325,17 +323,9 @@ public class DettaglioPagamentoFEL extends Entita{
 	public void setModalitaPagamentoFEL(ModalitaPagamentoFEL modalitaPagamentoFEL) {
 		this.modalitaPagamentoFEL = modalitaPagamentoFEL;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 }

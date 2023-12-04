@@ -6,7 +6,7 @@ package it.csi.siac.siacfinser.frontend.webservice.msg;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceRequest;
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
 import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 import it.csi.siac.siacfinser.model.carta.CartaContabile;
 

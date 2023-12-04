@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * SubDocumento
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public abstract class SubDocumento extends Entita {
+public abstract class SubDocumento extends EntitaEnte {
 
 	private static final long serialVersionUID = 5564240939940679533L;
 	private Date dataScadenza;

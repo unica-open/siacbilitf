@@ -4,9 +4,10 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
-import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class StampaRegistroIvaResponse extends ReportServiceResponse {

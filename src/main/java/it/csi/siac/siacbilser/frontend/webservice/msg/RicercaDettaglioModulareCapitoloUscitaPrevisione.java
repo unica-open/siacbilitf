@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siacbilser.model.CapitoloUscitaPrevisione;
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siacfin2ser.model.CapitoloUscitaPrevisioneModelDetail;
 
 /**
@@ -67,7 +67,7 @@ public class RicercaDettaglioModulareCapitoloUscitaPrevisione extends RicercaDet
 	 */
 	public boolean isRichiestoModelDetail(CapitoloUscitaPrevisioneModelDetail m){
 		
-		for(ModelDetail model : modelDetails){
+		for(ModelDetailEnum model : modelDetails){
 			if(model.equals(m)){
 				return true;
 			}

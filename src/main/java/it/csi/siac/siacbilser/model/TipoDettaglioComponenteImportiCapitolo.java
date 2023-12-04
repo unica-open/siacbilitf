@@ -15,6 +15,10 @@ public enum TipoDettaglioComponenteImportiCapitolo {
 	PRESUNTO("PRESUNTO", "Presunti", 4),
 	EFFETTIVO("EFFETTIVO", "Effettivi", 5),
 	PAGATO("PAGATO", "Pagato", 6),
+	
+	//SIAC-7349 - SR210 - Start - MR - 16/04/2020 - Aggiunta dettaglio DISPONIBILITA VARIARE
+	DISPONIBILITAVARIARE("DISPONIBILITA_VARIARE", "Disponibilita Variare", 7),
+	//SIAC-7349 - End
 	;
 	
 	private final String codice;

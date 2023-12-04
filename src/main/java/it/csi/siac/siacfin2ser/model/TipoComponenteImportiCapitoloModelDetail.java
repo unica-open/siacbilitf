@@ -6,11 +6,11 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum TipoComponenteImportiCapitoloModelDetail implements ModelDetail {
+public enum TipoComponenteImportiCapitoloModelDetail implements ModelDetailEnum {
 	AmbitoComponenteImportiCapitolo,
 	Anno,
 	FonteFinanziariaComponenteImportiCapitolo,
@@ -18,7 +18,9 @@ public enum TipoComponenteImportiCapitoloModelDetail implements ModelDetail {
 	MomentoComponenteImportiCapitolo,
 	SottotipoComponenteImportiCapitolo,
 	PropostaDefaultComponenteImportiCapitolo,
-	TipoGestioneComponenteImportiCapitolo,
+	//SIAC-7349
+	//TipoGestioneComponenteImportiCapitolo,
+	ImpegnabileComponenteImportiCapitolo,
 	DettaglioComponenteImportiCapitolo, 
 	StatoTipoComponenteImportiCapitolo,
 	CollegatoACapitoli,

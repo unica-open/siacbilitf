@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -15,7 +15,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
  * @author Domenico
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum DocumentoEntrataModelDetail implements ModelDetail {
+public enum DocumentoEntrataModelDetail implements ModelDetailEnum {
 	
 	Attr,
 	Classif,

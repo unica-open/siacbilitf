@@ -6,8 +6,8 @@ package it.csi.siac.siacfinser.model.soggetto;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
-import it.csi.siac.siacfinser.Constanti;
+import it.csi.siac.siaccorser.model.EntitaEnte;
+import it.csi.siac.siacfinser.CostantiFin;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 /**
@@ -17,13 +17,8 @@ import it.csi.siac.siacfinser.model.FINDataDictionary;
 * 
 */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Contatto extends Entita {
-	
-	
+public class Contatto extends EntitaEnte {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8520704702217704029L;
 	
 	private String descrizione;
@@ -33,19 +28,11 @@ public class Contatto extends Entita {
 	private String descrizioneModo;
 	private String contattoCodModo;
 	
-	//id su drecapitomodo
 	private Integer idTipoContatto;
 	private String codTipoContatto;
 	
 	private String uidProvvisiorio;
 		
-	/*	
-	private TipoContatto tipoContatto;
-	
-	@XmlType(namespace = FINDataDictionary.NAMESPACE)
-	public enum TipoContatto{TELEFONO,PERSONA, TELEFONO_SECONDARIO, FAX, MAIL, PEC, SITO_WEB}
-	*/
-	
 	public String getDescrizione() {
 		return descrizione;
 	}
@@ -89,7 +76,7 @@ public class Contatto extends Entita {
 		this.contattoCodModo = contattoCodModo;
 	}
 	public String getContattoFormattato() {
-		return getContattoCod() + " " + getDescrizione() + ((avviso != null && Constanti.TRUE.equalsIgnoreCase(avviso)) ? " (recapito per avviso)" : "");
+		return getContattoCod() + " " + getDescrizione() + ((avviso != null && CostantiFin.TRUE.equalsIgnoreCase(avviso)) ? " (recapito per avviso)" : "");
 	}
 	public String getUidProvvisiorio() {
 		return uidProvvisiorio;

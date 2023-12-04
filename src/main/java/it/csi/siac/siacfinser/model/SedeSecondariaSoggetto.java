@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * SedeSecondariaSoggetto
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class SedeSecondariaSoggetto extends Entita {
+public class SedeSecondariaSoggetto extends EntitaEnte {
 
 	private static final long serialVersionUID = -2492881506934660324L;
 	

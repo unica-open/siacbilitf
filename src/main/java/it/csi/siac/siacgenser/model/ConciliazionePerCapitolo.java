@@ -12,14 +12,13 @@ import javax.xml.bind.annotation.XmlType;
 import it.csi.siac.siacbilser.model.Capitolo;
 import it.csi.siac.siacbilser.model.CapitoloEntrataGestione;
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @version 1.0.0 - 26/10/2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class ConciliazionePerCapitolo extends Entita {
+public class ConciliazionePerCapitolo extends EntitaEnte {
 	
 	private static final long serialVersionUID = -1386189871354809357L;
 	
@@ -31,7 +30,6 @@ public class ConciliazionePerCapitolo extends Entita {
 	private Capitolo<?, ?> capitolo;
 	private Conto conto;
 	
-	private Ente ente;
 	/**
 	 * La classe di conciliazione non &eacute; un vero e proprio campo della conciliazione per capitolo. Serve tuttavia a determinare a quale delle possibili
 	 * classi il conto &eacute; collegato (via l'entit&agrave; {@link ConciliazionePerTitolo}).
@@ -63,18 +61,10 @@ public class ConciliazionePerCapitolo extends Entita {
 	public void setConto(Conto conto) {
 		this.conto = conto;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the classeDiConciliazione
 	 */

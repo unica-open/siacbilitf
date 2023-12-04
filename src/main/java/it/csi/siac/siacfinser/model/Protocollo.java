@@ -9,7 +9,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * Protocollo
@@ -18,7 +18,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Protocollo extends Entita {
+public class Protocollo extends EntitaEnte {
 
 	private static final long serialVersionUID = 6158347134670674499L;
 

@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * DettaglioVariazioneImportoCapitolo
@@ -23,7 +23,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class DettaglioVariazioneImportoCapitolo extends Entita implements Cloneable {
+public class DettaglioVariazioneImportoCapitolo extends EntitaEnte implements Cloneable {
 
 	private static final long serialVersionUID = 72425391042385818L;
 

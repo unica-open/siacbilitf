@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siaccorser.model.ServiceRequest;
+import it.csi.siac.siaccorser.model.TipologiaClassificatore;
 
 /**
  * Messaggio di richiesta per la lista dei classificatori per: anno
@@ -23,6 +24,7 @@ public class LeggiClassificatoriGenericiByTipoElementoBil extends ServiceRequest
 	private int anno;
 	private int idEnteProprietario;
 	private String tipoElementoBilancio;
+	private TipologiaClassificatore tipologiaClassificatore;
 
 	public int getAnno() {
 		return anno;
@@ -47,5 +49,14 @@ public class LeggiClassificatoriGenericiByTipoElementoBil extends ServiceRequest
 	public void setTipoElementoBilancio(String tipoElementoBilancio) {
 		this.tipoElementoBilancio = tipoElementoBilancio;
 	}
+
+	public TipologiaClassificatore getTipologiaClassificatore() {
+		return tipologiaClassificatore;
+	}
+
+	public void setTipologiaClassificatore(TipologiaClassificatore tipologiaClassificatore) {
+		this.tipologiaClassificatore = tipologiaClassificatore;
+	}
+
 
 }

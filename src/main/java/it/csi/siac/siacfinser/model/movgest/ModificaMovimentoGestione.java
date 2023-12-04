@@ -7,6 +7,7 @@ package it.csi.siac.siacfinser.model.movgest;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +26,7 @@ public class ModificaMovimentoGestione extends MovimentoGestione {
 	
 	private static final long serialVersionUID = -4842933560589007498L;
 	
-	private static final String CODICE_ROR_DA_MANTENERE="RORM";
+	public static final String CODICE_ROR_DA_MANTENERE="RORM";
 
 	private int idModificaMovimentoGestione;
 	private int numeroModificaMovimentoGestione;
@@ -56,13 +57,36 @@ public class ModificaMovimentoGestione extends MovimentoGestione {
 	
 	private StatoOperativoModificaMovimentoGestione statoOperativoModificaMovimentoGestione;
 	private String codiceStatoOperativoModificaMovimentoGestione; 
+	//SIAC-8118
+	private Date dataModificaStatoOperativo;
 	
+	private int uidDatiImportoModificaMovimentoGestione;
+	
+	public int getUidDatiImportoModificaMovimentoGestione() {
+		return uidDatiImportoModificaMovimentoGestione;
+	}
+
+	public void setUidDatiImportoModificaMovimentoGestione(int uidDatiImportoModificaMovimentoGestione) {
+		this.uidDatiImportoModificaMovimentoGestione = uidDatiImportoModificaMovimentoGestione;
+	}
+
 	@XmlType(namespace = FINDataDictionary.NAMESPACE)
 	public enum StatoOperativoModificaMovimentoGestione{
 		VALIDO, ANNULLATO
 	}
+	
+	//SIAC-6997
+	private boolean elaboraRorReanno;
 
-//	private TipoModificaMovimentoGestione tipoModificaMovimentoGestione;
+	public boolean isElaboraRorReanno() {
+		return elaboraRorReanno;
+	}
+
+	public void setElaboraRorReanno(boolean elaboraRorReanno) {
+		this.elaboraRorReanno = elaboraRorReanno;
+	}
+
+	//	private TipoModificaMovimentoGestione tipoModificaMovimentoGestione;
 //	@XmlType(namespace = FINDataDictionary.NAMESPACE)
 //	public enum TipoModificaMovimentoGestione{IMP, SIM, RIAC, ECON, RIU}
 	private String tipoModificaMovimentoGestione;
@@ -147,7 +171,7 @@ public class ModificaMovimentoGestione extends MovimentoGestione {
 	public void setIdModificaMovimentoGestione(int idModificaMovimentoGestione) {
 		this.idModificaMovimentoGestione = idModificaMovimentoGestione;
 	}
-
+	
 	@XmlSchemaType(name = "dateTime")
 	public Date getDataModificaMovimentoGestione() {
 		return dataModificaMovimentoGestione;
@@ -302,5 +326,16 @@ public class ModificaMovimentoGestione extends MovimentoGestione {
 	public void setAnnoReimputazione(Integer annoReimputazione) {
 		this.annoReimputazione = annoReimputazione;
 	}
+
+	@XmlSchemaType(name = "dateTime")
+	public Date getDataFromStatoOperativo() {
+		return dataModificaStatoOperativo;
+	}
+
+	public void setDataFromStatoOperativo(Date dataFromStatoOperativo) {
+		this.dataModificaStatoOperativo = dataFromStatoOperativo;
+	}
+
+
 	
 }

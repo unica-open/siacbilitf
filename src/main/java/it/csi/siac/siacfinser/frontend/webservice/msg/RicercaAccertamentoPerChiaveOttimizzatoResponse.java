@@ -4,6 +4,8 @@
 */
 package it.csi.siac.siacfinser.frontend.webservice.msg;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.CapitoloEntrataGestione;
@@ -24,6 +26,7 @@ public class RicercaAccertamentoPerChiaveOttimizzatoResponse extends RicercaAttr
 	private CapitoloEntrataGestione capitoloEntrataGestione;
 	private Accertamento accertamento;
 	private Boolean hasStoricizzazioneNellBilancio;
+	List<Integer> anniAccertamentiConStessoNumeroNelBilancio = null;
 	
 	public Bilancio getBilancio() {
 		return bilancio;
@@ -56,7 +59,11 @@ public class RicercaAccertamentoPerChiaveOttimizzatoResponse extends RicercaAttr
 	public void setHasStoricizzazioneNellBilancio(Boolean hasStoricizzazioneNellBilancio) {
 		this.hasStoricizzazioneNellBilancio = hasStoricizzazioneNellBilancio;
 	}
-	
-	
+	public List<Integer> getAnniAccertamentiConStessoNumeroNelBilancio() {
+		return anniAccertamentiConStessoNumeroNelBilancio;
+	}
+	public void setAnniAccertamentiConStessoNumeroNelBilancio(List<Integer> anniAccertamentiConStessoNumeroNelBilancio) {
+		this.anniAccertamentiConStessoNumeroNelBilancio = anniAccertamentiConStessoNumeroNelBilancio;
+	}
 
 }

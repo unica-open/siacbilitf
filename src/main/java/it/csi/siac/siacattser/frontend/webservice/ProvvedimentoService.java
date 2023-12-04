@@ -4,25 +4,27 @@
 */
 package it.csi.siac.siacattser.frontend.webservice;
 
-import it.csi.siac.siacattser.frontend.webservice.msg.AggiornaProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.AggiornaProvvedimentoResponse;
-import it.csi.siac.siacattser.frontend.webservice.msg.InserisceProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.InserisceProvvedimentoResponse;
-import it.csi.siac.siacattser.frontend.webservice.msg.RicercaProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.RicercaProvvedimentoResponse;
-import it.csi.siac.siacattser.frontend.webservice.msg.RicercaSinteticaProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.RicercaSinteticaProvvedimentoResponse;
-import it.csi.siac.siacattser.frontend.webservice.msg.TipiProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.TipiProvvedimentoResponse;
-import it.csi.siac.siacattser.frontend.webservice.msg.VerificaAnnullabilitaProvvedimento;
-import it.csi.siac.siacattser.frontend.webservice.msg.VerificaAnnullabilitaProvvedimentoResponse;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
+
+import it.csi.siac.siacattser.frontend.webservice.msg.AggiornaProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.AggiornaProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.InserisceProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.InserisceProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaPuntualeProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaPuntualeProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaSinteticaProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.RicercaSinteticaProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.TipiProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.TipiProvvedimentoResponse;
+import it.csi.siac.siacattser.frontend.webservice.msg.VerificaAnnullabilitaProvvedimento;
+import it.csi.siac.siacattser.frontend.webservice.msg.VerificaAnnullabilitaProvvedimentoResponse;
 
 /**
  * SI del servizio Gestione PROVVEDIMENTO
@@ -40,7 +42,7 @@ public interface ProvvedimentoService {
 	 * @param parameters la request del servizio
 	 * @return la response del servizio
 	 */
-	@WebMethod
+	@WebMethod   
 	@WebResult
 	InserisceProvvedimentoResponse inserisceProvvedimento(@WebParam InserisceProvvedimento parameters);
 	
@@ -61,6 +63,10 @@ public interface ProvvedimentoService {
 	@WebMethod
 	@WebResult
 	RicercaProvvedimentoResponse ricercaProvvedimento(@WebParam RicercaProvvedimento parameters);
+	
+	@WebMethod
+	@WebResult
+	RicercaProvvedimentoResponse ricercaProvvedimentoConParametri(@WebParam RicercaProvvedimento parameters);
 	
 	/**
 	 * Verifica dell'annullabilit&agrave; del provvedimento
@@ -88,5 +94,14 @@ public interface ProvvedimentoService {
 	@WebMethod
 	@WebResult
 	RicercaSinteticaProvvedimentoResponse ricercaSinteticaProvvedimento(@WebParam RicercaSinteticaProvvedimento parameters);
+	
+	/**
+	 * Ricerca puntuale provvedimento
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaPuntualeProvvedimentoResponse ricercaPuntualeProvvedimento(@WebParam RicercaPuntualeProvvedimento parameters);
 	
 }

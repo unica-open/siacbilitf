@@ -18,8 +18,8 @@ import it.csi.siac.siacbilser.model.ElementoPianoDeiConti;
 import it.csi.siac.siaccecser.model.RendicontoRichiesta;
 import it.csi.siac.siaccecser.model.RichiestaEconomale;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
 import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.DocumentoEntrata;
 import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
 import it.csi.siac.siacfin2ser.model.SubdocumentoEntrata;
@@ -41,7 +41,7 @@ import it.csi.siac.siacfinser.model.ordinativo.OrdinativoPagamento;
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class RegistrazioneMovFin extends Entita{
+public class RegistrazioneMovFin extends EntitaEnte{
 
 	
 	/**
@@ -49,7 +49,6 @@ public class RegistrazioneMovFin extends Entita{
 	 */
 	private static final long serialVersionUID = -3964782380039468612L;
 
-	private Ente ente;
 	private Bilancio bilancio;
 	
 	private Conto conto; 
@@ -110,19 +109,11 @@ public class RegistrazioneMovFin extends Entita{
 	private Boolean isCollegataAMovimentoResiduo;
 
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the bilancio

@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class RegistroComunicazioniPCC extends Entita implements Cloneable {
+public class RegistroComunicazioniPCC extends EntitaEnte implements Cloneable {
 	//maps the siac_t_registro_pcc
 	private static final long serialVersionUID = 4308930595316867439L;
 	
@@ -56,7 +55,6 @@ public class RegistroComunicazioniPCC extends Entita implements Cloneable {
 	private Integer numeroQuietanza;
 	private BigDecimal importoQuietanza;
 	
-	private Ente ente;
 	
 	/**
 	 * @return the dateRegistro
@@ -191,18 +189,10 @@ public class RegistroComunicazioniPCC extends Entita implements Cloneable {
 	public void setSubdocumentoSpesa(SubdocumentoSpesa subdocumentoSpesa) {
 		this.subdocumentoSpesa = subdocumentoSpesa;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the statoRichiesta
 	 */

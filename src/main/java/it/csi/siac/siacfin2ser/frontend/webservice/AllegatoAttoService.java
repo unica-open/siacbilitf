@@ -11,8 +11,6 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
-
-
 import it.csi.siac.siaccecser.frontend.webservice.msg.InviaAllegatoAtto;
 import it.csi.siac.siaccecser.frontend.webservice.msg.InviaAllegatoAttoResponse;
 import it.csi.siac.siaccecser.frontend.webservice.msg.StampaAllegatoAtto;
@@ -35,6 +33,8 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.CompletaAllegatoAtto;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.CompletaAllegatoAttoMultiplo;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.CompletaAllegatoAttoMultiploResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.CompletaAllegatoAttoResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.ControlloImportiImpegniVincolati;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.ControlloImportiImpegniVincolatiResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.ConvalidaAllegatoAttoPerElenchi;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.ConvalidaAllegatoAttoPerElenchiMultiplo;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.ConvalidaAllegatoAttoPerElenchiMultiploResponse;
@@ -49,6 +49,8 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.InserisceAllegatoAtto;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.InserisceAllegatoAttoResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.InserisceElenco;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.InserisceElencoResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.LeggiAllegatoAttoChecklist;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.LeggiAllegatoAttoChecklistResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RiCompletaAllegatoAttoPerElenchi;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RiCompletaAllegatoAttoPerElenchiResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaAllegatoAtto;
@@ -73,9 +75,6 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaSinteticaStampaAll
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaSinteticaStampaAllegatoAttoResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RifiutaElenchi;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RifiutaElenchiResponse;
-
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ControlloImportiImpegniVincolati;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ControlloImportiImpegniVincolatiResponse;
 
 
 /**
@@ -463,6 +462,10 @@ public interface AllegatoAttoService {
 	@WebMethod
 	@WebResult
 	ControlloImportiImpegniVincolatiResponse controlloImportiImpegniVincolati(@WebParam ControlloImportiImpegniVincolati parameters);
+
+	@WebMethod
+	@WebResult
+	LeggiAllegatoAttoChecklistResponse leggiAllegatoAttoChecklist(@WebParam LeggiAllegatoAttoChecklist parameters);
 
 
 

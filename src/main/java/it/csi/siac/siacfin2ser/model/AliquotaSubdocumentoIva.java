@@ -5,8 +5,7 @@
 package it.csi.siac.siacfin2ser.model;
 
 import it.csi.siac.siacbilser.business.utility.BilUtilities;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -14,7 +13,7 @@ import java.math.RoundingMode;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class AliquotaSubdocumentoIva extends Entita {
+public class AliquotaSubdocumentoIva extends EntitaEnte {
 	
 	// siac_t_ivamov
 	
@@ -30,7 +29,6 @@ public class AliquotaSubdocumentoIva extends Entita {
 	
 	private AliquotaIva aliquotaIva;
 	
-	private Ente ente;	
 
 	/**
 	 * @return the imponibile
@@ -125,19 +123,11 @@ public class AliquotaSubdocumentoIva extends Entita {
 		this.aliquotaIva = aliquotaIva;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 	
 	
 	

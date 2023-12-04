@@ -40,7 +40,6 @@ public class ParametroRicercaSubOrdinativoPagamento implements Serializable {
 //	private Date dataEmissioneA;
 //	private String statoOperativo;
 //	private Date dataTrasmissioneOIL;
-//	private BigInteger numeroMutuo;
 //	private String codiceDistinta;
 //	private String contoDelTesoriere;
 	

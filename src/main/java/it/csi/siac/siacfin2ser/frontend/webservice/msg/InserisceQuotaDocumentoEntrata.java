@@ -28,8 +28,8 @@ public class InserisceQuotaDocumentoEntrata extends ServiceRequest {
 	
 	// SIAC-4956
 	private boolean impostaFlagConvalidaManuale = true;
-	// SIAC-5484
-	private boolean saltaControlloDisponibilitaAccertamento = false;
+	// SIAC-5484 e SIAC-6780
+	private boolean saltaControlloDisponibilita = false;
 	//SIAC-6645
 	private boolean gestisciModificaImporto = false;
 
@@ -118,8 +118,8 @@ public class InserisceQuotaDocumentoEntrata extends ServiceRequest {
 	 * @return the withPredocumentiCompletiCollegati
 	 */
 	@XmlTransient
-	public boolean isSaltaControlloDisponibilitaAccertamento() {
-		return saltaControlloDisponibilitaAccertamento;
+	public boolean isSaltaControlloDisponibilita() {
+		return saltaControlloDisponibilita;
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class InserisceQuotaDocumentoEntrata extends ServiceRequest {
 	 *
 	 * @param saltaControlloDisponibilitaAccertamento the new salta controllo disponibilita accertamento
 	 */
-	public void setSaltaControlloDisponibilitaAccertamento(boolean saltaControlloDisponibilitaAccertamento) {
-		this.saltaControlloDisponibilitaAccertamento = saltaControlloDisponibilitaAccertamento;
+	public void setSaltaControlloDisponibilita(boolean saltaControlloDisponibilitaAccertamento) {
+		this.saltaControlloDisponibilita = saltaControlloDisponibilitaAccertamento;
 	}
 
 	/**

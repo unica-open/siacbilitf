@@ -4,17 +4,21 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
+import it.csi.siac.siacbilser.model.ContoCorrentePredocumentoEntrata;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.CausaleEntrata;
 import it.csi.siac.siacfinser.model.Accertamento;
 import it.csi.siac.siacfinser.model.SubAccertamento;
+import it.csi.siac.siacfinser.model.provvisoriDiCassa.ProvvisorioDiCassa;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -29,12 +33,20 @@ public class CompletaDefiniscePreDocumentoEntrata extends ServiceRequest {
 	private CausaleEntrata causaleEntrata;
 	private Date dataCompetenzaDa;
 	private Date dataCompetenzaA;
+	//SIAC-6780
+	private ContoCorrentePredocumentoEntrata contoCorrente;
+	private List<Integer> uidPredocumentiDaFiltrare = new ArrayList<Integer>();
+	private RicercaSinteticaPreDocumentoEntrata ricercaSinteticaPredocumentoEntrata;
+	
 	
 	// Per aggiornamento
 	private AttoAmministrativo attoAmministrativo;
 	private Accertamento accertamento;
 	private SubAccertamento subAccertamento;
 	private Soggetto soggetto;
+	//SIAC-6780
+	private ProvvisorioDiCassa provvisorioCassa;
+	
 	/**
 	 * @return the bilancio
 	 */
@@ -83,6 +95,45 @@ public class CompletaDefiniscePreDocumentoEntrata extends ServiceRequest {
 	public void setDataCompetenzaA(Date dataCompetenzaA) {
 		this.dataCompetenzaA = dataCompetenzaA;
 	}
+	
+	/**
+	 * @return the contoCorrente
+	 */
+	public ContoCorrentePredocumentoEntrata getContoCorrente() {
+		return contoCorrente;
+	}
+	/**
+	 * @param contoCorrente the contoCorrente to set
+	 */
+	public void setContoCorrente(ContoCorrentePredocumentoEntrata contoCorrente) {
+		this.contoCorrente = contoCorrente;
+	}
+	/**
+	 * @return the uidPredocumentiDaFiltrare
+	 */
+	public List<Integer> getUidPredocumentiDaFiltrare() {
+		return uidPredocumentiDaFiltrare;
+	}
+	/**
+	 * @param uidPredocumentiDaFiltrare the uidPredocumentiDaFiltrare to set
+	 */
+	public void setUidPredocumentiDaFiltrare(List<Integer> uidPredocumentiDaFiltrare) {
+		this.uidPredocumentiDaFiltrare = uidPredocumentiDaFiltrare;
+	}
+	
+	/**
+	 * @return the ricercaSinteticaPredocumentoentrata
+	 */
+	public RicercaSinteticaPreDocumentoEntrata getRicercaSinteticaPredocumentoEntrata() {
+		return ricercaSinteticaPredocumentoEntrata;
+	}
+	/**
+	 * @param ricercaSinteticaPredocumentoentrata the ricercaSinteticaPredocumentoentrata to set
+	 */
+	public void setRicercaSinteticaPredocumentoEntrata(
+			RicercaSinteticaPreDocumentoEntrata ricercaSinteticaPredocumentoentrata) {
+		this.ricercaSinteticaPredocumentoEntrata = ricercaSinteticaPredocumentoentrata;
+	}
 	/**
 	 * @return the attoAmministrativo
 	 */
@@ -130,6 +181,18 @@ public class CompletaDefiniscePreDocumentoEntrata extends ServiceRequest {
 	 */
 	public void setSoggetto(Soggetto soggetto) {
 		this.soggetto = soggetto;
+	}
+	/**
+	 * @return the provvisorioCassa
+	 */
+	public ProvvisorioDiCassa getProvvisorioCassa() {
+		return provvisorioCassa;
+	}
+	/**
+	 * @param provvisorioCassa the provvisorioCassa to set
+	 */
+	public void setProvvisorioCassa(ProvvisorioDiCassa provvisorioCassa) {
+		this.provvisorioCassa = provvisorioCassa;
 	}
 	
 }

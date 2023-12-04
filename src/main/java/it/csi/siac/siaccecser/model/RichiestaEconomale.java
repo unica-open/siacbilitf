@@ -17,19 +17,17 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.SubImpegno;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class RichiestaEconomale extends Entita {
+public class RichiestaEconomale extends EntitaEnte {
 	
 	private static final long serialVersionUID = 4967928814129201030L;
 
-	private Ente ente;
 	private Bilancio bilancio;
 	
 	private Integer numeroRichiesta;
@@ -90,18 +88,10 @@ public class RichiestaEconomale extends Entita {
 	private String dataMissioneEsternaDa;
 	private String dataMissioneEsternaA;
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the numeroRichiesta
 	 */

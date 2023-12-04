@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 
@@ -18,12 +17,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class CassaPrevidenzialeFEL extends Entita{
+public class CassaPrevidenzialeFEL extends EntitaEnte{
 	
 
 	private static final long serialVersionUID = 8791766309942429960L;
 	
-	private Ente ente;
 	
 	private Integer progressivo;
 	private BigDecimal aliquotaCassa;
@@ -156,17 +154,9 @@ public class CassaPrevidenzialeFEL extends Entita{
 	public void setNaturaFEL(NaturaFEL naturaFEL) {
 		this.naturaFEL = naturaFEL;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 }

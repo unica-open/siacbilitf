@@ -8,18 +8,16 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class DettaglioBaseCronoprogramma extends Entita {
+public class DettaglioBaseCronoprogramma extends EntitaEnte {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6230129092697839542L;
 	
-	private Ente ente;
 	private Cronoprogramma cronoprogramma;
 	
 	private Integer numeroArticolo;
@@ -37,14 +35,10 @@ public class DettaglioBaseCronoprogramma extends Entita {
 	
 
 
-	public Ente getEnte() {
-		return ente;
-	}
+	
 
 
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 
 
 	public Integer getNumeroArticolo() {

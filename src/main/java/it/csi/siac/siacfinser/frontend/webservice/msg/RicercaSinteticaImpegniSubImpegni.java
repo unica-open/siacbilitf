@@ -11,7 +11,6 @@ import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 import it.csi.siac.siacfinser.model.ric.ParametroRicercaImpSub;
 
 /**
- * Richiesta al metodo FIN.MutuoService.ricercaImpegniSubImpegni()
  * 
  * @author
  * 
@@ -21,6 +20,9 @@ public class RicercaSinteticaImpegniSubImpegni extends  RicercaAttributiMoviment
 
 	private Ente ente;
 	private ParametroRicercaImpSub parametroRicercaImpSub;
+	//task-168
+	private Boolean programmaCodeStrict = false;
+	
 	public Ente getEnte() {
 		return ente;
 	}
@@ -33,6 +35,12 @@ public class RicercaSinteticaImpegniSubImpegni extends  RicercaAttributiMoviment
 	public void setParametroRicercaImpSub(
 			ParametroRicercaImpSub parametroRicercaImpSub) {
 		this.parametroRicercaImpSub = parametroRicercaImpSub;
+	}
+	public Boolean getProgrammaCodeStrict() {
+		return programmaCodeStrict;
+	}
+	public void setProgrammaCodeStrict(Boolean programmaCodeStrict) {
+		this.programmaCodeStrict = programmaCodeStrict;
 	}
 
 }

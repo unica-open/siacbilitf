@@ -9,8 +9,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 
 /**
@@ -20,7 +19,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class AmmortamentoAnnuoCespite extends Entita {
+public class AmmortamentoAnnuoCespite extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 2066722439497422553L;
@@ -30,7 +29,6 @@ public class AmmortamentoAnnuoCespite extends Entita {
 	private BigDecimal importoTotaleAmmortato;
 	private List<DettaglioAmmortamentoAnnuoCespite> dettagliAmmortamentoAnnuoCespite;
 	private Boolean completo;
-	private Ente ente;
 	
 	/**
 	 * @return the cespite
@@ -94,17 +92,9 @@ public class AmmortamentoAnnuoCespite extends Entita {
 	public void setCompleto(Boolean completo) {
 		this.completo = completo;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 }

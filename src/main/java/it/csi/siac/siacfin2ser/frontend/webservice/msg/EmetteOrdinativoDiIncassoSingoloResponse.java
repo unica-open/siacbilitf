@@ -13,7 +13,9 @@ import it.csi.siac.siacfinser.model.Accertamento;
 import it.csi.siac.siacfinser.model.ordinativo.OrdinativoIncasso;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlType;
@@ -22,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
 public class EmetteOrdinativoDiIncassoSingoloResponse extends ServiceResponse {
 
 	private SubdocumentoEntrata subdocumentoScartato;
-	private Messaggio messaggio;
+	private List<Messaggio> messaggi = new ArrayList<Messaggio>();
 	private OrdinativoIncasso ordinativo;
 	
 	private Map<Integer,DocumentoEntrata> documentiEntrataCache = new HashMap<Integer,DocumentoEntrata>();
@@ -42,18 +44,6 @@ public class EmetteOrdinativoDiIncassoSingoloResponse extends ServiceResponse {
 	 */
 	public void setSubdocumentoScartato(SubdocumentoEntrata subdocumentoScartato) {
 		this.subdocumentoScartato = subdocumentoScartato;
-	}
-	/**
-	 * @return the messaggio
-	 */
-	public Messaggio getMessaggio() {
-		return messaggio;
-	}
-	/**
-	 * @param messaggio the messaggio to set
-	 */
-	public void setMessaggio(Messaggio messaggio) {
-		this.messaggio = messaggio;
 	}
 	/**
 	 * @return the ordinativo
@@ -105,6 +95,27 @@ public class EmetteOrdinativoDiIncassoSingoloResponse extends ServiceResponse {
 	public void setSoggettiCache(Map<Integer, Soggetto> soggettiCache) {
 		this.soggettiCache = soggettiCache;
 	}
+	/**
+	 * @return the messaggi
+	 */
+	public List<Messaggio> getMessaggi() {
+		return messaggi;
+	}
+	/**
+	 * @param messaggi the messaggi to set
+	 */
+	public void setMessaggi(List<Messaggio> messaggi) {
+		this.messaggi = messaggi;
+	}
+	
+	public void addMessaggio(Messaggio messaggio) {
+		messaggi.add(messaggio);
+	}
+
+	public void addMessaggi(List<Messaggio> messaggi) {
+		this.messaggi.addAll(messaggi);
+	}
+
 	
 	
 }

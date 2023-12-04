@@ -19,8 +19,10 @@ public class AggiornaAnagraficaVariazioneBilancio extends ServiceRequest {
 	private Boolean invioOrganoLegislativo;
 	private Boolean annullaVariazione;	
 	private Boolean evolviProcesso = Boolean.FALSE;
-	
+	//SIAC-3597
 	boolean saltaCheckStanziamentoCassa = false;
+	//SIAC-8332-REGP sanato errore introdotto da SIAC-7629
+	boolean saltaCheckStanziamento = false;
 	
 	//Variazione da aggiornare
 	private VariazioneImportoCapitolo  variazioneImportoCapitolo;
@@ -31,6 +33,13 @@ public class AggiornaAnagraficaVariazioneBilancio extends ServiceRequest {
 	private boolean regionePiemonte;
 	private boolean aggiornamentoDaVariazioneDecentrata;
 	private String aggiornamentoVariazionieDecentrataFromAction;
+	
+	//task-225
+	private String statoCorrente;		
+	
+	
+	//SIAC-7629
+	private Boolean aggiornamentoDaVariazioneConfermaQuadraturaFromAction  = Boolean.FALSE;
 	
 	/**
 	 * @return the aggiornamentoVariazionieDecentrataFromAction
@@ -126,6 +135,29 @@ public class AggiornaAnagraficaVariazioneBilancio extends ServiceRequest {
 		this.annullaVariazione = annullaVariazione;
 	}
 
+	
+	
+	
+	/**
+	 * @return the aggiornamentoDaVariazioneConfermaQuadraturaFromAction
+	 */
+	public Boolean getAggiornamentoDaVariazioneConfermaQuadraturaFromAction()
+	{
+		if(aggiornamentoDaVariazioneConfermaQuadraturaFromAction==null){
+			aggiornamentoDaVariazioneConfermaQuadraturaFromAction = Boolean.FALSE;
+		}
+		return aggiornamentoDaVariazioneConfermaQuadraturaFromAction;
+	}
+
+	/**
+	 * @param aggiornamentoDaVariazioneConfermaQuadraturaFromAction the aggiornamentoDaVariazioneConfermaQuadraturaFromAction to set
+	 */
+	public void setAggiornamentoDaVariazioneConfermaQuadraturaFromAction(
+			Boolean aggiornamentoDaVariazioneConfermaQuadraturaFromAction)
+	{
+		this.aggiornamentoDaVariazioneConfermaQuadraturaFromAction = aggiornamentoDaVariazioneConfermaQuadraturaFromAction;
+	}
+
 	/**
 	 * Gets the evolvi processo.
 	 *
@@ -178,6 +210,14 @@ public class AggiornaAnagraficaVariazioneBilancio extends ServiceRequest {
 	public void setSaltaCheckStanziamentoCassa(boolean saltaCheckStanziamentoCassa) {
 		this.saltaCheckStanziamentoCassa = saltaCheckStanziamentoCassa;
 	}
+	
+	public boolean isSaltaCheckStanziamento() {
+		return saltaCheckStanziamento;
+	}
+
+	public void setSaltaCheckStanziamento(boolean saltaCheckStanziamento) {
+		this.saltaCheckStanziamento = saltaCheckStanziamento;
+	}
 
 	/**
 	 * Checks if is salta check necessario atto amministrativo variazione di bilancio.
@@ -209,6 +249,14 @@ public class AggiornaAnagraficaVariazioneBilancio extends ServiceRequest {
 	 */
 	public void setAggiornamentoDaVariazioneDecentrata(boolean aggiornamentoDaVariazioneDecentrata) {
 		this.aggiornamentoDaVariazioneDecentrata = aggiornamentoDaVariazioneDecentrata;
+	}
+
+	public String getStatoCorrente() {
+		return statoCorrente;
+	}
+
+	public void setStatoCorrente(String statoCorrente) {
+		this.statoCorrente = statoCorrente;
 	}
 
 }

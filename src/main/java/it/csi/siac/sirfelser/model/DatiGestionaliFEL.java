@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.Date;
 
@@ -18,12 +17,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class DatiGestionaliFEL extends Entita{
+public class DatiGestionaliFEL extends EntitaEnte{
 	
 	
 	private static final long serialVersionUID = 347063894118577812L;
 	
-	private Ente ente;
 	
 	private Integer progressivo;
 	private String tipoDato;
@@ -79,18 +77,10 @@ public class DatiGestionaliFEL extends Entita{
 	public void setFattura(FatturaFEL fattura) {
 		this.fattura = fattura;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 	
 	

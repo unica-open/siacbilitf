@@ -9,8 +9,10 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfin2ser.model.AllegatoAtto;
 
@@ -21,7 +23,7 @@ import it.csi.siac.siacfin2ser.model.AllegatoAtto;
  * 
  */
 @XmlType(namespace = ATTDataDictionary.NAMESPACE)
-public class AttoAmministrativo extends Entita {
+public class AttoAmministrativo extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 6606403856107570689L;
@@ -35,7 +37,6 @@ public class AttoAmministrativo extends Entita {
 	private String statoOperativo;
 
 	private StrutturaAmministrativoContabile strutturaAmmContabile;
-	private Ente ente;
 	
 	private AllegatoAtto allegatoAtto;
 	
@@ -161,19 +162,11 @@ public class AttoAmministrativo extends Entita {
 		this.strutturaAmmContabile = strutturaAmmContabile;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the allegatoAtto
@@ -237,5 +230,21 @@ public class AttoAmministrativo extends Entita {
 	public void setDataCreazioneAttoAmministrativo(Date dataCreazioneAttoAmministrativo) {
 		this.dataCreazioneAttoAmministrativo = dataCreazioneAttoAmministrativo;
 	}
+	
+	public String getAnnoNumeroTipo() {
+		return String.format("%d/%d/%s", 
+				anno, 
+				numero, 
+				tipoAtto == null ? "": tipoAtto.getCodice() 
+		);
+	}
 
+	public String getDescrizioneCompleta() {
+		return String.format("%d/%d/%s/%s", 
+				anno, 
+				numero, 
+				strutturaAmmContabile == null ? "" : StringUtils.defaultString(strutturaAmmContabile.getCodice()),
+				tipoAtto == null ? "": tipoAtto.getCodice() 
+		);
+	}
 }

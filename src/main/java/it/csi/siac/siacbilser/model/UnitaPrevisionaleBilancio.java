@@ -9,7 +9,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * UnitaPrevisionaleBilancio (UBP)
@@ -18,7 +18,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class UnitaPrevisionaleBilancio extends Entita {
+public class UnitaPrevisionaleBilancio extends EntitaEnte {
 
 	private static final long serialVersionUID = 4051848799760980649L;
 

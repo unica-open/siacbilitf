@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -15,7 +15,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
  * @version 1.0.0 - 14/10/2019
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum CapitoloModelDetail implements ModelDetail {
+public enum CapitoloModelDetail implements ModelDetailEnum {
 	
 	AttoDiLegge,
 	Bilancio,

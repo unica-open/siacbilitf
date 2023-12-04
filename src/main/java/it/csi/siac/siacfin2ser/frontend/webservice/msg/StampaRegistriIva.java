@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.Periodo;

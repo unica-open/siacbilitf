@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacgenser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class Tabella extends Entita{
+public class Tabella extends EntitaEnte{
 
 	private static final long serialVersionUID = 2076593776833832443L;
 	

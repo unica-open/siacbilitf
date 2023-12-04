@@ -5,14 +5,12 @@
 package it.csi.siac.siacbilser.model;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
-public class Vincolo extends Entita {
+public class Vincolo extends EntitaEnte {
 	
 	private static final long serialVersionUID = 4872810308171314502L;
 	
-	private Ente ente;
 	private Bilancio bilancio;
 	private String codice;
 	private String descrizione;
@@ -21,8 +19,12 @@ public class Vincolo extends Entita {
 	
 	private StatoOperativo statoOperativo;
 	private TipoVincoloCapitoli tipoVincoloCapitoli;
-	// SIAC-5076
+	
+	//SIAC-5076
 	private GenereVincolo genereVincolo;
+	
+	//SIAC-7192
+	private RisorsaVincolata risorsaVincolata;
 	
 	public String getCodice() {
 		return codice;
@@ -60,12 +62,8 @@ public class Vincolo extends Entita {
 	public void setTipoVincoloCapitoli(TipoVincoloCapitoli tipoVincoloCapitoli) {
 		this.tipoVincoloCapitoli = tipoVincoloCapitoli;
 	}
-	public Ente getEnte() {
-		return ente;
-	}
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 	public Bilancio getBilancio() {
 		return bilancio;
 	}
@@ -84,7 +82,17 @@ public class Vincolo extends Entita {
 	public void setGenereVincolo(GenereVincolo genereVincolo) {
 		this.genereVincolo = genereVincolo;
 	}
+	/**
+	 * @return the risorsaVincolata
+	 */
+	public RisorsaVincolata getRisorsaVincolata() {
+		return risorsaVincolata;
+	}
+	/**
+	 * @param risorsaVincolata the risorsaVincolata to set
+	 */
+	public void setRisorsaVincolata(RisorsaVincolata risorsaVincolata) {
+		this.risorsaVincolata = risorsaVincolata;
+	}
 	
-	
-
 }

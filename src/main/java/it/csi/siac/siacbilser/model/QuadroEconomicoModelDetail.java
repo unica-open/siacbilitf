@@ -6,11 +6,13 @@ package it.csi.siac.siacbilser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
+
 /**
  * The Enum ContoModelDetail.
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public enum QuadroEconomicoModelDetail implements ModelDetail {	
+public enum QuadroEconomicoModelDetail implements ModelDetailEnum {	
 	
 	QuadroEconomicoPadre,
 	QuadroEconomicoFigli,

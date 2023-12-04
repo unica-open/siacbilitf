@@ -53,15 +53,15 @@ public enum NaturaType {
      * Non soggette
      * 
      */
-    @XmlEnumValue("N2")
-    N_2("N2"),
+//    @XmlEnumValue("N2")
+//    N_2("N2"),
 
     /**
      * Non Imponibili
      * 
      */
-    @XmlEnumValue("N3")
-    N_3("N3"),
+//    @XmlEnumValue("N3")
+//    N_3("N3"),
 
     /**
      * Esenti
@@ -81,15 +81,56 @@ public enum NaturaType {
      * Inversione contabile (reverse charge)
      * 
      */
-    @XmlEnumValue("N6")
-    N_6("N6"),
+//    @XmlEnumValue("N6")
+//    N_6("N6"),
 
     /**
      * IVA assolta in altro stato UE (vendite a distanza ex art. 40 commi 3 e 4 e art. 41 comma 1 lett. b, DL 331/93; prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-sexies lett. f, g, DPR 633/72 e art. 74-sexies, DPR 633/72)
      * 
      */
     @XmlEnumValue("N7")
-    N_7("N7");
+    N_7("N7"),
+    
+    /**
+     * SIAC-7557
+     * Inseriti i valori: N2.1, N2.2, N3.1, N3.2, N3.3, N3.4, N3.5, N3.6, N6.1, N6.2, N6.3, N6.4, N6.5, N6.6, N6.7, N6.8, N6.9. 
+	 *(i codici N2, N3 e N6 non saranno più validi a partire dal primo gennaio 2021) 
+     */
+    @XmlEnumValue("N2.1")
+    N_2_1("N2.1"),
+    @XmlEnumValue("N2.2")
+    N_2_2("N2.2"),
+    @XmlEnumValue("N3.1")
+    N_3_1("N3.1"),
+    @XmlEnumValue("N3.2")
+    N_3_2("N3.2"),
+    @XmlEnumValue("N3.3")
+    N_3_3("N3.3"),
+    @XmlEnumValue("N3.4")
+    N_3_4("N3.4"),
+    @XmlEnumValue("N3.5")
+    N_3_5("N3.5"),
+    @XmlEnumValue("N3.6")
+    N_3_6("N3.6"),
+    @XmlEnumValue("N6.1")
+    N_6_1("N6.1"),
+    @XmlEnumValue("N6.2")
+    N_6_2("N6.2"),
+    @XmlEnumValue("N6.3")
+    N_6_3("N6.3"),
+    @XmlEnumValue("N6.4")
+    N_6_4("N6.4"),
+    @XmlEnumValue("N6.5")
+    N_6_5("N6.5"),
+    @XmlEnumValue("N6.6")
+    N_6_6("N6.6"),
+    @XmlEnumValue("N6.7")
+    N_6_7("N6.7"),
+    @XmlEnumValue("N6.8")
+    N_6_8("N6.8"),
+    @XmlEnumValue("N6.9")
+    N_6_9("N6.9")
+    ;
     private final String value;
 
     NaturaType(String v) {

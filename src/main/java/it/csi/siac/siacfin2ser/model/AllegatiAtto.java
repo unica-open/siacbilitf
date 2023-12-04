@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.AllegatoAtto;
 import it.csi.siac.siacfin2ser.model.FIN2DataDictionary;
 
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class AllegatiAtto extends Entita {
+public class AllegatiAtto extends EntitaEnte {
 	
 	private static final long serialVersionUID = 6121698639058426614L;
 	

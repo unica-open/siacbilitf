@@ -11,6 +11,8 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
+import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaPrevisioneImpegnatoAccertato;
+import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaPrevisioneImpegnatoAccertatoResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaRelazioneAttoDiLeggeCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaRelazioneAttoDiLeggeCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaStanziamentiCapitoliVariati;
@@ -27,14 +29,24 @@ import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaAttributiModifica
 import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaAttributiModificabiliCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaClassificatoriModificabiliCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaClassificatoriModificabiliCapitoloResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaDisponibilitaCassaContoVincolatoCapitolo;
+import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaDisponibilitaCassaContoVincolatoCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceRelazioneAttoDiLeggeCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceRelazioneAttoDiLeggeCapitoloResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiPropostaNumeroCapitolo;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiPropostaNumeroCapitoloResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiSottoContiVincolatiCapitolo;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiSottoContiVincolatiCapitoloBySubdoc;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiSottoContiVincolatiCapitoloBySubdocResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.LeggiSottoContiVincolatiCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaCategoriaCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaCategoriaCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaRelazioneAttoDiLeggeCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaRelazioneAttoDiLeggeCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaVariazioniSingoloCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaVariazioniSingoloCapitoloResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaStanziamentiCapitoloGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaStanziamentiCapitoloGestioneResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaStoricoVariazioniCodificheCapitolo;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaStoricoVariazioniCodificheCapitoloResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaVariazioniCapitolo;
@@ -198,6 +210,36 @@ public interface CapitoloService {
 	@WebMethod
 	@WebResult
 	RicercaStoricoVariazioniCodificheCapitoloResponse ricercaStoricoVariazioniCodificheCapitolo(@WebParam RicercaStoricoVariazioniCodificheCapitolo parameters);
+	
+	@WebMethod
+	@WebResult
+	AggiornaPrevisioneImpegnatoAccertatoResponse aggiornaPrevisioneImpegnatoAccertatoSuCapitolo(@WebParam AggiornaPrevisioneImpegnatoAccertato parameters);
 
+	
+	@WebMethod
+	@WebResult
+	public RicercaStanziamentiCapitoloGestioneResponse ricercaStanziamentiCapitoloGestione(RicercaStanziamentiCapitoloGestione parameters);
 
+	/**
+	 * Calcolo della disponibilit&agrave; di un capitolo
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	public ControllaDisponibilitaCassaContoVincolatoCapitoloResponse controllaDisponibilitaCassaContoVincolatoCapitolo(@WebParam ControllaDisponibilitaCassaContoVincolatoCapitolo parameters);
+	
+	@WebMethod
+	@WebResult
+	public LeggiSottoContiVincolatiCapitoloBySubdocResponse leggiSottoContiVincolatiCapitoloBySubdocService(@WebParam LeggiSottoContiVincolatiCapitoloBySubdoc parameters);
+	
+	@WebMethod
+	@WebResult
+	public LeggiSottoContiVincolatiCapitoloResponse leggiSottoContiVincolatiCapitoloService(@WebParam LeggiSottoContiVincolatiCapitolo parameters);
+	
+	@WebMethod
+	@WebResult
+	//task-86
+	public LeggiPropostaNumeroCapitoloResponse leggiPropostaNumeroCapitoloService(@WebParam LeggiPropostaNumeroCapitolo parameters);
+	
 }

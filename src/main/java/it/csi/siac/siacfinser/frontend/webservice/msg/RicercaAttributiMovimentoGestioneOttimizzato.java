@@ -28,6 +28,8 @@ public class RicercaAttributiMovimentoGestioneOttimizzato extends PaginazioneReq
 	
 	private DatiOpzionaliCapitoli datiOpzionaliCapitoli;
 	
+	private boolean caricalistaModificheCollegate = true;
+	
 	//SIAC-6702
 	private boolean caricaFlagPresenteStoricizzazioneNelBilancio = false;
 	
@@ -74,19 +76,17 @@ public class RicercaAttributiMovimentoGestioneOttimizzato extends PaginazioneReq
 	public void setDatiOpzionaliCapitoli(DatiOpzionaliCapitoli datiOpzionaliCapitoli) {
 		this.datiOpzionaliCapitoli = datiOpzionaliCapitoli;
 	}
-	/**
-	 * @return the caricaFlagPresenteStoricizzazione
-	 */
 	public boolean isCaricaFlagPresenteStoricizzazioneNelBilancio() {
 		return caricaFlagPresenteStoricizzazioneNelBilancio;
 	}
-	/**
-	 * @param caricaFlagPresenteStoricizzazione the caricaFlagPresenteStoricizzazione to set
-	 */
 	public void setCaricaFlagPresenteStoricizzazioneNelBilancio(boolean caricaFlagPresenteStoricizzazioneNelBilancio) {
 		this.caricaFlagPresenteStoricizzazioneNelBilancio = caricaFlagPresenteStoricizzazioneNelBilancio;
 	}
-	
-	
+	public boolean isCaricalistaModificheCollegate() {
+		return caricalistaModificheCollegate;
+	}
+	public void setCaricalistaModificheCollegate(boolean caricalistaModificheCollegate) {
+		this.caricalistaModificheCollegate = caricalistaModificheCollegate;
+	}
 	
 }

@@ -31,8 +31,6 @@ import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloFondoPluriennaleVin
 import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloFondoPluriennaleVincolatoEntrataResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloFondoPluriennaleVincolatoSpesa;
 import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloFondoPluriennaleVincolatoSpesaResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloProspettoRiassuntivoCronoprogramma;
-import it.csi.siac.siacbilser.frontend.webservice.msg.CalcoloProspettoRiassuntivoCronoprogrammaResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.CambiaFlagUsatoPerFpvCronoprogramma;
 import it.csi.siac.siacbilser.frontend.webservice.msg.CambiaFlagUsatoPerFpvCronoprogrammaResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.CancellaRigaEntrata;
@@ -69,6 +67,10 @@ import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaProgetto;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaProgettoResponse;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaTipiAmbito;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaTipiAmbitoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.progetto.CalcoloProspettoRiassuntivoCronoprogrammaAggiorna;
+import it.csi.siac.siacbilser.frontend.webservice.msg.progetto.CalcoloProspettoRiassuntivoCronoprogrammaAggiornaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.progetto.CalcoloProspettoRiassuntivoCronoprogrammaConsulta;
+import it.csi.siac.siacbilser.frontend.webservice.msg.progetto.CalcoloProspettoRiassuntivoCronoprogrammaConsultaResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaDeiCronoprogrammiCollegatiAlProvvedimento;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaDeiCronoprogrammiCollegatiAlProvvedimentoResponse;
 
@@ -352,7 +354,11 @@ public interface ProgettoService {
 	 */
 	@WebMethod
 	@WebResult
-	CalcoloProspettoRiassuntivoCronoprogrammaResponse calcoloProspettoRiassuntivoCronoprogramma( CalcoloProspettoRiassuntivoCronoprogramma parameters);
+	CalcoloProspettoRiassuntivoCronoprogrammaAggiornaResponse calcoloProspettoRiassuntivoCronoprogrammaAggiorna(CalcoloProspettoRiassuntivoCronoprogrammaAggiorna parameters);
+	
+	@WebMethod
+	@WebResult
+	CalcoloProspettoRiassuntivoCronoprogrammaConsultaResponse calcoloProspettoRiassuntivoCronoprogrammaConsulta(CalcoloProspettoRiassuntivoCronoprogrammaConsulta parameters);
 	
 	/**
 	 * Cambia il flag usato per fpv relativo ad un certo cronoprogramma a true o a false  

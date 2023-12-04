@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
@@ -40,7 +40,7 @@ public class RicercaElencoDaEmettere extends ServiceRequest {
 	
 	private ParametriPaginazione parametriPaginazione;
 	
-	@XmlElementWrapper(name="modelDetails")
+	@XmlElementWrapper(name="modelDetailEnums")
 	@XmlElements({
 		@XmlElement(name="accertamentoModelDetail", type=AccertamentoModelDetail.class),
 		@XmlElement(name="allegatoAttoModelDetail", type=AllegatoAttoModelDetail.class),
@@ -53,7 +53,7 @@ public class RicercaElencoDaEmettere extends ServiceRequest {
 		@XmlElement(name="preDocumentoEntrataModelDetail", type=PreDocumentoEntrataModelDetail.class),
 		@XmlElement(name="preDocumentoSpesaModelDetail", type=PreDocumentoSpesaModelDetail.class),
 	})
-	private ModelDetail[] modelDetails;
+	private ModelDetailEnum[] modelDetailEnums;
 	
 
 	/**
@@ -113,19 +113,19 @@ public class RicercaElencoDaEmettere extends ServiceRequest {
 	}
 
 	/**
-	 * @return the modelDetails
+	 * @return the modelDetailEnums
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetails() {
-		return modelDetails;
+	public ModelDetailEnum[] getModelDetails() {
+		return modelDetailEnums;
 	}
 
 	/**
-	 * @param modelDetails the modelDetails to set
+	 * @param modelDetailEnums the modelDetailEnums to set
 	 * @return 
 	 */
-	public void setModelDetails(ModelDetail... modelDetails) {
-		this.modelDetails = modelDetails;
+	public void setModelDetails(ModelDetailEnum... modelDetails) {
+		this.modelDetailEnums = modelDetails;
 	}
 
 	

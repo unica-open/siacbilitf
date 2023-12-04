@@ -4,14 +4,14 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siacbilser.model.ContoCorrentePredocumentoEntrata;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
-import it.csi.siac.siacfin2ser.model.CausaleEntrata;
 
 /**
  * Request per la ricerca dei totali dei predocumenti di entrata per stato
@@ -21,9 +21,12 @@ import it.csi.siac.siacfin2ser.model.CausaleEntrata;
 public class RicercaTotaliPreDocumentoEntrataPerStato extends ServiceRequest {
 	
 	private Bilancio bilancio;
-	private CausaleEntrata causaleEntrata;
-	private Date dataCompetenzaDa;
-	private Date dataCompetenzaA;
+	
+	//SIAC-6780
+	private ContoCorrentePredocumentoEntrata contoCorrente;
+	private List<Integer> listaUidSelezionati;
+	private RicercaSinteticaPreDocumentoEntrata requestRicerca;
+	
 	
 	/**
 	 * @return the bilancio
@@ -38,39 +41,40 @@ public class RicercaTotaliPreDocumentoEntrataPerStato extends ServiceRequest {
 		this.bilancio = bilancio;
 	}
 	/**
-	 * @return the causaleEntrata
+	 * @return the contoCorrente
 	 */
-	public CausaleEntrata getCausaleEntrata() {
-		return this.causaleEntrata;
+	public ContoCorrentePredocumentoEntrata getContoCorrente() {
+		return contoCorrente;
 	}
 	/**
-	 * @param causaleEntrata the causaleEntrata to set
+	 * @param contoCorrente the contoCorrente to set
 	 */
-	public void setCausaleEntrata(CausaleEntrata causaleEntrata) {
-		this.causaleEntrata = causaleEntrata;
+	public void setContoCorrente(ContoCorrentePredocumentoEntrata contoCorrente) {
+		this.contoCorrente = contoCorrente;
 	}
 	/**
-	 * @return the dataCompetenzaDa
+	 * @return the listaUidSelezionati
 	 */
-	public Date getDataCompetenzaDa() {
-		return this.dataCompetenzaDa;
+	public List<Integer> getListaUidSelezionati() {
+		return listaUidSelezionati;
 	}
 	/**
-	 * @param dataCompetenzaDa the dataCompetenzaDa to set
+	 * @param listaUidSelezionati the listaUidSelezionati to set
 	 */
-	public void setDataCompetenzaDa(Date dataCompetenzaDa) {
-		this.dataCompetenzaDa = dataCompetenzaDa;
+	public void setListaUidSelezionati(List<Integer> listaUidSelezionati) {
+		this.listaUidSelezionati = listaUidSelezionati;
 	}
 	/**
-	 * @return the dataCompetenzaA
+	 * @return the requestRicerca
 	 */
-	public Date getDataCompetenzaA() {
-		return this.dataCompetenzaA;
+	public RicercaSinteticaPreDocumentoEntrata getRequestRicerca() {
+		return requestRicerca;
 	}
 	/**
-	 * @param dataCompetenzaA the dataCompetenzaA to set
+	 * @param requestRicerca the requestRicerca to set
 	 */
-	public void setDataCompetenzaA(Date dataCompetenzaA) {
-		this.dataCompetenzaA = dataCompetenzaA;
+	public void setRequestRicerca(RicercaSinteticaPreDocumentoEntrata requestRicerca) {
+		this.requestRicerca = requestRicerca;
 	}
+	
 }

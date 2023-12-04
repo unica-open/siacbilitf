@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 
@@ -18,11 +17,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class RiepilogoBeniFEL extends Entita{
+public class RiepilogoBeniFEL extends EntitaEnte{
 	
 	private static final long serialVersionUID = -4698704005581859852L;
 	
-	private Ente ente;
 	private FatturaFEL fattura;
 	private NaturaFEL naturaFEL;
 	
@@ -172,16 +170,8 @@ public class RiepilogoBeniFEL extends Entita{
 	public void setEsigibilitaIva(String esigibilitaIva) {
 		this.esigibilitaIva = esigibilitaIva;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 }

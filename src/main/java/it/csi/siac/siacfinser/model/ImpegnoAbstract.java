@@ -8,12 +8,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
 import it.csi.siac.siacfinser.model.movgest.ModificaMovimentoGestioneSpesa;
-import it.csi.siac.siacfinser.model.mutuo.VoceMutuo;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
 public abstract class ImpegnoAbstract extends MovimentoGestione {
@@ -42,14 +43,15 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 	private BigDecimal disponibilitaPagare;// impegno
 	
 	// Importo calcolato indica la differenza tra impegnato e finanziato con le
-	// voci di mutuo : disponibilitaFinanziare = (importoAttualeImpegno --> totale voci di mutuo sull'impegno)
 	private BigDecimal disponibilitaFinanziare;// impegno
 	private BigDecimal disponibilitaSubimpegnare;// impegno
 
-	private BigDecimal totaleSubImpegni;// impegno
+	@Deprecated
+	@XmlElement(name = "totaleSubImpegni")
+	private BigDecimal totaleSubImpegniBigDecimal;// impegno
 
-	private String statoOperativoMovimentoGestioneSpesa;// impegno
-	private String descrizioneStatoOperativoMovimentoGestioneSpesa;
+	@Deprecated private String statoOperativoMovimentoGestioneSpesa;// impegno
+	@Deprecated private String descrizioneStatoOperativoMovimentoGestioneSpesa;
 	private Date dataStatoOperativoMovimentoGestioneSpesa;
 
 	// usato per i vincoli
@@ -82,7 +84,6 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 
 	List<ModificaMovimentoGestioneSpesa> listaModificheMovimentoGestioneSpesa;
 
-	List<VoceMutuo> listaVociMutuo;
 	
 	// SIAC-6695
 	private String motivazioneDisponibilitaLiquidare;
@@ -91,6 +92,14 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 	private String motivazioneDisponibilitaSubImpegnare;
 	private String motivazioneDisponibilitaImpegnoModifica;
 	private String motivazioneDisponibilitaVincolare;
+	
+	public ImpegnoAbstract(MovimentoGestione movimentoGestione) {
+		super(movimentoGestione);
+	}
+
+	public ImpegnoAbstract() {
+		super();
+	}
 
 	public ClassificatoreGenerico getTipoImpegno() {
 		return tipoImpegno;
@@ -201,12 +210,19 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 		this.disponibilitaSubimpegnare = disponibilitaSubimpegnare;
 	}
 
-	public BigDecimal getTotaleSubImpegni() {
-		return totaleSubImpegni;
+	public Integer getTotaleSubImpegni() {
+		return totaleSubImpegniBigDecimal == null ? null : totaleSubImpegniBigDecimal.intValue();
 	}
 
-	public void setTotaleSubImpegni(BigDecimal totaleSubImpegni) {
-		this.totaleSubImpegni = totaleSubImpegni;
+	@Deprecated
+	@XmlTransient
+	public BigDecimal getTotaleSubImpegniBigDecimal() {
+		return totaleSubImpegniBigDecimal;
+	}
+
+	@Deprecated
+	public void setTotaleSubImpegniBigDecimal(BigDecimal totaleSubImpegni) {
+		this.totaleSubImpegniBigDecimal = totaleSubImpegni;
 	}
 
 	public List<ModificaMovimentoGestioneSpesa> getListaModificheMovimentoGestioneSpesa() {
@@ -226,13 +242,6 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 		this.chiaveCapitoloUscitaGestione = chiaveCapitoloUscitaGestione;
 	}
 
-	public List<VoceMutuo> getListaVociMutuo() {
-		return listaVociMutuo;
-	}
-
-	public void setListaVociMutuo(List<VoceMutuo> listaVociMutuo) {
-		this.listaVociMutuo = listaVociMutuo;
-	}
 
 	public BigDecimal getSommaLiquidazioniDoc() {
 		return sommaLiquidazioniDoc;
@@ -438,5 +447,5 @@ public abstract class ImpegnoAbstract extends MovimentoGestione {
 	public void setIdSpesaCronoprogramma(Integer idSpesaCronoprogramma) {
 		this.idSpesaCronoprogramma = idSpesaCronoprogramma;
 	}
-		
+
 }

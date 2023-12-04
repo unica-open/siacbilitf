@@ -7,11 +7,11 @@ package it.csi.siac.siacfinser.model.codifiche;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class NaturaGiuridica extends Entita {
+public class NaturaGiuridica extends EntitaEnte {
 
 	
 	/**

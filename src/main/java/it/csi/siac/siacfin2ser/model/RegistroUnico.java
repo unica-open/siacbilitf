@@ -5,7 +5,7 @@
 package it.csi.siac.siacfin2ser.model;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.Date;
 
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class RegistroUnico extends Entita {
+public class RegistroUnico extends EntitaEnte {
 	//maps the SiacTRegistrounicoDoc
 	private static final long serialVersionUID = 4308930595316867439L;
 	

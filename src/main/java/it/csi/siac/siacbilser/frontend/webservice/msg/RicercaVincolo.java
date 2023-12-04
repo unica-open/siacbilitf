@@ -32,6 +32,8 @@ public class RicercaVincolo extends ServiceRequest {
 	private Capitolo<?, ?> capitolo;
 	private Bilancio bilancio;
 	
+	private boolean ricercaCodiceLike = false;
+	
 	private ParametriPaginazione parametriPaginazione;
 	
 	public Vincolo getVincolo() {
@@ -69,6 +71,12 @@ public class RicercaVincolo extends ServiceRequest {
 	 */
 	public void setBilancio(Bilancio bilancio) {
 		this.bilancio = bilancio;
+	}
+	public boolean isRicercaCodiceLike() {
+		return ricercaCodiceLike;
+	}
+	public void setRicercaCodiceLike(boolean ricercaCodiceLike) {
+		this.ricercaCodiceLike = ricercaCodiceLike;
 	}
 	
 	

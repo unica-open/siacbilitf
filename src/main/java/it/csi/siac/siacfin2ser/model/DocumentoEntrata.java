@@ -24,7 +24,13 @@ public class DocumentoEntrata extends Documento<SubdocumentoEntrata, Subdocument
 	private Date dataOperazione;
 	private String codAvvisoPagoPA;
 	private String iuv;
-	private String docNumeroPrimaAutoIva;	
+	private String docNumeroPrimaAutoIva;
+	
+	//SIAC-7562 - 25/06/2020 - CM e GM
+	private Date dataCambioStatoFel;
+	
+	//SIAC-7557
+	private java.util.List<Ordine> ordini = new java.util.ArrayList<Ordine>();
 		
 	public String getDocNumeroPrimaAutoIva() {
 		return docNumeroPrimaAutoIva;
@@ -50,19 +56,19 @@ public class DocumentoEntrata extends Documento<SubdocumentoEntrata, Subdocument
 		this.iuv = iuv;
 	}
 
-		/**
-		 * @return the dataOperazione
-		 */
-		public Date getDataOperazione() {
-			return dataOperazione;
-		}
-
-		/**
-		 * @param dataOperazione the dataOperazione to set
-		 */
-		public void setDataOperazione(Date dataOperazione) {
-			this.dataOperazione = dataOperazione;
-		}
+	/**
+	 * @return the dataOperazione
+	 */
+	public Date getDataOperazione() {
+		return dataOperazione;
+	}
+		
+	/**
+	 * @param dataOperazione the dataOperazione to set
+	 */
+	public void setDataOperazione(Date dataOperazione) {
+		this.dataOperazione = dataOperazione;
+	}
 
 	/**
 	 * @return the flagDebitoreMultiplo
@@ -76,6 +82,22 @@ public class DocumentoEntrata extends Documento<SubdocumentoEntrata, Subdocument
 	 */
 	public void setFlagDebitoreMultiplo(Boolean flagDebitoreMultiplo) {
 		this.flagDebitoreMultiplo = flagDebitoreMultiplo;
+	}
+
+	public Date getDataCambioStatoFel() {
+		return dataCambioStatoFel;
+	}
+
+	public void setDataCambioStatoFel(Date dataCambioStatoFel) {
+		this.dataCambioStatoFel = dataCambioStatoFel;
+	}
+
+	public java.util.List<Ordine> getOrdini() {
+		return ordini;
+	}
+
+	public void setOrdini(java.util.List<Ordine> ordini) {
+		this.ordini = ordini;
 	}
 	
 }

@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * ImportiCapitolo, rappresenta le voci relative agli importi del capitolo
@@ -22,7 +22,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class ImportiCapitolo extends Entita implements Cloneable {
+public class ImportiCapitolo extends EntitaEnte implements Cloneable {
 
 	private static final long serialVersionUID = 1900646864202939329L;
 
@@ -59,7 +59,9 @@ public class ImportiCapitolo extends Entita implements Cloneable {
 	private List<ComponenteImportiCapitolo> listaComponenteImportiCapitolo = new ArrayList<ComponenteImportiCapitolo>();
 	
 	private BigDecimal pagatoCassaIniziale = BigDecimal.ZERO;
+	@Deprecated //SIAC-8469
 	private BigDecimal residuoEffettivo = BigDecimal.ZERO;
+	@Deprecated //SIAC-8469
 	private BigDecimal residuoEffettivoIniziale = BigDecimal.ZERO;
 	
 	@Override
@@ -451,6 +453,7 @@ public class ImportiCapitolo extends Entita implements Cloneable {
 	/**
 	 * @return the residuoEffettivo
 	 */
+	@Deprecated //SIAC-8469, ma utilizzato ancora, quindi lo lascio
 	public BigDecimal getResiduoEffettivo() {
 		return this.residuoEffettivo;
 	}
@@ -465,6 +468,7 @@ public class ImportiCapitolo extends Entita implements Cloneable {
 	/**
 	 * @return the residuoEffettivoIniziale
 	 */
+	@Deprecated //SIAC-8469, ma utilizzato ancora, quindi lo lascio
 	public BigDecimal getResiduoEffettivoIniziale() {
 		return this.residuoEffettivoIniziale;
 	}

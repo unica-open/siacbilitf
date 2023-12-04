@@ -18,6 +18,16 @@ public class RicercaComponenteImportiCapitolo extends ServiceRequest {
 
 	private Capitolo<?, ?> capitolo;
 	
+	//SIAC-7349 - INIZIO - SR90 - MR - 03/04/2020 Aggiunta property per abilitare calcolo disponibilita impegnare del capitolo
+	private boolean abilitaCalcoloDisponibilita;
+	
+	public boolean isAbilitaCalcoloDisponibilita() {
+		return abilitaCalcoloDisponibilita;
+	}
+	public void setAbilitaCalcoloDisponibilita(boolean abilitaCalcoloDisponibilita) {
+		this.abilitaCalcoloDisponibilita = abilitaCalcoloDisponibilita;
+	}//SIAC-7349 - FINE
+
 	/**
 	 * @return the capitolo
 	 */

@@ -5,8 +5,7 @@
 package it.csi.siac.siacgenser.model;
 
 import it.csi.siac.siacbilser.model.Ambito;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class MovimentoEP extends Entita{
+public class MovimentoEP extends EntitaEnte{
 
 
 	/**
@@ -28,7 +27,6 @@ public class MovimentoEP extends Entita{
 	 */
 	private static final long serialVersionUID = 4955128507162908428L;
 	
-	private Ente ente;
 	
 	private Integer numero;
 	private String descrizione;
@@ -42,18 +40,10 @@ public class MovimentoEP extends Entita{
 	// Lotto N
 	private Ambito ambito;
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the numero
 	 */

@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.codifiche.NaturaGiuridicaSoggetto;
 import it.csi.siac.siacfinser.model.codifiche.TipoSoggetto;
@@ -31,7 +31,7 @@ import it.csi.siac.siacfinser.model.soggetto.sedesecondaria.SedeSecondariaSogget
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Soggetto extends Entita {
+public class Soggetto extends EntitaEnte {
 
 	/**
 	 *I valori possibili sono MASCHIO, FEMMINA, NON_DEFINITO.
@@ -63,6 +63,8 @@ public class Soggetto extends Entita {
 	private String note;
 	private String partitaIva;
 	
+	//task-6
+	private boolean flagIstitutoDiCredito;
 	
 	private boolean residenteEstero;
 	private String residenteEsteroStringa;
@@ -192,6 +194,14 @@ public class Soggetto extends Entita {
 	
 	public String getCodiceSoggetto() {
 		return codiceSoggetto;
+	}
+	
+	public String getCodice() {
+		return getCodiceSoggetto();
+	}
+	
+	public String getCodiceDenominazione() {
+		return getCodice() + " - " + getDenominazione();
 	}
 	
 	public BigInteger getCodiceSoggettoNumber() {
@@ -698,7 +708,22 @@ public class Soggetto extends Entita {
 	public void setCodificaAmbito(String codificaAmbito) {
 		this.codificaAmbito = codificaAmbito;
 	}
+
+	//SIAC-7567
+	/**
+	 * @param ccontrolla che il soggetto sia una PA
+	 */
+	public boolean isSoggettoPA() {
+		return this.getCanalePA() != null && "PA".equals(this.getCanalePA());
+	}
 	
 	
-	
+	public boolean isFlagIstitutoDiCredito() {
+		return flagIstitutoDiCredito;
+	}
+
+	public void setFlagIstitutoDiCredito(boolean flagIstitutoDiCredito) {
+		this.flagIstitutoDiCredito = flagIstitutoDiCredito;
+	}
+
 }

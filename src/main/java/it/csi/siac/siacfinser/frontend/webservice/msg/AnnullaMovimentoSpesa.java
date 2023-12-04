@@ -22,6 +22,7 @@ public class AnnullaMovimentoSpesa extends ServiceRequest {
 	private Ente ente;
 	private Bilancio bilancio;
 	private Impegno impegno;
+	private boolean verificaImportiDopoAnnullamentoModifica = false;
 
 	public Impegno getImpegno() {
 		return impegno;
@@ -45,6 +46,14 @@ public class AnnullaMovimentoSpesa extends ServiceRequest {
 
 	public void setBilancio(Bilancio bilancio) {
 		this.bilancio = bilancio;
+	}
+
+	public boolean isVerificaImportiDopoAnnullamentoModifica() {
+		return verificaImportiDopoAnnullamentoModifica;
+	}
+
+	public void setVerificaImportiDopoAnnullamentoModifica(boolean verificaImportiDopoAnnullamentoModifica) {
+		this.verificaImportiDopoAnnullamentoModifica = verificaImportiDopoAnnullamentoModifica;
 	}
 
 }

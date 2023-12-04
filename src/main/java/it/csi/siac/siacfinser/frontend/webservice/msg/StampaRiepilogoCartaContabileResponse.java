@@ -7,8 +7,8 @@ package it.csi.siac.siacfinser.frontend.webservice.msg;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceResponse;
 import it.csi.siac.siaccorser.model.file.File;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceResponse;
 import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 
 /**

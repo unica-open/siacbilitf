@@ -6,11 +6,11 @@ package it.csi.siac.siacfinser.model.soggetto;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Onere extends Entita {
+public class Onere extends EntitaEnte {
 	
 	private static final long serialVersionUID = 8520704702217704029L;
 	

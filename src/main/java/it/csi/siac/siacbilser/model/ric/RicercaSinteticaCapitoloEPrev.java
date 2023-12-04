@@ -52,6 +52,8 @@ public class RicercaSinteticaCapitoloEPrev implements Serializable {
 	
 	//aggiunto RTI
 	private String codiceStrutturaAmmCont;
+	//task-90
+	private Integer idStrutturaAmmCont;
 	//aggiunto RTI
 	private String codiceTipoStrutturaAmmCont;
 	//modificato RTI
@@ -68,25 +70,31 @@ public class RicercaSinteticaCapitoloEPrev implements Serializable {
 	//private String classificatoreCofog;
 	
 	//modificato RTI
-	private String codiceClassificatoreGenerico1;
+	private String codiceClassificatoreGenerico36;
 	//modificato RTI
-	private String codiceClassificatoreGenerico2;
+	private String codiceClassificatoreGenerico37;
 	//modificato RTI
-	private String codiceClassificatoreGenerico3;
+	private String codiceClassificatoreGenerico38;
 	//modificato RTI
-	private String codiceClassificatoreGenerico4;
+	private String codiceClassificatoreGenerico39;
 	//modificato RTI
-	private String codiceClassificatoreGenerico5;
+	private String codiceClassificatoreGenerico40;
 	//modificato RTI
-	private String codiceClassificatoreGenerico6;
+	private String codiceClassificatoreGenerico41;
 	//modificato RTI
-	private String codiceClassificatoreGenerico7;
+	private String codiceClassificatoreGenerico42;
 	//modificato RTI
-	private String codiceClassificatoreGenerico8;
+	private String codiceClassificatoreGenerico43;
 	//modificato RTI
-	private String codiceClassificatoreGenerico9;
+	private String codiceClassificatoreGenerico44;
 	//modificato RTI	
-	private String codiceClassificatoreGenerico10;
+	private String codiceClassificatoreGenerico45;
+	//SIAC-8517
+	private String codiceClassificatoreGenerico46;
+	private String codiceClassificatoreGenerico47;
+	private String codiceClassificatoreGenerico48;
+	private String codiceClassificatoreGenerico49;
+	private String codiceClassificatoreGenerico50;
 	
 	private String codiceSiopeEntrata;
 	private String codiceTipoSiopeEntrata;
@@ -135,7 +143,11 @@ public class RicercaSinteticaCapitoloEPrev implements Serializable {
 
 	// SIAC-4088
 	private Boolean richiediAccantonamentoFondiDubbiaEsigibilita;
-	
+	// SIAC-7858
+	private String flagEntrataDubbiaEsigFCDE;
+	//SIAC-8581
+	private Integer versioneAccFcde;
+	private String tipoAccFcde;
 	
 	
 	public Integer getAnnoEsercizio() {
@@ -240,66 +252,7 @@ public class RicercaSinteticaCapitoloEPrev implements Serializable {
 	public void setCodiceTipoVincolo(String codiceTipoVincolo) {
 		this.codiceTipoVincolo = codiceTipoVincolo;
 	}
-	public String getCodiceClassificatoreGenerico1() {
-		return codiceClassificatoreGenerico1;
-	}
-	public void setCodiceClassificatoreGenerico1(String codiceClassificatoreGenerico1) {
-		this.codiceClassificatoreGenerico1 = codiceClassificatoreGenerico1;
-	}
-	public String getCodiceClassificatoreGenerico2() {
-		return codiceClassificatoreGenerico2;
-	}
-	public void setCodiceClassificatoreGenerico2(String codiceClassificatoreGenerico2) {
-		this.codiceClassificatoreGenerico2 = codiceClassificatoreGenerico2;
-	}
-	public String getCodiceClassificatoreGenerico3() {
-		return codiceClassificatoreGenerico3;
-	}
-	public void setCodiceClassificatoreGenerico3(String codiceClassificatoreGenerico3) {
-		this.codiceClassificatoreGenerico3 = codiceClassificatoreGenerico3;
-	}
-	public String getCodiceClassificatoreGenerico4() {
-		return codiceClassificatoreGenerico4;
-	}
-	public void setCodiceClassificatoreGenerico4(String codiceClassificatoreGenerico4) {
-		this.codiceClassificatoreGenerico4 = codiceClassificatoreGenerico4;
-	}
-	public String getCodiceClassificatoreGenerico5() {
-		return codiceClassificatoreGenerico5;
-	}
-	public void setCodiceClassificatoreGenerico5(String codiceClassificatoreGenerico5) {
-		this.codiceClassificatoreGenerico5 = codiceClassificatoreGenerico5;
-	}
-	public String getCodiceClassificatoreGenerico6() {
-		return codiceClassificatoreGenerico6;
-	}
-	public void setCodiceClassificatoreGenerico6(String codiceClassificatoreGenerico6) {
-		this.codiceClassificatoreGenerico6 = codiceClassificatoreGenerico6;
-	}
-	public String getCodiceClassificatoreGenerico7() {
-		return codiceClassificatoreGenerico7;
-	}
-	public void setCodiceClassificatoreGenerico7(String codiceClassificatoreGenerico7) {
-		this.codiceClassificatoreGenerico7 = codiceClassificatoreGenerico7;
-	}
-	public String getCodiceClassificatoreGenerico8() {
-		return codiceClassificatoreGenerico8;
-	}
-	public void setCodiceClassificatoreGenerico8(String codiceClassificatoreGenerico8) {
-		this.codiceClassificatoreGenerico8 = codiceClassificatoreGenerico8;
-	}
-	public String getCodiceClassificatoreGenerico9() {
-		return codiceClassificatoreGenerico9;
-	}
-	public void setCodiceClassificatoreGenerico9(String codiceClassificatoreGenerico9) {
-		this.codiceClassificatoreGenerico9 = codiceClassificatoreGenerico9;
-	}
-	public String getCodiceClassificatoreGenerico10() {
-		return codiceClassificatoreGenerico10;
-	}
-	public void setCodiceClassificatoreGenerico10(String codiceClassificatoreGenerico10) {
-		this.codiceClassificatoreGenerico10 = codiceClassificatoreGenerico10;
-	}
+	
 	public String getFlagPerMemoria() {
 		return flagPerMemoria;
 	}
@@ -444,11 +397,138 @@ public class RicercaSinteticaCapitoloEPrev implements Serializable {
 	public void setRichiediAccantonamentoFondiDubbiaEsigibilita(Boolean richiediAccantonamentoFondiDubbiaEsigibilita) {
 		this.richiediAccantonamentoFondiDubbiaEsigibilita = richiediAccantonamentoFondiDubbiaEsigibilita;
 	}
+	/**
+	 * @return the flagEntrataDubbiaEsigFCDE
+	 */
+	public String getFlagEntrataDubbiaEsigFCDE() {
+		return this.flagEntrataDubbiaEsigFCDE;
+	}
+	/**
+	 * @param flagEntrataDubbiaEsigFCDE the flagEntrataDubbiaEsigFCDE to set
+	 */
+	public void setFlagEntrataDubbiaEsigFCDE(String flagEntrataDubbiaEsigFCDE) {
+		this.flagEntrataDubbiaEsigFCDE = flagEntrataDubbiaEsigFCDE;
+	}
+	/**
+	 * @return the versioneAccFcde
+	 */
+	public Integer getVersioneAccFcde() {
+		return versioneAccFcde;
+	}
+	/**
+	 * @param versioneAccFcde the versioneAccFcde to set
+	 */
+	public void setVersioneAccFcde(Integer versioneAccFcde) {
+		this.versioneAccFcde = versioneAccFcde;
+	}
+	/**
+	 * @return the tipoAccFcde
+	 */
+	public String getTipoAccFcde() {
+		return tipoAccFcde;
+	}
+	/**
+	 * @param tipoAccFcde the tipoAccFcde to set
+	 */
+	public void setTipoAccFcde(String tipoAccFcde) {
+		this.tipoAccFcde = tipoAccFcde;
+	}
+	public String getCodiceClassificatoreGenerico36() {
+		return codiceClassificatoreGenerico36;
+	}
+	public void setCodiceClassificatoreGenerico36(String codiceClassificatoreGenerico36) {
+		this.codiceClassificatoreGenerico36 = codiceClassificatoreGenerico36;
+	}
+	public String getCodiceClassificatoreGenerico37() {
+		return codiceClassificatoreGenerico37;
+	}
+	public void setCodiceClassificatoreGenerico37(String codiceClassificatoreGenerico37) {
+		this.codiceClassificatoreGenerico37 = codiceClassificatoreGenerico37;
+	}
+	public String getCodiceClassificatoreGenerico38() {
+		return codiceClassificatoreGenerico38;
+	}
+	public void setCodiceClassificatoreGenerico38(String codiceClassificatoreGenerico38) {
+		this.codiceClassificatoreGenerico38 = codiceClassificatoreGenerico38;
+	}
+	public String getCodiceClassificatoreGenerico39() {
+		return codiceClassificatoreGenerico39;
+	}
+	public void setCodiceClassificatoreGenerico39(String codiceClassificatoreGenerico39) {
+		this.codiceClassificatoreGenerico39 = codiceClassificatoreGenerico39;
+	}
+	public String getCodiceClassificatoreGenerico40() {
+		return codiceClassificatoreGenerico40;
+	}
+	public void setCodiceClassificatoreGenerico40(String codiceClassificatoreGenerico40) {
+		this.codiceClassificatoreGenerico40 = codiceClassificatoreGenerico40;
+	}
+	public String getCodiceClassificatoreGenerico41() {
+		return codiceClassificatoreGenerico41;
+	}
+	public void setCodiceClassificatoreGenerico41(String codiceClassificatoreGenerico41) {
+		this.codiceClassificatoreGenerico41 = codiceClassificatoreGenerico41;
+	}
+	public String getCodiceClassificatoreGenerico42() {
+		return codiceClassificatoreGenerico42;
+	}
+	public void setCodiceClassificatoreGenerico42(String codiceClassificatoreGenerico42) {
+		this.codiceClassificatoreGenerico42 = codiceClassificatoreGenerico42;
+	}
+	public String getCodiceClassificatoreGenerico43() {
+		return codiceClassificatoreGenerico43;
+	}
+	public void setCodiceClassificatoreGenerico43(String codiceClassificatoreGenerico43) {
+		this.codiceClassificatoreGenerico43 = codiceClassificatoreGenerico43;
+	}
+	public String getCodiceClassificatoreGenerico44() {
+		return codiceClassificatoreGenerico44;
+	}
+	public void setCodiceClassificatoreGenerico44(String codiceClassificatoreGenerico44) {
+		this.codiceClassificatoreGenerico44 = codiceClassificatoreGenerico44;
+	}
+	public String getCodiceClassificatoreGenerico45() {
+		return codiceClassificatoreGenerico45;
+	}
+	public void setCodiceClassificatoreGenerico45(String codiceClassificatoreGenerico45) {
+		this.codiceClassificatoreGenerico45 = codiceClassificatoreGenerico45;
+	}
+	public String getCodiceClassificatoreGenerico46() {
+		return codiceClassificatoreGenerico46;
+	}
+	public void setCodiceClassificatoreGenerico46(String codiceClassificatoreGenerico46) {
+		this.codiceClassificatoreGenerico46 = codiceClassificatoreGenerico46;
+	}
+	public String getCodiceClassificatoreGenerico47() {
+		return codiceClassificatoreGenerico47;
+	}
+	public void setCodiceClassificatoreGenerico47(String codiceClassificatoreGenerico47) {
+		this.codiceClassificatoreGenerico47 = codiceClassificatoreGenerico47;
+	}
+	public String getCodiceClassificatoreGenerico48() {
+		return codiceClassificatoreGenerico48;
+	}
+	public void setCodiceClassificatoreGenerico48(String codiceClassificatoreGenerico48) {
+		this.codiceClassificatoreGenerico48 = codiceClassificatoreGenerico48;
+	}
+	public String getCodiceClassificatoreGenerico49() {
+		return codiceClassificatoreGenerico49;
+	}
+	public void setCodiceClassificatoreGenerico49(String codiceClassificatoreGenerico49) {
+		this.codiceClassificatoreGenerico49 = codiceClassificatoreGenerico49;
+	}
+	public String getCodiceClassificatoreGenerico50() {
+		return codiceClassificatoreGenerico50;
+	}
+	public void setCodiceClassificatoreGenerico50(String codiceClassificatoreGenerico50) {
+		this.codiceClassificatoreGenerico50 = codiceClassificatoreGenerico50;
+	}
+	//task-90
+	public Integer getIdStrutturaAmmCont() {
+		return idStrutturaAmmCont;
+	}
+	public void setIdStrutturaAmmCont(Integer idStrutturaAmmCont) {
+		this.idStrutturaAmmCont = idStrutturaAmmCont;
+	}
 	
-	
-
-	
-	
-
-
 }

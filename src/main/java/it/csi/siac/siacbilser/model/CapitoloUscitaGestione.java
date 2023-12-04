@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siacfin2ser.model.ContoTesoreria;
+
 /**
  * CapitoloUscita
  * 
@@ -25,15 +27,7 @@ public class CapitoloUscitaGestione extends Capitolo<ImportiCapitoloUG,ImportiCa
 	private Boolean flagFondoSvalutazioneCred;
 	private Boolean flagTrasferimentiOrgComunitari;
 	private Boolean funzDelegateRegione;
-
 	
-//	private ImportiCapitoloUG importiCapitoloUG;
-//	private ImportiCapitoloUP importiCapitoloUP;
-//	private List<ImportiCapitoloUG> listaImportiCapitoloUG = new ArrayList<ImportiCapitoloUG>();
-	
-	
-//	private StrutturaAmministrativoContabile strutturaAmministrativoContabile;
-//	private ElementoPianoDeiConti elementoPianoDeiConti;
 	private ClassificazioneCofog classificazioneCofog;
 	private ClassificazioneCofogProgramma classificazioneCofogProgramma;
 	
@@ -48,15 +42,15 @@ public class CapitoloUscitaGestione extends Capitolo<ImportiCapitoloUG,ImportiCa
 	private RicorrenteSpesa ricorrenteSpesa;
 	private PerimetroSanitarioSpesa perimetroSanitarioSpesa;
 	private SiopeSpesa siopeSpesa;
-	private TransazioneUnioneEuropeaSpesa transazioneUnioneEuropeaSpesa;	
+	private TransazioneUnioneEuropeaSpesa transazioneUnioneEuropeaSpesa;
+	private RisorsaAccantonata risorsaAccantonata;
 	
-	
+	// SIAC-8835
+	private ContoTesoreria sottoConto;
 	
 	public CapitoloUscitaGestione() {
 		super(TipoCapitolo.CAPITOLO_USCITA_GESTIONE);
 	}
-
-
 
 //	public StrutturaAmministrativoContabile getStrutturaAmministrativoContabile() {
 //		return strutturaAmministrativoContabile;
@@ -286,7 +280,31 @@ public class CapitoloUscitaGestione extends Capitolo<ImportiCapitoloUG,ImportiCa
 	public void setTransazioneUnioneEuropeaSpesa(TransazioneUnioneEuropeaSpesa transazioneUnioneEuropeaSpesa) {
 		this.transazioneUnioneEuropeaSpesa = transazioneUnioneEuropeaSpesa;
 	}
-	
+
+	/**
+	 * @return the risorsaAccantonata
+	 */
+	public RisorsaAccantonata getRisorsaAccantonata() {
+		return risorsaAccantonata;
+	}
+
+	/**
+	 * @param risorsaAccantonata the risorsaAccantonata to set
+	 */
+	public void setRisorsaAccantonata(RisorsaAccantonata risorsaAccantonata) {
+		this.risorsaAccantonata = risorsaAccantonata;
+	}
+
+
+
+	public ContoTesoreria getSottoConto() {
+		return sottoConto;
+	}
+
+	public void setSottoConto(ContoTesoreria sottoConto) {
+		this.sottoConto = sottoConto;
+	}
+
 //	@XmlTransient
 //	public ImportiCapitoloUP getImportiCapitoloUP() {
 //		return getImportiCapitoloEquivalente();
@@ -296,7 +314,7 @@ public class CapitoloUscitaGestione extends Capitolo<ImportiCapitoloUG,ImportiCa
 //		setImportiCapitoloEquivalente(importiCapitoloUP);
 //	}
 	
-	
+
 	
 	
 

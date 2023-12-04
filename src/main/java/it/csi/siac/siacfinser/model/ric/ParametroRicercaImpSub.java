@@ -24,8 +24,6 @@ public class ParametroRicercaImpSub implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer idMutuo;
-
 	private Integer annoEsercizio;
 	private Integer numeroCapitolo;
 	private Integer numeroArticolo;
@@ -48,6 +46,8 @@ public class ParametroRicercaImpSub implements Serializable {
 	private boolean competenzaCorrente;
 	private boolean competenzaCompetenza;
 	private boolean competenzaFuturi;
+	//SIAC-6997
+	private boolean competenzaResiduiRor;
 	private Integer annoImpegnoRiaccertato;
 	private Integer numeroImpegnoRiaccertato;
 	private Integer annoImpegnoOrigine;
@@ -55,6 +55,7 @@ public class ParametroRicercaImpSub implements Serializable {
 	private Integer uidCapitolo;
 	private Integer uidProvvedimento;
 	private String codiceClasseSoggetto;
+	private boolean ricercaResiduiRorFlag;
 	
 	// usato da ricerca impegni e subimpegni
 	private String tipoImpegno;
@@ -68,6 +69,15 @@ public class ParametroRicercaImpSub implements Serializable {
 	
 	//SIAC-5253 itroduciamo la possibilita' di escludere stati precisi:
 	private List<String> statiDaEscludere;
+	
+	
+	//SIAC-6997
+	private Boolean reanno;
+	private String strutturaSelezionataCompetente;
+	
+	//SIAC-7349
+	private Integer componenteBilancioUid;
+	
 	
 	/**
 	 * @return the caricaDisponibilitaALiquidare
@@ -410,12 +420,7 @@ public class ParametroRicercaImpSub implements Serializable {
 	public void setCodiceCreditore(String codiceCreditore) {
 		this.codiceCreditore = codiceCreditore;
 	}
-	public Integer getIdMutuo() {
-		return idMutuo;
-	}
-	public void setIdMutuo(Integer idMutuo) {
-		this.idMutuo = idMutuo;
-	}
+
 	public String getCodiceProgetto() {
 		return codiceProgetto;
 	}
@@ -445,6 +450,66 @@ public class ParametroRicercaImpSub implements Serializable {
 	 */
 	public void setUidCronoprogramma(Integer uidCronoprogramma) {
 		this.uidCronoprogramma = uidCronoprogramma;
+	}
+	/**
+	 * @return the reanno
+	 */
+	public Boolean getReanno() {
+		return reanno;
+	}
+	/**
+	 * @return the strutturaSelezionataCompetente
+	 */
+	public String getStrutturaSelezionataCompetente() {
+		return strutturaSelezionataCompetente;
+	}
+	/**
+	 * @param reanno the reanno to set
+	 */
+	public void setReanno(Boolean reanno) {
+		this.reanno = reanno;
+	}
+	/**
+	 * @param strutturaSelezionataCompetente the strutturaSelezionataCompetente to set
+	 */
+	public void setStrutturaSelezionataCompetente(String strutturaSelezionataCompetente) {
+		this.strutturaSelezionataCompetente = strutturaSelezionataCompetente;
+	}
+	/**
+	 * @return the competenzaResiduiRor
+	 */
+	public boolean isCompetenzaResiduiRor() {
+		return competenzaResiduiRor;
+	}
+	/**
+	 * @param competenzaResiduiRor the competenzaResiduiRor to set
+	 */
+	public void setCompetenzaResiduiRor(boolean competenzaResiduiRor) {
+		this.competenzaResiduiRor = competenzaResiduiRor;
+	}
+	/**
+	 * @return the ricercaResiduiRorFlag
+	 */
+	public boolean getRicercaResiduiRorFlag() {
+		return ricercaResiduiRorFlag;
+	}
+	/**
+	 * @param ricercaResiduiRorFlag the ricercaResiduiRorFlag to set
+	 */
+	public void setRicercaResiduiRorFlag(boolean ricercaResiduiRorFlag) {
+		this.ricercaResiduiRorFlag = ricercaResiduiRorFlag;
+	}
+	/**
+	 * @return the componenteBilancioUid
+	 */
+	public Integer getComponenteBilancioUid() {
+		return componenteBilancioUid;
+	}
+	/**
+	 * @param componenteBilancioUid the componenteBilancioUid to set
+	 */
+	public void setComponenteBilancioUid(Integer componenteBilancioUid) {
+		this.componenteBilancioUid = componenteBilancioUid;
 	}
 	
 	

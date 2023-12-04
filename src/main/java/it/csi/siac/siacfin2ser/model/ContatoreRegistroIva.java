@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.Date;
 
@@ -13,11 +12,10 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class ContatoreRegistroIva extends Entita {
+public class ContatoreRegistroIva extends EntitaEnte {
 	
 	private static final long serialVersionUID = 6940695232983720215L;
 	
-	private Ente ente;
 	private Integer annoEsercizio;
 	private Periodo periodo;
 	private Integer ultimoNumeroProtocolloProvvisorio;
@@ -36,18 +34,10 @@ public class ContatoreRegistroIva extends Entita {
 	
 
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the annoEsercizio
 	 */

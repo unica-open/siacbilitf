@@ -31,6 +31,10 @@ public class AliquotaIva extends Codifica {
 	private AliquotaIvaTipo aliquotaIvaTipo;
 	private Ente ente;
 	
+	//SIAC-7557
+	private TipoNatura tipoNatura;
+	
+	
 	/**
 	 * @return the percentualeAliquota
 	 */
@@ -102,6 +106,18 @@ public class AliquotaIva extends Codifica {
 	
 	public void setFlagIvaSplit(Boolean flagIvaSplit) {
 		this.flagIvaSplit = flagIvaSplit;
+	}
+	/**
+	 * @return the tipoNatura
+	 */
+	public TipoNatura getTipoNatura() {
+		return tipoNatura;
+	}
+	/**
+	 * @param tipoNatura the tipoNatura to set
+	 */
+	public void setTipoNatura(TipoNatura tipoNatura) {
+		this.tipoNatura = tipoNatura;
 	}
 	
 }

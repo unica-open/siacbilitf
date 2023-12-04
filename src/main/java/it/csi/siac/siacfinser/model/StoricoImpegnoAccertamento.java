@@ -6,11 +6,10 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class StoricoImpegnoAccertamento extends Entita {
+public class StoricoImpegnoAccertamento extends EntitaEnte {
 
 	private static final long serialVersionUID = -4459743766810936085L;
 
@@ -18,7 +17,6 @@ public class StoricoImpegnoAccertamento extends Entita {
 	private SubImpegno subImpegno;
 	private Accertamento accertamento;
 	private SubAccertamento subAccertamento;
-	private Ente ente;
 	
 	/**
 	 * @return the impegno
@@ -68,18 +66,10 @@ public class StoricoImpegnoAccertamento extends Entita {
 	public void setSubAccertamento(SubAccertamento subAccertamento) {
 		this.subAccertamento = subAccertamento;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 	
 	

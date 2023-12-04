@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
 import it.csi.siac.siaccorser.model.ClassificatoreGerarchico;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * DettaglioVariazioneCodificaCapitolo
@@ -21,7 +21,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class DettaglioVariazioneCodificaCapitolo extends Entita {
+public class DettaglioVariazioneCodificaCapitolo extends EntitaEnte {
 	
 	//deve rimappare un record su tabella : SiacRBilElemClassVar
 	private static final long serialVersionUID = -1483697491178364650L;

@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -16,7 +16,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
  * @version 1.0.0 - 11/11/2016
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum CapitoloEntrataPrevisioneModelDetail implements ModelDetail {
+public enum CapitoloEntrataPrevisioneModelDetail implements ModelDetailEnum {
 	
 	// TODO: vedere se implementare
 	//AnnoCreazioneCapitolo,
@@ -30,7 +30,10 @@ public enum CapitoloEntrataPrevisioneModelDetail implements ModelDetail {
 	Ente,
 	ExCapitolo,
 	Stato,
-	Importi,
+	Importi, AnnoCreazione,
+	// SIAC-7858: ottimizzazione per i classificatori
+	TitoloTipologiaCategoriaSAC,
+	
 	
 	// TODO: verificare se ne servano altri
 }

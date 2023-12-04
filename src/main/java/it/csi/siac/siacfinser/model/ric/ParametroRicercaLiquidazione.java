@@ -63,10 +63,6 @@ public class ParametroRicercaLiquidazione implements Serializable {
 	private Integer annoLiquidazione;
 	private BigDecimal numeroLiquidazione;
 
-	// Mutuo
-	private BigDecimal numeroMutuo;
-	private BigDecimal numeroMutuoImpegno;
-	
 	//SIAC-5253 itroduciamo la possibilita' di escludere stati precisi:
 	private List<String> statiDaEscludere;
 
@@ -174,14 +170,6 @@ public class ParametroRicercaLiquidazione implements Serializable {
 		this.numeroLiquidazione = numeroLiquidazione;
 	}
 
-	public BigDecimal getNumeroMutuo() {
-		return numeroMutuo;
-	}
-
-	public void setNumeroMutuo(BigDecimal numeroMutuo) {
-		this.numeroMutuo = numeroMutuo;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -218,13 +206,6 @@ public class ParametroRicercaLiquidazione implements Serializable {
 		this.annoCapitolo = annoCapitolo;
 	}
 
-	public BigDecimal getNumeroMutuoImpegno() {
-		return numeroMutuoImpegno;
-	}
-
-	public void setNumeroMutuoImpegno(BigDecimal numeroMutuoImpegno) {
-		this.numeroMutuoImpegno = numeroMutuoImpegno;
-	}
 
 	public BigDecimal getNumeroSubImpegno() {
 		return numeroSubImpegno;

@@ -11,14 +11,14 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siacbilser.model.VariazioneImportoCapitoloModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
 import it.csi.siac.siaccecser.model.RichiestaEconomaleModelDetail;
 import it.csi.siac.siaccecser.model.StampeCassaFileModelDetail;
 import it.csi.siac.siaccespser.model.TipoBeneCespiteModelDetail;
 import it.csi.siac.siaccespser.model.VariazioneCespiteModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.AccertamentoModelDetail;
@@ -65,7 +65,7 @@ public class RicercaDettaglioAllegatoAtto extends ServiceRequest {
 		@XmlElement(name="variazioneCespiteModelDetail", type=VariazioneCespiteModelDetail.class),
 		@XmlElement(name="variazioneImportoCapitoloModelDetail", type=VariazioneImportoCapitoloModelDetail.class)
 	})
-	private ModelDetail[] modelDetailsEntitaCollegate;
+	private ModelDetailEnum[] modelDetailsEntitaCollegate;
 	
 
 	/**
@@ -114,14 +114,14 @@ public class RicercaDettaglioAllegatoAtto extends ServiceRequest {
 	 * @return the modelDetailsEntitaCollegate
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetailsEntitaCollegate() {
+	public ModelDetailEnum[] getModelDetailsEntitaCollegate() {
 		return modelDetailsEntitaCollegate;
 	}
 
 	/**
 	 * @param modelDetailsEntitaCollegate the modelDetailsEntitaCollegate to set
 	 */
-	public void setModelDetailsEntitaCollegate(ModelDetail... modelDetailsEntitaCollegate) {
+	public void setModelDetailsEntitaCollegate(ModelDetailEnum... modelDetailsEntitaCollegate) {
 		this.modelDetailsEntitaCollegate = modelDetailsEntitaCollegate;
 	}
 	

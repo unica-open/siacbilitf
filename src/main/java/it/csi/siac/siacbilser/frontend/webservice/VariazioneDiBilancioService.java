@@ -48,8 +48,8 @@ import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaVariazioneBilancioR
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaVariazioneCodifiche;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaVariazioneCodificheResponse;
 import it.csi.siac.siacbilser.model.DettaglioVariazioneImportoCapitolo;
-import it.csi.siac.siaccecser.frontend.webservice.msg.StampaExcelVariazioneDiBilancio;
-import it.csi.siac.siaccecser.frontend.webservice.msg.StampaExcelVariazioneDiBilancioResponse;
+import it.csi.siac.siaccecser.frontend.webservice.msg.VariazioneBilancioExcelReport;
+import it.csi.siac.siaccecser.frontend.webservice.msg.VariazioneBilancioExcelReportResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceRequestWrapper;
 import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceResponse;
 
@@ -307,7 +307,7 @@ public interface VariazioneDiBilancioService {
 	 */
 	@WebMethod
 	@WebResult
-	StampaExcelVariazioneDiBilancioResponse stampaExcelVariazioneDiBilancio(@WebParam StampaExcelVariazioneDiBilancio parameters);
+	VariazioneBilancioExcelReportResponse variazioneBilancioExcelReport(@WebParam VariazioneBilancioExcelReport parameters);
 	
 	/**
 	 * Inserisci dettaglio componente variazione importo.

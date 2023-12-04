@@ -12,6 +12,8 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.AggiornaPreDocumentoEntrataCollegaDocumento;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.AggiornaPreDocumentoEntrataCollegaDocumentoResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceRequestWrapper;
 import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.AggiornaCausaleEntrata;
@@ -326,4 +328,18 @@ public interface PreDocumentoEntrataService {
 	@WebMethod
 	@WebResult
 	RicercaTotaliPreDocumentoEntrataPerStatoResponse ricercaTotaliPreDocumentoEntrataPerStato(@WebParam RicercaTotaliPreDocumentoEntrataPerStato parameters);
+
+	/**
+	 * Ricerca dei totali dei predocumenti per stato per il riepilogo completa definisci predisposizione d'incasso
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaTotaliPreDocumentoEntrataPerStatoResponse ricercaTotaliPreDocumentoEntrataPerStatoRiepilogo(@WebParam RicercaTotaliPreDocumentoEntrataPerStato req);
+
+	@WebMethod
+	@WebResult
+	AggiornaPreDocumentoEntrataCollegaDocumentoResponse aggiornaPreDocumentoEntrataCollegaDocumento(@WebParam AggiornaPreDocumentoEntrataCollegaDocumento parameters);
+
 }

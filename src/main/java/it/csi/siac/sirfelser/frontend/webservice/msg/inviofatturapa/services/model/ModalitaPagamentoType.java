@@ -210,7 +210,12 @@ public enum ModalitaPagamentoType {
      * 
      */
     @XmlEnumValue("MP22")
-    MP_22("MP22");
+    MP_22("MP22"),
+    
+    //SIAC-7557
+    @XmlEnumValue("MP23")
+    MP_23("MP23");
+    
     private final String value;
 
     ModalitaPagamentoType(String v) {

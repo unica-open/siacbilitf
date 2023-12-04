@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siacbilser.model.ClassificatoreStipendi;
-import it.csi.siac.siacfinser.model.ContoTesoreria;
+import it.csi.siac.siacfin2ser.model.ContoTesoreria;
 import it.csi.siac.siacfinser.model.Distinta;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.TransazioneElementare;
@@ -79,6 +79,8 @@ public class Ordinativo  extends TransazioneElementare {
 	private String codStatoOperativoOrdinativo;
 	
 	private ContoTesoreria contoTesoreria;
+	//SIAC-8017-CMTO
+	private ContoTesoreria contoTesoreriaSenzaCapienza;
 	
 	private Distinta distinta;
 	
@@ -318,6 +320,14 @@ public class Ordinativo  extends TransazioneElementare {
 
 	public void setContoTesoreria(ContoTesoreria contoTesoreria) {
 		this.contoTesoreria = contoTesoreria;
+	}
+	
+	public ContoTesoreria getContoTesoreriaSenzaCapienza() {
+		return contoTesoreriaSenzaCapienza;
+	}
+
+	public void setContoTesoreriaSenzaCapienza(ContoTesoreria contoTesoreriaSenzaCapienza) {
+		this.contoTesoreriaSenzaCapienza = contoTesoreriaSenzaCapienza;
 	}
 
 	public Distinta getDistinta() {

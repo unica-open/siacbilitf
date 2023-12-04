@@ -11,7 +11,6 @@ import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 import it.csi.siac.siacfinser.model.ric.ParametroRicercaAccSubAcc;
 
 /**
- * Richiesta al metodo FIN.MutuoService.ricercaImpegniSubImpegni()
  * 
  * @author
  * 

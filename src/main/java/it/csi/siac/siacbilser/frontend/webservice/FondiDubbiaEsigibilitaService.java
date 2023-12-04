@@ -11,37 +11,60 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
-import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilita;
-import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaRendiconto;
-import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaRendicontoResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.AggiornaFondoDubbiaEsigibilitaResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaAnnoPrecedente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoCorrente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoCorrenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilita;
-import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilitaRendiconto;
-import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilitaRendicontoResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.EliminaFondoDubbiaEsigibilitaResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceFondiDubbiaEsigibilita;
-import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceFondiDubbiaEsigibilitaRendiconto;
-import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceFondiDubbiaEsigibilitaRendicontoResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.InserisceFondiDubbiaEsigibilitaResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaDaAnnoPrecedente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaDaAnnoPrecedenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoCorrente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente;
-import it.csi.siac.siacbilser.frontend.webservice.msg.PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedenteResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaFondiDubbiaEsigibilita;
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaFondiDubbiaEsigibilitaRendiconto;
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaFondiDubbiaEsigibilitaRendicontoResponse;
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaFondiDubbiaEsigibilitaResponse;
-import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceRequestWrapper;
-import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.RicercaAccantonamentoFondiDubbiaEsigibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.RicercaAccantonamentoFondiDubbiaEsigibilitaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.ImpostaDefaultAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.ImpostaDefaultAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.ModificaStatoAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.ModificaStatoAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaPuntualeAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaPuntualeAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaSinteticaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.RicercaSinteticaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.SalvaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.SalvaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.AccantonamentoFondiDubbiaEsigibilitaAttributiBilancioExcelReport;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.attributibilancio.AccantonamentoFondiDubbiaEsigibilitaAttributiBilancioExcelReportResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.AggiornaAccantonamentoFondiDubbiaEsigibilitaGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.AggiornaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.EliminaAccantonamentoFondiDubbiaEsigibilitaGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.EliminaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.InserisceAccantonamentoFondiDubbiaEsigibilitaGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.InserisceAccantonamentoFondiDubbiaEsigibilitaGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.InserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.InserisceAccantonamentoFondiDubbiaEsigibilitaImportGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.RipristinaAccantonamentoFondiDubbiaEsigibilitaGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.RipristinaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.gestione.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportGestioneResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.AggiornaAccantonamentoFondiDubbiaEsigibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.AggiornaAccantonamentoFondiDubbiaEsigibilitaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.EliminaAccantonamentoFondiDubbiaEsigibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.EliminaAccantonamentoFondiDubbiaEsigibilitaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.InserisceAccantonamentoFondiDubbiaEsigibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.InserisceAccantonamentoFondiDubbiaEsigibilitaImport;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.InserisceAccantonamentoFondiDubbiaEsigibilitaImportResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.InserisceAccantonamentoFondiDubbiaEsigibilitaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.RipristinaAccantonamentoFondiDubbiaEsigibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.RipristinaAccantonamentoFondiDubbiaEsigibilitaResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImport;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.previsione.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.AggiornaAccantonamentoFondiDubbiaEsigibilitaRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.AggiornaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.CalcolaImportiPerAllegatoArconet;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.CalcolaImportiPerAllegatoArconetResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.EliminaAccantonamentoFondiDubbiaEsigibilitaRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.EliminaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.InserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.InserisceAccantonamentoFondiDubbiaEsigibilitaImportRendicontoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.InserisceAccantonamentoFondiDubbiaEsigibilitaRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.InserisceAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.RipristinaAccantonamentoFondiDubbiaEsigibilitaRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.RipristinaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto;
+import it.csi.siac.siacbilser.frontend.webservice.msg.fcde.rendiconto.SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportRendicontoResponse;
 
 /**
  * SI del servizio per i Fondi a Dubbia e Difficile Esigibilit&agrave;
@@ -54,6 +77,79 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.AsyncServiceResponse;
 @BindingType(javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public interface FondiDubbiaEsigibilitaService {
 
+	// SIAC-7858 - riscrittura servizi
+	
+	// Attributi bilancio
+	/**
+	 * Inizializzazine dell dettaglio per gli fcde
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	ImpostaDefaultAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse initDefaultDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam ImpostaDefaultAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	/**
+	 * Lettura attributi fcde per il dettaglio
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse ricercaDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam RicercaDettaglioAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	/**
+	 * Lettura attributi fcde per il bilancio
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaPuntualeAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse ricercaPuntualeAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam RicercaPuntualeAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	
+	/**
+	 * Lettura attributi fcde per il bilancio versionati
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaSinteticaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse ricercaSinteticaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam RicercaSinteticaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	
+	/**
+	 * Salvataggio attributi fcde per il bilancio
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	SalvaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse salvaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam SalvaAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	
+	/**
+	 * Modifica dello stato per gli attributi fcde per il bilancio
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	ModificaStatoAccantonamentoFondiDubbiaEsigibilitaAttributiBilancioResponse modificaStatoAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio(@WebParam ModificaStatoAccantonamentoFondiDubbiaEsigibilitaAttributiBilancio parameters);
+	/**
+	 * Stampa degli attributi fcde per il bilancio
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	AccantonamentoFondiDubbiaEsigibilitaAttributiBilancioExcelReportResponse accantonamentoFondiDubbiaEsigibilitaAttributiBilancioExcelReport(@WebParam AccantonamentoFondiDubbiaEsigibilitaAttributiBilancioExcelReport parameters);
+	
+	// FCDE
+	/**
+	 * Ricerca dei fondi a dubbia e difficile esazione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaAccantonamentoFondiDubbiaEsigibilitaResponse ricercaAccantonamentoFondiDubbiaEsigibilita(@WebParam RicercaAccantonamentoFondiDubbiaEsigibilita parameters);
+	// Previsione
 	/**
 	 * Inserimento dei fondi a dubbia e difficile esazione
 	 * @param parameters la request per il servizio
@@ -61,55 +157,50 @@ public interface FondiDubbiaEsigibilitaService {
 	 */
 	@WebMethod
 	@WebResult
-	InserisceFondiDubbiaEsigibilitaResponse inserisceFondiDubbiaEsigibilita(@WebParam InserisceFondiDubbiaEsigibilita parameters);
-	
+	InserisceAccantonamentoFondiDubbiaEsigibilitaResponse inserisceAccantonamentoFondiDubbiaEsigibilita(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilita parameters);
 	/**
-	 * Aggiornamento del fondo a dubbia e difficile esazione
+	 * Inserimento dei fondi a dubbia e difficile esazione
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	AggiornaFondoDubbiaEsigibilitaResponse aggiornaFondoDubbiaEsigibilita(@WebParam AggiornaFondoDubbiaEsigibilita parameters);
-	
+	InserisceAccantonamentoFondiDubbiaEsigibilitaImportResponse inserisceAccantonamentoFondiDubbiaEsigibilitaImport(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilitaImport parameters);
 	/**
-	 * Eliminazione del fondo a dubbia e difficile esazione
+	 * Simulazione inserimento dei fondi a dubbia e difficile esazione
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	EliminaFondoDubbiaEsigibilitaResponse eliminaFondoDubbiaEsigibilita(@WebParam EliminaFondoDubbiaEsigibilita parameters);
-
+	SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportResponse simulaInserisceAccantonamentoFondiDubbiaEsigibilitaImport(@WebParam SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImport parameters);
+	
 	/**
-	 * Ricerca sintetica dei fondi a dubbia e difficile esazione
+	 * Ripristino dei fondi a dubbia e difficile esazione
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	RicercaSinteticaFondiDubbiaEsigibilitaResponse ricercaSinteticaFondiDubbiaEsigibilita(@WebParam RicercaSinteticaFondiDubbiaEsigibilita parameters);
-	
+	RipristinaAccantonamentoFondiDubbiaEsigibilitaResponse ripristinaAccantonamentoFondiDubbiaEsigibilita(@WebParam RipristinaAccantonamentoFondiDubbiaEsigibilita parameters);
 	/**
-	 * Popolamento dei fondi a dubbia e difficile esazione a partire dall'anno precedente
+	 * Eliminazione dei fondi a dubbia e difficile esazione
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	PopolaFondiDubbiaEsigibilitaDaAnnoPrecedenteResponse popolaFondiDubbiaEsigibilitaDaAnnoPrecedente(@WebParam PopolaFondiDubbiaEsigibilitaDaAnnoPrecedente parameters);
-	
+	EliminaAccantonamentoFondiDubbiaEsigibilitaResponse eliminaAccantonamentoFondiDubbiaEsigibilita(@WebParam EliminaAccantonamentoFondiDubbiaEsigibilita parameters);
 	/**
-	 * Versione Async del servizio {@link #popolaFondiDubbiaEsigibilitaDaAnnoPrecedente(PopolaFondiDubbiaEsigibilitaDaAnnoPrecedente)}.
-	 * @param parameters il wrapper asincrono della request per il servizio
-	 * @return la risposta del servizio asincrono
+	 * Aggiornamento dei fondi a dubbia e difficile esazione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	AsyncServiceResponse popolaFondiDubbiaEsigibilitaDaAnnoPrecedenteAsync(@WebParam AsyncServiceRequestWrapper<PopolaFondiDubbiaEsigibilitaDaAnnoPrecedente> parameters);
+	AggiornaAccantonamentoFondiDubbiaEsigibilitaResponse aggiornaAccantonamentoFondiDubbiaEsigibilita(@WebParam AggiornaAccantonamentoFondiDubbiaEsigibilita parameters);
 	
-	// SIAC-4422
-	
+	// Rendiconto
 	/**
 	 * Inserimento dei fondi a dubbia e difficile esazione, rendiconto
 	 * @param parameters la request per il servizio
@@ -117,102 +208,104 @@ public interface FondiDubbiaEsigibilitaService {
 	 */
 	@WebMethod
 	@WebResult
-	InserisceFondiDubbiaEsigibilitaRendicontoResponse inserisceFondiDubbiaEsigibilitaRendiconto(@WebParam InserisceFondiDubbiaEsigibilitaRendiconto parameters);
-	
+	InserisceAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse inserisceAccantonamentoFondiDubbiaEsigibilitaRendiconto(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilitaRendiconto parameters);
 	/**
-	 * Aggiornamento del fondo a dubbia e difficile esazione, rendiconto
+	 * Inserimento dei fondi a dubbia e difficile esazione, rendiconto
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	AggiornaFondoDubbiaEsigibilitaRendicontoResponse aggiornaFondoDubbiaEsigibilitaRendiconto(@WebParam AggiornaFondoDubbiaEsigibilitaRendiconto parameters);
+	InserisceAccantonamentoFondiDubbiaEsigibilitaImportRendicontoResponse inserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto parameters);
 	
 	/**
-	 * Eliminazione del fondo a dubbia e difficile esazione, rendiconto
+	 * Ripristino dei fondi a dubbia e difficile esazionee, rendiconto
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	EliminaFondoDubbiaEsigibilitaRendicontoResponse eliminaFondoDubbiaEsigibilitaRendiconto(@WebParam EliminaFondoDubbiaEsigibilitaRendiconto parameters);
-
+	RipristinaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse ripristinaAccantonamentoFondiDubbiaRendicontoEsigibilita(@WebParam RipristinaAccantonamentoFondiDubbiaEsigibilitaRendiconto parameters);
 	/**
-	 * Ricerca sintetica dei fondi a dubbia e difficile esazione, rendiconto
+	 * Eliminazione dei fondi a dubbia e difficile esazionee, rendiconto
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	RicercaSinteticaFondiDubbiaEsigibilitaRendicontoResponse ricercaSinteticaFondiDubbiaEsigibilitaRendiconto(@WebParam RicercaSinteticaFondiDubbiaEsigibilitaRendiconto parameters);
-	
+	EliminaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse eliminaAccantonamentoFondiDubbiaEsigibilitaRendiconto(@WebParam EliminaAccantonamentoFondiDubbiaEsigibilitaRendiconto parameters);
 	/**
-	 * Popolamento dei fondi a dubbia e difficile esazione, rendiconto, a partire dall'anno precedente
+	 * Aggiornamento dei fondi a dubbia e difficile esazionee, rendiconto
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedenteResponse popolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente(@WebParam PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente parameters);
-	
+	AggiornaAccantonamentoFondiDubbiaEsigibilitaRendicontoResponse aggiornaAccantonamentoFondiDubbiaEsigibilitaRendiconto(@WebParam AggiornaAccantonamentoFondiDubbiaEsigibilitaRendiconto parameters);
 	/**
-	 * Versione Async del servizio {@link #popolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente(PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente)}.
-	 * @param parameters il wrapper asincrono della request per il servizio
-	 * @return la risposta del servizio asincrono
-	 */
-	@WebMethod
-	@WebResult
-	AsyncServiceResponse popolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedenteAsync(@WebParam AsyncServiceRequestWrapper<PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoPrecedente> parameters);
-	
-	
-	// SIAC-6040
-
-	@WebMethod
-	@WebResult
-	AsyncServiceResponse popolaFondiDubbiaEsigibilitaRendicontoDaAnnoCorrenteAsync(AsyncServiceRequestWrapper<PopolaFondiDubbiaEsigibilitaRendicontoDaAnnoCorrente> wrapRequestToAsync);
-	
-
-	@WebMethod
-	@WebResult
-	ControllaFondiDubbiaEsigibilitaRendicontoAnnoCorrenteResponse controllaFondiDubbiaEsigibilitaRendicontoAnnoCorrente(@WebParam ControllaFondiDubbiaEsigibilitaRendicontoAnnoCorrente parameters);
-
-	// SIAC-4469
-	
-	/**
-	 * Controlla se vi siano fondi a dusbbia e difficile esazione nell'anno precedente a quello di bilancio
-	 * @param parameters la request per il servizio
-	 * @return la response 
-	 */
-	@WebMethod
-	@WebResult
-	ControllaFondiDubbiaEsigibilitaAnnoPrecedenteResponse controllaFondiDubbiaEsigibilitaAnnoPrecedente(@WebParam ControllaFondiDubbiaEsigibilitaAnnoPrecedente parameters);
-	
-	/**
-	 * Controlla se vi siano fondi a dusbbia e difficile esazione nell'anno precedente a quello di bilancio
-	 * @param parameters la request per il servizio
-	 * @return la response 
-	 */
-	@WebMethod
-	@WebResult
-	ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedenteResponse controllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente(@WebParam ControllaFondiDubbiaEsigibilitaRendicontoAnnoPrecedente parameters);
-	
-	// SIAC-5481
-	/**
-	 * Popolamento dei fondi a dubbia e difficile esazione, gestione, a partire dall'anno precedente
+	 * Simulazione inserimento dei fondi a dubbia e difficile esazione, rendiconto
 	 * @param parameters la request per il servizio
 	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedenteResponse popolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente(@WebParam PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente parameters);
-	
+	SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportRendicontoResponse simulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto(@WebParam SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportRendiconto parameters);
+	// Gestione
 	/**
-	 * Versione Async del servizio {@link #popolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente(PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente)}.
-	 * @param parameters il wrapper asincrono della request per il servizio
-	 * @return la risposta del servizio asincrono
+	 * Inserimento dei fondi a dubbia e difficile esazione, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
 	 */
 	@WebMethod
 	@WebResult
-	AsyncServiceResponse popolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedenteAsync(@WebParam AsyncServiceRequestWrapper<PopolaFondiDubbiaEsigibilitaDaGestioneAnnoPrecedente> parameters);
-
+	InserisceAccantonamentoFondiDubbiaEsigibilitaGestioneResponse inserisceAccantonamentoFondiDubbiaEsigibilitaGestione(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilitaGestione parameters);
+	/**
+	 * Inserimento dei fondi a dubbia e difficile esazione, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	InserisceAccantonamentoFondiDubbiaEsigibilitaImportGestioneResponse inserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione(@WebParam InserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione parameters);
+	
+	/**
+	 * Ripristino dei fondi a dubbia e difficile esazionee, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RipristinaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse ripristinaAccantonamentoFondiDubbiaGestioneEsigibilita(@WebParam RipristinaAccantonamentoFondiDubbiaEsigibilitaGestione parameters);
+	/**
+	 * Eliminazione dei fondi a dubbia e difficile esazionee, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	EliminaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse eliminaAccantonamentoFondiDubbiaEsigibilitaGestione(@WebParam EliminaAccantonamentoFondiDubbiaEsigibilitaGestione parameters);
+	/**
+	 * Aggiornamento dei fondi a dubbia e difficile esazionee, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	AggiornaAccantonamentoFondiDubbiaEsigibilitaGestioneResponse aggiornaAccantonamentoFondiDubbiaEsigibilitaGestione(@WebParam AggiornaAccantonamentoFondiDubbiaEsigibilitaGestione parameters);
+	/**
+	 * Simulazione inserimento dei fondi a dubbia e difficile esazione, gestione
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportGestioneResponse simulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione(@WebParam SimulaInserisceAccantonamentoFondiDubbiaEsigibilitaImportGestione parameters);
+	/**
+	 * Calcola gli importi per l'Allegato C (Report Arconet)
+	 * @param parameters la request per il servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	CalcolaImportiPerAllegatoArconetResponse calcolaCampiAllegatoArconet(@WebParam CalcolaImportiPerAllegatoArconet parameters);
 }

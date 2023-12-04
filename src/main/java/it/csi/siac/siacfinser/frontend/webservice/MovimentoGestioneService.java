@@ -19,6 +19,8 @@ import it.csi.siac.siacfinser.frontend.webservice.msg.AggiornaModificaImportoMov
 import it.csi.siac.siacfinser.frontend.webservice.msg.AggiornaModificaImportoMovimentoGestioneEntrataResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.AggiornaStoricoImpegnoAccertamento;
 import it.csi.siac.siacfinser.frontend.webservice.msg.AggiornaStoricoImpegnoAccertamentoResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.AnnullaAggiornaMovimento;
+import it.csi.siac.siacfinser.frontend.webservice.msg.AnnullaAggiornaMovimentoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.AnnullaMovimentoEntrata;
 import it.csi.siac.siacfinser.frontend.webservice.msg.AnnullaMovimentoEntrataResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.AnnullaMovimentoSpesa;
@@ -43,6 +45,8 @@ import it.csi.siac.siacfinser.frontend.webservice.msg.InserisciModificaImportoMo
 import it.csi.siac.siacfinser.frontend.webservice.msg.InserisciModificaImportoMovimentoGestioneSpesaResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.LeggiStoricoAggiornamentoProvvedimentoMovimentoGestione;
 import it.csi.siac.siacfinser.frontend.webservice.msg.LeggiStoricoAggiornamentoProvvedimentoMovimentoGestioneResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.LeggiStoricoAggiornamentoStrutturaCompetenteMovimentoGestione;
+import it.csi.siac.siacfinser.frontend.webservice.msg.LeggiStoricoAggiornamentoStrutturaCompetenteMovimentoGestioneResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.ModificaImportoImpegnoSuAnniSuccessivi;
 import it.csi.siac.siacfinser.frontend.webservice.msg.ModificaImportoImpegnoSuAnniSuccessiviResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamenti;
@@ -51,6 +55,7 @@ import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentiSubAcce
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentiSubAccertamentiResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentoPerChiave;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentoPerChiaveOttimizzato;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentoPerChiaveOttimizzatoROR;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentoPerChiaveOttimizzatoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAccertamentoPerChiaveResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaAvanzovincolo;
@@ -60,21 +65,30 @@ import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaDettaglioImpegnoRes
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniGlobal;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniGlobalResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniSubImpegni;
-import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniSubImpegniPerVociMutuo;
-import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniSubimpegniPerVociMutuoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegniSubimpegniResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoOSubPerChiave;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoOSubPerChiaveResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoPerChiave;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoPerChiaveOttimizzato;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoPerChiaveOttimizzatoROR;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoPerChiaveOttimizzatoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaImpegnoPerChiaveResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaModificaMovimentoGestioneSpesaDefault;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaModificaMovimentoGestioneSpesaDefaultResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaModulareModificaMovimentoSpesaCollegata;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaModulareModificaMovimentoSpesaCollegataResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaReversaliByAccertamento;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaReversaliByAccertamentoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaAccertamentiSubAccertamenti;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaAccertamentiSubAccertamentiRORResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaAccertamentiSubAccertamentiResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaImpegniSubImpegni;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaImpegniSubimpegniRORResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaImpegniSubimpegniResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaModulareVincoliAccertamento;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaModulareVincoliAccertamentoResponse;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaModulareVincoliImpegno;
+import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaSinteticaModulareVincoliImpegnoResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaStoricoImpegnoAccertamento;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaStoricoImpegnoAccertamentoPerChiave;
 import it.csi.siac.siacfinser.frontend.webservice.msg.RicercaStoricoImpegnoAccertamentoPerChiaveResponse;
@@ -224,6 +238,13 @@ public interface MovimentoGestioneService extends CommonServiceInterface {
 	@WebResult
 	AggiornaImpegnoResponse aggiornaImpegno(@WebParam AggiornaImpegno request);
 	
+	
+	/**
+	 * Service Wrapper per effettuare aggiornamenti di impegni*/
+	@WebMethod
+	@WebResult
+	AnnullaAggiornaMovimentoResponse annullaAggiornaImpegno(@WebParam AnnullaAggiornaMovimento request);
+	
 	@WebMethod
 	@WebResult
 	AggiornaAccertamentoResponse aggiornaAccertamento(@WebParam AggiornaAccertamento request);
@@ -335,17 +356,7 @@ public interface MovimentoGestioneService extends CommonServiceInterface {
 	RicercaSinteticaImpegniSubimpegniResponse ricercaSinteticaImpegniSubimpegni(@WebParam RicercaSinteticaImpegniSubImpegni request);
 	
 	
-	/**
-	 * Versione custom per la ricerca voci di mutuo
-	 * @param request
-	 * @return
-	 */
-	@WebMethod
-	@WebResult
-	RicercaImpegniSubimpegniPerVociMutuoResponse ricercaImpegniSubimpegniPerVociMutuo(@WebParam RicercaImpegniSubImpegniPerVociMutuo request);
-	
-	
-	
+
 	/**
 	 * Consente di ricercare pi&ugrave; accertamenti e pi&ugrave; sub-accertamenti attraverso una ricerca aperta
 	 * Questa operazione restituir&agrave; un elenco di oggetti accertamento immagine dell'entit&agrave;
@@ -384,6 +395,15 @@ public interface MovimentoGestioneService extends CommonServiceInterface {
 	@WebResult
 	LeggiStoricoAggiornamentoProvvedimentoMovimentoGestioneResponse leggiStoricoAggiornamentoProvvedimentoMovimentoGestione(@WebParam LeggiStoricoAggiornamentoProvvedimentoMovimentoGestione request);
 	
+	//SIAC-6997
+	/**
+	 * legge lo storico dei cambiamenti della Struttura competente sul movgest
+	 * @param request
+	 * @return
+	 */
+	@WebMethod
+	@WebResult
+	LeggiStoricoAggiornamentoStrutturaCompetenteMovimentoGestioneResponse leggiStoricoAggiornamentoStrutturaCompetenteMovimentoGestione(@WebParam LeggiStoricoAggiornamentoStrutturaCompetenteMovimentoGestione request);
 	
 	/**
 	 * Ricerca eventuali reversali dato il movimento gestione
@@ -498,5 +518,38 @@ public interface MovimentoGestioneService extends CommonServiceInterface {
 	@WebMethod
 	@WebResult
 	ModificaImportoImpegnoSuAnniSuccessiviResponse modificaImportoImpegnoSuAnniSuccessivi(@WebParam ModificaImportoImpegnoSuAnniSuccessivi request);
+
+	@WebMethod
+	@WebResult
+	RicercaSinteticaImpegniSubimpegniRORResponse ricercaSinteticaImpegniSubimpegniROR(RicercaSinteticaImpegniSubImpegni request);
 	
+	@WebMethod
+	@WebResult
+	RicercaSinteticaAccertamentiSubAccertamentiRORResponse ricercaSinteticaAccertamentiSubAccertamentiROR(@WebParam RicercaSinteticaAccertamentiSubAccertamenti request);
+	
+	@WebMethod
+	@WebResult
+	RicercaImpegnoPerChiaveOttimizzatoResponse ricercaImpegnoPerChiaveOttimizzatoROR(@WebParam RicercaImpegnoPerChiaveOttimizzatoROR request);
+	
+	
+	@WebMethod
+	@WebResult
+	RicercaAccertamentoPerChiaveOttimizzatoResponse ricercaAccertamentoPerChiaveOttimizzatoROR(@WebParam RicercaAccertamentoPerChiaveOttimizzatoROR request);
+	
+	
+	@WebMethod
+	@WebResult
+	RicercaModulareModificaMovimentoSpesaCollegataResponse ricercaModulareModificaMovimentoSpesaCollegata(@WebParam RicercaModulareModificaMovimentoSpesaCollegata request);
+
+	@WebMethod
+	@WebResult
+	RicercaModificaMovimentoGestioneSpesaDefaultResponse ricercaModificaMovimentoGestioneSpesaDefault(@WebParam RicercaModificaMovimentoGestioneSpesaDefault request);
+
+	@WebMethod
+	@WebResult
+	RicercaSinteticaModulareVincoliAccertamentoResponse ricercaSinteticaModulareVincoliAccertamento(@WebParam RicercaSinteticaModulareVincoliAccertamento request);
+
+	@WebMethod
+	@WebResult
+	RicercaSinteticaModulareVincoliImpegnoResponse ricercaSinteticaModulareVincoliImpegno(@WebParam RicercaSinteticaModulareVincoliImpegno request);
 }

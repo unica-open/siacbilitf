@@ -12,8 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.Ambito;
 import it.csi.siac.siacbilser.model.ElementoPianoDeiConti;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 import it.csi.siac.siacgenser.frontend.webservice.GENSvcDictionary;
 
@@ -53,11 +52,10 @@ import it.csi.siac.siacgenser.frontend.webservice.GENSvcDictionary;
  * @created 06-mar-2015 16.31.23
  */
 @XmlType(namespace = GENSvcDictionary.NAMESPACE)
-public class CausaleEP extends EntitaExt {
+public class CausaleEP extends EntitaEnteExt  {
 	
 	private static final long serialVersionUID = -4965941804423080828L;
 	
-	private Ente ente;
 
 //	private Bilancio bilancio; //??
 	private TipoCausale tipoCausale;
@@ -280,9 +278,7 @@ public class CausaleEP extends EntitaExt {
 	 *
 	 * @return the ente
 	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
 
 
 	/**
@@ -290,9 +286,7 @@ public class CausaleEP extends EntitaExt {
 	 *
 	 * @param ente the ente to set
 	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 
 
 	/**

@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * TotaliAnnoDiEsercizio
@@ -22,7 +22,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class TotaliAnnoDiEsercizio extends Entita {
+public class TotaliAnnoDiEsercizio extends EntitaEnte {
 
 	private static final long serialVersionUID = -794223454606271443L;
 

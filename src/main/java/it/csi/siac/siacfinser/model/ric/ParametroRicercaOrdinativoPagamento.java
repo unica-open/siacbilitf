@@ -29,8 +29,6 @@ public class ParametroRicercaOrdinativoPagamento extends BaseParametroRicercaOrd
 
 	private boolean caricaLiquidazione = false;
 
-	private BigInteger numeroMutuo;
-
 	private Integer annoImpegno;
 	private BigDecimal numeroImpegno;
 	private BigDecimal numeroSubImpegno;
@@ -49,13 +47,6 @@ public class ParametroRicercaOrdinativoPagamento extends BaseParametroRicercaOrd
 		this.caricaLiquidazione = caricaLiquidazione;
 	}
 
-	public BigInteger getNumeroMutuo() {
-		return numeroMutuo;
-	}
-
-	public void setNumeroMutuo(BigInteger numeroMutuo) {
-		this.numeroMutuo = numeroMutuo;
-	}
 
 	public Integer getAnnoImpegno() {
 		return annoImpegno;

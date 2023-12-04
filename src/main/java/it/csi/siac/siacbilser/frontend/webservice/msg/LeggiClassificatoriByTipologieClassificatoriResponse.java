@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siacbilser.model.ClassificatoreStipendi;
 import it.csi.siac.siacbilser.model.ContoCorrentePredocumentoEntrata;
+import it.csi.siac.siacbilser.model.RisorsaAccantonata;
 import it.csi.siac.siacbilser.model.Missione;
 import it.csi.siac.siacbilser.model.SiopeEntrata;
 import it.csi.siac.siacbilser.model.SiopeSpesa;
@@ -44,6 +45,7 @@ public class LeggiClassificatoriByTipologieClassificatoriResponse extends Servic
 		@XmlElement(name = "tipoFinanziamento", type = TipoFinanziamento.class),
 		@XmlElement(name = "contoCorrentePredocumentoEntrata", type = ContoCorrentePredocumentoEntrata.class),
 		@XmlElement(name = "classificatoreStipendi", type = ClassificatoreStipendi.class),
+		@XmlElement(name = "risorsaAccantonata", type = RisorsaAccantonata.class),
 	})
 	private List<Codifica> codifiche = new ArrayList<Codifica>();
 

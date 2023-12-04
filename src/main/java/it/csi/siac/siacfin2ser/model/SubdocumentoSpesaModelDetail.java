@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -15,7 +15,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
 * @author Domenico
 */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum SubdocumentoSpesaModelDetail implements ModelDetail {
+public enum SubdocumentoSpesaModelDetail implements ModelDetailEnum {
 	
 	AttoAmm,
 	Attr,
@@ -38,7 +38,6 @@ public enum SubdocumentoSpesaModelDetail implements ModelDetail {
 	SubdocumentoIva,
 	TipoIvaSplitReverse,
 	TestataDocumento,
-	VoceMutuo,
 	// SIAC-5115
 	SospensioneSubdocumento,
 	
@@ -54,6 +53,9 @@ public enum SubdocumentoSpesaModelDetail implements ModelDetail {
 	
 	// SIAC-6092
 	DocPadreModelDetail,
+	
+	//SIAC-8153
+	StrutturaCompetenteQuota,
 	;
 
 }

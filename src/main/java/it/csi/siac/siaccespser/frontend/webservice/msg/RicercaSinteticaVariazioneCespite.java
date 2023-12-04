@@ -12,10 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativoModelDetail;
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaBaseRequest;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siacbilser.model.VariazioneImportoCapitoloModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
 import it.csi.siac.siaccecser.model.RichiestaEconomaleModelDetail;
 import it.csi.siac.siaccecser.model.StampeCassaFileModelDetail;
 import it.csi.siac.siaccespser.frontend.webservice.CESPSvcDictionary;
@@ -24,6 +23,7 @@ import it.csi.siac.siaccespser.model.CespiteModelDetail;
 import it.csi.siac.siaccespser.model.TipoBeneCespiteModelDetail;
 import it.csi.siac.siaccespser.model.VariazioneCespite;
 import it.csi.siac.siaccespser.model.VariazioneCespiteModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siacfin2ser.model.AccertamentoModelDetail;
 import it.csi.siac.siacfin2ser.model.AllegatoAttoModelDetail;
 import it.csi.siac.siacfin2ser.model.CapitoloEntrataGestioneModelDetail;
@@ -54,7 +54,7 @@ public class RicercaSinteticaVariazioneCespite extends RicercaSinteticaBaseReque
 
 	private VariazioneCespite variazioneCespite;
 	
-	@XmlElementWrapper(name="modelDetails")
+	@XmlElementWrapper(name="modelDetailEnums")
 	@XmlElements({
 		@XmlElement(name="accantonamentoFondiDubbiaEsigibilitaModelDetail", type=AccantonamentoFondiDubbiaEsigibilitaModelDetail.class),
 		@XmlElement(name="accantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail", type=AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail.class),
@@ -88,7 +88,7 @@ public class RicercaSinteticaVariazioneCespite extends RicercaSinteticaBaseReque
 		@XmlElement(name="variazioneCespiteModelDetail", type=VariazioneCespiteModelDetail.class),
 		@XmlElement(name="variazioneImportoCapitoloModelDetail", type=VariazioneImportoCapitoloModelDetail.class)
 	})
-	private ModelDetail[] modelDetails;
+	private ModelDetailEnum[] modelDetailEnums;
 
 	/**
 	 * @return the variazioneCespite
@@ -105,18 +105,18 @@ public class RicercaSinteticaVariazioneCespite extends RicercaSinteticaBaseReque
 	}
 
 	/**
-	 * @return the modelDetails
+	 * @return the modelDetailEnums
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetails() {
-		return this.modelDetails;
+	public ModelDetailEnum[] getModelDetails() {
+		return this.modelDetailEnums;
 	}
 
 	/**
-	 * @param modelDetails the modelDetails to set
+	 * @param modelDetailEnums the modelDetailEnums to set
 	 */
-	public void setModelDetails(ModelDetail... modelDetails) {
-		this.modelDetails = modelDetails;
+	public void setModelDetails(ModelDetailEnum... modelDetails) {
+		this.modelDetailEnums = modelDetails;
 	}
 	
 }

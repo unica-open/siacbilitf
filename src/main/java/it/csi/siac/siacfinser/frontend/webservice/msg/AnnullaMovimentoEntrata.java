@@ -22,6 +22,7 @@ public class AnnullaMovimentoEntrata extends ServiceRequest {
 	private Ente ente;
 	private Bilancio bilancio;
 	private Accertamento accertamento;
+	private boolean verificaImportiDopoAnnullamentoModifica = false;
 
 	public Ente getEnte() {
 		return ente;
@@ -45,5 +46,13 @@ public class AnnullaMovimentoEntrata extends ServiceRequest {
 
 	public void setAccertamento(Accertamento accertamento) {
 		this.accertamento = accertamento;
+	}
+
+	public boolean isVerificaImportiDopoAnnullamentoModifica() {
+		return verificaImportiDopoAnnullamentoModifica;
+	}
+
+	public void setVerificaImportiDopoAnnullamentoModifica(boolean verificaImportiDopoAnnullamentoModifica) {
+		this.verificaImportiDopoAnnullamentoModifica = verificaImportiDopoAnnullamentoModifica;
 	}
 }

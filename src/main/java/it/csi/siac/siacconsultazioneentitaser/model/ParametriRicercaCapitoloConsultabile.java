@@ -6,7 +6,7 @@ package it.csi.siac.siacconsultazioneentitaser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.FaseEStatoAttualeBilancio.FaseBilancio;
+import it.csi.siac.siaccorser.model.FaseBilancio;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 
 @XmlType(namespace = ConsultazioneEntitaDataDictionary.NAMESPACE)

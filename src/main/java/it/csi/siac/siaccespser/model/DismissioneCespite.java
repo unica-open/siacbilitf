@@ -9,8 +9,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacgenser.model.CausaleEP;
 import it.csi.siac.siacgenser.model.Evento;
 
@@ -21,7 +20,7 @@ import it.csi.siac.siacgenser.model.Evento;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class DismissioneCespite extends EntitaExt {
+public class DismissioneCespite extends EntitaEnteExt  {
 	
 	/** Per la serializzazione */
 	private static final long serialVersionUID = -2903531842888582625L;
@@ -40,7 +39,6 @@ public class DismissioneCespite extends EntitaExt {
 	
 	private StatoDismissioneCespite statoDismissioneCespite;
 	
-	private Ente ente;
 
 	/**
 	 * @return the descrizione
@@ -164,18 +162,10 @@ public class DismissioneCespite extends EntitaExt {
 	public void setStatoDismissioneCespite(StatoDismissioneCespite statoDismissioneCespite) {
 		this.statoDismissioneCespite = statoDismissioneCespite;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 	
 

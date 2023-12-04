@@ -278,7 +278,7 @@ public class AggiornaStatoDocumentoDiSpesaResponse extends ServiceResponse {
 	 * @param registrazioniMovFinPrecedenti the registrazioniMovFinPrecedenti to set
 	 */
 	public void setRegistrazioniMovFinPrecedenti(List<RegistrazioneMovFin> registrazioniMovFINPrecedenti) {
-		this.registrazioniMovFinPrecedenti = registrazioniMovFinPrecedenti != null ? registrazioniMovFinPrecedenti : new ArrayList<RegistrazioneMovFin>();
+		this.registrazioniMovFinPrecedenti = registrazioniMovFINPrecedenti != null ? registrazioniMovFINPrecedenti : new ArrayList<RegistrazioneMovFin>();
 	}
 
 	/**

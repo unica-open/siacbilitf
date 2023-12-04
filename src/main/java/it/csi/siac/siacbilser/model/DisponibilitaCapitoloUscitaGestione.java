@@ -43,6 +43,9 @@ public class DisponibilitaCapitoloUscitaGestione implements Serializable {
 	private Long numeroLiquidazioni;
 	private Long numeroOrdinativi;
 	
+	//SIAC-8838
+	private BigDecimal cancellazioniEconomie;
+	
 	
 	/**
 	 * 
@@ -307,4 +310,10 @@ public class DisponibilitaCapitoloUscitaGestione implements Serializable {
 		this.numeroOrdinativi = numeroOrdinativi;
 	}
 	
+	public BigDecimal getCancellazioniEconomie() {
+		return cancellazioniEconomie;
+	}
+	public void setCancellazioniEconomie(BigDecimal cancellazioniEconomie) {
+		this.cancellazioniEconomie = cancellazioniEconomie != null ? cancellazioniEconomie:BigDecimal.ZERO;
+	}
 }

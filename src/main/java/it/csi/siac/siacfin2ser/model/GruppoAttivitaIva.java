@@ -11,11 +11,10 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class GruppoAttivitaIva extends Entita {
+public class GruppoAttivitaIva extends EntitaEnte {
 	
 	// siac_t_iva_gruppo
 	
@@ -26,7 +25,6 @@ public class GruppoAttivitaIva extends Entita {
 	
 	private TipoChiusura tipoChiusura;
 	private TipoAttivita tipoAttivita;
-	private Ente ente;
 	
 	private List<RegistroIva> listaRegistroIva = new ArrayList<RegistroIva>();
 	private List<AttivitaIva> listaAttivitaIva = new ArrayList<AttivitaIva>();
@@ -83,18 +81,10 @@ public class GruppoAttivitaIva extends Entita {
 	public void setTipoAttivita(TipoAttivita tipoAttivita) {
 		this.tipoAttivita = tipoAttivita;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the listaRegistroIva
 	 */

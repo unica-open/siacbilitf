@@ -13,8 +13,7 @@ import it.csi.siac.siacbilser.model.Ambito;
 import it.csi.siac.siacbilser.model.Missione;
 import it.csi.siac.siacbilser.model.Programma;
 import it.csi.siac.siaccespser.model.Cespite;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
 
@@ -22,14 +21,13 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class MovimentoDettaglio extends Entita{
+public class MovimentoDettaglio extends EntitaEnte{
 
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8660312376853173950L;
-	private Ente ente;
 	
 	private Integer numeroRiga;
 	private BigDecimal importo;
@@ -51,19 +49,11 @@ public class MovimentoDettaglio extends Entita{
 	private List<Cespite> cespiti;
 	private BigDecimal importoInventariato;
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the numeroRiga

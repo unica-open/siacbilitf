@@ -23,6 +23,9 @@ public class RicercaTotaliPreDocumentoEntrataPerStatoResponse extends ServiceRes
 	
 	private Map<StatoOperativoPreDocumento, Long> numeroPreDocumenti = new HashMap<StatoOperativoPreDocumento, Long>();
 	private Map<StatoOperativoPreDocumento, BigDecimal> importiPreDocumenti = new HashMap<StatoOperativoPreDocumento, BigDecimal>();
+	//SIAC-6780
+	private Map<StatoOperativoPreDocumento, Long> numeroPreDocumentiNoCassa = new HashMap<StatoOperativoPreDocumento, Long>();
+	private Map<StatoOperativoPreDocumento, BigDecimal> importiPreDocumentiNoCassa = new HashMap<StatoOperativoPreDocumento, BigDecimal>();
 	/**
 	 * @return the numeroPreDocumenti
 	 */
@@ -46,6 +49,30 @@ public class RicercaTotaliPreDocumentoEntrataPerStatoResponse extends ServiceRes
 	 */
 	public void setImportiPreDocumenti(Map<StatoOperativoPreDocumento, BigDecimal> importiPreDocumenti) {
 		this.importiPreDocumenti = importiPreDocumenti;
+	}
+	/**
+	 * @return the numeroPreDocumentiNoCassa
+	 */
+	public Map<StatoOperativoPreDocumento, Long> getNumeroPreDocumentiNoCassa() {
+		return numeroPreDocumentiNoCassa;
+	}
+	/**
+	 * @param numeroPreDocumentiNoCassa the numeroPreDocumentiNoCassa to set
+	 */
+	public void setNumeroPreDocumentiNoCassa(Map<StatoOperativoPreDocumento, Long> numeroPreDocumentiNoCassa) {
+		this.numeroPreDocumentiNoCassa = numeroPreDocumentiNoCassa;
+	}
+	/**
+	 * @return the importiPreDocumentiNoCassa
+	 */
+	public Map<StatoOperativoPreDocumento, BigDecimal> getImportiPreDocumentiNoCassa() {
+		return importiPreDocumentiNoCassa;
+	}
+	/**
+	 * @param importiPreDocumentiNoCassa the importiPreDocumentiNoCassa to set
+	 */
+	public void setImportiPreDocumentiNoCassa(Map<StatoOperativoPreDocumento, BigDecimal> importiPreDocumentiNoCassa) {
+		this.importiPreDocumentiNoCassa = importiPreDocumentiNoCassa;
 	}
 
 }

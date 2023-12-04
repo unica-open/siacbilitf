@@ -12,6 +12,7 @@ import it.csi.siac.siaccorser.model.ServiceResponse;
 import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 import it.csi.siac.siacfinser.model.codifiche.CodificaExtFin;
 import it.csi.siac.siacfinser.model.codifiche.CodificaFin;
+import it.csi.siac.siacfinser.model.codifiche.ContoTesoreriaCodificaFin;
 import it.csi.siac.siacfinser.model.codifiche.TipiLista;
 
 
@@ -41,8 +42,9 @@ public class ListeResponse extends ServiceResponse {
 	private List<CodificaFin> tipoImpegno;
 	private List<? extends CodificaFin> tipoMotivo;
 	private List<? extends CodificaFin> tipoMotivoROR;
-	private List<? extends CodificaFin> tipoMutuo;
-	private List<? extends CodificaFin> contoTesoreria;
+	//SIAC-7838
+	private List<? extends CodificaFin> tipoMotivoAGG;
+	private List<? extends ContoTesoreriaCodificaFin> contoTesoreria;
 	private List<? extends CodificaFin> distinta;
 	private List<? extends CodificaFin> codiceBollo;
 	private List<? extends CodificaFin> commissioni;
@@ -182,16 +184,11 @@ public class ListeResponse extends ServiceResponse {
 	public void setTipoMotivo(List<? extends CodificaFin> tipoMotivo) {
 		this.tipoMotivo = tipoMotivo;
 	}
-	public List<? extends CodificaFin> getTipoMutuo() {
-		return tipoMutuo;
-	}
-	public void setTipoMutuo(List<? extends CodificaFin> tipoMutuo) {
-		this.tipoMutuo = tipoMutuo;
-	}
-	public List<? extends CodificaFin> getContoTesoreria() {
+
+	public List<? extends ContoTesoreriaCodificaFin> getContoTesoreria() {
 		return contoTesoreria;
 	}
-	public void setContoTesoreria(List<? extends CodificaFin> contoTesoreria) {
+	public void setContoTesoreria(List<? extends ContoTesoreriaCodificaFin> contoTesoreria) {
 		this.contoTesoreria = contoTesoreria;
 	}
 	public List<? extends CodificaFin> getDistinta() {
@@ -301,5 +298,13 @@ public class ListeResponse extends ServiceResponse {
 	public void setTipoMotivoROR(List<? extends CodificaFin> tipoMotivoROR) {
 		this.tipoMotivoROR = tipoMotivoROR;
 	}
+	public List<? extends CodificaFin> getTipoMotivoAGG() {
+		return tipoMotivoAGG;
+	}
+	public void setTipoMotivoAGG(List<? extends CodificaFin> tipoMotivoAGG) {
+		this.tipoMotivoAGG = tipoMotivoAGG;
+	}
+	
+	
 	
 }

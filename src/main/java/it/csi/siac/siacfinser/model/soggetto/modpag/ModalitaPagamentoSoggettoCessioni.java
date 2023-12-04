@@ -8,11 +8,11 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class ModalitaPagamentoSoggettoCessioni extends Entita{
+public class ModalitaPagamentoSoggettoCessioni extends EntitaEnte{
 	
 	private static final long serialVersionUID = 135020805232302368L;
    	

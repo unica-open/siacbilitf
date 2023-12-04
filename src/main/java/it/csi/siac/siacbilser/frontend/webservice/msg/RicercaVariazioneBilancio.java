@@ -22,6 +22,9 @@ public class RicercaVariazioneBilancio extends RicercaSinteticaBaseRequest {
 	// SIAC-4815
 	// Atto amministrativo per effettuare la ricerca SIA come PEG SIA come atto della variazione
 	private AttoAmministrativo attoAmministrativo;
+	//SIAC-8771
+	private boolean limitaRisultatiDefinitiveODecentrate;
+	
 	/**
 	 * @return the variazioneImportoCapitolo
 	 */
@@ -58,6 +61,14 @@ public class RicercaVariazioneBilancio extends RicercaSinteticaBaseRequest {
 	public void setAttoAmministrativo(AttoAmministrativo attoAmministrativo) {
 		this.attoAmministrativo = attoAmministrativo;
 	}
+	public boolean isLimitaRisultatiDefinitiveODecentrate() {
+		return limitaRisultatiDefinitiveODecentrate;
+	}
+	public void setLimitaRisultatiDefinitiveODecentrate(boolean limitaRisultatiDefinitiveODecentrate) {
+		this.limitaRisultatiDefinitiveODecentrate = limitaRisultatiDefinitiveODecentrate;
+	}
+	
+	
 	
 
 }

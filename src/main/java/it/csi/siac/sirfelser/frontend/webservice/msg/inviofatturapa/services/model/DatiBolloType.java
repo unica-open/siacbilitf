@@ -48,7 +48,12 @@ public class DatiBolloType {
 
     @XmlElement(name = "BolloVirtuale", required = true)
     protected BolloVirtualeType bolloVirtuale;
-    @XmlElement(name = "ImportoBollo", required = true)
+    /*
+     * SIAC-7557
+     * eliminato obbligatorieta importoBollo
+     * (required = true)
+     */
+    @XmlElement(name = "ImportoBollo") 
     protected BigDecimal importoBollo;
 
     /**

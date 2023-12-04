@@ -9,11 +9,11 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class AddebitoContoCorrente extends Entita {
+public class AddebitoContoCorrente extends EntitaEnte {
 	private static final long serialVersionUID = 5002073735981397105L;
 
 	private Integer idSaldo;

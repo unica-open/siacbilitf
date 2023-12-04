@@ -83,11 +83,16 @@ public enum CausalePagamentoType {
     W("W"),
     X("X"),
     Y("Y"),
-    Z("Z"),
+    //Z("Z"),  //SIAC-7557
     @XmlEnumValue("L1")
     L_1("L1"),
     @XmlEnumValue("M1")
     M_1("M1"),
+    //SIAC-7557 M2, ZO
+    @XmlEnumValue("M2")
+    M_2("M2"),
+    @XmlEnumValue("ZO")
+    Z_O("ZO"),
     @XmlEnumValue("O1")
     O_1("O1"),
     @XmlEnumValue("V1")

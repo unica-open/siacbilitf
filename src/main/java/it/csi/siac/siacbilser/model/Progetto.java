@@ -12,9 +12,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
+import it.csi.siac.siacbilser.model.progetto.MutuoAssociatoProgetto;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 
 /**
@@ -22,10 +22,9 @@ import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
  *
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class Progetto extends Entita {
+public class Progetto extends EntitaEnte {
 	private static final long serialVersionUID = 9050464913913926339L;
 
-	private Ente ente;
 	private String codice;
 	private Bilancio bilancio;
 	private String descrizione;
@@ -51,13 +50,8 @@ public class Progetto extends Entita {
 	private ModalitaAffidamentoProgetto modalitaAffidamentoProgetto;
 	private TipoProgetto tipoProgetto;
 	
-	public Ente getEnte() {
-		return ente;
-	}
-
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	private List<MutuoAssociatoProgetto> elencoMutuiAssociati;
+	
 
 	public String getCodice() {
 		return codice;
@@ -253,6 +247,14 @@ public class Progetto extends Entita {
 	 */
 	public void setBilancio(Bilancio bilancio) {
 		this.bilancio = bilancio;
+	}
+
+	public List<MutuoAssociatoProgetto> getElencoMutuiAssociati() {
+		return elencoMutuiAssociati;
+	}
+
+	public void setElencoMutuiAssociati(List<MutuoAssociatoProgetto> elencoMutuiAssociati) {
+		this.elencoMutuiAssociati = elencoMutuiAssociati;
 	}
 	
 	

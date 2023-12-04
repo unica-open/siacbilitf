@@ -33,8 +33,11 @@ public enum ErroreBil implements TipoErrore {
 	OPERAZIONE_NON_POSSIBILE("BIL_ERR_0023", "Operazione non possibile: {0}"),
 	ANNO_CAPITOLO_NON_CORRETTO("BIL_ERR_0024", "Non e'' possibile inserire un anno di capitolo futuro"),
 	FASE_DI_BILANCIO_NON_AMMESSA_PER_GESTIONE_VINCOLI("BIL-ERR_0025", "Fase di Bilancio {0} non ammessa per la gestione dei vincoli fra capitoli"),
-	//CAPITOLO_CON_VARIAZIONI_NON_DEFINITIVE_COLLEGATE("BIL_ERR_0026", "Operazione non possibile. Capitolo con variazioni non definitive collegate{0}"),
-	CAPITOLO_CON_VARIAZIONI_NON_DEFINITIVE_COLLEGATE("BIL_ERR_0026", "Capitolo con variazioni non definitive collegate{0}"),
+	//CAPITOLO_CON_VARIAZIONI_NON_DEFINITIVE_COLLEGATE("BIL_ERR_0026", "Operazione non possibile. Capitolo con variazioni non definitive collegate: {0}"),
+	CAPITOLO_CON_VARIAZIONI_NON_DEFINITIVE_COLLEGATE("BIL_ERR_0026", "Capitolo con variazioni non definitive collegate: {0}"),
+	//SIAC-7600
+	CAPITOLO_BUDGET_CON_IMPEGNI_COLLEGATI("BIL_ERR_0027", "Capitolo con impegni collegati: {0}"),
+	//
 	CAPITOLO_NON_ANNULLABILE_PER_MOVIMENTI_COLLEGATI("BIL_ERR_0029", "Capitolo che non si puo'' annullare perche'' ha movimenti collegati: {0}"),
 	CAPITOLO_NON_ELIMINABILE("BIL_ERR_0030", "Capitolo che non si puo'' eliminare: {0}"), 
 	CAPITOLO_NON_VALIDO("BIL_ERR_0031", "Lo stato del capitolo non e'' valido"),
@@ -108,6 +111,8 @@ public enum ErroreBil implements TipoErrore {
 	PROSECUZIONE_NONOSTANTE_QUADRATURA_NON_CORRETTA("BIL_ERR_0108", "Quadratura entrate-spese non corretta"),
 	CRONOPROGRAMMA_CHE_NON_SI_PUO_AGGIORNARE_PERCHE_UTILIZZATO_NEL_CALCOLO_FPV("BIL_ERR_0109", "Aggiornamento cronoprogramma non possibile: e'' stato utilizzato per il calcolo defnitivo del FPV"),
 	CRONOPROGRAMMA_CHE_NON_SI_PUO_USARE_PER_IL_CALCOLO_FPV_PERCHE_GIA_UTILIZZATO_NEL_CALCOLO_FPV("BIL_ERR_0110", "Scelta del cronoprogramma non possibile: e'' gia'' stato utilizzato per il calcolo definitivo del FPV"),
+	//SIAC-8870
+	CRONOPROGRAMMA_CHE_NON_SI_PUO_USARE_PER_IL_DISASSOCIA_FPV("BIL_ERR_0110", "Scelta del cronoprogramma non possibile: non e'' flaggato come FPV"),
 	ESISTE_GIA_UN_CRONOPROGRAMMA_USATO_PER_IL_CALCOLO_FPV("BIL_ERR_0111", "Scelta del cronoprogramma non possibile: e'' gia'' presente un cronoprogramma usato per il calcolo FPV"),
 	
 	//SIAC-7228
@@ -135,9 +140,30 @@ public enum ErroreBil implements TipoErrore {
 	CODICE_ELENCHI_NON_CONFORME("BIL_ERR_0124", "I capitoli inseriti non presentano tutti lo stesso Codice Elenchi."),
 	
 	// SIAC-6881
-	COMPONENTE_INESISTENTE("CEC_ERR_0001", "Il componente indicato non esiste")
+	COMPONENTE_INESISTENTE("BIL_ERR_0126", "Il componente indicato non esiste"),
 	
+	// SIAC-7571
+	FATTURA_CON_IMPORTO_NEGATIVO("BIL_WAR_0113", "La fattura presenta un importo negativo, si desidera importarla come nota di credito o come fattura attiva?"),
+
+	SOLO_MACROTIPO_FRESCO("COR_ERR_0047", "Sono presenti componenti con macrotipo diverso da: {0}"),
+
+	//SIAC-7556
+	PROVVISORIO_FLUSSO_NON_TROVATO("BIL_ERR_0125", "Non sono stati trovati provvisori elaborati"),
+	
+	//SIAC-8004 => SIAC-8273
+	FATTURA_CON_IMPORTO_NON_VALORIZZATO("BIL_ERR_0127", "La fattura presenta l''importo totale documento non valorizzato, l''importo totale verra'' valorizzato come l''importo netto. Desidera proseguire comunque?"),
+	
+	NESSUN_ELEMENTO_SALVATO("BIL_WAR_0114", "Non e'' stato modificato nessun dato"),
+	//SIAC-8191
+	IMPORTO_PREVISIONE("BIL_ERR_0128", "L''importo di previsione a chiudere supera  la differenza fra stanziato e impegnato attuale per l''anno {0}"),
+
+	//task-225
+	VARIAZIONE_MODIFICATA("BIL_ERR_0130", "La variazione e'' stata modificata da un altro utente. Si prega di visualizzare lo stato attuale attraverso la consultazione"),
+	
+	// mutui
+	SOGGETTO_NON_ISTITUTO_CREDITO("BIL_ERR_0129", "Il soggetto {0} non e'' un''istituto di credito."),
 	;
+
 
 	private final String codice;
 	private final String messaggio;
@@ -153,7 +179,7 @@ public enum ErroreBil implements TipoErrore {
 
 	@Override
 	public Errore getErrore(Object... args) {
-		final String msg =  StringUtilities.formatStringWithDefaultReplacements(this.messaggio, "", args);
+		final String msg = StringUtilities.formatStringWithDefaultReplacements(this.messaggio, "", args);
 		return new Errore(this.codice, msg);
 	}
 

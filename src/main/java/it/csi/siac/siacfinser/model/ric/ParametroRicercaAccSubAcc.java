@@ -48,6 +48,8 @@ public class ParametroRicercaAccSubAcc  implements Serializable {
 	private boolean competenzaCorrente;
 	private boolean competenzaCompetenza;
 	private boolean competenzaFuturi;
+	//SIAC-6997
+	private boolean competenzaResiduiRor;
 	private Integer annoAccertamentoRiaccertato;
 	private Integer numeroAccertamentoRiaccertato;
 	private Integer annoAccertamentoOrigine;
@@ -57,11 +59,16 @@ public class ParametroRicercaAccSubAcc  implements Serializable {
 	private String codiceClasseSoggetto;
 	private Boolean isRicercaDaAccertamento = Boolean.TRUE;
 	private boolean disponibilitaAdIncassare = false;
+	private boolean ricercaResiduiRorFlag;
 	
 	private String codiceProgetto;
 	
 	//SIAC-5253 itroduciamo la possibilita' di escludere stati precisi:
 	private List<String> statiDaEscludere;
+	
+	//SIAC-6997
+	private Boolean reanno;
+	private String strutturaSelezionataCompetente;
 
 	/**
 	 * @return the annoEsercizio
@@ -453,6 +460,62 @@ public class ParametroRicercaAccSubAcc  implements Serializable {
 
 	public void setStatiDaEscludere(List<String> statiDaEscludere) {
 		this.statiDaEscludere = statiDaEscludere;
+	}
+
+	/**
+	 * @return the reanno
+	 */
+	public Boolean getReanno() {
+		return reanno;
+	}
+
+	/**
+	 * @return the strutturaSelezionataCompetente
+	 */
+	public String getStrutturaSelezionataCompetente() {
+		return strutturaSelezionataCompetente;
+	}
+
+	/**
+	 * @param reanno the reanno to set
+	 */
+	public void setReanno(Boolean reanno) {
+		this.reanno = reanno;
+	}
+
+	/**
+	 * @param strutturaSelezionataCompetente the strutturaSelezionataCompetente to set
+	 */
+	public void setStrutturaSelezionataCompetente(String strutturaSelezionataCompetente) {
+		this.strutturaSelezionataCompetente = strutturaSelezionataCompetente;
+	}
+
+	/**
+	 * @return the competenzaResiduiRor
+	 */
+	public boolean isCompetenzaResiduiRor() {
+		return competenzaResiduiRor;
+	}
+
+	/**
+	 * @param competenzaResiduiRor the competenzaResiduiRor to set
+	 */
+	public void setCompetenzaResiduiRor(boolean competenzaResiduiRor) {
+		this.competenzaResiduiRor = competenzaResiduiRor;
+	}
+
+	/**
+	 * @return the ricercaResiduiRorFlag
+	 */
+	public boolean isRicercaResiduiRorFlag() {
+		return ricercaResiduiRorFlag;
+	}
+
+	/**
+	 * @param ricercaResiduiRorFlag the ricercaResiduiRorFlag to set
+	 */
+	public void setRicercaResiduiRorFlag(boolean ricercaResiduiRorFlag) {
+		this.ricercaResiduiRorFlag = ricercaResiduiRorFlag;
 	}	
 	
 }

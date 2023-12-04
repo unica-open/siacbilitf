@@ -9,11 +9,11 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class RicercaEstesaOrdinativoDiPagamento extends Entita {
+public class RicercaEstesaOrdinativoDiPagamento extends EntitaEnte {
 
 	/**
 	 * 

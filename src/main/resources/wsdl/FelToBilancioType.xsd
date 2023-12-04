@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
 <schema 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
 	targetNamespace="http://www.csi.it/fel/eis/FelToBilancio"
@@ -17,6 +21,7 @@
 					 se non serve un nuovo stato e si utilizza quello del "trattamento" togliere StatoFatturaType e lasciare una String35
 				-->
 				<element name="StatoElaborazioneFattura" type="tns:StatoFatturaType"/>
+				<element name="DataCambioStato" type="tns:dateTime"/>
 				<!-- il sistema chiamante deve memorizzare i dati di archiviazione? Fel di ritorno dall'archiviazione o
 					 protocollazione riceve i dati di indiceClassificazioneEsteso (posizione su Acta) o il numero di protocollo 
 					verrà verificato se questi dati servono al chiamante -->

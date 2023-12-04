@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -20,7 +20,7 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public abstract class Documento extends Entita {
+public abstract class Documento extends EntitaEnte {
 
 	private static final long serialVersionUID = 6545987887830432475L;
 	private int anno;

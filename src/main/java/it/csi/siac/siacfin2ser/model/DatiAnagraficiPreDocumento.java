@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacfin2ser.model.FIN2DataDictionary;
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class DatiAnagraficiPreDocumento extends EntitaExt {
+public class DatiAnagraficiPreDocumento extends EntitaEnteExt  {
 	
 	private static final long serialVersionUID = -4526289395817055733L;	
 	

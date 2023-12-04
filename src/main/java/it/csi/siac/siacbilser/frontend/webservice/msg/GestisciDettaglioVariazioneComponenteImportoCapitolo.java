@@ -21,6 +21,7 @@ public class GestisciDettaglioVariazioneComponenteImportoCapitolo extends Servic
 	
 	private Bilancio bilancio;
 	private DettaglioVariazioneImportoCapitolo dettaglioVariazioneImportoCapitolo;
+	private Boolean dettaglioInInserimento;
 
 	/**
 	 * @return the bilancio
@@ -49,6 +50,15 @@ public class GestisciDettaglioVariazioneComponenteImportoCapitolo extends Servic
 	public void setDettaglioVariazioneImportoCapitolo(DettaglioVariazioneImportoCapitolo dettaglioVariazioneImportoCapitolo) {
 		this.dettaglioVariazioneImportoCapitolo = dettaglioVariazioneImportoCapitolo;
 	}
+
+	public Boolean getDettaglioInInserimento() {
+		return dettaglioInInserimento;
+	}
+
+	public void setDettaglioInInserimento(Boolean dettaglioInInserimento) {
+		this.dettaglioInInserimento = dettaglioInInserimento;
+	}
+	
 	
 
 }

@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+import it.csi.siac.siacbilser.model.ImpegnabileComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.MacrotipoComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.PropostaDefaultComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.SottotipoComponenteImportiCapitolo;
@@ -35,6 +36,11 @@ public class RicercaTipoComponenteImportiCapitolo extends ServiceRequest {
 	@XmlElementWrapper(name="propostaDefaultComponenteImportiCapitoloDaEscludere")
 	@XmlElement(name="propostaDefaultComponenteImportiCapitoloDaEscludere")
 	private PropostaDefaultComponenteImportiCapitolo[] propostaDefaultComponenteImportiCapitoloDaEscludere;
+
+	//SIAC-7349
+	@XmlElementWrapper(name="impegnabileComponenteImportiCapitoloDaEscludere")
+	@XmlElement(name="impegnabileComponenteImportiCapitoloDaEscludere")
+	private ImpegnabileComponenteImportiCapitolo[] impegnabileComponenteImportiCapitoloDaEscludere;
 
 	
 	/**
@@ -95,6 +101,21 @@ public class RicercaTipoComponenteImportiCapitolo extends ServiceRequest {
 	public void setPropostaDefaultComponenteImportiCapitoloDaEscludere(PropostaDefaultComponenteImportiCapitolo[] propostaDefaultComponenteImportiCapitoloDaEscludere) {
 		this.propostaDefaultComponenteImportiCapitoloDaEscludere = propostaDefaultComponenteImportiCapitoloDaEscludere;
 	}
-	
-	
+
+	/**
+	 * @return the impegnabileComponenteImportiCapitoloDaEscludere
+	 */
+	@XmlTransient
+	public ImpegnabileComponenteImportiCapitolo[] getImpegnabileComponenteImportiCapitoloDaEscludere() {
+		return impegnabileComponenteImportiCapitoloDaEscludere;
+	}
+
+	/**
+	 * @param impegnabileComponenteImportiCapitoloDaEscludere the impegnabileComponenteImportiCapitoloDaEscludere to set
+	 */
+	public void setImpegnabileComponenteImportiCapitoloDaEscludere(
+			ImpegnabileComponenteImportiCapitolo...  impegnabileComponenteImportiCapitoloDaEscludere) {
+		this.impegnabileComponenteImportiCapitoloDaEscludere = impegnabileComponenteImportiCapitoloDaEscludere;
+	}
+
 }

@@ -46,6 +46,8 @@ public class RicercaSinteticaCapitoloUPrev implements Serializable {
 	private String codiceStrutturaAmmCont;
 	//aggiunto RTI
 	private String codiceTipoStrutturaAmmCont;
+	//task-90
+	private Integer idStrutturaAmmCont;
 	//modificato RTI
 	private String codicePianoDeiConti;
 	
@@ -87,7 +89,9 @@ public class RicercaSinteticaCapitoloUPrev implements Serializable {
 	private String codiceRicorrenteSpesa;
 	private String codicePerimetroSanitarioSpesa;
 	private String codiceTransazioneUnioneEuropeaSpesa;
-	private String codicePoliticheRegionaliUnitarie;	
+	private String codicePoliticheRegionaliUnitarie;
+	
+	private String codiceRisorsaAccantonata;
 
 	//modificato RTI
 	private String flagFondoPluriennaleVincolato;
@@ -607,8 +611,26 @@ public class RicercaSinteticaCapitoloUPrev implements Serializable {
 	public void setCategoriaCapitolo(CategoriaCapitolo categoriaCapitolo) {
 		this.categoriaCapitolo = categoriaCapitolo;
 	}
-	
-	
-	
 
+	/**
+	 * @return the codiceRisorsaAccantonata
+	 */
+	public String getCodiceRisorsaAccantonata() {
+		return codiceRisorsaAccantonata;
+	}
+
+	/**
+	 * @param codiceRisorsaAccantonata the codiceRisorsaAccantonata to set
+	 */
+	public void setCodiceRisorsaAccantonata(String codiceRisorsaAccantonata) {
+		this.codiceRisorsaAccantonata = codiceRisorsaAccantonata;
+	}
+	//task-90
+	public Integer getIdStrutturaAmmCont() {
+		return idStrutturaAmmCont;
+	}
+
+	public void setIdStrutturaAmmCont(Integer idStrutturaAmmCont) {
+		this.idStrutturaAmmCont = idStrutturaAmmCont;
+	}
 }

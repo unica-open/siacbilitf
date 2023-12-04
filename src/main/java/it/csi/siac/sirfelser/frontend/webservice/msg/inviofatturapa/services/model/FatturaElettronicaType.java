@@ -21,6 +21,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.NormalizedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.w3._2000._09.xmldsig_.SignatureType;
 
@@ -51,7 +53,8 @@ import org.w3._2000._09.xmldsig_.SignatureType;
 @XmlType(name = "FatturaElettronicaType", propOrder = {
     "fatturaElettronicaHeader",
     "fatturaElettronicaBody",
-    "signature"
+    "signature",
+    "sistemaEmittente"
 })
 @XmlRootElement(name = "FatturaElettronica", namespace="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2")
 public class FatturaElettronicaType {
@@ -64,6 +67,10 @@ public class FatturaElettronicaType {
     protected SignatureType signature;
     @XmlAttribute(required = true)
     protected FormatoTrasmissioneType versione;
+    //SIAC-7557
+    @XmlElement(name = "sistemaEmittente")
+    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    protected String sistemaEmittente;
 
     /**
      * Gets the value of the fatturaElettronicaHeader property.
@@ -165,5 +172,19 @@ public class FatturaElettronicaType {
     public void setVersione(FormatoTrasmissioneType value) {
         this.versione = value;
     }
+
+	/**
+	 * @return the sistemaEmittente
+	 */
+	public String getSistemaEmittente() {
+		return sistemaEmittente;
+	}
+
+	/**
+	 * @param sistemaEmittente the sistemaEmittente to set
+	 */
+	public void setSistemaEmittente(String sistemaEmittente) {
+		this.sistemaEmittente = sistemaEmittente;
+	}
 
 }

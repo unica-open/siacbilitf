@@ -44,6 +44,21 @@ public class AggiornaImpegno extends ServiceRequest {
 	private boolean saltaInserimentoPrimaNotaSuSub;
 	
 	private boolean saltaInserimentoPrimaNota;
+	
+	//SIAC-8184
+	private String descrizioneEventualeImpegnoAggiudicazione;
+
+	//SIAC-8811
+	private String eventualeNuovoCUPImpegno;
+
+	
+	public String getEventualeNuovoCUPImpegno() {
+		return eventualeNuovoCUPImpegno;
+	}
+
+	public void setEventualeNuovoCUPImpegno(String eventualeNuovoCUPImpegno) {
+		this.eventualeNuovoCUPImpegno = eventualeNuovoCUPImpegno;
+	}
 
 	public List<SubOrdinativoPagamento> getElencoSubOrdinativiPagamento() {
 		return elencoSubOrdinativiPagamento;
@@ -124,6 +139,14 @@ public class AggiornaImpegno extends ServiceRequest {
 
 	public void setSaltaInserimentoPrimaNota(boolean saltaInserimentoPrimaNota) {
 		this.saltaInserimentoPrimaNota = saltaInserimentoPrimaNota;
+	}
+	
+	public String getDescrizioneEventualeImpegnoAggiudicazione() {
+		return descrizioneEventualeImpegnoAggiudicazione;
+	}
+
+	public void setDescrizioneEventualeImpegnoAggiudicazione(String descrizioneEventualeImpegnoAggiudicazione) {
+		this.descrizioneEventualeImpegnoAggiudicazione = descrizioneEventualeImpegnoAggiudicazione;
 	}
 	
 }

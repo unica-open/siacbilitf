@@ -209,15 +209,6 @@ public interface PreDocumentoSpesaService {
 	LeggiTipiCausaleSpesaResponse leggiTipiCausaleSpesa(@WebParam LeggiTipiCausaleSpesa parameters);
 	
 	/**
-	 * Ricerca dei conti tesoreria
-	 * @param parameters la request del servizio
-	 * @return la response del servizio
-	 */
-	@WebMethod
-	@WebResult
-	LeggiContiTesoreriaResponse leggiContiTesoreria(@WebParam LeggiContiTesoreria parameters);
-
-	/**
 	 * Aggiornamento dello stato del predocumento di spesa
 	 * @param parameters la request del servizio
 	 * @return la response del servizio

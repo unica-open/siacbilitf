@@ -13,7 +13,9 @@ import it.csi.siac.siacfinser.model.liquidazione.Liquidazione;
 import it.csi.siac.siacfinser.model.ordinativo.OrdinativoPagamento;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlType;
@@ -21,8 +23,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class EmetteOrdinativoDiPagamentoSingoloResponse extends ServiceResponse {
 
+	private List<Messaggio> messaggi  = new ArrayList<Messaggio>();
+	
 	private SubdocumentoSpesa subdocumentoScartato;
-	private Messaggio messaggio;
 	private OrdinativoPagamento ordinativo;
 	
 	private Map<Integer,Liquidazione> liquidazioniCache = new HashMap<Integer,Liquidazione>();
@@ -43,16 +46,25 @@ public class EmetteOrdinativoDiPagamentoSingoloResponse extends ServiceResponse 
 		this.subdocumentoScartato = subdocumentoScartato;
 	}
 	/**
-	 * @return the messaggio
+	 * @return the messaggi
 	 */
-	public Messaggio getMessaggio() {
-		return messaggio;
+	public List<Messaggio> getMessaggi() {
+		return messaggi;
 	}
 	/**
-	 * @param messaggio the messaggio to set
+	 * @param messaggi the messaggi to set
 	 */
-	public void setMessaggio(Messaggio messaggio) {
-		this.messaggio = messaggio;
+	public void setMessaggi(List<Messaggio> messaggi) {
+		this.messaggi = messaggi;
+	}
+	public void addMessaggio(Messaggio messaggio) {
+		messaggi.add(messaggio);
+	}
+	
+	public void addMessaggi(List<Messaggio> messaggiInput) {
+		if(messaggi != null) {
+			this.messaggi.addAll(messaggiInput);
+		}
 	}
 	/**
 	 * @return the ordinativo

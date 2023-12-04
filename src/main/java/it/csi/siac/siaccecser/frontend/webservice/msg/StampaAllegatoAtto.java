@@ -6,10 +6,11 @@ package it.csi.siac.siaccecser.frontend.webservice.msg;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceRequest;
 import it.csi.siac.siacfin2ser.model.AllegatoAtto;
+import it.csi.siac.siacfin2ser.model.allegatoattochecklist.Checklist;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class StampaAllegatoAtto extends ReportServiceRequest {
@@ -20,6 +21,11 @@ public class StampaAllegatoAtto extends ReportServiceRequest {
 	
 	private Integer annoEsercizio;
 
+	
+	// SIAC-8804
+	private Checklist allegatoAttoChecklist;
+
+	
 	/**
 	 * @return the allegatoAtto
 	 */
@@ -48,6 +54,14 @@ public class StampaAllegatoAtto extends ReportServiceRequest {
 
 	public void setAnnoEsercizio(Integer annoEsercizio) {
 		this.annoEsercizio = annoEsercizio;
+	}
+
+	public Checklist getAllegatoAttoChecklist() {
+		return allegatoAttoChecklist;
+	}
+
+	public void setAllegatoAttoChecklist(Checklist allegatoAttoChecklist) {
+		this.allegatoAttoChecklist = allegatoAttoChecklist;
 	}
 
 	

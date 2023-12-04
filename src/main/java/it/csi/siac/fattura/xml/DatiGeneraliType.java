@@ -257,6 +257,10 @@ public class DatiGeneraliType {
         return this.datiFattureCollegate;
     }
 
+    public void setDatiFattureCollegate(List<DatiDocumentiCorrelatiType> value) {
+        this.datiFattureCollegate = value;
+    }
+    
     /**
      * Gets the value of the datiSAL property.
      * 

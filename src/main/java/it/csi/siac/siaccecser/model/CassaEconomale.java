@@ -12,8 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.ImportoDerivato;
 import it.csi.siac.siacbilser.model.ImportoDerivatoFunctionEnum;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -23,7 +22,7 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  */
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class CassaEconomale extends Entita {
+public class CassaEconomale extends EntitaEnte {
 
 	private static final long serialVersionUID = -4834363667694550438L;
 	
@@ -43,7 +42,6 @@ public class CassaEconomale extends Entita {
 	 * Quando la disponibilit&agrave; scende sotto questo limite l'utente viene bloccato con un messaggio  di errore
 	 */
 	private BigDecimal limiteImporto;
-	private Ente ente;
 	private List<RichiestaEconomale> richiesteEconomali = new ArrayList<RichiestaEconomale>();
 	private List<OperazioneCassa> operazioniCassaEconomale = new ArrayList<OperazioneCassa>();
 	
@@ -149,18 +147,10 @@ public class CassaEconomale extends Entita {
 	public void setLimiteImporto(BigDecimal limiteImporto) {
 		this.limiteImporto = limiteImporto;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the richiesteEconomali
 	 */

@@ -19,14 +19,37 @@ public class ImportiCapitoloPerComponente implements Serializable {
 	
 	private DettaglioComponenteImportiCapitolo dettaglioAnnoPrec;
 	private DettaglioComponenteImportiCapitolo dettaglioResidui;
+	//SIAC-7349 Start - SR200 - MR - 14/04/2020 - Property per la colonna iniziale dei residui per componente, nel consulta
+	private DettaglioComponenteImportiCapitolo dettaglioResiduiIniziale;
+	//SIAC-7349 - End
 	private DettaglioComponenteImportiCapitolo dettaglioAnno0;
+	
 	private DettaglioComponenteImportiCapitolo dettaglioAnno1;
 	private DettaglioComponenteImportiCapitolo dettaglioAnno2;
 	private DettaglioComponenteImportiCapitolo dettaglioAnniSucc;
 	
+	//SIAC-7349
+	private int uidComponente;
+	
 	//SIAC-7159
 	private boolean isPropostaDefault;
 	
+	//SIAC-7349 GS 22/07/2020 Da impostare a true per le componenti no stanz)
+	private boolean nonEliminabile;
+	
+	
+	/**
+	 * @return the nonEliminabile
+	 */
+	public boolean isNonEliminabile() {
+		return nonEliminabile;
+	}
+	/**
+	 * @param nonEliminabile the nonEliminabile to set
+	 */
+	public void setNonEliminabile(boolean nonEliminabile) {
+		this.nonEliminabile = nonEliminabile;
+	}
 	public boolean isPropostaDefault() {
 		return isPropostaDefault;
 	}
@@ -131,5 +154,16 @@ public class ImportiCapitoloPerComponente implements Serializable {
 	public void setDettaglioAnniSucc(DettaglioComponenteImportiCapitolo dettaglioAnniSucc) {
 		this.dettaglioAnniSucc = dettaglioAnniSucc;
 	}
-	
+	public int getUidComponente() {
+		return uidComponente;
+	}
+	public void setUidComponente(int uidComponente) {
+		this.uidComponente = uidComponente;
+	}
+	public DettaglioComponenteImportiCapitolo getDettaglioResiduiIniziale() {
+		return dettaglioResiduiIniziale;
+	}
+	public void setDettaglioResiduiIniziale(DettaglioComponenteImportiCapitolo dettaglioResiduiIniziale) {
+		this.dettaglioResiduiIniziale = dettaglioResiduiIniziale;
+	}
 }

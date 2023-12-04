@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Avanzovincolo extends Entita {
+public class Avanzovincolo extends EntitaEnte {
 
 	private static final long serialVersionUID = 3522968003577273122L;
 	

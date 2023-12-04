@@ -7,20 +7,20 @@ package it.csi.siac.siacfinser.frontend.webservice.msg;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
-import it.csi.siac.siacfinser.model.ImpegnoDettaglioImporti;
+import it.csi.siac.siacfinser.model.DettaglioImportiImpegno;
 
 @XmlType(namespace = FINSvcDictionary.NAMESPACE)
 public class ConsultaDettaglioImpegnoResponse extends ConsultaDettaglioMovimentoResponse{ 
 
-	private ImpegnoDettaglioImporti impegnoDettaglioImporti;
+	private DettaglioImportiImpegno dettaglioImportiImpegno;
 
-	public ImpegnoDettaglioImporti getImpegnoDettaglioImporti() {
-		return impegnoDettaglioImporti;
+	public DettaglioImportiImpegno getImpegnoDettaglioImporti() {
+		return dettaglioImportiImpegno;
 	}
 
 	public void setImpegnoDettaglioImporti(
-			ImpegnoDettaglioImporti impegnoDettaglioImporti) {
-		this.impegnoDettaglioImporti = impegnoDettaglioImporti;
+			DettaglioImportiImpegno dettaglioImportiImpegno) {
+		this.dettaglioImportiImpegno = dettaglioImportiImpegno;
 	}
 	
 }

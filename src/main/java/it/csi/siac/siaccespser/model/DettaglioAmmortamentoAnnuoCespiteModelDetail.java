@@ -6,14 +6,14 @@ package it.csi.siac.siaccespser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siaccespser.frontend.webservice.CESPSvcDictionary;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Class GenericRequest.
  */
 @XmlType(namespace = CESPSvcDictionary.NAMESPACE)
-public enum DettaglioAmmortamentoAnnuoCespiteModelDetail implements ModelDetail {
+public enum DettaglioAmmortamentoAnnuoCespiteModelDetail implements ModelDetailEnum {
 	
 	AmmortamentoAnnuoCespite,
 	AmmortamentoAnnuoCespiteModelDetail,

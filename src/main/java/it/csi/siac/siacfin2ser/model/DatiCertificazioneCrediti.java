@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.FIN2DataDictionary;
 
 import java.util.Date;
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * Dati Certificazione Crediti.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class DatiCertificazioneCrediti extends Entita {
+public class DatiCertificazioneCrediti extends EntitaEnte {
 	
 	private static final long serialVersionUID = 3023836614494572223L;
 	

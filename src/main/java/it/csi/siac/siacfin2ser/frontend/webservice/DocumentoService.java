@@ -4,6 +4,13 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.xml.ws.BindingType;
+
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.AggiornaRelazioneDocumenti;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.AggiornaRelazioneDocumentiResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaAttivitaOnere;
@@ -12,6 +19,8 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCausale770;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCausale770Response;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodiceBollo;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodiceBolloResponse;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodiceCommissioneDocumento;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodiceCommissioneDocumentoResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodicePCC;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodicePCCResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaCodiceUfficioDestinatarioPCC;
@@ -21,6 +30,8 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaNaturaOnereRespons
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaNoteTesoriere;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaNoteTesoriereResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaQuoteDaAssociare;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaQuoteDaAssociarePredocumento;
+import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaQuoteDaAssociarePredocumentoResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaQuoteDaAssociareResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaSommaNonSoggetta;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaSommaNonSoggettaResponse;
@@ -32,13 +43,6 @@ import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaTipoImpresa;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaTipoImpresaResponse;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaTipoOnere;
 import it.csi.siac.siacfin2ser.frontend.webservice.msg.RicercaTipoOnereResponse;
-
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.ws.BindingType;
 
 /**
  * SI del servizio Gestione Documento.
@@ -169,6 +173,15 @@ public interface DocumentoService {
 	RicercaQuoteDaAssociareResponse ricercaQuoteDaAssociare(@WebParam RicercaQuoteDaAssociare parameters);
 	
 	/**
+	 * Ricerca delle quote da associare
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaQuoteDaAssociarePredocumentoResponse ricercaQuoteDaAssociarePredocumento(@WebParam RicercaQuoteDaAssociarePredocumento parameters);
+	
+	/**
 	 * Collegamento tra documenti
 	 * @param parameters la request del servizio
 	 * @return la response del servizio
@@ -185,5 +198,15 @@ public interface DocumentoService {
 	@WebMethod
 	@WebResult
 	AggiornaRelazioneDocumentiResponse scollegaDocumenti(@WebParam AggiornaRelazioneDocumenti parameters);
+	
+	/**
+	 * Ricerca del codice commissione documento
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 * task-291
+	 */
+	@WebMethod
+	@WebResult
+	RicercaCodiceCommissioneDocumentoResponse ricercaCodiceCommissioneDocumento(@WebParam RicercaCodiceCommissioneDocumento parameters);
 
 }

@@ -13,15 +13,14 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacfinser.model.MovimentoGestione;
 import it.csi.siac.siacfinser.model.ordinativo.Ordinativo;
 import it.csi.siac.siacfinser.model.provvisoriDiCassa.ProvvisorioDiCassa;
 import it.csi.siac.siacfinser.model.soggetto.sedesecondaria.SedeSecondariaSoggetto;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class Subdocumento<D extends Documento<?,?>, SDI extends SubdocumentoIva<?,?,?>> extends EntitaExt {
+public class Subdocumento<D extends Documento<?,?>, SDI extends SubdocumentoIva<?,?,?>> extends EntitaEnteExt  {
 	
 	private static final long serialVersionUID = -5735532428814796186L;
 	
@@ -33,7 +32,6 @@ public class Subdocumento<D extends Documento<?,?>, SDI extends SubdocumentoIva<
 		@XmlElement(name="documento", type=Documento.class)
 	})
 	private D documento;
-	private Ente ente;
 	
 	//Fields su siac_t_subdoc
 	private Integer numero;	
@@ -396,18 +394,10 @@ public class Subdocumento<D extends Documento<?,?>, SDI extends SubdocumentoIva<
 	public void setFlagConvalidaManuale(Boolean convalidaManuale) {
 		this.flagConvalidaManuale = convalidaManuale;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the subdocumentoIva
 	 */

@@ -15,7 +15,7 @@ import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
 import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
-import it.csi.siac.siacfinser.model.ContoTesoreria;
+import it.csi.siac.siacfin2ser.model.ContoTesoreria;
 import it.csi.siac.siacfinser.model.Distinta;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.Impegno;
@@ -60,8 +60,6 @@ public class Liquidazione extends TransazioneElementare {
 	private String loginCreazione;
 	private String loginModifica;
 
-	private Integer numeroMutuo;
-	// private Integer numeroMutuoSubImp;
 
 	private Soggetto soggettoLiquidazione;
 	private Integer idSoggettoLiquidazione;
@@ -129,14 +127,6 @@ public class Liquidazione extends TransazioneElementare {
 	// Bypass per la forzatura della disponibilita a liquidare
 	private boolean forza = false;
 
-	// private ModalitaPagamentoSoggetto modalitaPagamentoSedeSecondaria;
-	//
-	// private VoceMutuo voceMutuoImpegno;
-	//
-	// private VoceMutuo voceMutuoSubImpegno;
-	//
-	// private SedeSecondariaSoggetto sedeSecondariaSoggetto;
-	
 
 
 	//NUOVI CAMPI PER SIOPE PLUS:
@@ -385,13 +375,6 @@ public class Liquidazione extends TransazioneElementare {
 		this.capitoloUscitaGestione = capitoloUscitaGestione;
 	}
 
-	public Integer getNumeroMutuo() {
-		return numeroMutuo;
-	}
-
-	public void setNumeroMutuo(Integer numeroMutuo) {
-		this.numeroMutuo = numeroMutuo;
-	}
 
 	public String getCig() {
 		return cig;
@@ -527,47 +510,7 @@ public class Liquidazione extends TransazioneElementare {
 		this.codiceTipoAttoAmministrativoLiquidazione = codiceTipoAttoAmministrativoLiquidazione;
 	}
 
-	// public ModalitaPagamentoSoggetto getModalitaPagamentoSedeSecondaria() {
-	// return modalitaPagamentoSedeSecondaria;
-	// }
-	//
-	// public void setModalitaPagamentoSedeSecondaria(
-	// ModalitaPagamentoSoggetto modalitaPagamentoSedeSecondaria) {
-	// this.modalitaPagamentoSedeSecondaria = modalitaPagamentoSedeSecondaria;
-	// }
-	//
-	// public VoceMutuo getVoceMutuoImpegno() {
-	// return voceMutuoImpegno;
-	// }
-	//
-	// public void setVoceMutuoImpegno(VoceMutuo voceMutuoImpegno) {
-	// this.voceMutuoImpegno = voceMutuoImpegno;
-	// }
-	//
-	// public VoceMutuo getVoceMutuoSubImpegno() {
-	// return voceMutuoSubImpegno;
-	// }
-	//
-	// public void setVoceMutuoSubImpegno(VoceMutuo voceMutuoSubImpegno) {
-	// this.voceMutuoSubImpegno = voceMutuoSubImpegno;
-	// }
-	//
-	// public Integer getNumeroMutuoSubImp() {
-	// return numeroMutuoSubImp;
-	// }
-	//
-	// public void setNumeroMutuoSubImp(Integer numeroMutuoSubImp) {
-	// this.numeroMutuoSubImp = numeroMutuoSubImp;
-	// }
-	//
-	// public SedeSecondariaSoggetto getSedeSecondariaSoggetto() {
-	// return sedeSecondariaSoggetto;
-	// }
-	//
-	// public void setSedeSecondariaSoggetto(SedeSecondariaSoggetto
-	// sedeSecondariaSoggetto) {
-	// this.sedeSecondariaSoggetto = sedeSecondariaSoggetto;
-	// }
+
 
 	public String getLiqAutomatica() {
 		return liqAutomatica;

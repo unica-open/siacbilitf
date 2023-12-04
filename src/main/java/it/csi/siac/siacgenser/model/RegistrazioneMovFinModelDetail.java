@@ -4,19 +4,21 @@
 */
 package it.csi.siac.siacgenser.model;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum ContoModelDetail.
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public enum RegistrazioneMovFinModelDetail implements ModelDetail {	
+public enum RegistrazioneMovFinModelDetail implements ModelDetailEnum {	
 	
 	Ambito,
 	EventoMovimento,
 	EventoMovimentoLight,
+	//SIAC-7142
+	EventoMovimentoModelDetail,
 	IsCollegataAMovimentoResiduo,
 	MovimentiEP,
 	Stato, 

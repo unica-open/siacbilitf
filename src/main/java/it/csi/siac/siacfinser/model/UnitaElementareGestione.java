@@ -6,7 +6,7 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * UnitaElementareGestione
@@ -15,7 +15,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class UnitaElementareGestione extends Entita {
+public class UnitaElementareGestione extends EntitaEnte {
 
 	private static final long serialVersionUID = 2746937135245372243L;
 }

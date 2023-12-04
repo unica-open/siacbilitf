@@ -15,17 +15,15 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class SubdocumentoIva<D extends Documento<?,?>, SD extends Subdocumento<?,?>, SDI extends SubdocumentoIva<D, SD, ?>> extends Entita {
+public class SubdocumentoIva<D extends Documento<?,?>, SD extends Subdocumento<?,?>, SDI extends SubdocumentoIva<D, SD, ?>> extends EntitaEnte {
 	
 	// siac_t_subdoc_iva
 	
 	private static final long serialVersionUID = 5296066539750729746L;
 	
-	private Ente ente;
 	
 	// PK
 	private Integer progressivoIVA;
@@ -336,18 +334,10 @@ public class SubdocumentoIva<D extends Documento<?,?>, SD extends Subdocumento<?
 	public void setFlagStampaDefinitivoDefinitivo(Boolean flagStampaDefinitivoDefinitivo) {
 		this.flagStampaDefinitivoDefinitivo = flagStampaDefinitivoDefinitivo;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the listaNoteDiCredito
 	 */

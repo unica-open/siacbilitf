@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.file.File;
 
 import java.util.ArrayList;
@@ -16,11 +15,10 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class StampaIva extends Entita {
+public class StampaIva extends EntitaEnte {
 	
 	private static final long serialVersionUID = 8648463331636166154L;
 	
-	private Ente ente;
 	private Integer annoEsercizio;
 	private String codice;
 	private String descrizione;
@@ -189,12 +187,8 @@ public class StampaIva extends Entita {
 	public void setFlagPagati(Boolean flagPagati) {
 		this.flagPagati = flagPagati;
 	}
-	public Ente getEnte() {
-		return ente;
-	}
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 	/**
 	 * @return the files
 	 */

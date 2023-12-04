@@ -50,7 +50,18 @@ public enum TipoRitenutaType {
      * 
      */
     @XmlEnumValue("RT02")
-    RT_02("RT02");
+    RT_02("RT02"),
+    /*
+     * SIAC-7557
+     */
+    @XmlEnumValue("RT03")
+    RT_03("RT03"),
+    @XmlEnumValue("RT04")
+    RT_04("RT04"),
+    @XmlEnumValue("RT05")
+    RT_05("RT05"),
+    @XmlEnumValue("RT06")
+    RT_06("RT06");
     private final String value;
 
     TipoRitenutaType(String v) {

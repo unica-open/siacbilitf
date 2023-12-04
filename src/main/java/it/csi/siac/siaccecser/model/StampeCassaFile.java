@@ -11,8 +11,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.file.File;
 import it.csi.siac.siacfin2ser.model.AllegatoAtto;
 
@@ -22,12 +21,11 @@ import it.csi.siac.siacfin2ser.model.AllegatoAtto;
  * @created 06-mar-2015 16.27.46
  */
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class StampeCassaFile extends Entita {
+public class StampeCassaFile extends EntitaEnte {
 
 	/**per serializzazione */
 	private static final long serialVersionUID = -7601419756528226723L;
 	
-	private Ente ente;
 	
 	private Integer annoEsercizio;
 	private String codice;
@@ -200,19 +198,11 @@ public class StampeCassaFile extends Entita {
 		this.descrizione = descrizione;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the operazioniCassa

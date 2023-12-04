@@ -10,13 +10,12 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 
 import it.csi.siac.siacattser.model.AttoAmministrativoModelDetail;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
-import it.csi.siac.siacbilser.model.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
 import it.csi.siac.siacbilser.model.ComponenteImportiCapitoloModelDetail;
 import it.csi.siac.siacbilser.model.DettaglioVariazioneComponenteImportoCapitoloModelDetail;
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siacbilser.model.QuadroEconomicoModelDetail;
 import it.csi.siac.siacbilser.model.VariazioneImportoCapitoloModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaModelDetail;
+import it.csi.siac.siacbilser.model.fcde.modeldetail.AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail;
 import it.csi.siac.siaccecser.model.RichiestaEconomaleModelDetail;
 import it.csi.siac.siaccecser.model.StampeCassaFileModelDetail;
 import it.csi.siac.siaccespser.model.AmmortamentoAnnuoCespiteModelDetail;
@@ -26,6 +25,7 @@ import it.csi.siac.siaccespser.model.DettaglioAmmortamentoAnnuoCespiteModelDetai
 import it.csi.siac.siaccespser.model.DismissioneCespiteModelDetail;
 import it.csi.siac.siaccespser.model.TipoBeneCespiteModelDetail;
 import it.csi.siac.siaccespser.model.VariazioneCespiteModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.model.AccertamentoModelDetail;
 import it.csi.siac.siacfin2ser.model.AllegatoAttoModelDetail;
@@ -58,7 +58,7 @@ import it.csi.siac.siacgenser.model.RegistrazioneMovFinModelDetail;
 
 public class ModelDetailAwareServiceRequest extends ServiceRequest {
 
-	@XmlElementWrapper(name="modelDetails")
+	@XmlElementWrapper(name="modelDetailEnums")
 	@XmlElements({
 		@XmlElement(name="accantonamentoFondiDubbiaEsigibilitaModelDetail", type=AccantonamentoFondiDubbiaEsigibilitaModelDetail.class),
 		@XmlElement(name="accantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail", type=AccantonamentoFondiDubbiaEsigibilitaRendicontoModelDetail.class),
@@ -105,20 +105,20 @@ public class ModelDetailAwareServiceRequest extends ServiceRequest {
 		@XmlElement(name="variazioneCespiteModelDetail", type=VariazioneCespiteModelDetail.class),
 		@XmlElement(name="variazioneImportoCapitoloModelDetail", type=VariazioneImportoCapitoloModelDetail.class)
 	})
-	private ModelDetail[] modelDetails;
+	private ModelDetailEnum[] modelDetailEnums;
 	
 	/**
-	 * @return the modelDetails
+	 * @return the modelDetailEnums
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetails() {
-		return this.modelDetails;
+	public ModelDetailEnum[] getModelDetails() {
+		return this.modelDetailEnums;
 	}
 
 	/**
-	 * @param modelDetails the modelDetails to set
+	 * @param modelDetailEnums the modelDetailEnums to set
 	 */
-	public void setModelDetails(ModelDetail... modelDetails) {
-		this.modelDetails = modelDetails;
+	public void setModelDetails(ModelDetailEnum... modelDetails) {
+		this.modelDetailEnums = modelDetails;
 	}
 }

@@ -15,12 +15,10 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.apache.commons.lang3.StringUtils;
-
+import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.SubImpegno;
 import it.csi.siac.siacfinser.model.liquidazione.Liquidazione;
-import it.csi.siac.siacfinser.model.mutuo.VoceMutuo;
 import it.csi.siac.siacfinser.model.siopeplus.SiopeAssenzaMotivazione;
 import it.csi.siac.siacfinser.model.siopeplus.SiopeScadenzaMotivo;
 import it.csi.siac.siacfinser.model.siopeplus.SiopeTipoDebito;
@@ -42,7 +40,6 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	private String causaleOrdinativo;
 	private String cig;
 	private String cup;
-	//private String numeroMutuo;
 	private Date dataEsecuzionePagamento;
 	
 	// Lotto K - attributi
@@ -65,7 +62,6 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	private Liquidazione liquidazione;
 	//private CommissioniDocumento commissioniDocumento;
 	// Lotto K - legami
-	private VoceMutuo voceMutuo;
 	private ContoTesoreria contoTesoreria;
 	private PreDocumentoSpesa preDocumentoSpesa;
 	
@@ -90,6 +86,9 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	private SiopeTipoDebito siopeTipoDebito;
 	private SiopeAssenzaMotivazione siopeAssenzaMotivazione;
 	private SiopeScadenzaMotivo siopeScadenzaMotivo;
+	
+	//SIAC-8153
+	private StrutturaAmministrativoContabile strutturaCompetenteQuota;
 	
 	// SIAC-5115
 	@XmlElementWrapper(name = "sospensioni")
@@ -120,18 +119,6 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	public void setCup(String cup) {
 		this.cup = cup;
 	}
-//	/**
-//	 * @return the numeroMutuo
-//	 */
-//	public String getNumeroMutuo() {
-//		return numeroMutuo;
-//	}
-//	/**
-//	 * @param numeroMutuo the numeroMutuo to set
-//	 */
-//	public void setNumeroMutuo(String numeroMutuo) {
-//		this.numeroMutuo = numeroMutuo;
-//	}
 	/**
 	 * @return the dataEsecuzionePagamento
 	 */
@@ -311,18 +298,7 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	public void setCommissioniDocumento(CommissioniDocumento tipoCommissione) {
 		this.commissioniDocumento = tipoCommissione;
 	}
-	/**
-	 * @return the voceMutuo
-	 */
-	public VoceMutuo getVoceMutuo() {
-		return voceMutuo;
-	}
-	/**
-	 * @param voceMutuo the voceMutuo to set
-	 */
-	public void setVoceMutuo(VoceMutuo voceMutuo) {
-		this.voceMutuo = voceMutuo;
-	}
+	
 	/**
 	 * @return the contoTesoreria
 	 */
@@ -376,23 +352,7 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 		this.modalitaPagamentoSoggetto = modalitaPagamentoSoggetto;
 	}
 	
-	/**
-	 * @param numeroMutuo the numeroMutuo to set
-	 * @deprecated il numero mutuo non dovr&agrave; pi&uacute; essere un attributo, bens&iacute; un'entit&agrave; collegata. Tuttavia, questo campo &eacute; presente per evitare che i caricamenti da servizio
-	 *             vadano in eccezione allorquando la base dati non sia stata ripulita correttamente
-	 */
-	@Deprecated
-	public void setNumeroMutuo(Integer numeroMutuo) {
-		if(numeroMutuo == null) {
-			return;
-		}
-		if(getVoceMutuo() == null) {
-			setVoceMutuo(new VoceMutuo());
-		}
-		if(StringUtils.isBlank(getVoceMutuo().getNumeroMutuo())) {
-			getVoceMutuo().setNumeroMutuo(numeroMutuo.toString());
-		}
-	}
+	
 	/**
 	 * @return the tipoIvaSplitReverse
 	 */
@@ -520,6 +480,18 @@ public class SubdocumentoSpesa extends Subdocumento<DocumentoSpesa,SubdocumentoI
 	 */
 	public void setSospensioni(List<SospensioneSubdocumento> sospensioni) {
 		this.sospensioni = sospensioni != null ? sospensioni : new ArrayList<SospensioneSubdocumento>();
+	}
+	/**
+	 * @return the strutturaCompetenteQuota
+	 */
+	public StrutturaAmministrativoContabile getStrutturaCompetenteQuota() {
+		return strutturaCompetenteQuota;
+	}
+	/**
+	 * @param strutturaCompetenteQuota the strutturaCompetenteQuota to set
+	 */
+	public void setStrutturaCompetenteQuota(StrutturaAmministrativoContabile strutturaCompetenteQuota) {
+		this.strutturaCompetenteQuota = strutturaCompetenteQuota;
 	}
 	
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 
 /**
@@ -19,7 +19,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class AnteprimaAmmortamentoAnnuoCespite extends Entita {
+public class AnteprimaAmmortamentoAnnuoCespite extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 1434749017865285969L;

@@ -23,9 +23,9 @@ import it.csi.siac.siacbilser.model.CapitoloEntrataPrevisione;
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
 import it.csi.siac.siacbilser.model.CapitoloUscitaPrevisione;
 import it.csi.siac.siacbilser.model.Missione;
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siacbilser.model.Programma;
 import it.csi.siac.siaccespser.frontend.webservice.CESPSvcDictionary;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfin2ser.model.Documento;
@@ -90,11 +90,11 @@ public class RicercaSinteticaRegistroACespite extends RicercaSinteticaBaseReques
 	@XmlElement(name="evento")
 	private List<Evento> eventi = new ArrayList<Evento>();
 	
-	@XmlElementWrapper(name="modelDetails")
+	@XmlElementWrapper(name="modelDetailEnums")
 	@XmlElements({
 		@XmlElement(name="primaNotaModelDetail", type=PrimaNotaModelDetail.class)
 	})
-	private ModelDetail[] modelDetails = new ModelDetail[0];
+	private ModelDetailEnum[] modelDetailEnums = new ModelDetailEnum[0];
 
 	/**
 	 * @return the primaNota
@@ -477,18 +477,18 @@ public class RicercaSinteticaRegistroACespite extends RicercaSinteticaBaseReques
 	}
 
 	/**
-	 * @return the modelDetails
+	 * @return the modelDetailEnums
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetails() {
-		return this.modelDetails;
+	public ModelDetailEnum[] getModelDetails() {
+		return this.modelDetailEnums;
 	}
 
 	/**
-	 * @param modelDetails the modelDetails to set
+	 * @param modelDetailEnums the modelDetailEnums to set
 	 */
-	public void setModelDetails(ModelDetail... modelDetails) {
-		this.modelDetails = modelDetails;
+	public void setModelDetails(ModelDetailEnum... modelDetails) {
+		this.modelDetailEnums = modelDetails;
 	}
 	
 }

@@ -23,9 +23,6 @@ public class DatiOpzionaliElencoSubTuttiConSoloGliIds implements Serializable {
 	private boolean caricaDisponibileLiquidareEDisponibilitaInModifica=false;
 	private boolean caricaDisponibilePagare=false;
 	
-	private boolean caricaVociMutuo=false;
-	private boolean caricaMutui=false;
-	
 	private boolean caricaElencoModificheMovGest =false;
 	
 	//di tipo t_attr:
@@ -47,21 +44,6 @@ public class DatiOpzionaliElencoSubTuttiConSoloGliIds implements Serializable {
 		this.caricaDisponibileLiquidareEDisponibilitaInModifica = caricaDisponibileLiquidareEDisponibilitaInModifica;
 	}
 
-	public boolean isCaricaVociMutuo() {
-		return caricaVociMutuo;
-	}
-
-	public void setCaricaVociMutuo(boolean caricaVociMutuo) {
-		this.caricaVociMutuo = caricaVociMutuo;
-	}
-
-	public boolean isCaricaMutui() {
-		return caricaMutui;
-	}
-
-	public void setCaricaMutui(boolean caricaMutui) {
-		this.caricaMutui = caricaMutui;
-	}
 
 	public boolean isCaricaElencoModificheMovGest() {
 		return caricaElencoModificheMovGest;

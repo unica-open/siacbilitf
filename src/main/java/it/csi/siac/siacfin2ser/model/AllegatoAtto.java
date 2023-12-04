@@ -11,8 +11,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -22,7 +21,7 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  * @created 08-set-2014 17.51.35
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class AllegatoAtto extends EntitaExt {
+public class AllegatoAtto extends EntitaEnteExt  {
 	//SiacTAttoAllegato
 	
 	private static final long serialVersionUID = 7665626335405461954L;
@@ -30,7 +29,6 @@ public class AllegatoAtto extends EntitaExt {
 	
 	
 	// Obbligatorii	
-	private Ente ente; 
 	
 	/**
 	 * Viene usata per la descrizione di documento e quota creati nella gestione
@@ -117,7 +115,6 @@ public class AllegatoAtto extends EntitaExt {
 	private Boolean hasImpegnoConfermaDurc;
 	private Date dataFineValiditaDurc;
 	
-
 	public DatiSoggettoAllegato datiSoggettoAllegatoBySoggetto(Soggetto soggetto) {
 		for (DatiSoggettoAllegato dsa : datiSoggettiAllegati) {
 			if (soggetto.getUid() != 0 && soggetto.getUid() == dsa.getUid()) {
@@ -373,18 +370,10 @@ public class AllegatoAtto extends EntitaExt {
 		this.versioneInvioFirma = versioneInvioFirma;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 
 	/**
 	 * @return the isAssociatoAdAlmenoUnaquotaSpesa
@@ -534,5 +523,6 @@ public class AllegatoAtto extends EntitaExt {
 	public void setDataFineValiditaDurc(Date dataFineValiditaDurc) {
 		this.dataFineValiditaDurc = dataFineValiditaDurc;
 	}
+
 
 }

@@ -25,6 +25,7 @@ public class AggiornaProvvedimento extends ServiceRequest {
 	private AttoAmministrativo attoAmministrativo;
 	private TipoAtto tipoAtto;
 	private StrutturaAmministrativoContabile strutturaAmministrativoContabile;
+	private String codiceInc;
 	
 	/**
 	 * Consente di specificare che l'atto &eacute; da intendersi "Esecutivo"
@@ -101,6 +102,14 @@ public class AggiornaProvvedimento extends ServiceRequest {
 	 */
 	public void setIsEsecutivo(Boolean isEsecutivo) {
 		this.isEsecutivo = isEsecutivo;
+	}
+
+	public String getCodiceInc() {
+		return codiceInc;
+	}
+
+	public void setCodiceInc(String codiceInc) {
+		this.codiceInc = codiceInc;
 	}
 
 }

@@ -4,6 +4,8 @@
 */
 package it.csi.siac.siacfinser.model.movgest;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
@@ -30,6 +32,11 @@ public class ModificaMovimentoGestioneEntrata extends ModificaMovimentoGestione 
 	private Integer numeroSubAccertamento;
 	
 	private ClassificatoreGenerico motivoModificaEntrata;
+	
+	//SIAC-7349 Inizio  SR180 FL 02/04/2020
+	private List<ModificaMovimentoGestioneSpesaCollegata> listaModificheMovimentoGestioneSpesaCollegata;
+	private Integer index;
+	//SIAC-7349 Fine SR180 FL 02/04/2020
 	
 	private boolean riepilogoAutomatiche=false;
 	private int numeroModificheAutomatiche;
@@ -98,5 +105,37 @@ public class ModificaMovimentoGestioneEntrata extends ModificaMovimentoGestione 
 	public void setNumeroModificheAutomatiche(int numeroModificheAutomatiche) {
 		this.numeroModificheAutomatiche = numeroModificheAutomatiche;
 	}
+
+	/**
+	 * @return the listaModificheMovimentoGestioneSpesaCollegata
+	 */
+	public List<ModificaMovimentoGestioneSpesaCollegata> getListaModificheMovimentoGestioneSpesaCollegata() {
+		return listaModificheMovimentoGestioneSpesaCollegata;
+	}
+
+	/**
+	 * @param listaModificheMovimentoGestioneSpesaCollegata the listaModificheMovimentoGestioneSpesaCollegata to set
+	 */
+	public void setListaModificheMovimentoGestioneSpesaCollegata(
+			List<ModificaMovimentoGestioneSpesaCollegata> listaModificheMovimentoGestioneSpesaCollegata) {
+		this.listaModificheMovimentoGestioneSpesaCollegata = listaModificheMovimentoGestioneSpesaCollegata;
+	}
+
+	/**
+	 * @return the index
+	 */
+	public Integer getIndex() {
+		return index;
+	}
+
+	/**
+	 * @param index the index to set
+	 */
+	public void setIndex(Integer index) {
+		this.index = index;
+	}
+ 
+	
+	
 	
 }

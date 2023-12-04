@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -13,14 +12,13 @@ import javax.xml.bind.annotation.XmlType;
  * Ordine
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class Ordine extends Entita {
+public class Ordine extends EntitaEnte {
 	
 	private static final long serialVersionUID = -3850354519349145197L;
 	
 	private String numeroOrdine;
 	private DocumentoSpesa documento; 
 	
-	private Ente ente;
 
 	/**
 	 * @return the numeroOrdine
@@ -48,19 +46,11 @@ public class Ordine extends Entita {
 		this.documento = documento;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	
 	

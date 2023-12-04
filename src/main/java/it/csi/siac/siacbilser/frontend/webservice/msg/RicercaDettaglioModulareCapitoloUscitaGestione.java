@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 import it.csi.siac.siacfin2ser.model.CapitoloUscitaGestioneModelDetail;
 
 /**
@@ -67,7 +67,7 @@ public class RicercaDettaglioModulareCapitoloUscitaGestione extends RicercaDetta
 	 */
 	public boolean isRichiestoModelDetail(CapitoloUscitaGestioneModelDetail m){
 		
-		for(ModelDetail model : getModelDetails()){
+		for(ModelDetailEnum model : getModelDetails()){
 			if(model.equals(m)){
 				return true;
 			}

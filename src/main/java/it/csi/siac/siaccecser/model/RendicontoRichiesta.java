@@ -15,8 +15,7 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.SubImpegno;
 
@@ -26,11 +25,10 @@ import it.csi.siac.siacfinser.model.SubImpegno;
  * @created 01-dic-2014 09.50.14
  */
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class RendicontoRichiesta extends Entita {
+public class RendicontoRichiesta extends EntitaEnte {
 
 	private static final long serialVersionUID = -237634108226788649L;
 
-	private Ente ente;
 	
 	private String note;
 	private Date dataRendiconto;
@@ -146,18 +144,10 @@ public class RendicontoRichiesta extends Entita {
 	public void addGiustificativo(Giustificativo giustificativo){
 		getGiustificativi().add(giustificativo);
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the movimento
 	 */

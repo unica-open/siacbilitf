@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * VincoliCapitoloUscitaEntrataGestione
@@ -19,7 +19,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class VincoliCapitoloUEGest extends Entita {
+public class VincoliCapitoloUEGest extends EntitaEnte {
 
 	private static final long serialVersionUID = -6895451455917779798L;
 

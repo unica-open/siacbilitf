@@ -8,7 +8,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * Storno
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Storno extends Entita {
+public class Storno extends EntitaEnte {
 
 	private static final long serialVersionUID = -7485510295827110329L;
 	private Date data;

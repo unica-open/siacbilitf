@@ -19,14 +19,14 @@ public class StatoOperativoAttualeVariazioneDiBilancio extends EntitaStoricizzat
 
 	private static final long serialVersionUID = -1384168346109228563L;
 
-	private StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio;
+	private StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio;
 
-	public StatoOperativoVariazioneDiBilancio getStatoOperativoVariazioneDiBilancio() {
-		return statoOperativoVariazioneDiBilancio;
+	public StatoOperativoVariazioneBilancio getStatoOperativoVariazioneDiBilancio() {
+		return statoOperativoVariazioneBilancio;
 	}
 
-	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio) {
-		this.statoOperativoVariazioneDiBilancio = statoOperativoVariazioneDiBilancio;
+	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio) {
+		this.statoOperativoVariazioneBilancio = statoOperativoVariazioneBilancio;
 	}
 
 	

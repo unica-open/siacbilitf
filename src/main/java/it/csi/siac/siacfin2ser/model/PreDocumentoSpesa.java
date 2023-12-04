@@ -4,15 +4,13 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
+import javax.xml.bind.annotation.XmlType;
+
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.SubImpegno;
-import it.csi.siac.siacfinser.model.mutuo.Mutuo;
-import it.csi.siac.siacfinser.model.mutuo.VoceMutuo;
 import it.csi.siac.siacfinser.model.soggetto.modpag.ModalitaPagamentoSoggetto;
 import it.csi.siac.siacfinser.model.soggetto.sedesecondaria.SedeSecondariaSoggetto;
-
-import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
 public class PreDocumentoSpesa extends PreDocumento<DatiAnagraficiPreDocumentoSpesa,SubdocumentoSpesa> {
@@ -28,7 +26,6 @@ public class PreDocumentoSpesa extends PreDocumento<DatiAnagraficiPreDocumentoSp
 	private SedeSecondariaSoggetto sedeSecondariaSoggetto;
 	private ModalitaPagamentoSoggetto modalitaPagamentoSoggetto;
 	
-	private VoceMutuo voceMutuo;
 
 	/**
 	 * @return the capitoloUscitaGestione
@@ -128,26 +125,7 @@ public class PreDocumentoSpesa extends PreDocumento<DatiAnagraficiPreDocumentoSp
 		this.causaleSpesa = causaleSpesa;
 	}
 
-	/**
-	 * @return the voceMutuo
-	 */
-	public VoceMutuo getVoceMutuo() {
-		return voceMutuo;
-	}
-
-	/**
-	 * @param voceMutuo the voceMutuo to set
-	 */
-	public void setVoceMutuo(VoceMutuo voceMutuo) {
-		this.voceMutuo = voceMutuo;
-	}
-
-	/**
-	 * @return the mutuo
-	 */
-	public Mutuo getMutuo() {
-		return voceMutuo != null ? voceMutuo.getMutuo() : null;
-	}
+	
 
 	@Override
 	public boolean controllaCompletabilita() {

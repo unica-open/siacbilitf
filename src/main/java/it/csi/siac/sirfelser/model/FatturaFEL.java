@@ -4,8 +4,8 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siacbilser.model.TipoDocFEL;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
 
 import java.math.BigDecimal;
@@ -25,20 +25,19 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class FatturaFEL extends Entita{
+public class FatturaFEL extends EntitaEnte{
 	
 	private static final long serialVersionUID = 1430656108709886586L;
 
-	private Ente ente;
 	
 	private Integer idFattura;
 	private String numero;
 	private String divisa;
 	private Date data;
-	private String tipoRitenuta;
-	private BigDecimal importoRitenuta;
-	private BigDecimal aliquotaRitenuta;
-	private String causalePagamento;
+	//private String tipoRitenuta;
+	//private BigDecimal importoRitenuta;
+	//private BigDecimal aliquotaRitenuta;
+	//private String causalePagamento;
 	private String bolloVirtuale;
 	private BigDecimal importoBollo;
 	private BigDecimal importoTotaleDocumento;
@@ -56,7 +55,13 @@ public class FatturaFEL extends Entita{
 	private DocumentoSpesa documentoSpesa;
 	private PrestatoreFEL prestatore; 
 	private TipoDocumentoFEL tipoDocumentoFEL;
+	//SIAC-7557
+	private TipoDocFEL tipoDocFEL;
 	private StatoAcquisizioneFEL statoAcquisizioneFEL;
+	
+	//SIAC-7557-VG
+	private Integer docTipoEntrata;
+	private Integer docTipoSpesa;
 	
 	private PortaleFattureFEL portaleFattureFEL;
 	private ProtocolloFEL protocolloFEL;
@@ -93,6 +98,27 @@ public class FatturaFEL extends Entita{
 	@XmlElement(name = "ordineAcquistoFEL")
 	private List<OrdineAcquistoFEL> ordiniAcquisti = new ArrayList<OrdineAcquistoFEL>();
 	
+	//SIAC-7557
+	@XmlElementWrapper(name = "listaRitenuta")
+	@XmlElement(name = "ritenutaFEL")
+	private List<RitenutaFEL> ritenute = new ArrayList<RitenutaFEL>();
+	
+	
+	
+	
+	/**
+	 * @return the ritenuteTest
+	 */
+	@XmlTransient
+	public List<RitenutaFEL> getRitenute() {
+		return ritenute;
+	}
+	/**
+	 * @param ritenuteTest the ritenuteTest to set
+	 */
+	public void setRitenute(List<RitenutaFEL> ritenute) {
+		this.ritenute = ritenute;
+	}
 	/**
 	 * @return the idFattura
 	 */
@@ -141,54 +167,36 @@ public class FatturaFEL extends Entita{
 	public void setData(Date data) {
 		this.data = data;
 	}
-	/**
-	 * @return the tipoRitenuta
-	 */
+	/*
+	SIAC-7557 
 	public String getTipoRitenuta() {
 		return tipoRitenuta;
 	}
-	/**
-	 * @param tipoRitenuta the tipoRitenuta to set
-	 */
+	 
 	public void setTipoRitenuta(String tipoRitenuta) {
 		this.tipoRitenuta = tipoRitenuta;
 	}
-	/**
-	 * @return the importoRitenuta
-	 */
 	public BigDecimal getImportoRitenuta() {
 		return importoRitenuta;
 	}
-	/**
-	 * @param importoRitenuta the importoRitenuta to set
-	 */
+	
 	public void setImportoRitenuta(BigDecimal importoRitenuta) {
 		this.importoRitenuta = importoRitenuta;
 	}
-	/**
-	 * @return the aliquotaRitenuta
-	 */
 	public BigDecimal getAliquotaRitenuta() {
 		return aliquotaRitenuta;
 	}
-	/**
-	 * @param aliquotaRitenuta the aliquotaRitenuta to set
-	 */
+	
 	public void setAliquotaRitenuta(BigDecimal aliquotaRitenuta) {
 		this.aliquotaRitenuta = aliquotaRitenuta;
 	}
-	/**
-	 * @return the causalePagamento
-	 */
 	public String getCausalePagamento() {
 		return causalePagamento;
 	}
-	/**
-	 * @param causalePagamento the causalePagamento to set
-	 */
+	
 	public void setCausalePagamento(String causalePagamento) {
 		this.causalePagamento = causalePagamento;
-	}
+	}*/
 	/**
 	 * @return the bollo
 	 */
@@ -498,17 +506,48 @@ public class FatturaFEL extends Entita{
 	public void setOrdiniAcquisti(List<OrdineAcquistoFEL> ordiniAcquisti) {
 		this.ordiniAcquisti = ordiniAcquisti != null ? ordiniAcquisti : new ArrayList<OrdineAcquistoFEL>();
 	}
+	
+	
+	
+	
 	/**
-	 * @return the ente
+	 * @return the tipoDocFEL
 	 */
-	public Ente getEnte() {
-		return ente;
+	public TipoDocFEL getTipoDocFEL()
+	{
+		return tipoDocFEL;
 	}
 	/**
-	 * @param ente the ente to set
+	 * @param tipoDocFEL the tipoDocFEL to set
 	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
+	public void setTipoDocFEL(TipoDocFEL tipoDocFEL)
+	{
+		this.tipoDocFEL = tipoDocFEL;
+	}
+	
+	/**
+	 * @return the docTipoEntrata
+	 */
+	public Integer getDocTipoEntrata() {
+		return docTipoEntrata;
+	}
+	/**
+	 * @return the docTipoSpesa
+	 */
+	public Integer getDocTipoSpesa() {
+		return docTipoSpesa;
+	}
+	/**
+	 * @param docTipoEntrata the docTipoEntrata to set
+	 */
+	public void setDocTipoEntrata(Integer docTipoEntrata) {
+		this.docTipoEntrata = docTipoEntrata;
+	}
+	/**
+	 * @param docTipoSpesa the docTipoSpesa to set
+	 */
+	public void setDocTipoSpesa(Integer docTipoSpesa) {
+		this.docTipoSpesa = docTipoSpesa;
 	}
 	
 }

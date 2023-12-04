@@ -9,17 +9,15 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.modpag.ModalitaPagamentoSoggetto;
 
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class Movimento extends Entita {
+public class Movimento extends EntitaEnte {
 
 	private static final long serialVersionUID = -2402844101382149692L;
 	
-	private Ente ente;
 	
 	private Integer numeroMovimento;
 	private Date dataMovimento;
@@ -45,18 +43,10 @@ public class Movimento extends Entita {
 //	private TipoAccredito tipoAccredito;
 //	private ModalitaAccreditoCassaEconomale tipoAccreditoCassaEconomale;
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the numeroMovimento
 	 */

@@ -6,7 +6,7 @@ package it.csi.siac.siaccecser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum RichiestaEconomaleModelDetail.
@@ -14,7 +14,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
  * @author Domenico
  */
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public enum RichiestaEconomaleModelDetail implements ModelDetail {
+public enum RichiestaEconomaleModelDetail implements ModelDetailEnum {
 	
 	CassaEconomale, 
 	//Alternativa a CassaEconomale:

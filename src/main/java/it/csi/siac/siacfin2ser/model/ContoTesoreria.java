@@ -12,5 +12,25 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
 public class ContoTesoreria extends Codifica {
 	private static final long serialVersionUID = -8295799133690799692L;
+	
+	private boolean vincolato;
+
+	public ContoTesoreria() {
+		super();
+	}
+	
+	public ContoTesoreria(String codice, String descrizione) {
+		super(codice, descrizione);
+	}
+
+	public boolean isVincolato() {
+		return vincolato;
+	}
+
+	public void setVincolato(boolean vincolato) {
+		this.vincolato = vincolato;
+	}
+	
+	
 
 }

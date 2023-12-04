@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoDiLegge;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * AttoDiLeggeCapitolo
@@ -19,7 +19,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class AttoDiLeggeCapitolo extends Entita {
+public class AttoDiLeggeCapitolo extends EntitaEnte {
 
 	private static final long serialVersionUID = -3805423243334413883L;
 

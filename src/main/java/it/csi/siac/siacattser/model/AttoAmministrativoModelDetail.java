@@ -6,14 +6,14 @@ package it.csi.siac.siacattser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * Model detail per il provvedimento
  * @author Marchino Alessandro
  */
 @XmlType(namespace = ATTDataDictionary.NAMESPACE)
-public enum AttoAmministrativoModelDetail implements ModelDetail {
+public enum AttoAmministrativoModelDetail implements ModelDetailEnum {
 	// Tipo di atto
 	TipoAtto,
 	// Stato operativo

@@ -6,14 +6,14 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum ElencoDocumentiAllegatoModelDetail.
  * @author Marchino Alessandro
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum ElencoDocumentiAllegatoModelDetail implements ModelDetail {
+public enum ElencoDocumentiAllegatoModelDetail implements ModelDetailEnum {
 	
 	AttoAllegato, //ElencoDocAttoAllegatoConverter
 	AttoAllegatoExtended, //ElencoDocAttoAllegatoExtendedConverter

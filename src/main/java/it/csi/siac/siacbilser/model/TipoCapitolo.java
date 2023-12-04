@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.StringUtils;
 
-import it.csi.siac.siaccommon.util.CoreUtils;
+import it.csi.siac.siaccommon.util.CoreUtil;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
 public enum TipoCapitolo {
@@ -121,14 +121,14 @@ public enum TipoCapitolo {
 	 * @return
 	 */
 	public Capitolo<?,?> newCapitoloInstance() {
-		return CoreUtils.instantiateNewClass(tipoCapitoloClass);
+		return CoreUtil.instantiateNewClass(tipoCapitoloClass);
 	}
 	/**
 	 * Ottiene una nuova istanza degli importi per questo tipo di capitolo
 	 * @return
 	 */
 	public ImportiCapitolo newImportiCapitoloInstance() {
-		return CoreUtils.instantiateNewClass(importiCapitoloClass);
+		return CoreUtil.instantiateNewClass(importiCapitoloClass);
 	}
 	
 }

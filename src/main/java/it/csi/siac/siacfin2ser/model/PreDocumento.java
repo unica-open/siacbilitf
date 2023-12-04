@@ -13,19 +13,17 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.Ente;
 import it.csi.siac.siaccorser.model.Entita;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfinser.model.provvisoriDiCassa.ProvvisorioDiCassa;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class PreDocumento<DAPD extends DatiAnagraficiPreDocumento, SD extends Subdocumento<?, ?>> extends EntitaExt {
+public class PreDocumento<DAPD extends DatiAnagraficiPreDocumento, SD extends Subdocumento<?, ?>> extends EntitaEnteExt  {
 	
 	private static final long serialVersionUID = -7559702029618586949L;	
 	
-	private Ente ente;
 	
 	private String numero;
 	private String descrizione;
@@ -72,18 +70,10 @@ public class PreDocumento<DAPD extends DatiAnagraficiPreDocumento, SD extends Su
 	// SIAC-5001
 	private ElencoDocumentiAllegato elencoDocumentiAllegato;
 		
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}	
+	
+	
+	
+		
 	/**
 	 * @return the numero
 	 */

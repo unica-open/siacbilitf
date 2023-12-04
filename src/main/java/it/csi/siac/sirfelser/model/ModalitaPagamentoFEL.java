@@ -35,6 +35,8 @@ public enum ModalitaPagamentoFEL {
 	SEPA_B2B("MP21", "SEPA Direct Debit B2B"),
 	// SIAC-4397
 	TRATTENUTA_SOMME_RISCOSSE("MP22", "Trattenuta su somme già riscosse"),
+	//SIAC-7557
+	PAGOPA("MP23", "Pagopa")
 	;
 	
 	private String codice;

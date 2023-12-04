@@ -19,6 +19,8 @@ import it.csi.siac.siacbilser.model.ImportiCapitoloEG;
 import it.csi.siac.siacbilser.model.ImportiCapitoloEP;
 import it.csi.siac.siacbilser.model.ImportiCapitoloUG;
 import it.csi.siac.siacbilser.model.ImportiCapitoloUP;
+import it.csi.siac.siacbilser.model.wrapper.ImportiImpegnatoPerComponenteAnniSuccNoStanz;
+import it.csi.siac.siacbilser.model.wrapper.ImportiImpegnatoPerComponenteTriennioNoStanz;
 import it.csi.siac.siaccorser.model.ServiceResponse;
 
 @XmlType(namespace = BILSvcDictionary.NAMESPACE)
@@ -52,7 +54,46 @@ public abstract class BaseComponenteImportiCapitoloResponse extends ServiceRespo
 		@XmlElement(name = "importiCapitoloAnniSuccessivi", type = ImportiCapitolo.class),
 	})
 	private ImportiCapitolo importiCapitoloAnniSuccessivi;
+	
+	// SIAC-7349 GS 20/07/2020
+	private ImportiCapitolo importiCapitoloTriennio;
+	
+	//SIAC-7349 - SR200 - MR - Start - 07/05/2020 - ImportiCapitoloSenzaStanziamento
+	@XmlElementWrapper(name = "listaImportiCapitoloAnniSuccessiviNoStanz")
+	@XmlElements({
+		@XmlElement(name = "importiImpegnatoPerComponenteAnniSuccNoStanz", type = ImportiImpegnatoPerComponenteAnniSuccNoStanz.class)
+	})
+	private List<ImportiImpegnatoPerComponenteAnniSuccNoStanz> listaImportiCapitoloAnniSuccessiviNoStanz = new ArrayList<ImportiImpegnatoPerComponenteAnniSuccNoStanz>();
 
+	// SIAC-7349 GS 20/07/2020
+	@XmlElementWrapper(name = "listaImportiCapitoloTriennioNoStanz")
+	@XmlElements({
+		@XmlElement(name = "importiImpegnatoPerComponenteTriennioNoStanz", type = ImportiImpegnatoPerComponenteTriennioNoStanz.class)
+	})
+	private List<ImportiImpegnatoPerComponenteTriennioNoStanz> listaImportiCapitoloTriennioNoStanz = new ArrayList<ImportiImpegnatoPerComponenteTriennioNoStanz>();
+
+	
+	
+	@XmlTransient
+	public List<ImportiImpegnatoPerComponenteAnniSuccNoStanz> getListaImportiCapitoloAnniSuccessiviNoStanz() {
+		return listaImportiCapitoloAnniSuccessiviNoStanz;
+	}
+	public void setListaImportiCapitoloAnniSuccessiviNoStanz(
+			List<ImportiImpegnatoPerComponenteAnniSuccNoStanz> listaImportiCapitoloAnniSuccessiviNoStanz) {
+		this.listaImportiCapitoloAnniSuccessiviNoStanz = listaImportiCapitoloAnniSuccessiviNoStanz;
+	}
+
+	// SIAC-7349 GS 20/07/2020	
+	@XmlTransient
+	public List<ImportiImpegnatoPerComponenteTriennioNoStanz> getListaImportiCapitoloTriennioNoStanz() {
+		return listaImportiCapitoloTriennioNoStanz;
+	}
+	public void setListaImportiCapitoloTriennioNoStanz(
+			List<ImportiImpegnatoPerComponenteTriennioNoStanz> listaImportiCapitoloTriennioNoStanz) {
+		this.listaImportiCapitoloTriennioNoStanz = listaImportiCapitoloTriennioNoStanz;
+	}
+	
+	
 	/**
 	 * @return the listaImportiCapitolo
 	 */
@@ -98,4 +139,5 @@ public abstract class BaseComponenteImportiCapitoloResponse extends ServiceRespo
 		this.importiCapitoloAnniSuccessivi = importiCapitoloAnniSuccessivi;
 	}
 
+	
 }

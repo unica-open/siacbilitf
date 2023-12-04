@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.FIN2DataDictionary;
 
 import java.util.Date;
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * Periodo Attivit&agrave;.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class PeriodoAttivita extends Entita {
+public class PeriodoAttivita extends EntitaEnte {
 	
 	private static final long serialVersionUID = 6541440636970969879L;
 	

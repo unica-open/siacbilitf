@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 import java.util.Date;
@@ -18,11 +17,10 @@ import javax.xml.bind.annotation.XmlType;
  * @created 08-set-2014 17.51.43
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class DatiSoggettoAllegato extends Entita {
+public class DatiSoggettoAllegato extends EntitaEnte {
 	//SiacRAttoAllegatoSog
 	
 	private static final long serialVersionUID = -4168487571368315629L;
-	private Ente ente;
 	
 	// Obbligatorii
 	//attoalSogDataSosp
@@ -98,17 +96,9 @@ public class DatiSoggettoAllegato extends Entita {
 	public void setSoggetto(Soggetto soggetto) {
 		this.soggetto = soggetto;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 
 }

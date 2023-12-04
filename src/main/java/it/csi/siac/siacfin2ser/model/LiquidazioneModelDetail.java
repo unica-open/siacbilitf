@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -15,13 +15,14 @@ import it.csi.siac.siacbilser.model.ModelDetail;
 * @author Alessandro Marchino
 */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum LiquidazioneModelDetail implements ModelDetail {
+public enum LiquidazioneModelDetail implements ModelDetailEnum {
 	
 	Impegno,
 	ImpegnoPianoDeiConti,
 	PianoDeiConti,
 	Soggetto,
 	Stato,
+	AttoAmm,
 	
 	SiopeTipoDebito,
 	SiopeAssenzaMotivazione,

@@ -102,5 +102,16 @@ public interface TipoComponenteImportiCapitoloService {
 	@WebResult
 	AnnullaTipoComponenteImportiCapitoloResponse annullaTipoComponenteImportiCapitolo(@WebParam AnnullaTipoComponenteImportiCapitolo request);
 	
+	//SIAC-7349
+	@WebMethod
+	@WebResult
+	RicercaTipoComponenteImportiCapitoloResponse ricercaTipoComponenteImportiCapitoloTotali(RicercaTipoComponenteImportiCapitolo request);
+	
+	//SIAC-7349
+	@WebMethod
+	@WebResult
+	RicercaTipoComponenteImportiCapitoloResponse ricercaTipoComponenteImportiCapitoloImpegnabili(RicercaTipoComponenteImportiCapitolo request);
+	
+	
 	
 }

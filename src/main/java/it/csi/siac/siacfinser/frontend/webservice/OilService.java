@@ -11,6 +11,8 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
+import it.csi.siac.siacfinser.frontend.webservice.msg.AccreditoTipoOilIsPagoPA;
+import it.csi.siac.siacfinser.frontend.webservice.msg.AccreditoTipoOilIsPagoPAResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.CountOrdinativiMif;
 import it.csi.siac.siacfinser.frontend.webservice.msg.CountOrdinativiMifResponse;
 import it.csi.siac.siacfinser.frontend.webservice.msg.CountOrdinativiMifSiopePlusResponse;
@@ -32,4 +34,8 @@ public interface OilService {
 	@WebMethod
 	@WebResult
 	CountOrdinativiMifSiopePlusResponse countOrdinativiMifSiopePlus(@WebParam CountOrdinativiMif req);
+
+	@WebMethod
+	@WebResult
+	AccreditoTipoOilIsPagoPAResponse accreditoTipoOilIsPagoPA(@WebParam AccreditoTipoOilIsPagoPA req);
 }

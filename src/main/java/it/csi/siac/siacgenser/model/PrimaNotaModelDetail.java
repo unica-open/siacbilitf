@@ -4,15 +4,15 @@
 */
 package it.csi.siac.siacgenser.model;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum ContoModelDetail.
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public enum PrimaNotaModelDetail implements ModelDetail {	
+public enum PrimaNotaModelDetail implements ModelDetailEnum {	
 	
 	TipoCausale, 
 	Ambito, 
@@ -30,6 +30,8 @@ public enum PrimaNotaModelDetail implements ModelDetail {
 	Bilancio,
 	ContoInventario,
 	PrimaNotaInventario,
+	//SIAC-8134
+	PrimaNotaStrutturaCompetente
 	;
 	
 	

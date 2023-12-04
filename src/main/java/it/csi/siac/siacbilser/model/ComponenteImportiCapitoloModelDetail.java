@@ -6,8 +6,10 @@ package it.csi.siac.siacbilser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
+
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public enum ComponenteImportiCapitoloModelDetail implements ModelDetail {
+public enum ComponenteImportiCapitoloModelDetail implements ModelDetailEnum {
 
 	Importo,
 	ImportiCapitolo,

@@ -8,8 +8,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccecser.frontend.webservice.CECSvcDictionary;
 import it.csi.siac.siaccecser.model.RendicontoRichiesta;
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceRequest;
 
 @XmlType(namespace = CECSvcDictionary.NAMESPACE)
 public class StampaRicevutaRendicontoRichiestaEconomale extends ReportServiceRequest {

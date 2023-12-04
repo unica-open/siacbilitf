@@ -23,6 +23,7 @@ public enum ImportiCapitoloEnum {
 	
 	//ImportiCapitoloUG
 	totalePagato(ImportoDerivatoFunctionEnum.totalePagato),
+	totalePagatoSuResidui(ImportoDerivatoFunctionEnum.totalePagatoSuResidui),
 	disponibilitaPagare(ImportoDerivatoFunctionEnum.disponibilitaPagare),
 	disponibilitaImpegnareAnno1(ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno1),
 	disponibilitaImpegnareAnno2(ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno2),
@@ -36,9 +37,23 @@ public enum ImportiCapitoloEnum {
 	disponibilitaAccertareAnno3(ImportoDerivatoFunctionEnum.disponibilitaAccertareAnno3),
 	
 	//ImportiCapitoloUP
+	//SIAC-7349 -Start - SR200 - MR/GS - Importi derivati per calcolo dicuiimpegnato anno prec
+	diCuiImpegnatoAnnoPrec(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnnoPrec),
+	diCuiImpegnatoUGAnnoPrec(ImportoDerivatoFunctionEnum.diCuiImpegnatoUGAnnoPrec),
+	//SIAC-7349
+	//SIAC-7349 -Start - SR200 - MR/GS - Importi derivati per calcolo dicuiimpegnato anni succ
+	diCuiImpegnatoAnniSucc(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnniSucc),
+	diCuiImpegnatoUGAnniSucc(ImportoDerivatoFunctionEnum.diCuiImpegnatoUGAnniSucc),
+	//SIAC-7349
 	diCuiImpegnatoAnno1(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno1),
 	diCuiImpegnatoAnno2(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno2),
 	diCuiImpegnatoAnno3(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno3),
+
+	//SIAC-7349 -Start - SR200 - MR/GS - Importi derivati per calcolo Disponibilita impegnare cap UP
+	disponibilitaImpegnareUPAnno1(ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno1),
+	disponibilitaImpegnareUPAnno2(ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno2),
+	disponibilitaImpegnareUPAnno3(ImportoDerivatoFunctionEnum.disponibilitaImpegnareAnno3),
+	//SIAC-7349 End
 	
 	//SIAC-7220
 	//ImportiCapitoloUG
@@ -47,10 +62,31 @@ public enum ImportiCapitoloEnum {
 	diCuiImpegnatoAnno3UG(ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno3UG),
 	//
 	
+	//SIAC-7349 MR SR50.riciclo 21/05/2020 calcolo dell'impegnato per la tabella di gestione equivalente a quella di previsione
+	impegnatoEffettivoUGAnno1(ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno1),
+	impegnatoEffettivoUGAnno2(ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno2),
+	impegnatoEffettivoUGAnno3(ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno3),
+	//END SIAC-7349
+	
+	//SIAC-7349 MR SR50.riciclo 21/05/2020 calcolo dell'impegnato per la tabella di gestione equivalente a quella di previsione
+	impegnatoEffettivoUPAnno1(ImportoDerivatoFunctionEnum.impegnatoEffettivoUPAnno1),
+	impegnatoEffettivoUPAnno2(ImportoDerivatoFunctionEnum.impegnatoEffettivoUPAnno2),
+	impegnatoEffettivoUPAnno3(ImportoDerivatoFunctionEnum.impegnatoEffettivoUPAnno3),
+		//END SIAC-7349
+	
 	//ImportiCapitoloEP
 	diCuiAccertatoAnno1(ImportoDerivatoFunctionEnum.diCuiAccertatoAnno1),
 	diCuiAccertatoAnno2(ImportoDerivatoFunctionEnum.diCuiAccertatoAnno2),
 	diCuiAccertatoAnno3(ImportoDerivatoFunctionEnum.diCuiAccertatoAnno3),
+	//SIAC-8469
+	residuoEffettivoInizialeUG(ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoInizialeUG),
+	residuoEffettivoFinaleUG(ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoAttualeUG),
+	residuoEffettivoInizialeUGAnnoPrec(ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoInizialeUGAnnoPrec),
+	residuoEffettivoFinaleUGAnnoPrec(ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoAttualeUGAnnoPrec),
+	//SIAC-8469
+	residuoEffettivoFinaleUP(ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoUP),
+	
+	
 	;
 	
 	private final ImportoDerivatoFunctionEnum importoDerivatoFunctionEnum;

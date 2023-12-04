@@ -33,7 +33,7 @@ public enum ErroreFin implements TipoErrore {
 	SUBACCERTAMENTO_NON_IN_STATO_DEFINITIVO("FIN_ERR_0097", "SubAccertamento non in stato Definitivo {0}"),
 	SUBIMPEGNO_NON_IN_STATO_DEFINITIVO("FIN_ERR_0098", "Il subimpegno non e'' in stato Definitivo"),
 	TIPO_PROVVEDIMENTO_INCONGRUENTE("FIN_ERR_0099","Tipo provvedimento incongruente e quindi non selezionabile."),
-	SOGGETTO_NON_VALIDO("FIN_ERR_0104","Il soggetto selezionato non e'' VALIDO"),
+	SOGGETTO_NON_VALIDO("FIN_ERR_0104", "Il soggetto selezionato {0} non e'' VALIDO"),
 	PRESENZA_CLASSIFICAZIONE_SOGGETTO("FIN_ERR_0115", "Il creditore e'' stato scelto non appartenente alla classificazione dell''{0}. Vuoi proseguire ugualmente?"),
 	CANCELLAZIONE_GRUPPO_ATTIVITA_IVA_IMPOSSIBILE("FIN_INF_0122", "Cancellazione gruppo attivita'' iva impossibile: esistono entita'' collegate"),
 	SOGGETTO_DIVERSO_DA_QUELLO_DEL_DOCUMENTO("FIN_ERR_0134", "Operazione non possibile: il creditore del movimento {0} e'' diverso da quello del documento"),
@@ -86,7 +86,6 @@ public enum ErroreFin implements TipoErrore {
 	NON_E_POSSIBILE_STAMPARE_IL_REGISTRO_IN_DEFINITIVO_PER_IL_PERIODO_SELEZIONATO("FIN_ERR_0244", "Non e'' possibile stampare il registro {0} in definitivo per il periodo selezionato (il periodo antecedente non e'' stampato in definitivo)"),
 	QUOTA_NON_AGGIORNABILE_PERCHE_IN_ELABORAZIONE_ASINCRONA("FIN_ERR_0246", "Operazione non possibile. Quota in elaborazione asincrona."),
 	OGGETTO_NON_UNIVOCO("FIN_ERR_0247", "{0} non identificato univocamente: specificare la chiave dell''oggetto"),
-	IMPEGNO_FINANZIATO_DA_MUTUO("FIN_ERR_0248", "Impegno finanziato da mutuo"),
 	CONFERMA_STAMPA_LIQUIDAZIONE_IVA("FIN_INF_0250", "Si sta per elaborare la stampa della Liquidazione Iva del Gruppo Attivita'' Iva {0} per il periodo selezionato, vuoi proseguire?"),
 	IMPOSSIBILE_ELABORARE_LA_STAMPA_DELLA_LIQUIDAZIONE_IVA("FIN_ERR_0251", "Impossibile elaborare la stampa della Liquidazione Iva"),
 	NON_E_POSSIBILE_ELABORARE_LA_STAMPA_IN_BOZZA_DELLA_LIQUIDAZIONE_IVA_PER_IL_PERIODO_SELEZIONATO("FIN_ERR_0252", "Non e'' possibile elaborare la stampa in bozza della Liquidazione Iva per il periodo selezionato"),
@@ -97,7 +96,6 @@ public enum ErroreFin implements TipoErrore {
 	INSERIMENTO_CAUSALE_NON_POSSIBILE("FIN_ERR_0259", "Operazione non possibile: causale gia'' presente nel sistema."),
 	LA_DATA_DEVE_ESSERE_COERENTE_CON_L_ANNO_DEL_DOCUMENTO("FIN_ERR_0262", "La data deve essere coerente con l''anno del documento"),
 	DOCUMENTO_NON_MODIFICABILE("FIN_ERR_0268", "Documento {0} - {1}"),
-	IMPEGNO_NON_FINANZIATO_CON_MUTUO("FIN_ERR_0269", "Impegno non finanziato con mutuo"),
 	DOCUMENTO_IVA_SPESA_INTRASTAT("FIN_INF_0270", "L''importo rilevante iva non sara'' minore o uguale all''importo totale dei movimenti iva inseriti applicando l''iva corretta all''imponibile della fattura estera perche'' e'' una fattura intracomunitaria"),
 	DOCUMENTI_SUBORDINATI_NON_PRESENTI("FIN_WARN_0280", "In elenco manca documento di riferimento per {0}"),
 	STAMPA_PRESA_IN_CARICO("FIN_INF_0281", "La richiesta di stampa e'' stata presa in carico. Il risultato sara'' disponibile da Cruscotto"),
@@ -127,7 +125,11 @@ public enum ErroreFin implements TipoErrore {
 	
 	//SIAC-6840
 	COD_AVVISO_PAGO_PA_ASSENTE("FIN_ERR_0920", "Codice Avviso Pago PA non presente.{0}"),
-	MOD_PAGO_PA_NON_AMMESSA("FIN_ERR_0921", "Metodo di pagamento AVVISO PAGOPA non ammesso.{0}")
+	MOD_PAGO_PA_NON_AMMESSA("FIN_ERR_0921", "Metodo di pagamento AVVISO PAGOPA non ammesso.{0}"),
+	
+	// SIAC-7764
+	CODICE_IBAN_ERRATO("FIN_ERR_0022", "Codice IBAN ''{0}'' errato ({1})"),
+	
 	;
 	
 	private String codice;
@@ -148,7 +150,7 @@ public enum ErroreFin implements TipoErrore {
 
 	@Override
 	public Errore getErrore(Object... args) {
-		final String msg =  StringUtilities.formatStringWithDefaultReplacements(this.descrizione, "", args);
+		final String msg = StringUtilities.formatStringWithDefaultReplacements(this.descrizione, "", args);
 		return new Errore(this.codice, msg);
 	}
 

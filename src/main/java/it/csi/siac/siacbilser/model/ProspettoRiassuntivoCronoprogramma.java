@@ -8,10 +8,10 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class ProspettoRiassuntivoCronoprogramma extends Entita {
+public class ProspettoRiassuntivoCronoprogramma extends EntitaEnte {
 
 	
 	

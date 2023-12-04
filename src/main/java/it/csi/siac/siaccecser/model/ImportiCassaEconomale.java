@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -20,7 +20,7 @@ import it.csi.siac.siaccorser.model.Entita;
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
 @Deprecated
-public class ImportiCassaEconomale extends Entita {
+public class ImportiCassaEconomale extends EntitaEnte {
 
 	private static final long serialVersionUID = -7270564413747679230L;
 	

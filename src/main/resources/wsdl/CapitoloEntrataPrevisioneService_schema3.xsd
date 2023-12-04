@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
 <xs:schema version="1.0" targetNamespace="http://siac.csi.it/bil/svc/1.0" xmlns:ns2="http://siac.csi.it/cor/data/1.0" xmlns:ns1="http://siac.csi.it/bil/data/1.0" xmlns:ns4="http://siac.csi.it/att/data/1.0" xmlns:ns3="http://siac.csi.it/fin/data/1.0" xmlns:tns="http://siac.csi.it/bil/svc/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:import namespace="http://siac.csi.it/bil/data/1.0" schemaLocation="CapitoloEntrataPrevisioneService_schema4.xsd"/>

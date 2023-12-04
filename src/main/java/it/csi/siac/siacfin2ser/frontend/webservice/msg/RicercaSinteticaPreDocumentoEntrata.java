@@ -4,7 +4,9 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
@@ -16,6 +18,7 @@ import it.csi.siac.siacfin2ser.model.PreDocumentoEntrata;
 import it.csi.siac.siacfin2ser.model.SubdocumentoEntrata;
 import it.csi.siac.siacfin2ser.model.TipoCausale;
 import it.csi.siac.siacfinser.model.ordinativo.OrdinativoIncasso;
+import it.csi.siac.siacfinser.model.provvisoriDiCassa.ProvvisorioDiCassa;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class RicercaSinteticaPreDocumentoEntrata extends RicercaSinteticaBaseRequest {
@@ -47,6 +50,12 @@ public class RicercaSinteticaPreDocumentoEntrata extends RicercaSinteticaBaseReq
 	
 	// SIAC-5250
 	private OrdinamentoPreDocumentoEntrata ordinamentoPreDocumentoEntrata;
+	
+	// SIAC-6780
+	private boolean isCompletaDefinisciPreDoc = Boolean.FALSE;
+	private ProvvisorioDiCassa provvisorioDiCassa;
+	List<Integer> uidPredocumentiDaFiltrare = new ArrayList<Integer>();
+	//
 	
 	/**
 	 * @return the preDocumentoEntrata
@@ -247,6 +256,43 @@ public class RicercaSinteticaPreDocumentoEntrata extends RicercaSinteticaBaseReq
 	public void setOrdinamentoPreDocumentoEntrata(OrdinamentoPreDocumentoEntrata ordinamentoPreDocumentoEntrata) {
 		this.ordinamentoPreDocumentoEntrata = ordinamentoPreDocumentoEntrata;
 	}
-
+	/**
+	 * @return the isCompletaDefinisciPreDoc
+	 */
+	public boolean isCompletaDefinisciPreDoc() {
+		return isCompletaDefinisciPreDoc;
+	}
+	/**
+	 * @param isCompletaDefinisciPreDoc the isCompletaDefinisciPreDoc to set
+	 */
+	public void setCompletaDefinisciPreDoc(boolean isCompletaDefinisciPreDoc) {
+		this.isCompletaDefinisciPreDoc = isCompletaDefinisciPreDoc;
+	}
+	/**
+	 * @return the provvisorioDiCassa
+	 */
+	public ProvvisorioDiCassa getProvvisorioDiCassa() {
+		return provvisorioDiCassa;
+	}
+	/**
+	 * @param provvisorioDiCassa the provvisorioDiCassa to set
+	 */
+	public void setProvvisorioDiCassa(ProvvisorioDiCassa provvisorioDiCassa) {
+		this.provvisorioDiCassa = provvisorioDiCassa;
+	}
+	/**
+	 * @return the uidPredocumentiDaFiltrare
+	 */
+	public List<Integer> getUidPredocumentiDaFiltrare() {
+		return uidPredocumentiDaFiltrare;
+	}
+	/**
+	 * @param uidPredocumentiDaFiltrare the uidPredocumentiDaFiltrare to set
+	 */
+	public void setUidPredocumentiDaFiltrare(List<Integer> uidPredocumentiDaFiltrare) {
+		this.uidPredocumentiDaFiltrare = uidPredocumentiDaFiltrare;
+	}
+	
+	
 	
 }

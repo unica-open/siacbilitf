@@ -8,8 +8,7 @@
 package it.csi.siac.siacbilser.model;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 
 import java.util.Date;
@@ -23,19 +22,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class VariazioneDiBilancio extends Entita {
+public class VariazioneDiBilancio extends EntitaEnte {
 
 	
 	private static final long serialVersionUID = 2169432503422264011L;
 	
-	private Ente ente;
 	private Bilancio bilancio;	
 	private String descrizione;
 	private String note;
 	private Date data;
 	private Integer numero;
 	//(SiacDVariazioneStatoEnum)
-	private StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio;
+	private StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio;
 	//(SiacDVariazioneTipoEnum)
 	private TipoVariazione tipoVariazione;
 	
@@ -96,18 +94,14 @@ public class VariazioneDiBilancio extends Entita {
 	 *
 	 * @return the ente
 	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
 
 	/**
 	 * Sets the ente.
 	 *
 	 * @param ente the new ente
 	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 
 	/**
 	 * Gets the bilancio.
@@ -204,17 +198,17 @@ public class VariazioneDiBilancio extends Entita {
 	 *
 	 * @return the stato operativo variazione di bilancio
 	 */
-	public StatoOperativoVariazioneDiBilancio getStatoOperativoVariazioneDiBilancio() {
-		return statoOperativoVariazioneDiBilancio;
+	public StatoOperativoVariazioneBilancio getStatoOperativoVariazioneDiBilancio() {
+		return statoOperativoVariazioneBilancio;
 	}
 
 	/**
 	 * Sets the stato operativo variazione di bilancio.
 	 *
-	 * @param statoOperativoVariazioneDiBilancio the new stato operativo variazione di bilancio
+	 * @param statoOperativoVariazioneBilancio the new stato operativo variazione di bilancio
 	 */
-	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio) {
-		this.statoOperativoVariazioneDiBilancio = statoOperativoVariazioneDiBilancio;
+	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio) {
+		this.statoOperativoVariazioneBilancio = statoOperativoVariazioneBilancio;
 	}
 
 	/**

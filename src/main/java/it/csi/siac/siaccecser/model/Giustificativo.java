@@ -9,8 +9,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.Valuta;
 
 /**
@@ -21,11 +20,10 @@ import it.csi.siac.siacfin2ser.model.Valuta;
 
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class Giustificativo extends Entita {
+public class Giustificativo extends EntitaEnte {
 	
 	private static final long serialVersionUID = -5496328596252108398L;
 
-	private Ente ente;
 	
 	private Integer annoProtocollo;
 	private String numeroProtocollo;
@@ -48,18 +46,10 @@ public class Giustificativo extends Entita {
 	private Integer quantita;
 	
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the annoProtocollo
 	 */

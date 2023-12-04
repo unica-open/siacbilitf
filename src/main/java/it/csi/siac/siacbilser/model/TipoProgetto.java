@@ -66,7 +66,5 @@ public enum TipoProgetto {
 	public TipoCapitolo getTipoCapitoloEntrata() {
 		return this.tipoCapitoloEntrata;
 	}
-	
-	
-	
+		
 }

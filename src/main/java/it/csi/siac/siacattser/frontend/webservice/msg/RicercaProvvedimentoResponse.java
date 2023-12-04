@@ -4,20 +4,20 @@
 */
 package it.csi.siac.siacattser.frontend.webservice.msg;
 
-import it.csi.siac.siacattser.frontend.webservice.ATTSvcDictionary;
-import it.csi.siac.siacattser.model.AttoAmministrativo;
-import it.csi.siac.siaccorser.model.ServiceResponse;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siacattser.frontend.webservice.ATTSvcDictionary;
+import it.csi.siac.siacattser.frontend.webservice.msg.base.BaseRicercaProvvedimentoResponse;
+import it.csi.siac.siacattser.model.AttoAmministrativo;
+
 /**
  * Response del servizio di ricerca provvedimento
  */
 @XmlType(namespace = ATTSvcDictionary.NAMESPACE)
-public class RicercaProvvedimentoResponse extends ServiceResponse {
+public class RicercaProvvedimentoResponse extends BaseRicercaProvvedimentoResponse {
 	
 	private List<AttoAmministrativo> listaAttiAmministrativi = new ArrayList<AttoAmministrativo>();
 

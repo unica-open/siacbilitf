@@ -4,10 +4,14 @@
 */
 package it.csi.siac.siacbilser.frontend.webservice.msg;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siacbilser.model.RiepilogoDatiVariazioneImportoCapitoloAnno;
+import it.csi.siac.siacbilser.model.RiepilogoDatiVariazioneStatoIdVariazione;
 import it.csi.siac.siaccorser.model.ServiceResponse;
 
 /**
@@ -19,6 +23,29 @@ public class RicercaVariazioniCapitoloResponse extends ServiceResponse {
 	
 	private RiepilogoDatiVariazioneImportoCapitoloAnno riepilogoDatiVariazioneImportiCapitoloPerAnnoPositive;
 	private RiepilogoDatiVariazioneImportoCapitoloAnno riepilogoDatiVariazioneImportiCapitoloPerAnnoNegative;
+	// CONTABILIA-285
+	private RiepilogoDatiVariazioneImportoCapitoloAnno riepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre;
+	
+	//SIAC-7735
+	private List<RiepilogoDatiVariazioneStatoIdVariazione> riepilogoDatiVariazioneStatoIdVariazioneList = new ArrayList<RiepilogoDatiVariazioneStatoIdVariazione>();
+	
+	
+	
+	
+	
+	/**
+	 * @return the riepilogoDatiVariazioneStatoIdVariazioneList
+	 */
+	public List<RiepilogoDatiVariazioneStatoIdVariazione> getRiepilogoDatiVariazioneStatoIdVariazioneList() {
+		return riepilogoDatiVariazioneStatoIdVariazioneList;
+	}
+	/**
+	 * @param riepilogoDatiVariazioneStatoIdVariazioneList the riepilogoDatiVariazioneStatoIdVariazioneList to set
+	 */
+	public void setRiepilogoDatiVariazioneStatoIdVariazioneList(
+			List<RiepilogoDatiVariazioneStatoIdVariazione> riepilogoDatiVariazioneStatoIdVariazioneList) {
+		this.riepilogoDatiVariazioneStatoIdVariazioneList = riepilogoDatiVariazioneStatoIdVariazioneList;
+	}
 	/**
 	 * @return the riepilogoDatiVariazioneImportiCapitoloPerAnnoPositive
 	 */
@@ -43,5 +70,15 @@ public class RicercaVariazioniCapitoloResponse extends ServiceResponse {
 	public void setRiepilogoDatiVariazioneImportiCapitoloPerAnnoNegative(RiepilogoDatiVariazioneImportoCapitoloAnno riepilogoDatiVariazioneImportiCapitoloPerAnnoNegative) {
 		this.riepilogoDatiVariazioneImportiCapitoloPerAnnoNegative = riepilogoDatiVariazioneImportiCapitoloPerAnnoNegative;
 	}
+	
+	// CONTABILIA-285 INIZIO
+	public RiepilogoDatiVariazioneImportoCapitoloAnno getRiepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre() {
+		return riepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre;
+	}
+	public void setRiepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre(
+			RiepilogoDatiVariazioneImportoCapitoloAnno riepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre) {
+		this.riepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre = riepilogoDatiVariazioneImportiCapitoloPerAnnoNeutre;
+	}
+	// CONTABILIA-285 FINE
 
 }

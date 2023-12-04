@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -15,26 +14,17 @@ import javax.xml.bind.annotation.XmlType;
  * @author Marchino Alessandro
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class DettaglioOrdineAcquistoFEL extends Entita{
+public class DettaglioOrdineAcquistoFEL extends EntitaEnte{
 	
 	private static final long serialVersionUID = 5618065853133562164L;
 
-	private Ente ente;
 	
 	private Integer numeroDettaglio;
 	private OrdineAcquistoFEL ordineAcquistoFEL;
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the numeroDettaglio
 	 */

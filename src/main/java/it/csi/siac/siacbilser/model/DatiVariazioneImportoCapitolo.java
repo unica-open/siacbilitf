@@ -21,11 +21,13 @@ public class DatiVariazioneImportoCapitolo implements Serializable {
 	private static final long serialVersionUID = 861361995172032558L;
 	
 	private Integer anno;
-	private StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio;
+	private StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio;
 	private Long numero;
 	private BigDecimal stanziamento;
 	private BigDecimal stanziamentoCassa;
 	private BigDecimal stanziamentoResiduo;
+	//SIAC-7735
+	private Integer variazioneId;
 	
 	/**
 	 * @return the anno
@@ -40,16 +42,16 @@ public class DatiVariazioneImportoCapitolo implements Serializable {
 		this.anno = anno;
 	}
 	/**
-	 * @return the statoOperativoVariazioneDiBilancio
+	 * @return the statoOperativoVariazioneBilancio
 	 */
-	public StatoOperativoVariazioneDiBilancio getStatoOperativoVariazioneDiBilancio() {
-		return statoOperativoVariazioneDiBilancio;
+	public StatoOperativoVariazioneBilancio getStatoOperativoVariazioneDiBilancio() {
+		return statoOperativoVariazioneBilancio;
 	}
 	/**
-	 * @param statoOperativoVariazioneDiBilancio the statoOperativoVariazioneDiBilancio to set
+	 * @param statoOperativoVariazioneBilancio the statoOperativoVariazioneBilancio to set
 	 */
-	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneDiBilancio statoOperativoVariazioneDiBilancio) {
-		this.statoOperativoVariazioneDiBilancio = statoOperativoVariazioneDiBilancio;
+	public void setStatoOperativoVariazioneDiBilancio(StatoOperativoVariazioneBilancio statoOperativoVariazioneBilancio) {
+		this.statoOperativoVariazioneBilancio = statoOperativoVariazioneBilancio;
 	}
 	/**
 	 * @return the numero
@@ -98,6 +100,18 @@ public class DatiVariazioneImportoCapitolo implements Serializable {
 	 */
 	public void setStanziamentoResiduo(BigDecimal stanziamentoResiduo) {
 		this.stanziamentoResiduo = stanziamentoResiduo;
+	}
+	/**
+	 * @return the variazioneId
+	 */
+	public Integer getVariazioneId() {
+		return variazioneId;
+	}
+	/**
+	 * @param variazioneId the variazioneId to set
+	 */
+	public void setVariazioneId(Integer variazioneId) {
+		this.variazioneId = variazioneId;
 	}
 	
 }

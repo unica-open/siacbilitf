@@ -50,4 +50,22 @@ public class MovimentoKey implements Serializable {
 		this.numeroSubMovimento = numeroSubMovimento;
 	}
 	
+	/**
+	 * Gets the descrizione movimento key.
+	 *
+	 * @return the descrizione movimento key
+	 */
+	public String getDescrizioneMovimentoKey() {
+		return new StringBuilder()
+				.append("Movimento Key ")
+				.append(getAnnoEsercizio() != null? getAnnoEsercizio() : "null")
+				.append("/")
+				.append(getAnnoMovimento() != null ? getAnnoMovimento() : "null")
+				.append("/")
+				.append(getNumeroMovimento() != null ? getNumeroMovimento().toPlainString() : "null")
+				.append("-")
+				.append(getNumeroSubMovimento() != null ? getNumeroSubMovimento() : "null")
+				.toString();
+	}
+	
 }

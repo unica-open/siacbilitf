@@ -4,11 +4,11 @@
 */
 package it.csi.siac.siaccecser.frontend.webservice.msg;
 
-import it.csi.siac.siaccecser.frontend.webservice.CECSvcDictionary;
-import it.csi.siac.siaccorser.model.file.File;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceResponse;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccecser.frontend.webservice.CECSvcDictionary;
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceResponse;
+import it.csi.siac.siaccorser.model.file.File;
 
 @XmlType(namespace = CECSvcDictionary.NAMESPACE)
 public class StampaGiornaleCassaResponse extends ReportServiceResponse {

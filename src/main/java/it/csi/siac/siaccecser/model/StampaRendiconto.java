@@ -9,7 +9,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 06-mar-2015 16.27.45
  */
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class StampaRendiconto extends Entita {
+public class StampaRendiconto extends EntitaEnte {
 
 	/** per serializzazione */
 	private static final long serialVersionUID = 3067960271919608233L;

@@ -20,6 +20,9 @@ public class DettaglioComponenteImportiCapitolo implements Serializable {
 	private TipoDettaglioComponenteImportiCapitolo tipoDettaglioComponenteImportiCapitolo;
 	//SIAC-7159
 	private boolean isPropostaDefault;
+	//SIAC-7349
+	private String disponibilita;
+	private Integer annoCompetenza;
 	
 	public boolean isPropostaDefault() {
 		return isPropostaDefault;
@@ -75,6 +78,30 @@ public class DettaglioComponenteImportiCapitolo implements Serializable {
 	public void setTipoDettaglioComponenteImportiCapitolo(
 			TipoDettaglioComponenteImportiCapitolo tipoDettaglioComponenteImportiCapitolo) {
 		this.tipoDettaglioComponenteImportiCapitolo = tipoDettaglioComponenteImportiCapitolo;
+	}
+	/**
+	 * @return the disponibilita
+	 */
+	public String getDisponibilita() {
+		return disponibilita;
+	}
+	/**
+	 * @param disponibilita the disponibilita to set
+	 */
+	public void setDisponibilita(String disponibilita) {
+		this.disponibilita = disponibilita;
+	}
+	/**
+	 * @return the annoCompetenza
+	 */
+	public Integer getAnnoCompetenza() {
+		return annoCompetenza;
+	}
+	/**
+	 * @param annoCompetenza the annoCompetenza to set
+	 */
+	public void setAnnoCompetenza(Integer annoCompetenza) {
+		this.annoCompetenza = annoCompetenza;
 	}
 	
 	

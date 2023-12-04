@@ -44,6 +44,8 @@ public class RicercaSinteticaCapitoloUGest implements Serializable {
 	
 	//aggiunto RTI
 	private String codiceStrutturaAmmCont;
+	//task-90
+	private Integer idStrutturaAmmCont;
 	//aggiunto RTI
 	private String codiceTipoStrutturaAmmCont;
 	//modificato RTI
@@ -89,6 +91,8 @@ public class RicercaSinteticaCapitoloUGest implements Serializable {
 	private String codicePerimetroSanitarioSpesa;
 	private String codiceTransazioneUnioneEuropeaSpesa;
 	private String codicePoliticheRegionaliUnitarie;	
+	//SIAC-7192
+	private String codiceRisorsaAccantonata;	
 
 	//modificato RTI
 	private String flagFondoPluriennaleVincolato;
@@ -112,6 +116,9 @@ public class RicercaSinteticaCapitoloUGest implements Serializable {
 	private Integer exNumeroUEB;
 
 	private CategoriaCapitolo categoriaCapitolo;
+	
+	//SIAC-8191
+	private Boolean capitoliIndicatiPerPrevisioneImpegnato;
 	
 	
 	public Integer getAnnoEsercizio() {
@@ -438,6 +445,19 @@ public class RicercaSinteticaCapitoloUGest implements Serializable {
 	public void setCodicePoliticheRegionaliUnitarie(String codicePoliticheRegionaliUnitarie) {
 		this.codicePoliticheRegionaliUnitarie = codicePoliticheRegionaliUnitarie;
 	}
+	
+	/**
+	 * @return the codiceRisorsaAccantonata
+	 */
+	public String getCodiceRisorsaAccantonata() {
+		return codiceRisorsaAccantonata;
+	}
+	/**
+	 * @param codiceRisorsaAccantonata the codiceRisorsaAccantonata to set
+	 */
+	public void setCodiceRisorsaAccantonata(String codiceRisorsaAccantonata) {
+		this.codiceRisorsaAccantonata = codiceRisorsaAccantonata;
+	}
 	public String getCodiceTipoSiopeSpesa() {
 		return codiceTipoSiopeSpesa;
 	}
@@ -456,12 +476,19 @@ public class RicercaSinteticaCapitoloUGest implements Serializable {
 	public void setCategoriaCapitolo(CategoriaCapitolo categoriaCapitolo) {
 		this.categoriaCapitolo = categoriaCapitolo;
 	}
-	
-	
-	
-	
-	
-
+	public Boolean getCapitoliIndicatiPerPrevisioneImpegnato() {
+		return capitoliIndicatiPerPrevisioneImpegnato;
+	}
+	public void setCapitoliIndicatiPerPrevisioneImpegnato(Boolean capitoliIndicatiPerPrevisioneImpegnato) {
+		this.capitoliIndicatiPerPrevisioneImpegnato = capitoliIndicatiPerPrevisioneImpegnato;
+	}
+	//task-90
+	public Integer getIdStrutturaAmmCont() {
+		return idStrutturaAmmCont;
+	}
+	public void setIdStrutturaAmmCont(Integer idStrutturaAmmCont) {
+		this.idStrutturaAmmCont = idStrutturaAmmCont;
+	}
 	
 
 }

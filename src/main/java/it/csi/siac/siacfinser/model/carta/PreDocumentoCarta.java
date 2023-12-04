@@ -11,9 +11,9 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
-import it.csi.siac.siacfinser.model.ContoTesoreria;
+import it.csi.siac.siacfin2ser.model.ContoTesoreria;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.SubImpegno;
@@ -25,7 +25,7 @@ import it.csi.siac.siacfinser.model.soggetto.sedesecondaria.SedeSecondariaSogget
  *  @author
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class PreDocumentoCarta extends Entita {
+public class PreDocumentoCarta extends EntitaEnte {
 
 
 	/**

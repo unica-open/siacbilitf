@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacgenser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,30 +16,21 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class RateoRisconto extends Entita {
+public class RateoRisconto extends EntitaEnte {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5206375163585170601L;
 	
-	private Ente ente;
 	
 	private Integer anno;
 	private BigDecimal importo;
 	private PrimaNota primaNota;
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the anno
 	 */

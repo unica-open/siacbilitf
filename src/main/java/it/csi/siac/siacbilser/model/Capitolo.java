@@ -15,8 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 import it.csi.siac.siacbilser.business.utility.DummyMapper;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ClassificatoreGenerico;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfin2ser.model.AttivitaIva;
 
@@ -27,16 +26,15 @@ import it.csi.siac.siacfin2ser.model.AttivitaIva;
  * 
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> extends Entita {
+public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> extends EntitaEnte {
 
 	private static final long serialVersionUID = 4367279367824255538L;
 	
 	private Bilancio bilancio;
-	private Ente ente;
 
 	private Integer annoCapitolo;
-	private Integer numeroArticolo;
 	private Integer numeroCapitolo;
+	private Integer numeroArticolo;
 	private Integer annoCreazioneCapitolo;
 	private Date dataAnnullamento;
 	private String descrizione;
@@ -83,8 +81,9 @@ public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> e
 	// new 1.8.0
 	private List<AttivitaIva> listaAttivitaIva = new ArrayList<AttivitaIva>();
 	
+	//task-55
+	private Boolean flagNonInserireAllegatoA1;
 
-	
 
 	public Capitolo(){
 		// Costruttore vuoto
@@ -113,26 +112,40 @@ public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> e
 		return cap;
 	}
 	
+	public String getNumeriCapitoloArticolo() {
+		return getNumeroCapitolo() + "/" + getNumeroArticolo();
+	}
+
+	/**
+	 * @deprecated @see getAnnoCapitoloArticolo
+	 */
+	@Deprecated
 	public String getAnnoNumeroArticolo(){
 		return getAnnoCapitolo()
 			+"/"+getNumeroCapitolo()
 			+"/"+getNumeroArticolo();
 	}	
-	
+
+	public String getAnnoCapitoloArticolo(){
+		return getAnnoNumeroArticolo();
+	}	
+
 	public String getAnnoNumeroArticoloUEB(){
 		return getAnnoNumeroArticolo() +"/"+getNumeroUEB();
 	}
 	
-	public String getDescBilancioAnnoNumeroArticolo(){		
-		return getBilancioAnno()
-			+"/"+ getAnnoCapitolo()
+	public String getDescBilancioAnnoNumeroArticolo(){
+		// issue-13
+		return  //getBilancioAnno() +"/"+
+			getAnnoCapitolo()
 			+"/"+getNumeroCapitolo()
 			+"/"+getNumeroArticolo();
 	}	
 	
 	public String getDescBilancioAnnoNumeroArticoloExCapitolo(){		
-		return getBilancioAnno()
-		+"/"+ getExAnnoCapitolo()
+		// issue-13
+		return //getBilancioAnno()+"/"+ 
+		getExAnnoCapitolo()
 		+"/"+getExCapitolo()
 		+"/"+getExArticolo();
 	}	
@@ -303,13 +316,9 @@ public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> e
 		this.tipoCapitolo = tipoCapitolo;
 	}
 
-	public Ente getEnte() {
-		return ente;
-	}
+	
 
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 
 	public Bilancio getBilancio() {
 		return bilancio;
@@ -486,5 +495,15 @@ public class Capitolo<IC extends ImportiCapitolo, ICE extends ImportiCapitolo> e
 		}
 		return null;
 	}
+	
+	//task-55
+	public Boolean getFlagNonInserireAllegatoA1() {
+		return flagNonInserireAllegatoA1;
+	}
+
+	public void setFlagNonInserireAllegatoA1(Boolean flagNonInserireAllegatoA1) {
+		this.flagNonInserireAllegatoA1 = flagNonInserireAllegatoA1;
+	}
+	
 
 }

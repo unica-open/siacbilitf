@@ -7,20 +7,20 @@ package it.csi.siac.siacfinser.frontend.webservice.msg;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
-import it.csi.siac.siacfinser.model.AccertamentoDettaglioImporti;
+import it.csi.siac.siacfinser.model.DettaglioImportiAccertamento;
 
 @XmlType(namespace = FINSvcDictionary.NAMESPACE)
 public class ConsultaDettaglioAccertamentoResponse extends ConsultaDettaglioMovimentoResponse{ 
 	
 	
-	private AccertamentoDettaglioImporti acertamentoDettaglioImporti;
+	private DettaglioImportiAccertamento acertamentoDettaglioImporti;
 
-	public AccertamentoDettaglioImporti getAcertamentoDettaglioImporti() {
+	public DettaglioImportiAccertamento getAcertamentoDettaglioImporti() {
 		return acertamentoDettaglioImporti;
 	}
 
 	public void setAcertamentoDettaglioImporti(
-			AccertamentoDettaglioImporti acertamentoDettaglioImporti) {
+			DettaglioImportiAccertamento acertamentoDettaglioImporti) {
 		this.acertamentoDettaglioImporti = acertamentoDettaglioImporti;
 	}
 	

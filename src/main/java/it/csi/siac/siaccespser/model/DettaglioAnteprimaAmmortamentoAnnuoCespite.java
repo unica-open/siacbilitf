@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacgenser.model.Conto;
 import it.csi.siac.siacgenser.model.OperazioneSegnoConto;
 
@@ -19,7 +19,7 @@ import it.csi.siac.siacgenser.model.OperazioneSegnoConto;
  * @version 1.0.0 - 25-09-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class DettaglioAnteprimaAmmortamentoAnnuoCespite extends Entita {
+public class DettaglioAnteprimaAmmortamentoAnnuoCespite extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 6939325447486002342L;

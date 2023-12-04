@@ -11,10 +11,13 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaSinteticaBaseRequest;
-import it.csi.siac.siacbilser.model.ModelDetail;
 import it.csi.siac.siaccespser.frontend.webservice.CESPSvcDictionary;
 import it.csi.siac.siaccespser.model.CespiteModelDetail;
 import it.csi.siac.siaccespser.model.TipoBeneCespiteModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
+import it.csi.siac.siacfin2ser.model.LiquidazioneModelDetail;
+import it.csi.siac.siacfin2ser.model.SubdocumentoEntrataModelDetail;
+import it.csi.siac.siacfin2ser.model.SubdocumentoSpesaModelDetail;
 import it.csi.siac.siacgenser.model.CausaleEPModelDetail;
 import it.csi.siac.siacgenser.model.ContoModelDetail;
 import it.csi.siac.siacgenser.model.MovimentoDettaglioModelDetail;
@@ -35,19 +38,22 @@ public class RicercaSinteticaMovimentoDettaglioRegistroACespite extends RicercaS
 	// Unione di RicercaSintenticaPrimaNota e RicercaSinteticaPrimaNotaIntegrata
 	private PrimaNota primaNota;	
 	
-	@XmlElementWrapper(name="modelDetails")
+	@XmlElementWrapper(name="modelDetailEnums")
 	@XmlElements({
 		@XmlElement(name="primaNotaModelDetail", type=PrimaNotaModelDetail.class),
 		@XmlElement(name="cespiteModelDetail", type=CespiteModelDetail.class),
 		@XmlElement(name="movimentoEpModelDetail", type=MovimentoEPModelDetail.class),
 		@XmlElement(name="movimentoDettaglioModelDetail", type=MovimentoDettaglioModelDetail.class),
+		@XmlElement(name="subdocumentoSpesaModelDetail", type=SubdocumentoSpesaModelDetail.class),
+		@XmlElement(name="subdocumentoEntrataModelDetail", type=SubdocumentoEntrataModelDetail.class),
+		@XmlElement(name="liquidazioneModelDetail", type=LiquidazioneModelDetail.class),
 		@XmlElement(name="cespiteModelDetail", type=CespiteModelDetail.class),
 		@XmlElement(name="tipoBeneCespiteModelDetail", type=TipoBeneCespiteModelDetail.class),
 		@XmlElement(name="registrazioneMovFinModelDetail", type=RegistrazioneMovFinModelDetail.class),
 		@XmlElement(name="contoModelDetail", type=ContoModelDetail.class),
 		@XmlElement(name="causaleEPModelDetail", type=CausaleEPModelDetail.class),
 	})
-	private ModelDetail[] modelDetails = new ModelDetail[0];
+	private ModelDetailEnum[] modelDetailEnums = new ModelDetailEnum[0];
 
 	/**
 	 * @return the primaNota
@@ -63,18 +69,18 @@ public class RicercaSinteticaMovimentoDettaglioRegistroACespite extends RicercaS
 		this.primaNota = primaNota;
 	}
 	/**
-	 * @return the modelDetails
+	 * @return the modelDetailEnums
 	 */
 	@XmlTransient
-	public ModelDetail[] getModelDetails() {
-		return this.modelDetails;
+	public ModelDetailEnum[] getModelDetails() {
+		return this.modelDetailEnums;
 	}
 
 	/**
-	 * @param modelDetails the modelDetails to set
+	 * @param modelDetailEnums the modelDetailEnums to set
 	 */
-	public void setModelDetails(ModelDetail... modelDetails) {
-		this.modelDetails = modelDetails;
+	public void setModelDetails(ModelDetailEnum... modelDetails) {
+		this.modelDetailEnums = modelDetails;
 	}
 	
 }

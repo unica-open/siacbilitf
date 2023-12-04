@@ -6,7 +6,7 @@ package it.csi.siac.siaccecser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -14,7 +14,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 06-mar-2015 16.27.55
  */
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class VariabiliStampa extends Entita {
+public class VariabiliStampa extends EntitaEnte {
 
 	/** per serializzazione */
 	private static final long serialVersionUID = -7594549882972172359L;

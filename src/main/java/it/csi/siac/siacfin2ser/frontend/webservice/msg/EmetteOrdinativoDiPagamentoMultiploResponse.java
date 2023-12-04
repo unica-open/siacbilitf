@@ -60,6 +60,12 @@ public class EmetteOrdinativoDiPagamentoMultiploResponse extends ServiceResponse
 	public void addMessaggio(Messaggio messaggio) {
 		messaggi.add(messaggio);
 	}
+	
+	public void addMessaggi(List<Messaggio> messaggiInput) {
+		if(messaggi != null) {
+			this.messaggi.addAll(messaggiInput);
+		}
+	}
 	/**
 	 * @return the ordinativo
 	 */

@@ -47,7 +47,7 @@ public class DocumentoSpesa extends Documento<SubdocumentoSpesa, SubdocumentoIva
 	
 	//aggiunti Fase K
 	//sostituisce RelazFattPortaleContabilia
-	private FatturaFEL fatturaFEL;
+//	private FatturaFEL fatturaFEL;
 	private RegistroUnico registroUnico;
 	private CodicePCC codicePCC;
 	private CodiceUfficioDestinatarioPCC codiceUfficioDestinatario;
@@ -77,6 +77,9 @@ public class DocumentoSpesa extends Documento<SubdocumentoSpesa, SubdocumentoIva
 	
 	//SIAC 6677
 	private String codAvvisoPagoPA;
+	
+	//SIAC-6780
+//	private String numeroPreDocSpesa;
 	
 	
 	public String getCodAvvisoPagoPA() {
@@ -181,18 +184,18 @@ public class DocumentoSpesa extends Documento<SubdocumentoSpesa, SubdocumentoIva
 	public void setFlagBeneficiarioMultiplo(Boolean flagBeneficiarioMultiplo) {
 		this.flagBeneficiarioMultiplo = flagBeneficiarioMultiplo;
 	}
-	/**
-	 * @return the fatturaFEL
-	 */
-	public FatturaFEL getFatturaFEL() {
-		return fatturaFEL;
-	}
-	/**
-	 * @param fatturaFEL the fatturaFEL to set
-	 */
-	public void setFatturaFEL(FatturaFEL fatturaFEL) {
-		this.fatturaFEL = fatturaFEL;
-	}
+//	/**
+//	 * @return the fatturaFEL
+//	 */
+//	public FatturaFEL getFatturaFEL() {
+//		return fatturaFEL;
+//	}
+//	/**
+//	 * @param fatturaFEL the fatturaFEL to set
+//	 */
+//	public void setFatturaFEL(FatturaFEL fatturaFEL) {
+//		this.fatturaFEL = fatturaFEL;
+//	}
 	/**
 	 * @return the registroUnico
 	 */

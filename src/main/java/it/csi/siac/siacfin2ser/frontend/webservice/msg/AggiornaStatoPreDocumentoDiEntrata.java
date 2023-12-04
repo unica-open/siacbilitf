@@ -17,7 +17,7 @@ public class AggiornaStatoPreDocumentoDiEntrata extends ServiceRequest {
 	private PreDocumentoEntrata preDocumentoEntrata;
 	
 	private boolean ricaricaDettaglioPreDocumento = true;
-
+	
 	/**
 	 * @return the preDocumentoEntrata
 	 */
@@ -47,6 +47,5 @@ public class AggiornaStatoPreDocumentoDiEntrata extends ServiceRequest {
 	public void setRicaricaDettaglioPreDocumento(boolean ricaricaDettaglioPreDocumentoSpesa) {
 		this.ricaricaDettaglioPreDocumento = ricaricaDettaglioPreDocumentoSpesa;
 	}
-
 
 }

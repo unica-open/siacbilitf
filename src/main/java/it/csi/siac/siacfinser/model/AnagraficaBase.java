@@ -6,7 +6,7 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * AnagraficaBase
@@ -15,7 +15,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public abstract class AnagraficaBase extends Entita {
+public abstract class AnagraficaBase extends EntitaEnte {
 
 	private static final long serialVersionUID = 1104301579369482515L;
 	private long codice;

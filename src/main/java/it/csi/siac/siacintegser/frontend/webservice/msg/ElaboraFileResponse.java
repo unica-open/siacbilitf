@@ -9,15 +9,12 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccorser.model.Errore;
 import it.csi.siac.siaccorser.model.Messaggio;
 import it.csi.siac.siaccorser.model.ServiceResponse;
 import it.csi.siac.siacintegser.frontend.webservice.INTEGSvcDictionary;
 
-/**
- * The Class ElaboraFileResponse.
- * 
- * @author Domenico
- */
+
 @XmlType(namespace = INTEGSvcDictionary.NAMESPACE)
 public class ElaboraFileResponse extends ServiceResponse {
 	
@@ -40,7 +37,11 @@ public class ElaboraFileResponse extends ServiceResponse {
 	 * @param descrizione the descrizione
 	 */
 	public void addMessaggio(String codice, String descrizione) {
-		getMessaggi().add(new Messaggio(codice, descrizione));
+		addMessaggio(new Messaggio(codice, descrizione));
+	}
+
+	public void addMessaggio(String descrizione) {
+		addMessaggio("", descrizione);
 	}
 
 	/**
@@ -66,6 +67,14 @@ public class ElaboraFileResponse extends ServiceResponse {
 	 */
 	public void addMessaggi(List<Messaggio> msgs){
 		getMessaggi().addAll(msgs);
+	}
+
+	public void addErrore(String codice, String descrizione) {
+		super.addErrore(new Errore(codice, descrizione));
+	}
+	
+	public void addErrore(String descrizione) {
+		addErrore("", descrizione);
 	}
 	
 }

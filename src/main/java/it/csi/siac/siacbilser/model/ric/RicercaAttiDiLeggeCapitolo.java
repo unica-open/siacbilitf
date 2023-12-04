@@ -7,9 +7,9 @@ package it.csi.siac.siacbilser.model.ric;
 import it.csi.siac.siacattser.model.AttoDiLegge;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siacbilser.model.Capitolo;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
-public class RicercaAttiDiLeggeCapitolo extends Entita {
+public class RicercaAttiDiLeggeCapitolo extends EntitaEnte {
 	
 	private static final long serialVersionUID = 5447195758214531070L;
 

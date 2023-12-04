@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "testataInvioFatturaAttiva",
     "statoElaborazioneFattura",
-    "dettaglioEsitoElaborazione"
+    "dettaglioEsitoElaborazione",
+    "dataCambioStato"
 })
 @XmlRootElement(name = "EsitoFatturaAttivaRequest")
 public class EsitoFatturaAttivaRequest {
@@ -48,7 +49,9 @@ public class EsitoFatturaAttivaRequest {
     protected int statoElaborazioneFattura;
     @XmlElement(name = "DettaglioEsitoElaborazione")
     protected String dettaglioEsitoElaborazione;
-
+    @XmlElement(name = "DataCambioStato")
+    protected java.util.Date dataCambioStato;
+    
     /**
      * Gets the value of the testataInvioFatturaAttiva property.
      * 
@@ -113,4 +116,19 @@ public class EsitoFatturaAttivaRequest {
         this.dettaglioEsitoElaborazione = value;
     }
 
+    /**
+     * Gets the value of the dataCambioStato property.
+     * 
+     */
+    public java.util.Date getDataCambioStato() {
+        return dataCambioStato;
+    }
+
+    /**
+     * Sets the value of the dataCambioStato property.
+     * 
+     */
+    public void setDataCambioStato(java.util.Date value) {
+        this.dataCambioStato = value;
+    }
 }

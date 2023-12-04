@@ -226,4 +226,5 @@ public interface CapitoloEntrataGestioneService {
 	@WebMethod
 	@WebResult
 	RicercaDisponibilitaCapitoloEntrataGestioneResponse ricercaDisponibilitaCapitoloEntrataGestione(@WebParam RicercaDisponibilitaCapitoloEntrataGestione parameters);
+
 }

@@ -14,6 +14,7 @@ import it.csi.siac.siacbilser.model.MacrotipoComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.PropostaDefaultComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.SottotipoComponenteImportiCapitolo;
 import it.csi.siac.siacbilser.model.TipoComponenteImportiCapitolo;
+import it.csi.siac.siacbilser.model.ImpegnabileComponenteImportiCapitolo;
 
 /**
  * Request al servizio di ricerca componente capitolo
@@ -32,9 +33,17 @@ public class RicercaSinteticaTipoComponenteImportiCapitolo extends RicercaSintet
 	@XmlElementWrapper(name="propostaDefaultComponenteImportiCapitoloDaEscludere")
 	@XmlElement(name="propostaDefaultComponenteImportiCapitoloDaEscludere")
 	private PropostaDefaultComponenteImportiCapitolo[] propostaDefaultComponenteImportiCapitoloDaEscludere;
-	
+
+	//SIAC-7349
+	@XmlElementWrapper(name="impegnabileComponenteImportiCapitoloDaEscludere")
+	@XmlElement(name="impegnabileComponenteImportiCapitoloDaEscludere")
+	private ImpegnabileComponenteImportiCapitolo[] impegnabileComponenteImportiCapitoloDaEscludere;
+
 	// SIAC-7189
 	private boolean soloValidiPerBilancio = false;
+	
+	//SIAC-7873
+	private Boolean saltaControlloSuDateValidita = Boolean.FALSE;
 	
 	/**
 	 * @return the tipoComponenteImportiCapitolo
@@ -109,6 +118,35 @@ public class RicercaSinteticaTipoComponenteImportiCapitolo extends RicercaSintet
 			PropostaDefaultComponenteImportiCapitolo... propostaDefaultComponenteImportiCapitoloDaEscludere) {
 		this.propostaDefaultComponenteImportiCapitoloDaEscludere = propostaDefaultComponenteImportiCapitoloDaEscludere;
 	}
-	
-	
+
+	/**
+	 * @return the impegnabileComponenteImportiCapitoloDaEscludere
+	 */
+	@XmlTransient
+	public ImpegnabileComponenteImportiCapitolo[] getImpegnabileComponenteImportiCapitoloDaEscludere() {
+		return impegnabileComponenteImportiCapitoloDaEscludere;
+	}
+
+	/**
+	 * @param impegnabileComponenteImportiCapitoloDaEscludere the impegnabileComponenteImportiCapitoloDaEscludere to set
+	 */
+	public void setImpegnabileComponenteImportiCapitoloDaEscludere(
+			ImpegnabileComponenteImportiCapitolo... impegnabileComponenteImportiCapitoloDaEscludere) {
+		this.impegnabileComponenteImportiCapitoloDaEscludere = impegnabileComponenteImportiCapitoloDaEscludere;
+	}
+
+	/**
+	 * @return the saltaControlloSuDateValidita
+	 */
+	public Boolean getSaltaControlloSuDateValidita() {
+		return saltaControlloSuDateValidita;
+	}
+
+	/**
+	 * @param saltaControlloSuDateValidita the saltaControlloSuDateValidita to set
+	 */
+	public void setSaltaControlloSuDateValidita(Boolean saltaControlloSuDateValidita) {
+		this.saltaControlloSuDateValidita = saltaControlloSuDateValidita;
+	}
+
 }

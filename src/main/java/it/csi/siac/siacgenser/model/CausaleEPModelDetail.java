@@ -4,15 +4,15 @@
 */
 package it.csi.siac.siacgenser.model;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum CausaleEPModelDetail.
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public enum CausaleEPModelDetail implements ModelDetail {	
+public enum CausaleEPModelDetail implements ModelDetailEnum {	
 	
 	Tipo,
 	Classif,

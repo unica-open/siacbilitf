@@ -9,8 +9,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 
 
 /**
@@ -20,7 +19,7 @@ import it.csi.siac.siaccorser.model.EntitaExt;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class Cespite extends EntitaExt {
+public class Cespite extends EntitaEnteExt  {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = -918940173366942960L;
@@ -39,7 +38,6 @@ public class Cespite extends EntitaExt {
 	private String note;
 	private Boolean flgDonazioneRinvenimento;
 	
-	private Ente ente;
 	private TipoBeneCespite tipoBeneCespite;
 	private ClassificazioneGiuridicaCespite classificazioneGiuridicaCespite;
 	
@@ -215,18 +213,10 @@ public class Cespite extends EntitaExt {
 	public void setFlgDonazioneRinvenimento(Boolean flgDonazioneRinvenimento) {
 		this.flgDonazioneRinvenimento = flgDonazioneRinvenimento;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return this.ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the tipoBeneCespite
 	 */

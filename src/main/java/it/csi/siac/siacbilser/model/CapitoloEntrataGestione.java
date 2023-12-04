@@ -37,6 +37,8 @@ public class CapitoloEntrataGestione extends Capitolo<ImportiCapitoloEG,ImportiC
 	
 	// SIAC-5582
 	private Boolean flagAccertatoPerCassa;
+	// SIAC-7858
+	private Boolean flagEntrataDubbiaEsigFCDE;
 	
 	public CapitoloEntrataGestione() {
 		super(TipoCapitolo.CAPITOLO_ENTRATA_GESTIONE);
@@ -166,6 +168,20 @@ public class CapitoloEntrataGestione extends Capitolo<ImportiCapitoloEG,ImportiC
 	 */
 	public void setFlagAccertatoPerCassa(Boolean flagAccertatoPerCassa) {
 		this.flagAccertatoPerCassa = flagAccertatoPerCassa;
+	}
+
+	/**
+	 * @return the flagEntrataDubbiaEsigFCDE
+	 */
+	public Boolean getFlagEntrataDubbiaEsigFCDE() {
+		return this.flagEntrataDubbiaEsigFCDE;
+	}
+
+	/**
+	 * @param flagEntrataDubbiaEsigFCDE the flagEntrataDubbiaEsigFCDE to set
+	 */
+	public void setFlagEntrataDubbiaEsigFCDE(Boolean flagEntrataDubbiaEsigFCDE) {
+		this.flagEntrataDubbiaEsigFCDE = flagEntrataDubbiaEsigFCDE;
 	}
 
 }

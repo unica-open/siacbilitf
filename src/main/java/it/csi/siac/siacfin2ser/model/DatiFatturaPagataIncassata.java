@@ -8,10 +8,10 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class DatiFatturaPagataIncassata extends Entita {
+public class DatiFatturaPagataIncassata extends EntitaEnte {
 
 	private static final long serialVersionUID = -7048920830211551800L;
 	

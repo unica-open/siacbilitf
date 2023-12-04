@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class ComponenteImportiCapitolo extends Entita {
+public class ComponenteImportiCapitolo extends EntitaEnte {
 
 	private static final long serialVersionUID = -5362818479227416554L;
 
@@ -28,6 +28,32 @@ public class ComponenteImportiCapitolo extends Entita {
 	@XmlElement(name = "dettaglioComponenteImportiCapitolo")
 	private List<DettaglioComponenteImportiCapitolo> listaDettaglioComponenteImportiCapitolo = new ArrayList<DettaglioComponenteImportiCapitolo>();
 	
+	//SIAC-7349 - Start - SR200 - 15/04/2020 - property per i nuovi valori
+	private BigDecimal impegnatoResiduoIniziale;
+	private BigDecimal impegnatoResiduoFinale;
+	private BigDecimal impegnatoAnniPrecedenti;
+	//SIAC-7349 - End
+	
+	public BigDecimal getImpegnatoResiduoIniziale() {
+		return impegnatoResiduoIniziale;
+	}
+	public void setImpegnatoResiduoIniziale(BigDecimal impegnatoResiduoIniziale) {
+		this.impegnatoResiduoIniziale = impegnatoResiduoIniziale;
+	}
+	public BigDecimal getImpegnatoResiduoFinale() {
+		return impegnatoResiduoFinale;
+	}
+	public void setImpegnatoResiduoFinale(BigDecimal impegnatoResiduoFinale) {
+		this.impegnatoResiduoFinale = impegnatoResiduoFinale;
+	}
+
+	public BigDecimal getImpegnatoAnniPrecedenti() {
+		return impegnatoAnniPrecedenti;
+	}
+	public void setImpegnatoAnniPrecedenti(BigDecimal impegnatoAnniPrecedenti) {
+		this.impegnatoAnniPrecedenti = impegnatoAnniPrecedenti;
+	}
+
 	private Boolean hasVariazioni;
 
 	public ComponenteImportiCapitolo() {

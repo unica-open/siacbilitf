@@ -6,7 +6,7 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * SubOrdinativo DA NON USARE
@@ -15,7 +15,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public abstract class SubOrdinativo extends Entita {
+public abstract class SubOrdinativo extends EntitaEnte {
 
 	private static final long serialVersionUID = -2497362841914325556L;
 	private String descrizione;

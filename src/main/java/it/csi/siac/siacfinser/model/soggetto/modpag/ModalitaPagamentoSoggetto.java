@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.StringUtils;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.codifiche.ModalitaAccreditoSoggetto;
 import it.csi.siac.siacfinser.model.soggetto.ComuneNascita;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class ModalitaPagamentoSoggetto extends Entita {
+public class ModalitaPagamentoSoggetto extends EntitaEnte {
 
 	private static final long serialVersionUID = -3659783940885013287L;
 
@@ -92,6 +92,15 @@ public class ModalitaPagamentoSoggetto extends Entita {
 	private Date dataScadenza;
 	
 	private Boolean perStipendi;
+
+	public ModalitaPagamentoSoggetto() {
+		super();
+	}
+
+	public ModalitaPagamentoSoggetto(Integer uid) {
+		this();
+		setUid(uid);
+	}
 
 	public String getIntestazioneConto() {
 		return intestazioneConto;

@@ -6,7 +6,7 @@ package it.csi.siac.siacfin2ser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 /**
@@ -15,7 +15,7 @@ import it.csi.siac.siacbilser.model.ModelDetail;
  * @author Domenico
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum CapitoloUscitaGestioneModelDetail implements ModelDetail {
+public enum CapitoloUscitaGestioneModelDetail implements ModelDetailEnum {
 	
 	AttoDiLegge,
 	Attributi,
@@ -28,6 +28,8 @@ public enum CapitoloUscitaGestioneModelDetail implements ModelDetail {
 	ExCapitolo,
 	Stato,
 	Importi,
+	//SIAC-8191
+	AnnoCreazione,
 	
 
 }

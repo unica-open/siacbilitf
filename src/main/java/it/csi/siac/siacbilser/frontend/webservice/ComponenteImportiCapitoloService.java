@@ -79,4 +79,5 @@ public interface ComponenteImportiCapitoloService {
 	@WebMethod
 	@WebResult
 	AggiornaImportiCapitoloResponse aggiornaImportiCapitolo(@WebParam AggiornaImportiCapitolo parameters);
+
 }

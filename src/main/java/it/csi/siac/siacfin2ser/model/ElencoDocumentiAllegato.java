@@ -16,8 +16,7 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * The Class ElencoDocumentiAllegato.
@@ -27,11 +26,10 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 08-set-2014 17.51.48
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class ElencoDocumentiAllegato extends Entita {
+public class ElencoDocumentiAllegato extends EntitaEnte {
 	
 	private static final long serialVersionUID = -581871186743144927L;
 	
-	private Ente ente;
 	
 	// Primary Key
 	private Integer anno;
@@ -702,18 +700,14 @@ public class ElencoDocumentiAllegato extends Entita {
 	 *
 	 * @return the ente
 	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
 
 	/**
 	 * Sets the ente.
 	 *
 	 * @param ente the ente to set
 	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
 
 	/**
 	 * @return the saltaInserimentoInCaricaDocumenti

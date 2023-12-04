@@ -34,8 +34,9 @@ public class IndirizzoSoggetto extends Indirizzo {
 	private String idTipoIndirizzo;
 	private String idTipoIndirizzoDesc;
 
-	private String idComune;
+	private String codiceIstatComune;
 	private String comune;
+	private Integer comuneUid;
 
 	private String provincia;
 
@@ -68,12 +69,12 @@ public class IndirizzoSoggetto extends Indirizzo {
 		this.avviso = avviso;
 	}
 
-	public String getIdComune() {
-		return idComune;
+	public String getCodiceIstatComune() {
+		return codiceIstatComune;
 	}
 
-	public void setIdComune(String idComune) {
-		this.idComune = idComune;
+	public void setCodiceIstatComune(String codiceIstatComune) {
+		this.codiceIstatComune = codiceIstatComune;
 	}
 
 	public String getComune() {
@@ -180,6 +181,20 @@ public class IndirizzoSoggetto extends Indirizzo {
 			return Boolean.parseBoolean(principale);
 
 		return false;
+	}
+
+	/**
+	 * @return the comuneUid
+	 */
+	public Integer getComuneUid() {
+		return comuneUid;
+	}
+
+	/**
+	 * @param comuneUid the comuneUid to set
+	 */
+	public void setComuneUid(Integer comuneUid) {
+		this.comuneUid = comuneUid;
 	}
 
 }

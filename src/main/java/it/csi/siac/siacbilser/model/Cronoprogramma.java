@@ -20,15 +20,13 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class Cronoprogramma extends Entita {
+public class Cronoprogramma extends EntitaEnte {
 	
 	private static final long serialVersionUID = -4609080711847384626L;
 	
-	private Ente ente;
 	private Bilancio bilancio;
 	private String codice;
 	private String descrizione;
@@ -87,12 +85,8 @@ public class Cronoprogramma extends Entita {
 	public void setStatoOperativoCronoprogramma(StatoOperativoCronoprogramma statoOperativoCronoprogramma) {
 		this.statoOperativoCronoprogramma = statoOperativoCronoprogramma;
 	}
-	public Ente getEnte() {
-		return ente;
-	}
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 	public Bilancio getBilancio() {
 		return bilancio;
 	}

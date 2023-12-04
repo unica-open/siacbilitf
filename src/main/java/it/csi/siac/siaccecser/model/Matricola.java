@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -18,7 +18,7 @@ import it.csi.siac.siaccorser.model.Entita;
  */
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class Matricola extends Entita {
+public class Matricola extends EntitaEnte {
 	
 	private static final long serialVersionUID = -5946441627894371915L;
 	

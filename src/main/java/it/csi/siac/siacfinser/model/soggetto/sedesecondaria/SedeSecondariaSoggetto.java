@@ -10,7 +10,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.soggetto.Contatto;
 import it.csi.siac.siacfinser.model.soggetto.IndirizzoSoggetto;
@@ -23,7 +23,7 @@ import it.csi.siac.siacfinser.model.soggetto.modpag.ModalitaPagamentoSoggetto;
  * @author andrea.colombo
  *
  */
-public class SedeSecondariaSoggetto extends Entita {
+public class SedeSecondariaSoggetto extends EntitaEnte {
 	
 	private static final long serialVersionUID = -6429611277949190619L;
 
@@ -52,6 +52,9 @@ public class SedeSecondariaSoggetto extends Entita {
 	private Date dataStatoCorrente; 
 	private boolean inModifica;
 	
+	// SIAC-7568
+	private String codDestinatario;
+
 	/**
 	 * Valori possibili :PROVVISORIO,VALIDO, ANNULLATO, BLOCCATO, SOSPESO, IN_MODIFICA.
 	 * @author andrea.colombo
@@ -253,6 +256,14 @@ public class SedeSecondariaSoggetto extends Entita {
 
 	public void setDataModifica(Date dataModifica) {
 		this.dataModifica = dataModifica;
+	}
+
+	public String getCodDestinatario() {
+		return codDestinatario;
+	}
+
+	public void setCodDestinatario(String codDestinatario) {
+		this.codDestinatario = codDestinatario;
 	}
 
 }

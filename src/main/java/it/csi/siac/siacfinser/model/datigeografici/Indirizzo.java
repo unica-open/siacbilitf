@@ -6,11 +6,11 @@ package it.csi.siac.siacfinser.model.datigeografici;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class Indirizzo extends Entita{
+public class Indirizzo extends EntitaEnte{
 
 	/**
 	 * 

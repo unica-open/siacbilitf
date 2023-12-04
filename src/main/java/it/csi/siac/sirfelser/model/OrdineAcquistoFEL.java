@@ -4,8 +4,7 @@
 */
 package it.csi.siac.sirfelser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,11 +21,10 @@ import javax.xml.bind.annotation.XmlType;
  * @author Marchino Alessandro
  */
 @XmlType(namespace = FELDataDictionary.NAMESPACE)
-public class OrdineAcquistoFEL extends Entita {
+public class OrdineAcquistoFEL extends EntitaEnte {
 	
 	private static final long serialVersionUID = 4620005225300874685L;
 
-	private Ente ente;
 	
 	private String numeroDocumento;
 	private String cig;
@@ -41,19 +39,11 @@ public class OrdineAcquistoFEL extends Entita {
 	@XmlElement(name = "dettaglioOrdineAcquisto")
 	private List<DettaglioOrdineAcquistoFEL> dettagliOrdineAcquisto = new ArrayList<DettaglioOrdineAcquistoFEL>();
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the numeroDocumento

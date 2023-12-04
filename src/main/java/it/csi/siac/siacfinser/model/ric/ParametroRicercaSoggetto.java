@@ -38,7 +38,8 @@ public class ParametroRicercaSoggetto implements Serializable {
 	private String formaGiuridica;
 	private String sesso;
 	private String comuneNascita;
-	private String statoSoggetto;
+	private String idStatoSoggetto;
+	private String codiceStatoSoggetto;
 	private String idNazione;
 //	SIAC-6565-CR1215
 	private String emailPec;
@@ -133,12 +134,12 @@ public class ParametroRicercaSoggetto implements Serializable {
 		this.classe = classe;
 	}
 
-	public String getStatoSoggetto() {
-		return statoSoggetto;
+	public String getIdStatoSoggetto() {
+		return idStatoSoggetto;
 	}
 
-	public void setStatoSoggetto(String statoSoggetto) {
-		this.statoSoggetto = statoSoggetto;
+	public void setIdStatoSoggetto(String idStatoSoggetto) {
+		this.idStatoSoggetto = idStatoSoggetto;
 	}
 
 	public String getFormaGiuridica() {
@@ -195,6 +196,14 @@ public class ParametroRicercaSoggetto implements Serializable {
 
 	public void setCodDestinatario(String codDestinatario) {
 		this.codDestinatario = codDestinatario;
+	}
+
+	public String getCodiceStatoSoggetto() {
+		return codiceStatoSoggetto;
+	}
+
+	public void setCodiceStatoSoggetto(String codiceStatoSoggetto) {
+		this.codiceStatoSoggetto = codiceStatoSoggetto;
 	}
 
 }

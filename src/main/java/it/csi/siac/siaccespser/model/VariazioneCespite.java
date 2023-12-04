@@ -9,8 +9,7 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * Cespiti
@@ -19,7 +18,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @created 31-giu-2018
  */
 @XmlType(namespace = CESPDataDictionary.NAMESPACE)
-public class VariazioneCespite extends Entita {
+public class VariazioneCespite extends EntitaEnte {
 	
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 2337216234581995320L;
@@ -33,7 +32,6 @@ public class VariazioneCespite extends Entita {
 	private StatoVariazioneCespite statoVariazioneCespite;
 	private Cespite cespite;
 	
-	private Ente ente;
 	/**
 	 * @return the descrizione
 	 */
@@ -118,17 +116,9 @@ public class VariazioneCespite extends Entita {
 	public void setCespite(Cespite cespite) {
 		this.cespite = cespite;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return this.ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 
 }

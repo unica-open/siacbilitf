@@ -6,7 +6,7 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * AttoDiLiquidazione
@@ -15,7 +15,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class AttoDiLiquidazione extends Entita {
+public class AttoDiLiquidazione extends EntitaEnte {
 
 	private static final long serialVersionUID = -7861844664403296274L;
 

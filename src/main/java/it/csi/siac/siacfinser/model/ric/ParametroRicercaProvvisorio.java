@@ -47,6 +47,7 @@ public class ParametroRicercaProvvisorio implements Serializable {
 
 	private String flagDaRegolarizzare;
 	private String flagAnnullato;
+	private Boolean flagAccettato;
 	
 	private Date dataInizioEmissione;
 	private Date dataFineEmissione;
@@ -54,12 +55,13 @@ public class ParametroRicercaProvvisorio implements Serializable {
 	private Date dataInizioTrasmissione;
 	private Date dataFineTrasmissione;
 	
-	// SIAC-6879
 	private Date dataInizioInvioServizio;
 	private Date dataFineInvioServizio;
+	private Date dataInizioPresaInCaricoServizio;
+	private Date dataFinePresaInCaricoServizio;
 	private Date dataInizioRifiutoErrataAttribuzione;
 	private Date dataFineRifiutoErrataAttribuzione;
-	
+
 	private BigDecimal importoDa;
 	private BigDecimal importoA;
 	
@@ -290,6 +292,30 @@ public class ParametroRicercaProvvisorio implements Serializable {
 
 	public void setDataFineRifiutoErrataAttribuzione(Date dataFineRifiutoErrataAttribuzione) {
 		this.dataFineRifiutoErrataAttribuzione = dataFineRifiutoErrataAttribuzione;
+	}
+
+	public Date getDataInizioPresaInCaricoServizio() {
+		return dataInizioPresaInCaricoServizio;
+	}
+
+	public void setDataInizioPresaInCaricoServizio(Date dataInizioPresaInCaricoServizio) {
+		this.dataInizioPresaInCaricoServizio = dataInizioPresaInCaricoServizio;
+	}
+
+	public Date getDataFinePresaInCaricoServizio() {
+		return dataFinePresaInCaricoServizio;
+	}
+
+	public void setDataFinePresaInCaricoServizio(Date dataFinePresaInCaricoServizio) {
+		this.dataFinePresaInCaricoServizio = dataFinePresaInCaricoServizio;
+	}
+
+	public Boolean getFlagAccettato() {
+		return flagAccettato;
+	}
+
+	public void setFlagAccettato(Boolean flagAccettato) {
+		this.flagAccettato = flagAccettato;
 	}
 
 	

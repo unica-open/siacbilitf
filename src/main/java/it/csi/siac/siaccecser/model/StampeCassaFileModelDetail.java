@@ -6,11 +6,11 @@ package it.csi.siac.siaccecser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public enum StampeCassaFileModelDetail implements ModelDetail {
+public enum StampeCassaFileModelDetail implements ModelDetailEnum {
 	
 	AllegatoAtto,
 	Bilancio,

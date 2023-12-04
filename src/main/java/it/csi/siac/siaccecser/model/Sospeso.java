@@ -6,10 +6,10 @@ package it.csi.siac.siaccecser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class Sospeso extends Entita {
+public class Sospeso extends EntitaEnte {
 
 	private static final long serialVersionUID = 8229963151254629507L;
 	

@@ -15,8 +15,8 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.model.Ambito;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
+import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 /**
 
@@ -24,14 +24,13 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  * @created 14-apr-2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class PrimaNota extends EntitaExt{
+public class PrimaNota extends EntitaEnteExt {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8674567327792375593L;
 
-	private Ente ente;
 	private Bilancio bilancio;
 
 	private Integer numero;
@@ -49,7 +48,9 @@ public class PrimaNota extends EntitaExt{
 	private TipoRelazionePrimaNota tipoRelazionePrimaNota;
 	private List<PrimaNota> listaPrimaNotaPadre = new ArrayList<PrimaNota>();
 	private List<PrimaNota> listaPrimaNotaFiglia = new ArrayList<PrimaNota>();
-	
+	//SIAC-8595
+	private Integer anno;
+
 	@XmlElementWrapper(name = "listaRateoRisconto")
 	@XmlElements({
 		@XmlElement(name="rateo", type=Rateo.class),
@@ -73,18 +74,13 @@ public class PrimaNota extends EntitaExt{
 	private Conto contoInventario;
 	private PrimaNota primaNotaInventario;
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	//SIAC-8134
+	private StrutturaAmministrativoContabile strutturaCompetente;
+	
+	
+	
+	
+	
 	/**
 	 * @return the bilancio
 	 */
@@ -456,5 +452,24 @@ public class PrimaNota extends EntitaExt{
 	public void setPrimaNotaInventario(PrimaNota primaNotaInventario) {
 		this.primaNotaInventario = primaNotaInventario;
 	}
+	/**
+	 * @return the strutturaCompetente
+	 */
+	public StrutturaAmministrativoContabile getStrutturaCompetente() {
+		return strutturaCompetente;
+	}
+	/**
+	 * @param strutturaCompetente the strutturaCompetente to set
+	 */
+	public void setStrutturaCompetente(StrutturaAmministrativoContabile strutturaCompetente) {
+		this.strutturaCompetente = strutturaCompetente;
+	}
 	
+	//SIAC-8595
+	public Integer getAnno() {
+		return anno;
+	}
+	public void setAnno(Integer anno) {
+		this.anno = anno;
+	}
 }

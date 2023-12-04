@@ -36,6 +36,20 @@ public class RicercaAtti implements Serializable {
 	private String provenienza;
 	private Boolean inseritoManualmente;
 
+	public RicercaAtti(Integer anno, Integer numero, TipoAtto tipoAtto,
+			StrutturaAmministrativoContabile strutturaAmministrativoContabile) {
+		this.annoAtto = anno;
+		this.numeroAtto = numero;
+		this.tipoAtto = tipoAtto;
+		this.strutturaAmministrativoContabile = strutturaAmministrativoContabile;
+	}
+
+	public RicercaAtti() {}
+
+	public RicercaAtti(Integer uid) {
+		this.uid = uid;
+	}
+
 	/**
 	 * @return the annoAtto
 	 */

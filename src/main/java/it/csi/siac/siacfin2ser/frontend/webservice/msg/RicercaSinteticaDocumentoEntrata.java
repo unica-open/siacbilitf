@@ -4,15 +4,16 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
+import javax.xml.bind.annotation.XmlType;
+
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.DocumentoEntrata;
 import it.csi.siac.siacfin2ser.model.ElencoDocumentiAllegato;
+import it.csi.siac.siacfin2ser.model.PreDocumentoEntrata;
 import it.csi.siac.siacfinser.model.Accertamento;
-
-import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class RicercaSinteticaDocumentoEntrata extends ServiceRequest {
@@ -25,6 +26,9 @@ public class RicercaSinteticaDocumentoEntrata extends ServiceRequest {
 	private ElencoDocumentiAllegato elencoDocumenti;
 	private Boolean contabilizzaGenPcc;
 
+	//SIAC-6780
+	private PreDocumentoEntrata preDocumentoEntrata;
+	
 	/**
 	 * @return the documentoEntrata
 	 */
@@ -116,6 +120,20 @@ public class RicercaSinteticaDocumentoEntrata extends ServiceRequest {
 	 */
 	public void setContabilizzaGenPcc(Boolean contabilizzaGenPcc) {
 		this.contabilizzaGenPcc = contabilizzaGenPcc;
+	}
+
+	/**
+	 * @return the preDocumentoEntrata
+	 */
+	public PreDocumentoEntrata getPreDocumentoEntrata() {
+		return preDocumentoEntrata;
+	}
+
+	/**
+	 * @param preDocumentoEntrata the preDocumentoEntrata to set
+	 */
+	public void setPreDocumentoEntrata(PreDocumentoEntrata preDocumentoEntrata) {
+		this.preDocumentoEntrata = preDocumentoEntrata;
 	}
 
 }

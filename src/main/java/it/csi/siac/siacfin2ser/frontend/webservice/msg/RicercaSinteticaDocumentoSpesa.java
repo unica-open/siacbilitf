@@ -11,6 +11,7 @@ import it.csi.siac.siaccorser.model.paginazione.ParametriPaginazione;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.DocumentoSpesa;
 import it.csi.siac.siacfin2ser.model.ElencoDocumentiAllegato;
+import it.csi.siac.siacfin2ser.model.PreDocumentoSpesa;
 import it.csi.siac.siacfinser.model.Impegno;
 import it.csi.siac.siacfinser.model.liquidazione.Liquidazione;
 
@@ -31,6 +32,9 @@ public class RicercaSinteticaDocumentoSpesa extends ServiceRequest {
 
 	// Lotto M
 	private Boolean collegatoCEC;
+	
+	//SIAC-6780
+	private PreDocumentoSpesa predocumentoSpesa;
 
 	/**
 	 * @return the documentoSpesa
@@ -165,6 +169,19 @@ public class RicercaSinteticaDocumentoSpesa extends ServiceRequest {
 	public void setContabilizzaGenPcc(Boolean contabilizzaGenPcc) {
 		this.contabilizzaGenPcc = contabilizzaGenPcc;
 	}
-	
+
+	/**
+	 * @return the predocumentoSpesa
+	 */
+	public PreDocumentoSpesa getPredocumentoSpesa() {
+		return predocumentoSpesa;
+	}
+
+	/**
+	 * @param predocumentoSpesa the predocumentoSpesa to set
+	 */
+	public void setPredocumentoSpesa(PreDocumentoSpesa predocumentoSpesa) {
+		this.predocumentoSpesa = predocumentoSpesa;
+	}
 	
 }

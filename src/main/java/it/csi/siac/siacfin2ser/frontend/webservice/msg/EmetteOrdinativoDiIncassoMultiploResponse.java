@@ -60,6 +60,13 @@ public class EmetteOrdinativoDiIncassoMultiploResponse extends ServiceResponse {
 	public void addMessaggio(Messaggio messaggio) {
 		messaggi.add(messaggio);
 	}
+	
+	public void addMessaggi(List<Messaggio> messaggiInput) {
+		if(messaggi != null) {
+			this.messaggi.addAll(messaggiInput);
+		}
+	}
+
 	/**
 	 * @return the ordinativo
 	 */
@@ -110,5 +117,4 @@ public class EmetteOrdinativoDiIncassoMultiploResponse extends ServiceResponse {
 	public void setAccertamentiCache(Map<Integer, Accertamento> accertamentiCache) {
 		this.accertamentiCache = accertamentiCache;
 	}
-	
 }

@@ -4,15 +4,14 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class ProRataEChiusuraGruppoIva extends Entita {
+public class ProRataEChiusuraGruppoIva extends EntitaEnte {
 	
 	// siac_t_iva_prorata
 	
@@ -20,7 +19,6 @@ public class ProRataEChiusuraGruppoIva extends Entita {
 
 	private BigDecimal percentualeProRata = BigDecimal.ZERO;
 	private Integer ultimoMeseDefinito;
-	private Ente ente;
 	
 	// PK
 	private Integer annoEsercizio;
@@ -54,18 +52,10 @@ public class ProRataEChiusuraGruppoIva extends Entita {
 		this.ultimoMeseDefinito = ultimoMeseDefinito;
 	}
 	
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the annoEsercizio
 	 */

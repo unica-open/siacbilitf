@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
+import it.csi.siac.siacbilser.model.fcde.TipoMediaPrescelta;
 
 /**
  * Attributi del bilancio
@@ -22,13 +23,13 @@ public class AttributiBilancio implements Serializable {
 
 	private Boolean flagReimputaSpese;
 	private Boolean flagReimputaEntrate;
-	private Boolean accantonamentoGraduale;
-	private Boolean riscossioneVirtuosa;
-	private TipoMediaPrescelta mediaApplicata;
-	private BigDecimal percentualeAccantonamentoAnno;
-	private BigDecimal percentualeAccantonamentoAnno1;
-	private BigDecimal percentualeAccantonamentoAnno2;
-	private Integer ultimoAnnoApprovato;
+	@Deprecated private Boolean accantonamentoGraduale;
+	@Deprecated private Boolean riscossioneVirtuosa;
+	@Deprecated private TipoMediaPrescelta mediaApplicata;
+	@Deprecated private BigDecimal percentualeAccantonamentoAnno;
+	@Deprecated private BigDecimal percentualeAccantonamentoAnno1;
+	@Deprecated private BigDecimal percentualeAccantonamentoAnno2;
+	@Deprecated private Integer ultimoAnnoApprovato;
 	/**
 	 * @return the flagReimputaSpese
 	 */

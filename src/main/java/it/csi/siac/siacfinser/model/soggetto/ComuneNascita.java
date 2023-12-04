@@ -22,9 +22,6 @@ public class ComuneNascita extends Comune{
 	
 	private String siglaProvincia;
 
-	//ha lo stesso significato di comuneIstatCode serve per una veloce conversione in un dozer
-	private String comuneIstatCode;
-	
 
 	public String getSiglaProvincia() {
 		return siglaProvincia;
@@ -34,18 +31,6 @@ public class ComuneNascita extends Comune{
 	public void setSiglaProvincia(String siglaProvincia) {
 		this.siglaProvincia = siglaProvincia;
 	}
-
-
-	public String getComuneIstatCode() {
-		return comuneIstatCode;
-	}
-
-
-	public void setComuneIstatCode(String comuneIstatCode) {
-		this.comuneIstatCode = comuneIstatCode;
-		setCodiceIstat(comuneIstatCode);
-	}
-
 	
 	public void setUid(String uid){
 		if(null!=uid && !"".equalsIgnoreCase(uid)){
@@ -57,7 +42,7 @@ public class ComuneNascita extends Comune{
 	public static ComuneNascita createWithComuneIstatCode(String comuneIstatCode) {
 		ComuneNascita comuneNascita = new ComuneNascita();
 		
-		comuneNascita.setComuneIstatCode(comuneIstatCode);
+		comuneNascita.setCodiceIstat(comuneIstatCode);
 		
 		return comuneNascita;
 	}

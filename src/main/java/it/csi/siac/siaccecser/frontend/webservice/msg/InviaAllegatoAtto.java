@@ -8,6 +8,7 @@ import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.AllegatoAtto;
+import it.csi.siac.siacfin2ser.model.allegatoattochecklist.Checklist;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -18,6 +19,10 @@ public class InviaAllegatoAtto extends ServiceRequest {
 	
 	private Bilancio bilancio;
 	private Integer annoEsercizio;
+
+	
+	// SIAC-8804
+	private Checklist allegatoAttoChecklist;
 
 	/**
 	 * @return the allegatoAtto
@@ -59,6 +64,14 @@ public class InviaAllegatoAtto extends ServiceRequest {
 	 */
 	public void setAnnoEsercizio(Integer annoEsercizio) {
 		this.annoEsercizio = annoEsercizio;
+	}
+
+	public Checklist getAllegatoAttoChecklist() {
+		return allegatoAttoChecklist;
+	}
+
+	public void setAllegatoAttoChecklist(Checklist allegatoAttoChecklist) {
+		this.allegatoAttoChecklist = allegatoAttoChecklist;
 	}
 
 	

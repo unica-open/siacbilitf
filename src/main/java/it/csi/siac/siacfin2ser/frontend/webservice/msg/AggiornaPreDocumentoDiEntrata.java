@@ -9,6 +9,7 @@ import it.csi.siac.siaccorser.model.ServiceRequest;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.PreDocumentoEntrata;
 
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
@@ -18,7 +19,10 @@ public class AggiornaPreDocumentoDiEntrata extends ServiceRequest {
 	private Bilancio bilancio;
 	
 	private boolean gestisciModificaImportoAccertamento = false; 
-
+	
+	//SIAC-6780
+	private boolean saltaCheckDisponibilita = false; 
+	
 	/**
 	 * @return the preDocumentoEntrata
 	 */
@@ -60,7 +64,22 @@ public class AggiornaPreDocumentoDiEntrata extends ServiceRequest {
 	public void setGestisciModificaImportoAccertamento(boolean gestisciModificaImportoAccertamento) {
 		this.gestisciModificaImportoAccertamento = gestisciModificaImportoAccertamento;
 	}
-	
-	
 
+	/**
+	 * @return the aggiornaPreDocCollegaDocumento
+	 */
+	@XmlTransient
+	public boolean isSaltaCheckDisponibilita() {
+		return saltaCheckDisponibilita;
+	}
+
+	/**
+	 * Sets the salta check disponibilita.
+	 *
+	 * @param saltaCheckDisponibilita the new salta check disponibilita
+	 */
+	public void setSaltaCheckDisponibilita(boolean saltaCheckDisponibilita) {
+		this.saltaCheckDisponibilita = saltaCheckDisponibilita;
+	}
+	
 }

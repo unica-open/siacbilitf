@@ -16,6 +16,7 @@ import it.csi.siac.siacattser.model.TipoAtto;
 import it.csi.siac.siacbilser.frontend.webservice.BILSvcDictionary;
 import it.csi.siac.siacbilser.model.GenereVincolo;
 import it.csi.siac.siacbilser.model.ModalitaAffidamentoProgetto;
+import it.csi.siac.siacbilser.model.RisorsaVincolata;
 import it.csi.siac.siaccecser.model.MezziDiTrasporto;
 import it.csi.siac.siaccecser.model.ModalitaAccreditoCassaEconomale;
 import it.csi.siac.siaccecser.model.ModalitaPagamentoDipendente;
@@ -87,6 +88,8 @@ public class RicercaCodificheResponse extends ServiceResponse {
 			
 			// SIAC-5076
 			@XmlElement(name="genereVincolo", type=GenereVincolo.class),
+			// SIAC-7192
+			@XmlElement(name="risorsaVincolata", type=RisorsaVincolata.class),
 			
 			// SIAC-5311 SIOPE+
 			@XmlElement(name="siopeDocumentoTipo", type=SiopeDocumentoTipo.class),
@@ -96,6 +99,7 @@ public class RicercaCodificheResponse extends ServiceResponse {
 			@XmlElement(name="siopeTipoDebito", type=SiopeTipoDebito.class),
 			//SIAC-6255
 			@XmlElement(name="modalitaAffidamentoProgetto", type=ModalitaAffidamentoProgetto.class),
+			
 			
 			//Attenzione: Se aggiungi codifiche qui aggiungile anche in RicercaCodificaResponse
 

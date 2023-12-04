@@ -11,8 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * @author 552
@@ -21,7 +20,7 @@ import it.csi.siac.siaccorser.model.Entita;
  */
 
 @XmlType(namespace = CECDataDictionary.NAMESPACE)
-public class OperazioneCassa extends Entita {
+public class OperazioneCassa extends EntitaEnte {
 
 	private static final long serialVersionUID = -1255893040563363315L;
 	
@@ -37,7 +36,6 @@ public class OperazioneCassa extends Entita {
 	private TipoOperazioneCassa tipoOperazioneCassa;
 	private AttoAmministrativo attoAmministrativo;
 	private StatoOperativoOperazioneCassa statoOperativoOperazioneCassa;
-	private Ente ente;
 	private Bilancio bilancio;
 	/**
 	 * @return the numeroOperazione
@@ -153,18 +151,10 @@ public class OperazioneCassa extends Entita {
 	public void setStatoOperativoOperazioneCassa(StatoOperativoOperazioneCassa statoOperativoOperazioneCassa) {
 		this.statoOperativoOperazioneCassa = statoOperativoOperazioneCassa;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the bilancio
 	 */

@@ -23,5 +23,4 @@ public class RicercaDettaglioQuotaEntrata extends ServiceRequest {
 		this.subdocumentoEntrata = subdocumentoEntrata;
 	}
 	
-	
 }

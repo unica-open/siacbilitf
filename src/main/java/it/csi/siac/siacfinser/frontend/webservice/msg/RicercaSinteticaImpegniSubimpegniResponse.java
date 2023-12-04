@@ -13,7 +13,6 @@ import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 import it.csi.siac.siacfinser.model.Impegno;
 
 /**
- * Response al metodo FIN.MutuoService.ricercaImpegniSubImpegni()
  * 
  * @author
  * 

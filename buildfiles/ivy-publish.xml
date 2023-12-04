@@ -1,10 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
 SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
 SPDX-License-Identifier: EUPL-1.2
 -->
+
+
 <ivy-module version="2.0">
-	<info organisation="csipiemonte" module="siac-bilitf" revision="4.20.0" />
+	<info organisation="csipiemonte" module="siac-bilitf" revision="5.18.0" />
 	<publications>
-		<artifact name="siacbilitf-4.20.0" type="jar" />
+		<artifact name="siacbilitf-5.18.0" type="jar" />
 	</publications>
 </ivy-module>

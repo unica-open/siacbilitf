@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacattser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = ATTDataDictionary.NAMESPACE)
-public class AttoDiLegge extends Entita {
+public class AttoDiLegge extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = -4979715011307801448L;

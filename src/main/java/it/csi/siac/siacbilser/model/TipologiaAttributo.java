@@ -24,8 +24,12 @@ public enum TipologiaAttributo {
 	FLAG_FONDO_PLURIENNALE_VINC("FPV"),	
 	FLAG_TRASFERIMENTI_VINCOLATI("Trasferimenti vincolati"),
 	FLAG_IMPEGNABILE("Impegnabile"),
+	//task-55
+	FLAG_NON_INSERIRE_ALLEGATO_A1("Non inserire allegato A1"),
 	// SIAC-5582
 	FLAG_ACCERTATO_PER_CASSA("Accertato per cassa"),
+	// SIAC-7858
+	FLAG_ENTRATA_DUBBIA_ESIG_FCDE("Entrata di dubbia esigibilità (FCDE)"),
 	//Progetto e cronoprogramma
 	VALORE_COMPLESSIVO_PROGETTO("Valore complessivo progetto"),
 	FLAG_RILEVANTE_FPV("Rilevante FPV"),
@@ -83,7 +87,6 @@ public enum TipologiaAttributo {
 	FLAG_CAUSALE_ORDINATIVO,
 	CIG,
 	CUP,
-	NUMERO_MUTUO,
 	DATA_ESECUZIONE_PAGAMENTO,
 	
 	//Subdocumento.datiCertificazioneCrediti

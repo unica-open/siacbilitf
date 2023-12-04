@@ -10,11 +10,10 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class RegistroIva extends Entita {
+public class RegistroIva extends EntitaEnte {
 	
 	// siac_t_iva_registro
 	
@@ -27,7 +26,6 @@ public class RegistroIva extends Entita {
 	
 	// ivareg_tipo_id
 	private TipoRegistroIva tipoRegistroIva;
-	private Ente ente;
 	private GruppoAttivitaIva gruppoAttivitaIva;
 	private List<ContatoreRegistroIva> listaContatoreRegistroIva = new ArrayList<ContatoreRegistroIva>();
 
@@ -74,18 +72,10 @@ public class RegistroIva extends Entita {
 	public void setTipoRegistroIva(TipoRegistroIva tipoRegistroIva) {
 		this.tipoRegistroIva = tipoRegistroIva;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the gruppoAttivitaIva
 	 */

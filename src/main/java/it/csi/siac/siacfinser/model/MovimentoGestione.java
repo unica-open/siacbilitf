@@ -6,14 +6,26 @@ package it.csi.siac.siacfinser.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siacattser.model.TipoAtto;
+import it.csi.siac.siacbilser.model.Capitolo;
+import it.csi.siac.siacbilser.model.ImportiCapitolo;
 import it.csi.siac.siacbilser.model.Progetto;
+import it.csi.siac.siacbilser.model.StatoOperativoMovimentoGestione;
+import it.csi.siac.siacbilser.model.TipoComponenteImportiCapitolo;
+import it.csi.siac.siacbilser.model.movimentogestione.MutuoAssociatoMovimentoGestione;
+import it.csi.siac.siaccorser.model.Bilancio;
+import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfinser.model.codifiche.ClasseSoggetto;
+import it.csi.siac.siacfinser.model.movgest.ComponenteBilancio;
 import it.csi.siac.siacfinser.model.siopeplus.SiopeAssenzaMotivazione;
 import it.csi.siac.siacfinser.model.siopeplus.SiopeTipoDebito;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
@@ -24,7 +36,7 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  *
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public abstract class MovimentoGestione extends TransazioneElementare {
+public /*can't be abstract*/ class MovimentoGestione extends TransazioneElementare {
 
 	private static final long serialVersionUID = -9184089589875390594L;
 	
@@ -33,8 +45,14 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 	private String tipoMovimento;
 	private String tipoMovimentoDesc;
 
-	// Numero del movimento unico all'interno dell'anno
-	private BigDecimal numero;
+	protected Capitolo<? extends ImportiCapitolo, ? extends ImportiCapitolo> capitolo;
+
+	protected ComponenteBilancio componenteBilancioMovimentoGestione;
+	
+	@Deprecated
+	@XmlElement(name = "numero")
+	private BigDecimal numeroBigDecimal;
+
 	private int annoMovimento;
 
 	// Data inserimento nel sistema dell'entit?
@@ -50,7 +68,7 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 
 	private String descrizione;
 	
-	private boolean byPassControlloDodicesimi=false;
+	private boolean byPassControlloDodicesimi = false;
 
 	// Importo con cui nasce il movimento nell'anno. Questo dato si mantiene
 	private BigDecimal importoIniziale;
@@ -71,6 +89,27 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 
 	// Indica se il movimento nasce da un riaccertamento residui.
 	private boolean flagDaRiaccertamento;
+	
+	//SIAC-6997
+	private boolean flagDaReanno;
+	private String strutturaCompetente; 
+	private StrutturaAmministrativoContabile strutturaCompetenteObj;
+	private BigDecimal importoDaRiaccertare;
+	private BigDecimal importoMaxDaRiaccertare;
+	private BigDecimal importoModifiche;
+	private BigDecimal residuoDaMantenere;
+	private BigDecimal daCancellareInsussistenza;
+	private BigDecimal daCancellareInesigibilita;
+	private BigDecimal differitoN;
+	private BigDecimal differitoN1;
+	private BigDecimal differitoN2;
+	private BigDecimal differitoNP;
+	private int numeroTotaleModifcheMovimento;
+	//SIAC-7599
+	private BigDecimal liquidatoAnnoSuccessivo;
+	private BigDecimal documentiNoLiqAnnoSuccessivo;
+	private BigDecimal documentiNoIncassatiAnnoSuccessivo;
+	private BigDecimal incassatoAnnoSuccessivo;
 	
 	private boolean flagSoggettoDurc;
 	
@@ -108,10 +147,6 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 	private TipoAtto attoAmmTipoAtto;
 	private Soggetto soggetto;
 	private ClasseSoggetto classeSoggetto;
-	// private CodificaFin progetto;
-
-	// List<ModificaMovimentoGestioneSpesa>
-	// listaModificheMovimentoGestioneSpesa;
 
 	private AttributoMovimentoGestione attributoMovimentoGestione;
 	
@@ -123,8 +158,6 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 	private boolean collegatoALiquidazioni = false;
 	private boolean collegatoAOrdinativi = false;
 	
-	//nuovi campi per siope plus:
-
 	//assenza motivazione cig:
 	private SiopeAssenzaMotivazione siopeAssenzaMotivazione;
 	
@@ -133,18 +166,62 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 	
 	protected Progetto progetto;
 	
+	//SIAC-8650
+	private Bilancio bilancio;
+	
+	//SIAC-7689
+	private boolean flagSkipInsertMovDoppiaGestione;
 	
 	
+	private StatoOperativoMovimentoGestione statoOperativo;
+
+	private List<MutuoAssociatoMovimentoGestione> elencoMutuiAssociati;
+	private Integer totaleMutuiAssociati;
 	
+	
+	@XmlElementWrapper(name = "listaDettagliPerBilancio")
+	@XmlElement(name = "dettaglioPerBilancio")
+	protected List<? extends MovimentoGestione> dettagliPerBilancio;
+	
+	/**
+	 * @return the flagSkipInsertMovDoppiaGestione
+	 */
+	public boolean isFlagSkipInsertMovDoppiaGestione() {
+		return flagSkipInsertMovDoppiaGestione;
+	}
+
+	/**
+	 * @param flagSkipInsertMovDoppiaGestione the flagSkipInsertMovDoppiaGestione to set
+	 */
+	public void setFlagSkipInsertMovDoppiaGestione(boolean flagSkipInsertMovDoppiaGestione) {
+		this.flagSkipInsertMovDoppiaGestione = flagSkipInsertMovDoppiaGestione;
+	}
+	
+	public MovimentoGestione(MovimentoGestione movimentoGestione) {
+		this();
+		setAnnoMovimento(movimentoGestione.annoMovimento);
+		setNumeroBigDecimal(movimentoGestione.numeroBigDecimal);
+		setCapitolo(movimentoGestione.getCapitolo());
+		setAttoAmministrativo(movimentoGestione.getAttoAmministrativo());
+		setSoggetto(movimentoGestione.getSoggetto());
+		setComponenteBilancioMovimentoGestione(movimentoGestione.getComponenteBilancioMovimentoGestione());
+	}
+	
+	public MovimentoGestione() {
+		super();
+	}
+
 	@XmlType(namespace = FINDataDictionary.NAMESPACE)
 	public enum AttributoMovimentoGestione {
 		annoCapitoloOrigine, annoOriginePlur, annoRiaccertato, numeroArticoloOrigine, 
-		flagDaRiaccertamento,FlagCollegamentoAccertamentoFattura,FlagCollegamentoAccertamentoCorrispettivo,FlagAttivaGsa, numeroCapitoloOrigine,
+		flagDaRiaccertamento,flagDaReanno,FlagCollegamentoAccertamentoFattura,FlagCollegamentoAccertamentoCorrispettivo,FlagAttivaGsa, numeroCapitoloOrigine,
 		numeroOriginePlur, numeroRiaccertato, numeroUEBOrigine, annoFinanziamento, cig, cup, 
 		numeroAccFinanziamento, validato,flagPrenotazione,flagPrenotazioneLiquidabile, flagCassaEconomale, 
 		flagSDF,flagFrazionabile,annoScritturaEconomicoPatrimoniale,
 		flagSoggettoDurc,
-		NON_RICONOSCIUTO
+		NON_RICONOSCIUTO, annoPrenotazioneOrigine, 
+		//SIAC-8178
+		codVerbaleAccertamento
 	}
 
 	public String getTipoMovimento() {
@@ -155,12 +232,22 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 		this.tipoMovimento = tipoMovimento;
 	}
 
-	public BigDecimal getNumero() {
-		return numero;
+	@XmlTransient
+	public BigDecimal getNumeroBigDecimal() {
+		return numeroBigDecimal;
 	}
 
-	public void setNumero(BigDecimal numero) {
-		this.numero = numero;
+
+	public Integer getNumero() {
+		return numeroBigDecimal == null ? null : numeroBigDecimal.intValue();
+	}
+
+	public void setNumeroBigDecimal(BigDecimal numero) {
+		this.numeroBigDecimal = numero;
+	}
+
+	public void setNumero(Integer numero) {
+		this.numeroBigDecimal = numero == null ? null : BigDecimal.valueOf(numero.intValue());
 	}
 
 	public int getAnnoMovimento() {
@@ -169,6 +256,14 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 
 	public void setAnnoMovimento(int annoMovimento) {
 		this.annoMovimento = annoMovimento;
+	}
+	
+	public void setAnno(Integer anno) {
+		setAnnoMovimento(anno == null ? 0 : Integer.valueOf(anno));
+	}
+
+	public Integer getAnno() {
+		return annoMovimento == 0 ? null : Integer.valueOf(annoMovimento);
 	}
 
 	@XmlSchemaType(type = java.util.Date.class, name = "dateTime")
@@ -253,6 +348,25 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 	public void setNumeroUEBOrigine(int numeroUEBOrigine) {
 		this.numeroUEBOrigine = numeroUEBOrigine;
 	}
+
+	
+	
+	/**
+	 * @return the flagDaReanno
+	 */
+	public boolean isFlagDaReanno() {
+		return flagDaReanno;
+	}
+
+	/**
+	 * @param flagDaReanno the flagDaReanno to set
+	 */
+	public void setFlagDaReanno(boolean flagDaReanno) {
+		this.flagDaReanno = flagDaReanno;
+	}
+	
+	
+ 
 
 	public boolean isFlagDaRiaccertamento() {
 		return flagDaRiaccertamento;
@@ -350,18 +464,6 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 		this.classeSoggetto = classeSoggetto;
 	}
 
-	// public List<ModificaMovimentoGestioneSpesa>
-	// getListaModificheMovimentoGestioneSpesa() {
-	// return listaModificheMovimentoGestioneSpesa;
-	// }
-	//
-	// public void setListaModificheMovimentoGestioneSpesa(
-	// List<ModificaMovimentoGestioneSpesa>
-	// listaModificheMovimentoGestioneSpesa) {
-	// this.listaModificheMovimentoGestioneSpesa =
-	// listaModificheMovimentoGestioneSpesa;
-	// }
-
 	public AttributoMovimentoGestione getAttributoMovimentoGestione() {
 		return attributoMovimentoGestione;
 	}
@@ -396,118 +498,6 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 		this.tipoMovimentoDesc = tipoMovimentoDesc;
 	}
 
-	/*
-	 * public String getCodProgramma() { return codProgramma; }
-	 * 
-	 * public void setCodProgramma(String codProgramma) { this.codProgramma =
-	 * codProgramma; }
-	 * 
-	 * public String getDescProgramma() { return descProgramma; }
-	 * 
-	 * public void setDescProgramma(String descProgramma) { this.descProgramma =
-	 * descProgramma; }
-	 * 
-	 * public String getCodPdc() { return codPdc; }
-	 * 
-	 * public void setCodPdc(String codPdc) { this.codPdc = codPdc; }
-	 * 
-	 * public String getDescPdc() { return descPdc; }
-	 * 
-	 * public void setDescPdc(String descPdc) { this.descPdc = descPdc; }
-	 * 
-	 * public String getCodContoEconomico() { return codContoEconomico; }
-	 * 
-	 * public void setCodContoEconomico(String codContoEconomico) {
-	 * this.codContoEconomico = codContoEconomico; }
-	 * 
-	 * public String getDescCodContoEconomico() { return descCodContoEconomico;
-	 * }
-	 * 
-	 * public void setDescCodContoEconomico(String descCodContoEconomico) {
-	 * this.descCodContoEconomico = descCodContoEconomico; }
-	 * 
-	 * public String getCodCofog() { return codCofog; }
-	 * 
-	 * public void setCodCofog(String codCofog) { this.codCofog = codCofog; }
-	 * 
-	 * public String getCodTransazioneEuropeaSpesa() { return
-	 * codTransazioneEuropeaSpesa; }
-	 * 
-	 * public void setCodTransazioneEuropeaSpesa(String
-	 * codTransazioneEuropeaSpesa) { this.codTransazioneEuropeaSpesa =
-	 * codTransazioneEuropeaSpesa; }
-	 * 
-	 * public String getDescTransazioneEuropeaSpesa() { return
-	 * descTransazioneEuropeaSpesa; }
-	 * 
-	 * public void setDescTransazioneEuropeaSpesa(String
-	 * descTransazioneEuropeaSpesa) { this.descTransazioneEuropeaSpesa =
-	 * descTransazioneEuropeaSpesa; }
-	 * 
-	 * public String getCodSiope() { return codSiope; }
-	 * 
-	 * public void setCodSiope(String codSiope) { this.codSiope = codSiope; }
-	 * 
-	 * public String getDescCodSiope() { return descCodSiope; }
-	 * 
-	 * public void setDescCodSiope(String descCodSiope) { this.descCodSiope =
-	 * descCodSiope; }
-	 * 
-	 * public String getCodRicorrenteSpesa() { return codRicorrenteSpesa; }
-	 * 
-	 * public void setCodRicorrenteSpesa(String codRicorrenteSpesa) {
-	 * this.codRicorrenteSpesa = codRicorrenteSpesa; }
-	 * 
-	 * public String getCodCapitoloSanitarioSpesa() { return
-	 * codCapitoloSanitarioSpesa; }
-	 * 
-	 * public void setCodCapitoloSanitarioSpesa(String
-	 * codCapitoloSanitarioSpesa) { this.codCapitoloSanitarioSpesa =
-	 * codCapitoloSanitarioSpesa; }
-	 * 
-	 * public String getCodPrgPolReg() { return codPrgPolReg; }
-	 * 
-	 * public void setCodPrgPolReg(String codPrgPolReg) { this.codPrgPolReg =
-	 * codPrgPolReg; }
-	 * 
-	 * public String getCodClassGen11() { return codClassGen11; }
-	 * 
-	 * public void setCodClassGen11(String codClassGen11) { this.codClassGen11 =
-	 * codClassGen11; }
-	 * 
-	 * public String getCodClassGen12() { return codClassGen12; }
-	 * 
-	 * public void setCodClassGen12(String codClassGen12) { this.codClassGen12 =
-	 * codClassGen12; }
-	 * 
-	 * public String getCodClassGen13() { return codClassGen13; }
-	 * 
-	 * public void setCodClassGen13(String codClassGen13) { this.codClassGen13 =
-	 * codClassGen13; }
-	 * 
-	 * public String getCodClassGen14() { return codClassGen14; }
-	 * 
-	 * public void setCodClassGen14(String codClassGen14) { this.codClassGen14 =
-	 * codClassGen14; }
-	 * 
-	 * public String getCodClassGen15() { return codClassGen15; }
-	 * 
-	 * public void setCodClassGen15(String codClassGen15) { this.codClassGen15 =
-	 * codClassGen15; }
-	 * 
-	 * public Integer getIdPdc() { return idPdc; }
-	 * 
-	 * public void setIdPdc(Integer idPdc) { this.idPdc = idPdc; }
-	 * 
-	 * public Integer getIdSiope() { return idSiope; }
-	 * 
-	 * public void setIdSiope(Integer idSiope) { this.idSiope = idSiope; }
-	 * 
-	 * public Integer getIdContoEconomico() { return idContoEconomico; }
-	 * 
-	 * public void setIdContoEconomico(Integer idContoEconomico) {
-	 * this.idContoEconomico = idContoEconomico; }
-	 */
 
 	public String getAttoAmmAnno() {
 		return attoAmmAnno;
@@ -683,6 +673,306 @@ public abstract class MovimentoGestione extends TransazioneElementare {
 		this.progetto = progetto;
 	}
 
+	/**
+	 * @return the strutturaCompetente
+	 */
+	public String getStrutturaCompetente() {
+		return strutturaCompetente;
+	}
+
+	/**
+	 * @param strutturaCompetente the strutturaCompetente to set
+	 */
+	public void setStrutturaCompetente(String strutturaCompetente) {
+		this.strutturaCompetente = strutturaCompetente;
+	}
+
+	/**
+	 * @return the importoDaRiaccertare
+	 */
+	public BigDecimal getImportoDaRiaccertare() {
+		return importoDaRiaccertare;
+	}
+
+	/**
+	 * @return the importoMaxDaRiaccertare
+	 */
+	public BigDecimal getImportoMaxDaRiaccertare() {
+		return importoMaxDaRiaccertare;
+	}
+
+	/**
+	 * @return the importoModifiche
+	 */
+	public BigDecimal getImportoModifiche() {
+		return importoModifiche;
+	}
+
+	/**
+	 * @return the residuoDaMantenere
+	 */
+	public BigDecimal getResiduoDaMantenere() {
+		return residuoDaMantenere;
+	}
+
+	/**
+	 * @return the daCancellareInsussistenza
+	 */
+	public BigDecimal getDaCancellareInsussistenza() {
+		return daCancellareInsussistenza;
+	}
+
+	/**
+	 * @return the daCancellareInesigibilita
+	 */
+	public BigDecimal getDaCancellareInesigibilita() {
+		return daCancellareInesigibilita;
+	}
+
+	/**
+	 * @return the differitoN
+	 */
+	public BigDecimal getDifferitoN() {
+		return differitoN;
+	}
+
+	/**
+	 * @return the differitoN1
+	 */
+	public BigDecimal getDifferitoN1() {
+		return differitoN1;
+	}
+
+	/**
+	 * @return the differitoN2
+	 */
+	public BigDecimal getDifferitoN2() {
+		return differitoN2;
+	}
+
+	/**
+	 * @return the differitoNP
+	 */
+	public BigDecimal getDifferitoNP() {
+		return differitoNP;
+	}
+
+	/**
+	 * @param importoDaRiaccertare the importoDaRiaccertare to set
+	 */
+	public void setImportoDaRiaccertare(BigDecimal importoDaRiaccertare) {
+		this.importoDaRiaccertare = importoDaRiaccertare;
+	}
+
+	/**
+	 * @param importoMaxDaRiaccertare the importoMaxDaRiaccertare to set
+	 */
+	public void setImportoMaxDaRiaccertare(BigDecimal importoMaxDaRiaccertare) {
+		this.importoMaxDaRiaccertare = importoMaxDaRiaccertare;
+	}
+
+	/**
+	 * @param importoModifiche the importoModifiche to set
+	 */
+	public void setImportoModifiche(BigDecimal importoModifiche) {
+		this.importoModifiche = importoModifiche;
+	}
+
+	/**
+	 * @param residuoDaMantenere the residuoDaMantenere to set
+	 */
+	public void setResiduoDaMantenere(BigDecimal residuoDaMantenere) {
+		this.residuoDaMantenere = residuoDaMantenere;
+	}
+
+	/**
+	 * @param daCancellareInsussistenza the daCancellareInsussistenza to set
+	 */
+	public void setDaCancellareInsussistenza(BigDecimal daCancellareInsussistenza) {
+		this.daCancellareInsussistenza = daCancellareInsussistenza;
+	}
+
+	/**
+	 * @param daCancellareInesigibilita the daCancellareInesigibilita to set
+	 */
+	public void setDaCancellareInesigibilita(BigDecimal daCancellareInesigibilita) {
+		this.daCancellareInesigibilita = daCancellareInesigibilita;
+	}
+
+	/**
+	 * @param differitoN the differitoN to set
+	 */
+	public void setDifferitoN(BigDecimal differitoN) {
+		this.differitoN = differitoN;
+	}
+
+	/**
+	 * @param differitoN1 the differitoN1 to set
+	 */
+	public void setDifferitoN1(BigDecimal differitoN1) {
+		this.differitoN1 = differitoN1;
+	}
+
+	/**
+	 * @param differitoN2 the differitoN2 to set
+	 */
+	public void setDifferitoN2(BigDecimal differitoN2) {
+		this.differitoN2 = differitoN2;
+	}
+
+	/**
+	 * @param differitoNP the differitoNP to set
+	 */
+	public void setDifferitoNP(BigDecimal differitoNP) {
+		this.differitoNP = differitoNP;
+	}
+
+	/**
+	 * @return the strutturaCompetenteObj
+	 */
+	public StrutturaAmministrativoContabile getStrutturaCompetenteObj() {
+		return strutturaCompetenteObj;
+	}
+
+	/**
+	 * @param strutturaCompetenteObj the strutturaCompetenteObj to set
+	 */
+	public void setStrutturaCompetenteObj(StrutturaAmministrativoContabile strutturaCompetenteObj) {
+		this.strutturaCompetenteObj = strutturaCompetenteObj;
+	}
+
+	/**
+	 * @return the numeroTotaleModifcheMovimento
+	 */
+	public int getNumeroTotaleModifcheMovimento() {
+		return numeroTotaleModifcheMovimento;
+	}
+
+	/**
+	 * @param numeroTotaleModifcheMovimento the numeroTotaleModifcheMovimento to set
+	 */
+	public void setNumeroTotaleModifcheMovimento(int numeroTotaleModifcheMovimento) {
+		this.numeroTotaleModifcheMovimento = numeroTotaleModifcheMovimento;
+	}
+
+	/**
+	 * @return the liquidatoAnnoSuccessivo
+	 */
+	public BigDecimal getLiquidatoAnnoSuccessivo() {
+		return liquidatoAnnoSuccessivo;
+	}
+
+	/**
+	 * @return the documentiNoLiqAnnoSuccessivo
+	 */
+	public BigDecimal getDocumentiNoLiqAnnoSuccessivo() {
+		return documentiNoLiqAnnoSuccessivo;
+	}
+
+	/**
+	 * @param liquidatoAnnoSuccessivo the liquidatoAnnoSuccessivo to set
+	 */
+	public void setLiquidatoAnnoSuccessivo(BigDecimal liquidatoAnnoSuccessivo) {
+		this.liquidatoAnnoSuccessivo = liquidatoAnnoSuccessivo;
+	}
+
+	/**
+	 * @param documentiNoLiqAnnoSuccessivo the documentiNoLiqAnnoSuccessivo to set
+	 */
+	public void setDocumentiNoLiqAnnoSuccessivo(BigDecimal documentiNoLiqAnnoSuccessivo) {
+		this.documentiNoLiqAnnoSuccessivo = documentiNoLiqAnnoSuccessivo;
+	}
+
+	/**
+	 * @return the documentiNoIncassatiAnnoSuccessivo
+	 */
+	public BigDecimal getDocumentiNoIncassatiAnnoSuccessivo() {
+		return documentiNoIncassatiAnnoSuccessivo;
+	}
+
+	/**
+	 * @return the incassatoAnnoSuccessivo
+	 */
+	public BigDecimal getIncassatoAnnoSuccessivo() {
+		return incassatoAnnoSuccessivo;
+	}
+
+	/**
+	 * @param documentiNoIncassatiAnnoSuccessivo the documentiNoIncassatiAnnoSuccessivo to set
+	 */
+	public void setDocumentiNoIncassatiAnnoSuccessivo(BigDecimal documentiNoIncassatiAnnoSuccessivo) {
+		this.documentiNoIncassatiAnnoSuccessivo = documentiNoIncassatiAnnoSuccessivo;
+	}
+
+	/**
+	 * @param incassatoAnnoSuccessivo the incassatoAnnoSuccessivo to set
+	 */
+	public void setIncassatoAnnoSuccessivo(BigDecimal incassatoAnnoSuccessivo) {
+		this.incassatoAnnoSuccessivo = incassatoAnnoSuccessivo;
+	}
+
+	/**
+	 * @return the bilancio
+	 */
+	public Bilancio getBilancio() {
+		return bilancio;
+	}
+
+	/**
+	 * @param bilancio the bilancio to set
+	 */
+	public void setBilancio(Bilancio bilancio) {
+		this.bilancio = bilancio;
+	}
+
+	public StatoOperativoMovimentoGestione getStatoOperativo() {
+		return statoOperativo;
+	}
+
+	public void setStatoOperativo(StatoOperativoMovimentoGestione statoOperativo) {
+		this.statoOperativo = statoOperativo;
+	}
+
+	public List<MutuoAssociatoMovimentoGestione> getElencoMutuiAssociati() {
+		return elencoMutuiAssociati;
+	}
+
+	public void setElencoMutuiAssociati(List<MutuoAssociatoMovimentoGestione> elencoMutuiAssociati) {
+		this.elencoMutuiAssociati = elencoMutuiAssociati;
+	}
+
+	public Integer getTotaleMutuiAssociati() {
+		return totaleMutuiAssociati;
+	}
+
+	public void setTotaleMutuiAssociati(Integer totaleMutuiAssociati) {
+		this.totaleMutuiAssociati = totaleMutuiAssociati;
+	}
+
+	@XmlTransient
+	protected List<? extends MovimentoGestione> getDettagliPerBilancio() {
+		return dettagliPerBilancio;
+		
+	}		
 	
+	public void setDettagliPerBilancio(List<? extends MovimentoGestione> dettagliPerBilancio) {
+		this.dettagliPerBilancio =  dettagliPerBilancio;
+	}
+
+	public Capitolo<? extends ImportiCapitolo, ? extends ImportiCapitolo> getCapitolo() {
+		return capitolo;
+	}
+
+	public void setCapitolo(Capitolo<? extends ImportiCapitolo, ? extends ImportiCapitolo> capitolo) {
+		this.capitolo = capitolo; 
+	}
+
+	public ComponenteBilancio getComponenteBilancioMovimentoGestione() {
+		return componenteBilancioMovimentoGestione;
+	}
+
+	public void setComponenteBilancioMovimentoGestione(ComponenteBilancio componenteBilancio) {
+		this.componenteBilancioMovimentoGestione = componenteBilancio;
+	}
 
 }

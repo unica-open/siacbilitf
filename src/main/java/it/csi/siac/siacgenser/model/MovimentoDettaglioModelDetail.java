@@ -6,13 +6,13 @@ package it.csi.siac.siacgenser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum ContoModelDetail.
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public enum MovimentoDettaglioModelDetail implements ModelDetail {	
+public enum MovimentoDettaglioModelDetail implements ModelDetailEnum {	
 	
 	Ambito,
 	Segno,

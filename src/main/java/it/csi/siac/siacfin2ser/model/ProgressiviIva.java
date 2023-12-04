@@ -9,11 +9,10 @@ import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class ProgressiviIva extends Entita {
+public class ProgressiviIva extends EntitaEnte {
 	
 	private static final long serialVersionUID = -6698701009441926463L;
 	
@@ -34,7 +33,6 @@ public class ProgressiviIva extends Entita {
 	private Periodo periodo;
 	private AttivitaIva attivitaIva;
 	private AliquotaIva aliquotaIva;
-	private Ente ente;
 	
 	/**
 	 * @return the annoEsercizio
@@ -193,17 +191,9 @@ public class ProgressiviIva extends Entita {
 	public void setAliquotaIva(AliquotaIva aliquotaIva) {
 		this.aliquotaIva = aliquotaIva;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 }

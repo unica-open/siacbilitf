@@ -4,15 +4,15 @@
 */
 package it.csi.siac.siaccecser.frontend.webservice.msg;
 
-import it.csi.siac.siaccecser.frontend.webservice.CECSvcDictionary;
-import it.csi.siac.siaccecser.model.CassaEconomale;
-import it.csi.siac.siaccecser.model.TipoStampa;
-import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siacfin2ser.frontend.webservice.msg.ReportServiceRequest;
-
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccecser.frontend.webservice.CECSvcDictionary;
+import it.csi.siac.siaccecser.model.CassaEconomale;
+import it.csi.siac.siaccecser.model.TipoStampa;
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
+import it.csi.siac.siaccorser.model.Bilancio;
 
 @XmlType(namespace = CECSvcDictionary.NAMESPACE)
 public class StampaGiornaleCassa  extends ReportServiceRequest{

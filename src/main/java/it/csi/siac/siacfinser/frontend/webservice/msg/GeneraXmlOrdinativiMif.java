@@ -13,6 +13,7 @@ import it.csi.siac.siacfinser.frontend.webservice.FINSvcDictionary;
 public class GeneraXmlOrdinativiMif extends ServiceRequest {
 	private Integer idEnte;
 	private Integer annoEsercizio; 
+	private String codiceIstat;
 	private Integer limitOrdinativi;
 	private Integer offsetOrdinativi;
 	private Integer idElaborazione;
@@ -57,5 +58,13 @@ public class GeneraXmlOrdinativiMif extends ServiceRequest {
 	public void setAnnoEsercizio(Integer annoEsercizio)
 	{
 		this.annoEsercizio = annoEsercizio;
+	}
+
+	public String getCodiceIstat() {
+		return codiceIstat;
+	}
+
+	public void setCodiceIstat(String codiceIstat) {
+		this.codiceIstat = codiceIstat;
 	}
 }

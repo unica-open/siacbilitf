@@ -26,6 +26,9 @@ public class RicercaSinteticaPreDocumentoEntrataResponse extends RicercaSintetic
 	private ListaPaginata<PreDocumentoEntrata> preDocumenti = new ListaPaginataImpl<PreDocumentoEntrata>();
 	
 	private BigDecimal importoTotale;
+	
+	//SIAC-6780
+	private boolean fromCompletaDefinisci = Boolean.FALSE;
 
 	/**
 	 * @return the pre documenti
@@ -59,6 +62,20 @@ public class RicercaSinteticaPreDocumentoEntrataResponse extends RicercaSintetic
 	@Override
 	protected ListaPaginataImpl<PreDocumentoEntrata> getAsListaPaginata() {
 		return (ListaPaginataImpl<PreDocumentoEntrata>) getPreDocumenti();
+	}
+
+	/**
+	 * @return the fromCompletaDefinisci
+	 */
+	public boolean isFromCompletaDefinisci() {
+		return fromCompletaDefinisci;
+	}
+
+	/**
+	 * @param fromCompletaDefinisci the fromCompletaDefinisci to set
+	 */
+	public void setFromCompletaDefinisci(boolean fromCompletaDefinisci) {
+		this.fromCompletaDefinisci = fromCompletaDefinisci;
 	}
 
 }

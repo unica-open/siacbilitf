@@ -7,8 +7,7 @@ package it.csi.siac.siacgenser.model;
 import it.csi.siac.siacbilser.model.Capitolo;
 import it.csi.siac.siacbilser.model.CapitoloEntrataGestione;
 import it.csi.siac.siacbilser.model.CapitoloUscitaGestione;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -20,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  * @version 1.0.0 - 26/10/2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class ConciliazionePerBeneficiario extends Entita {
+public class ConciliazionePerBeneficiario extends EntitaEnte {
 	
 	private static final long serialVersionUID = 5209370501987861015L;
 
@@ -34,7 +33,6 @@ public class ConciliazionePerBeneficiario extends Entita {
 	private Capitolo<?, ?> capitolo;
 	private Soggetto soggetto;
 	private Conto conto;
-	private Ente ente;
 	
 	/**
 	 * @return the classeDiConciliazione
@@ -85,18 +83,10 @@ public class ConciliazionePerBeneficiario extends Entita {
 	public void setConto(Conto conto) {
 		this.conto = conto;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	
 	
 	

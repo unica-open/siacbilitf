@@ -10,7 +10,7 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.codifiche.CodificaFin;
 
@@ -18,7 +18,7 @@ import it.csi.siac.siacfinser.model.codifiche.CodificaFin;
  *  @author
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class CartaEstera extends Entita {
+public class CartaEstera extends EntitaEnte {
 	
 	/**
 	 * 

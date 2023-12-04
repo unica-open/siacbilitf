@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.AttoAmministrativo;
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 
 /**
  *  @author
  */
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class CartaContabile extends Entita {
+public class CartaContabile extends EntitaEnte {
 
 	/**
 	 * 

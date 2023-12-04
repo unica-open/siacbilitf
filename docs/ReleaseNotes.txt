@@ -7,9 +7,76 @@ TODO
 
 Funzionalità rilasciate
 --------------------------
+build 27/09/2021 versione 4.29.0
+ SIAC-7838 
+
+
+build 27/09/2020 versione 4.27.0
+ SIAC-7556 
+ SIAC-7726
+
+build 06/08/2020 versione 4.26.0
+ SIAC-7562
+ SIAC-7869
+ 
+build 17/07/2020 versione 4.25.0
+ SIAC-7470
+ SIAC-7631
+
+build 30/05/2020 versione 4.24.0
+ SIAC-7516
+
+build 30/04/2020 versione 4.23.0
+ SIAC-7538
+ SIAC-7600
+ 
+build 18/03/2020 versione 4.22.0
+ SIAC-7361
+ SIAC-7538
+
+build 28/02/2020 versione 4.21.0
+ SIAC-7395
+ SIAC-7411
+ 
+build 28/01/2020 versione 4.20.0
+ SIAC-7228
+ SIAC-7227
+ SIAC-7319
+ SIAC-7322
+ SIAC-7341
+ SIAC-7360
+
+build 18/12/2019 versione 4.19.0
+ SIAC-6883
+ SIAC-6884
+ SIAC-6879
+ SIAC-6884
+ SIAC-6990
+
+build 06/12/2019 versione 4.18.1
+ SIAC-6879
+ SIAC-6884
+
 build 27/11/2019 versione 4.18.0
  SIAC-6840
  SIAC-6881
+
+
+build 15/11/2019 versione 4.17.1
+ --componenti capitolo--
+ SIAC-6879
+ SIAC-7118
+ SIAC-7125
+ SIAC-7160
+ SIAC-7167
+ SIAC-7174
+ SIAC-7183
+ SIAC-7114
+
+build 22/10/2019 versione 4.17.0
+ SIAC-7092
+ --componenti-capitolo--
+
  SIAC-7058
  SIAC-7060
  SIAC-7065
@@ -23,6 +90,11 @@ build 27/11/2019 versione 4.18.0
 build 15/11/2019 versione 4.17.1
  SIAC-7118
  SIAC-7125
+ SIAC-7160
+ SIAC-7167
+ SIAC-7174
+ SIAC-7183
+ SIAC-7114
 
 build 22/10/2019 versione 4.17.0
  SIAC-7092
@@ -306,4 +378,6 @@ il supporto a ws che fornisce JBOSS, iniettando servizi con spring
 (http://docs.oracle.com/javaee/6/api/javax/persistence/LockModeType.html).
 - modificato il build che cancelli e riscriva la dir build/temp, altrimenti in 
 fase di costruzione dei pacchetti si ottenevano cose non sempre aggiornate al 100%
+
+
 

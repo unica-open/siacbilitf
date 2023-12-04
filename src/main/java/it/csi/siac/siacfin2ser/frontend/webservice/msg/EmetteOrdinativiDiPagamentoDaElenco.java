@@ -4,6 +4,12 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlType;
+
 import it.csi.siac.siacbilser.model.ClassificatoreStipendi;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siaccorser.model.ServiceRequest;
@@ -15,12 +21,6 @@ import it.csi.siac.siacfin2ser.model.ContoTesoreria;
 import it.csi.siac.siacfin2ser.model.ElencoDocumentiAllegato;
 import it.csi.siac.siacfin2ser.model.SubdocumentoSpesa;
 import it.csi.siac.siacfinser.model.Distinta;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class EmetteOrdinativiDiPagamentoDaElenco extends ServiceRequest {

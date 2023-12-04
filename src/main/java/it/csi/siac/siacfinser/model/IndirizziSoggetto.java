@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfinser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 
 /**
@@ -13,7 +13,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @author paolos
  * 
  */
-public class IndirizziSoggetto extends Entita {
+public class IndirizziSoggetto extends EntitaEnte {
 
 	
 

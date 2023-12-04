@@ -17,6 +17,7 @@ import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.PreDocumentoEntrata;
 import it.csi.siac.siacfinser.model.Accertamento;
 import it.csi.siac.siacfinser.model.SubAccertamento;
+import it.csi.siac.siacfinser.model.provvisoriDiCassa.ProvvisorioDiCassa;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -37,6 +38,8 @@ public class AssociaImputazioniContabiliVariatePreDocumentoEntrata extends Servi
 	private SubAccertamento subAccertamento;
 	private Soggetto soggetto;
 	private AttoAmministrativo attoAmministrativo;
+	//SIAC-7423
+	private ProvvisorioDiCassa provvisorioCassa;
 	
 	private boolean gestisciModificaImportoAccertamento = false;
 
@@ -152,6 +155,20 @@ public class AssociaImputazioniContabiliVariatePreDocumentoEntrata extends Servi
 		this.attoAmministrativo = attoAmministrativo;
 	}
 
+	/**
+	 * @return the provvisorioCassa
+	 */
+	public ProvvisorioDiCassa getProvvisorioCassa() {
+		return provvisorioCassa;
+	}
+	
+	/**
+	 * @param provvisorioCassa the provvisorioCassa to set
+	 */
+	public void setProvvisorioCassa(ProvvisorioDiCassa provvisorioCassa) {
+		this.provvisorioCassa = provvisorioCassa;
+	}
+
 	public boolean isGestisciModificaImportoAccertamento() {
 		return gestisciModificaImportoAccertamento;
 	}
@@ -159,5 +176,6 @@ public class AssociaImputazioniContabiliVariatePreDocumentoEntrata extends Servi
 	public void setGestisciModificaImportoAccertamento(boolean gestisciModificaImportoAccertamento) {
 		this.gestisciModificaImportoAccertamento = gestisciModificaImportoAccertamento;
 	}
+
 
 }

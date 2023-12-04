@@ -13,8 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 import it.csi.siac.siacbilser.model.Ambito;
 import it.csi.siac.siacbilser.model.ElementoPianoDeiConti;
 import it.csi.siac.siaccespser.model.CategoriaCespiti;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.EntitaExt;
+import it.csi.siac.siaccorser.model.EntitaEnteExt;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 /**
@@ -29,14 +28,13 @@ import it.csi.siac.siacfinser.model.soggetto.Soggetto;
  * @created 06-mar-2015 16.32.14
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class Conto extends EntitaExt {
+public class Conto extends EntitaEnteExt  {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7623830318194561863L;
 
-	private Ente ente;
 	
 	private Integer livello;
 	private String ordine;
@@ -302,19 +300,11 @@ public class Conto extends EntitaExt {
 		this.causaliEP = causaliEP;
 	}
 
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
+	
+	
 
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
 
 	/**
 	 * @return the elementoPianoDeiConti

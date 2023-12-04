@@ -21,20 +21,20 @@ public class DatiVariazioneImportoCapitoloAnno implements Serializable {
 
 	private static final long serialVersionUID = 861361995172032558L;
 	
-	private Map<StatoOperativoVariazioneDiBilancio, DatiVariazioneImportoCapitolo> datiVariazioneCapitolo = new HashMap<StatoOperativoVariazioneDiBilancio, DatiVariazioneImportoCapitolo>();
+	private Map<StatoOperativoVariazioneBilancio, DatiVariazioneImportoCapitolo> datiVariazioneCapitolo = new HashMap<StatoOperativoVariazioneBilancio, DatiVariazioneImportoCapitolo>();
 
 	/**
 	 * @return the datiVariazioneCapitolo
 	 */
-	public Map<StatoOperativoVariazioneDiBilancio, DatiVariazioneImportoCapitolo> getDatiVariazioneCapitolo() {
+	public Map<StatoOperativoVariazioneBilancio, DatiVariazioneImportoCapitolo> getDatiVariazioneCapitolo() {
 		return datiVariazioneCapitolo;
 	}
 
 	/**
 	 * @param datiVariazioneCapitolo the datiVariazioneCapitolo to set
 	 */
-	public void setDatiVariazioneCapitolo(Map<StatoOperativoVariazioneDiBilancio, DatiVariazioneImportoCapitolo> datiVariazioneCapitolo) {
-		this.datiVariazioneCapitolo = datiVariazioneCapitolo != null ? datiVariazioneCapitolo : new HashMap<StatoOperativoVariazioneDiBilancio, DatiVariazioneImportoCapitolo>();
+	public void setDatiVariazioneCapitolo(Map<StatoOperativoVariazioneBilancio, DatiVariazioneImportoCapitolo> datiVariazioneCapitolo) {
+		this.datiVariazioneCapitolo = datiVariazioneCapitolo != null ? datiVariazioneCapitolo : new HashMap<StatoOperativoVariazioneBilancio, DatiVariazioneImportoCapitolo>();
 	}
 
 }

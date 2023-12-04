@@ -37,9 +37,22 @@ public enum MessaggioBil implements TipoMessaggio {
 	INSERIMENTO_COMPONENTE_CAPITOLO_ANDATO_A_BUON_FINE("BIL_INF_0113", "L''operazione e'' stata completata con successo. Inserito Componente:  {0}"),
 	AGGIORNAMENTO_COMPONENTE_CAPITOLO_ANDATO_A_BUON_FINE("BIL_INF_0114", "L''operazione e'' stata completata con successo. Aggiornato Componente:  {0}"),
 	
+	// SIAC-7557 
+	INSERIMENTO_TIPO_DOCUMENTO_ANDATO_A_BUON_FINE("BIL_INF_0115", "L''operazione e'' stata completata con successo. Inserito Tipo Documento:  {0}"),
+	AGGIORNAMENTO_TIPO_DOCUMENTO_ANDATO_A_BUON_FINE("BIL_INF_0116", "L''operazione e'' stata completata con successo. Aggiornato Tipo Documento:  {0}"),
 	
-	// TODO: Messaggio di esempio
-	MESSAGGIO_DI_SISTEMA("WAR_COR_0001", "Messaggio di sistema: {0}");
+	//SIAC-8017-CMTO
+	DISPONIBILITA_CAPITOLO_SU_SOTTOCONTO("BIL_INF_0115", "Disponibilita'' capitolo {0} su sottoconto {1}"), 
+	
+	//SIAC-8856
+	DISPONIBILITA_CAPITOLO_SU_SOTTOCONTO_INCASSO("BIL_INF_0115", "Il valore da ripianare sul vincolo {0} su sottoconto {1} "), 
+	DISPONIBILITA_CAPITOLO_SU_SOTTOCONTO_NON_VINCOLATO("BIL_INF_0115","Capitolo {0}/{1} sottoconto {2} non vincolati, valore di ripiano non calcolabile"),
+	
+	
+	IMPORTO_RATA_NON_CORRETTO("BIL_WAR_0120", "L''importo rata {0} non e'' corretto ed e'' stato ricalcolato"),
+	
+	;
+
 	
 	private final String codice;
 	private final String messaggio;
@@ -56,7 +69,7 @@ public enum MessaggioBil implements TipoMessaggio {
 
 	@Override
 	public Messaggio getMessaggio(Object... args) {
-		final String msg =  StringUtilities.formatStringWithDefaultReplacements(this.messaggio, "", args);
+		final String msg = StringUtilities.formatStringWithDefaultReplacements(this.messaggio, "", args);
 		return new Messaggio(this.codice, msg);
 	}
 	

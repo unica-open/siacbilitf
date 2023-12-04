@@ -4,8 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siacfinser.model.soggetto.Soggetto;
 
 import java.math.BigDecimal;
@@ -15,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
 @Deprecated
-public class DocumentoIva extends Entita {
+public class DocumentoIva extends EntitaEnte {
 	
 	private static final long serialVersionUID = -5952204276610302500L;
 	
@@ -32,7 +31,6 @@ public class DocumentoIva extends Entita {
 	private Date dataScadenzaDocumentoIva;
 	
 	// Ente
-	private Ente ente;
 	// Soggetto
 	// siac_r_doc_iva_sog
 	private Soggetto soggetto;
@@ -113,18 +111,10 @@ public class DocumentoIva extends Entita {
 	public void setDataScadenzaDocumentoIva(Date dataScadenzaDocumentoIva) {
 		this.dataScadenzaDocumentoIva = dataScadenzaDocumentoIva;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the soggetto
 	 */

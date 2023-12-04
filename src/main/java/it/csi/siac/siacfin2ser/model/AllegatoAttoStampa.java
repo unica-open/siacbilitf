@@ -5,8 +5,7 @@
 package it.csi.siac.siacfin2ser.model;
 
 import it.csi.siac.siaccorser.model.Bilancio;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.file.File;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class AllegatoAttoStampa extends Entita {
+public class AllegatoAttoStampa extends EntitaEnte {
 
 	private static final long serialVersionUID = 878689427914043996L;
 	
@@ -27,7 +26,6 @@ public class AllegatoAttoStampa extends Entita {
 	private StatoOperativoStampaAllegatoAtto statoOperativoStampa = StatoOperativoStampaAllegatoAtto.VALIDO;
 	private Integer annoEsercizio;
 	private List<File> files = new ArrayList<File>();
-	private Ente ente;
 	private String codice;
 	private String descrizione;
 	private Integer versioneInvioFirma;
@@ -82,18 +80,10 @@ public class AllegatoAttoStampa extends Entita {
 	public void setAnnoEsercizio(Integer annoEsercizio) {
 		this.annoEsercizio = annoEsercizio;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the codice
 	 */

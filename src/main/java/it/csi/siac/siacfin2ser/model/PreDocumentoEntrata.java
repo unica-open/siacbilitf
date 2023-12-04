@@ -136,7 +136,4 @@ public class PreDocumentoEntrata extends PreDocumento<DatiAnagraficiPreDocumento
 				&& (controllaNotNullUidValorizzato(getAccertamento()) || controllaNotNullUidValorizzato(getSubAccertamento()));
 	}
 	
-	
-	
-
 }

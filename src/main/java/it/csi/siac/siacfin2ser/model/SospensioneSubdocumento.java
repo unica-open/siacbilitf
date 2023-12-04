@@ -8,13 +8,13 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * Sospensione per il subdocumento.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class SospensioneSubdocumento extends Entita {
+public class SospensioneSubdocumento extends EntitaEnte {
 
 	/** Per la serializzazione */
 	private static final long serialVersionUID = 1655573211166539515L;

@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * Voce di Bilancio, usato solo per TEST
@@ -20,7 +20,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * @version $Id: $
  */
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class VoceDiBilancio extends Entita {
+public class VoceDiBilancio extends EntitaEnte {
 
 	private static final long serialVersionUID = 6618873159674571806L;
 	private String codice;

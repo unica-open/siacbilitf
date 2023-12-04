@@ -10,8 +10,7 @@ import it.csi.siac.siacbilser.model.TipologiaTitolo;
 import it.csi.siac.siacbilser.model.TitoloEntrata;
 import it.csi.siac.siacbilser.model.TitoloSpesa;
 import it.csi.siac.siaccorser.model.ClassificatoreGerarchico;
-import it.csi.siac.siaccorser.model.Ente;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElements;
@@ -22,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  * @version 1.0.0 - 26/10/2015
  */
 @XmlType(namespace = GENDataDictionary.NAMESPACE)
-public class ConciliazionePerTitolo extends Entita {
+public class ConciliazionePerTitolo extends EntitaEnte {
 	
 	private static final long serialVersionUID = -8546760990964267686L;
 	
@@ -33,7 +32,6 @@ public class ConciliazionePerTitolo extends Entita {
 	})
 	private ClassificatoreGerarchico classificatoreGerarchico;
 	private Conto conto;
-	private Ente ente;
 	
 	// In sola consultazione
 	private TitoloSpesa titoloSpesa;
@@ -77,18 +75,10 @@ public class ConciliazionePerTitolo extends Entita {
 	public void setConto(Conto conto) {
 		this.conto = conto;
 	}
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
+	
+	
+	
+	
 	/**
 	 * @return the macroaggregato to set
 	 */

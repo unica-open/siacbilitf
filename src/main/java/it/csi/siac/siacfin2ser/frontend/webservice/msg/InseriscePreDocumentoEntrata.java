@@ -21,6 +21,8 @@ public class InseriscePreDocumentoEntrata extends ServiceRequest {
 	private boolean gestisciModificaImportoAccertamento = false;
 	// SIAC-5001
 	private boolean inserisciElenco;
+	//SIAC-6780
+	private boolean inserimentoPredocDaCollegaDocumento = Boolean.FALSE;
 
 	/**
 	 * @return the preDocumentoEntrata
@@ -78,7 +80,20 @@ public class InseriscePreDocumentoEntrata extends ServiceRequest {
 	public void setInserisciElenco(boolean inserisciElenco) {
 		this.inserisciElenco = inserisciElenco;
 	}
-	
-	
+
+	/**
+	 * @return the inserimentoPredocDaCollegaDocumento
+	 */
+	@XmlTransient
+	public boolean isInserimentoPredocDaCollegaDocumento() {
+		return inserimentoPredocDaCollegaDocumento;
+	}
+
+	/**
+	 * @param inserimentoPredocDaCollegaDocumento the inserimentoPredocDaCollegaDocumento to set
+	 */
+	public void setInserimentoPredocDaCollegaDocumento(boolean inserimentoPredocDaCollegaDocumento) {
+		this.inserimentoPredocDaCollegaDocumento = inserimentoPredocDaCollegaDocumento;
+	}
 
 }

@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  * The Class ElenchiDocumentiAllegato.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public class ElenchiDocumentiAllegato extends Entita {
+public class ElenchiDocumentiAllegato extends EntitaEnte {
 	
 	private static final long serialVersionUID = 1568567315248741623L;
 	

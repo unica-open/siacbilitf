@@ -81,7 +81,7 @@ public class DatiGeneraliDocumentoType {
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     protected String numero;
     @XmlElement(name = "DatiRitenuta")
-    protected DatiRitenutaType datiRitenuta;
+    protected List<DatiRitenutaType> datiRitenuta; //SIAC-7557
     @XmlElement(name = "DatiBollo")
     protected DatiBolloType datiBollo;
     @XmlElement(name = "DatiCassaPrevidenziale")
@@ -202,21 +202,41 @@ public class DatiGeneraliDocumentoType {
      *     {@link DatiRitenutaType }
      *     
      */
-    public DatiRitenutaType getDatiRitenuta() {
-        return datiRitenuta;
-    }
-
-    /**
-     * Sets the value of the datiRitenuta property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DatiRitenutaType }
-     *     
-     */
-    public void setDatiRitenuta(DatiRitenutaType value) {
-        this.datiRitenuta = value;
-    }
+//    public DatiRitenutaType getDatiRitenuta() {
+//        return datiRitenuta;
+//    }
+//
+//    /**
+//     * Sets the value of the datiRitenuta property.
+//     * 
+//     * @param value
+//     *     allowed object is
+//     *     {@link DatiRitenutaType }
+//     *     
+//     */
+//    public void setDatiRitenuta(DatiRitenutaType value) {
+//        this.datiRitenuta = value;
+//    }
+    
+    
+    public List<DatiRitenutaType> getDatiRitenuta() {
+		  if (datiRitenuta == null) {
+			  datiRitenuta = new ArrayList<DatiRitenutaType>();
+	        }
+		  return this.datiRitenuta;
+	}
+  	
+  	/**
+  	* Sets the value of the datiRitenuta property.
+  	* 
+  	* @param value
+  	*     allowed object is
+  	*     {@link DatiRitenutaType }
+  	*     
+  	*/
+//  	public void setDatiRitenuta(List<DatiRitenutaType> value) {
+//  	  this.datiRitenuta = value;
+//  	}
 
     /**
      * Gets the value of the datiBollo property.

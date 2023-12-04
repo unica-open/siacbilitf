@@ -11,8 +11,10 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.BindingType;
 
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaAzionePerChiave;
-import it.csi.siac.siacbilser.frontend.webservice.msg.RicercaAzionePerChiaveResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.azione.RicercaAzionePerChiave;
+import it.csi.siac.siacbilser.frontend.webservice.msg.azione.RicercaAzionePerChiaveResponse;
+import it.csi.siac.siacbilser.frontend.webservice.msg.azione.RicercaVisibilita;
+import it.csi.siac.siacbilser.frontend.webservice.msg.azione.RicercaVisibilitaResponse;
 
 /**
  * SI del servizio Gestione AZIONE
@@ -33,5 +35,14 @@ public interface AzioneService {
 	@WebMethod
 	@WebResult
 	RicercaAzionePerChiaveResponse ricercaAzionePerChiave(@WebParam RicercaAzionePerChiave parameters);
+	
+	/**
+	 * Ricerca della visibilita
+	 * @param parameters la request del servizio
+	 * @return la response del servizio
+	 */
+	@WebMethod
+	@WebResult
+	RicercaVisibilitaResponse ricercaVisibilita(@WebParam RicercaVisibilita parameters);
 	
 }

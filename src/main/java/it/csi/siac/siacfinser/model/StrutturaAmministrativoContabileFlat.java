@@ -6,11 +6,11 @@ package it.csi.siac.siacfinser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class StrutturaAmministrativoContabileFlat extends Entita {
+public class StrutturaAmministrativoContabileFlat extends EntitaEnte {
 	private static final long serialVersionUID = 2404706073203340315L;
 
 	private String codice;

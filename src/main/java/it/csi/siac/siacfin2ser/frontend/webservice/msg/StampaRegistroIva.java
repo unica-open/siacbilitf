@@ -4,13 +4,14 @@
 */
 package it.csi.siac.siacfin2ser.frontend.webservice.msg;
 
+import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccorser.frontend.webservice.msg.report.ReportServiceRequest;
 import it.csi.siac.siaccorser.model.Bilancio;
 import it.csi.siac.siacfin2ser.frontend.webservice.FIN2SvcDictionary;
 import it.csi.siac.siacfin2ser.model.Periodo;
 import it.csi.siac.siacfin2ser.model.RegistroIva;
 import it.csi.siac.siacfin2ser.model.TipoStampa;
-
-import javax.xml.bind.annotation.XmlType;
 
 @XmlType(namespace = FIN2SvcDictionary.NAMESPACE)
 public class StampaRegistroIva extends ReportServiceRequest {

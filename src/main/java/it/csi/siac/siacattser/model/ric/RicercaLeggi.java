@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import it.csi.siac.siacattser.model.ATTDataDictionary;
 import it.csi.siac.siacattser.model.TipoAtto;
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 /**
  * RicercaLeggi creato da RTI
@@ -17,7 +17,7 @@ import it.csi.siac.siaccorser.model.Entita;
  * 
  */
 @XmlType(namespace = ATTDataDictionary.NAMESPACE)
-public class RicercaLeggi extends Entita {
+public class RicercaLeggi extends EntitaEnte {
 
 	private static final long serialVersionUID = 5152511879617440552L;
 

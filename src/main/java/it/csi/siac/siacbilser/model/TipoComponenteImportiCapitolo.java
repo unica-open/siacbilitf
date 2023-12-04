@@ -12,10 +12,10 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 
 @XmlType(namespace = BILDataDictionary.NAMESPACE)
-public class TipoComponenteImportiCapitolo extends Entita {
+public class TipoComponenteImportiCapitolo extends EntitaEnte {
 	
 	private static final long serialVersionUID = -7447194479811282544L;
 
@@ -32,7 +32,9 @@ public class TipoComponenteImportiCapitolo extends Entita {
 	private FonteFinanziariaComponenteImportiCapitolo fonteFinanziariaComponenteImportiCapitolo;
 	private MomentoComponenteImportiCapitolo momentoComponenteImportiCapitolo;
 	private PropostaDefaultComponenteImportiCapitolo propostaDefaultComponenteImportiCapitolo;
-	private TipoGestioneComponenteImportiCapitolo tipoGestioneComponenteImportiCapitolo;
+	//SIAC-7349
+	//private TipoGestioneComponenteImportiCapitolo tipoGestioneComponenteImportiCapitolo;
+	private ImpegnabileComponenteImportiCapitolo impegnabileComponenteImportiCapitolo;
 
 	@XmlElementWrapper(name = "listaDettaglioComponenteImportiCapitolo")
 	@XmlElement(name = "dettaglioComponenteImportiCapitolo")
@@ -164,19 +166,19 @@ public class TipoComponenteImportiCapitolo extends Entita {
 			PropostaDefaultComponenteImportiCapitolo propostaDefaultComponenteImportiCapitolo) {
 		this.propostaDefaultComponenteImportiCapitolo = propostaDefaultComponenteImportiCapitolo;
 	}
-	/**
-	 * @return the tipoGestioneComponenteImportiCapitolo
-	 */
-	public TipoGestioneComponenteImportiCapitolo getTipoGestioneComponenteImportiCapitolo() {
-		return tipoGestioneComponenteImportiCapitolo;
-	}
-	/**
-	 * @param tipoGestioneComponenteImportiCapitolo the tipoGestioneComponenteImportiCapitolo to set
-	 */
-	public void setTipoGestioneComponenteImportiCapitolo(
-			TipoGestioneComponenteImportiCapitolo tipoGestioneComponenteImportiCapitolo) {
-		this.tipoGestioneComponenteImportiCapitolo = tipoGestioneComponenteImportiCapitolo;
-	}
+//	/**
+//	 * @return the tipoGestioneComponenteImportiCapitolo
+//	 */
+//	public TipoGestioneComponenteImportiCapitolo getTipoGestioneComponenteImportiCapitolo() {
+//		return tipoGestioneComponenteImportiCapitolo;
+//	}
+//	/**
+//	 * @param tipoGestioneComponenteImportiCapitolo the tipoGestioneComponenteImportiCapitolo to set
+//	 */
+//	public void setTipoGestioneComponenteImportiCapitolo(
+//			TipoGestioneComponenteImportiCapitolo tipoGestioneComponenteImportiCapitolo) {
+//		this.tipoGestioneComponenteImportiCapitolo = tipoGestioneComponenteImportiCapitolo;
+//	}
 
 	/**
 	 * @return the listaDettaglioComponenteImportiCapitolo
@@ -202,6 +204,19 @@ public class TipoComponenteImportiCapitolo extends Entita {
 	 */
 	public void setCollegatoACapitoli(Boolean collegatoACapitoli) {
 		this.collegatoACapitoli = collegatoACapitoli;
+	}
+	/**
+	 * @return the impegnabileComponenteImportiCapitolo
+	 */
+	public ImpegnabileComponenteImportiCapitolo getImpegnabileComponenteImportiCapitolo() {
+		return impegnabileComponenteImportiCapitolo;
+	}
+	/**
+	 * @param impegnabileComponenteImportiCapitolo the impegnabileComponenteImportiCapitolo to set
+	 */
+	public void setImpegnabileComponenteImportiCapitolo(
+			ImpegnabileComponenteImportiCapitolo impegnabileComponenteImportiCapitolo) {
+		this.impegnabileComponenteImportiCapitolo = impegnabileComponenteImportiCapitolo;
 	}
 
 }

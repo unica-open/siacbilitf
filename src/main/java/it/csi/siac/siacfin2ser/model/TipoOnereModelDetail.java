@@ -4,15 +4,15 @@
 */
 package it.csi.siac.siacfin2ser.model;
 
-import it.csi.siac.siacbilser.model.ModelDetail;
-
 import javax.xml.bind.annotation.XmlType;
+
+import it.csi.siac.siaccommon.model.ModelDetailEnum;
 
 /**
  * The Enum TipoOnereModelDetail.
  */
 @XmlType(namespace = FIN2DataDictionary.NAMESPACE)
-public enum TipoOnereModelDetail implements ModelDetail {	
+public enum TipoOnereModelDetail implements ModelDetailEnum {	
 	
 	Attr,
     //Con questo converter si ottengono anche Impegno/Accertamento della Casusale.

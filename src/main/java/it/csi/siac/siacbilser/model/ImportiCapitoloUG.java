@@ -19,6 +19,8 @@ public class ImportiCapitoloUG extends ImportiCapitolo {
 
 	private static final long serialVersionUID = 9183300381739432089L;
 
+	
+
 	@ImportoPersistente private BigDecimal stanziamentoAsset = BigDecimal.ZERO;
 	@ImportoPersistente private BigDecimal stanziamentoCassaAsset = BigDecimal.ZERO;
 	@ImportoPersistente private BigDecimal stanziamentoResAsset = BigDecimal.ZERO;	
@@ -26,6 +28,8 @@ public class ImportiCapitoloUG extends ImportiCapitolo {
 	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.totalePagato) private BigDecimal totalePagato = BigDecimal.ZERO;
 	//new 1.2 //default non caricato
 	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.disponibilitaPagare) private BigDecimal disponibilitaPagare = BigDecimal.ZERO;
+	//SIAC-8214, in realta' doveva essere messa da SIAC-6881 e SIAC-7349
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.totalePagatoSuResidui, calcolareDiDefault=false) private BigDecimal totalePagatoSuResidui = BigDecimal.ZERO;
 	
 //	@Deprecated
 //	@ImportoDerivato(value="fnc_siac_disponibilitaimpegnareug")  private BigDecimal disponibilitaImpegnare = BigDecimal.ZERO; //new 1.2
@@ -45,7 +49,28 @@ public class ImportiCapitoloUG extends ImportiCapitolo {
 	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno2UG) private BigDecimal diCuiImpegnatoAnno2UG = BigDecimal.ZERO;
 	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.diCuiImpegnatoAnno3UG) private BigDecimal diCuiImpegnatoAnno3UG = BigDecimal.ZERO;
 	//
+	
+	//SIAC-7349 - SR210 - MR Start 11.05.2020 annisucc e anniprec
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.diCuiImpegnatoUGAnnoPrec) private BigDecimal diCuiImpegnatoUGAnnoPrec = BigDecimal.ZERO;
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.diCuiImpegnatoUGAnniSucc) private BigDecimal diCuiImpegnatoUGAnniSucc = BigDecimal.ZERO;
+	
+	//SIAC-7349 MR SR50.riciclo 21/05/2020 calcolo dell'impegnato per la tabella di gestione equivalente a quella di previsione
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno1) private BigDecimal impegnatoEffettivoUGAnno1 = BigDecimal.ZERO;
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno2) private BigDecimal impegnatoEffettivoUGAnno2 = BigDecimal.ZERO;
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoEffettivoUGAnno3) private BigDecimal impegnatoEffettivoUGAnno3 = BigDecimal.ZERO;
+	
+	//END SIAC-7349
 
+	//SIAC-8469
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoInizialeUG) private BigDecimal residuoEffettivoInizialeUG = BigDecimal.ZERO;
+	//SIAC-8469
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoAttualeUG) private BigDecimal residuoEffettivoFinaleUG = BigDecimal.ZERO;
+	
+	//SIAC-8469
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoInizialeUGAnnoPrec) private BigDecimal residuoEffettivoInizialeUGAnnoPrec = BigDecimal.ZERO;
+	//SIAC-8469
+	@ImportoDerivato(value=ImportoDerivatoFunctionEnum.impegnatoresiduoEffettivoAttualeUGAnnoPrec) private BigDecimal residuoEffettivoFinaleUGAnnoPrec = BigDecimal.ZERO;
+	
 	public BigDecimal getStanziamentoAsset() {
 		return stanziamentoAsset;
 	}
@@ -76,6 +101,15 @@ public class ImportiCapitoloUG extends ImportiCapitolo {
 
 	public void setTotalePagato(BigDecimal totalePagato) {
 		this.totalePagato = totalePagato;
+	}
+	
+
+	public BigDecimal getTotalePagatoSuResidui() {
+		return totalePagatoSuResidui;
+	}
+
+	public void setTotalePagatoSuResidui(BigDecimal totalePagatoSuResidui) {
+		this.totalePagatoSuResidui = totalePagatoSuResidui;
 	}
 
 	@Deprecated
@@ -222,6 +256,78 @@ public class ImportiCapitoloUG extends ImportiCapitolo {
 		this.diCuiImpegnatoAnno3UG = diCuiImpegnatoAnno3UG;
 	}
 	
+	public BigDecimal getDiCuiImpegnatoUGAnnoPrec() {
+		return diCuiImpegnatoUGAnnoPrec;
+	}
+
+	public void setDiCuiImpegnatoUGAnnoPrec(BigDecimal diCuiImpegnatoUGAnnoPrec) {
+		this.diCuiImpegnatoUGAnnoPrec = diCuiImpegnatoUGAnnoPrec;
+	}
+
+	public BigDecimal getDiCuiImpegnatoUGAnniSucc() {
+		return diCuiImpegnatoUGAnniSucc;
+	}
+
+	public void setDiCuiImpegnatoUGAnniSucc(BigDecimal diCuiImpegnatoUGAnniSucc) {
+		this.diCuiImpegnatoUGAnniSucc = diCuiImpegnatoUGAnniSucc;
+	}
+
+	public BigDecimal getImpegnatoEffettivoUGAnno1() {
+		return impegnatoEffettivoUGAnno1;
+	}
+
+	public void setImpegnatoEffettivoUGAnno1(BigDecimal impegnatoEffettivoUGAnno1) {
+		this.impegnatoEffettivoUGAnno1 = impegnatoEffettivoUGAnno1;
+	}
+
+	public BigDecimal getImpegnatoEffettivoUGAnno2() {
+		return impegnatoEffettivoUGAnno2;
+	}
+
+	public void setImpegnatoEffettivoUGAnno2(BigDecimal impegnatoEffettivoUGAnno2) {
+		this.impegnatoEffettivoUGAnno2 = impegnatoEffettivoUGAnno2;
+	}
+
+	public BigDecimal getImpegnatoEffettivoUGAnno3() {
+		return impegnatoEffettivoUGAnno3;
+	}
+
+	public void setImpegnatoEffettivoUGAnno3(BigDecimal impegnatoEffettivoUGAnno3) {
+		this.impegnatoEffettivoUGAnno3 = impegnatoEffettivoUGAnno3;
+	}
+
 	// ============================================================ SIAC-7220 ======================================================== //
 	
+	public BigDecimal getResiduoEffettivoInizialeUG() {
+		return residuoEffettivoInizialeUG;
+	}
+
+	public void setResiduoEffettivoInizialeUG(BigDecimal residuoEffettivoInizialeUG) {
+		this.residuoEffettivoInizialeUG = residuoEffettivoInizialeUG;
+	}
+
+	public BigDecimal getResiduoEffettivoFinaleUG() {
+		return residuoEffettivoFinaleUG;
+	}
+
+	public void setResiduoEffettivoFinaleUG(BigDecimal residuoEffettivoFinaleUG) {
+		this.residuoEffettivoFinaleUG = residuoEffettivoFinaleUG;
+	}
+
+	public BigDecimal getResiduoEffettivoInizialeUGAnnoPrec() {
+		return residuoEffettivoInizialeUGAnnoPrec;
+	}
+
+	public void setResiduoEffettivoInizialeUGAnnoPrec(BigDecimal residuoEffettivoInizialeUGAnnoPrec) {
+		this.residuoEffettivoInizialeUGAnnoPrec = residuoEffettivoInizialeUGAnnoPrec;
+	}
+
+	public BigDecimal getResiduoEffettivoFinaleUGAnnoPrec() {
+		return residuoEffettivoFinaleUGAnnoPrec;
+	}
+
+	public void setResiduoEffettivoFinaleUGAnnoPrec(BigDecimal residuoEffettivoFinaleUGAnnoPrec) {
+		this.residuoEffettivoFinaleUGAnnoPrec = residuoEffettivoFinaleUGAnnoPrec;
+	}
+
 }

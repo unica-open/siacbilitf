@@ -12,14 +12,14 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccorser.model.Entita;
+import it.csi.siac.siaccorser.model.EntitaEnte;
 import it.csi.siac.siaccorser.model.StrutturaAmministrativoContabile;
 import it.csi.siac.siacfinser.model.FINDataDictionary;
 import it.csi.siac.siacfinser.model.ordinativo.Ordinativo;
 import it.csi.siac.siacfinser.model.ordinativo.RegolarizzazioneProvvisorio;
 
 @XmlType(namespace = FINDataDictionary.NAMESPACE)
-public class ProvvisorioDiCassa extends Entita {
+public class ProvvisorioDiCassa extends EntitaEnte {
 
 	/**
 	 * 
@@ -69,6 +69,7 @@ public class ProvvisorioDiCassa extends Entita {
 
 	private String note;
 
+	private String codice;
 	
 	private Date dataInvioServizio;
 	private Date dataPresaInCaricoServizio;
@@ -397,6 +398,17 @@ public class ProvvisorioDiCassa extends Entita {
 
 	public void setDataRifiutoErrataAttribuzione(Date dataRifiutoErrataAttribuzione) {
 		this.dataRifiutoErrataAttribuzione = dataRifiutoErrataAttribuzione;
+	}
+
+	public String getCodice() {
+		return codice;
+	}
+
+	//SIAC-6780
+	public void setCodice(String codice) {
+		//il codice lo utilizzo per ottenre anno e numero
+		this.anno = Integer.valueOf(codice.substring(0, 4));
+		this.numero = Integer.valueOf(codice.substring(5));
 	}
 	
 	
